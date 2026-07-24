@@ -242,22 +242,16 @@ const userLessonProgressSchema = new Schema<IUserLessonProgress>(
 );
 
 // Soft delete middleware
-lessonSchema.pre(/^find/, function (next) {
-  // @ts-ignore
+lessonSchema.pre(/^find/, function (this: any) {
   this.where({ deletedAt: { $exists: false } });
-  next();
 });
 
-moduleSchema.pre(/^find/, function (next) {
-  // @ts-ignore
+moduleSchema.pre(/^find/, function (this: any) {
   this.where({ deletedAt: { $exists: false } });
-  next();
 });
 
-userLessonProgressSchema.pre(/^find/, function (next) {
-  // @ts-ignore
+userLessonProgressSchema.pre(/^find/, function (this: any) {
   this.where({ deletedAt: { $exists: false } });
-  next();
 });
 
 // Create indexes

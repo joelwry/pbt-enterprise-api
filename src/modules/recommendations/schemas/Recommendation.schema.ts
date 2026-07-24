@@ -1,8 +1,8 @@
-import { Schema, model } from 'mongoose';
+import { Schema, model, Types } from 'mongoose';
 
 interface IRecommendation {
-  memberId: Schema.Types.ObjectId;
-  itemId: Schema.Types.ObjectId;
+  memberId: Types.ObjectId;
+  itemId: Types.ObjectId;
   itemType: 'programme' | 'event' | 'mentor' | 'resource' | 'powerteam' | 'insight';
   reason: string;
   relevanceScore: number;

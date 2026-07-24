@@ -23,7 +23,7 @@ export class BookmarkService {
     try {
       const existingBookmark = await Bookmark.findOne({ userId, contentId: bookmarkData.contentId });
       if (existingBookmark) {
-        throw new AppError('Bookmark already exists', 409, 'ERR_5001');
+        throw new AppError(409, 'Bookmark already exists', ['ERR_5001']);
       }
 
       const bookmark = new Bookmark({
@@ -44,7 +44,7 @@ export class BookmarkService {
     try {
       const bookmark = await Bookmark.findOne({ userId, contentId });
       if (!bookmark) {
-        throw new AppError('Bookmark not found', 404, 'ERR_5002');
+        throw new AppError(404, 'Bookmark not found', ['ERR_5002']);
       }
 
       await Bookmark.deleteOne({ userId, contentId });
@@ -61,7 +61,7 @@ export class BookmarkService {
       const bookmark = await Bookmark.findOneAndUpdate({ userId, contentId }, updates, { new: true });
 
       if (!bookmark) {
-        throw new AppError('Bookmark not found', 404, 'ERR_5002');
+        throw new AppError(404, 'Bookmark not found', ['ERR_5002']);
       }
 
       logger.info('Bookmark updated', { userId, contentId });

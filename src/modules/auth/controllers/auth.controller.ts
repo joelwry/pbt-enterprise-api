@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import { authService } from '@/modules/auth/services/auth.service';
 import { ResponseHandler } from '@/core/response/ResponseHandler';
+import { AuthenticationError } from '@/core/errors/AppError';
 import {
   registerSchema,
   loginSchema,
@@ -53,9 +54,26 @@ export class AuthController {
    * POST /api/v1/auth/refresh-token
    */
   async refreshToken(req: Request, res: Response): Promise<void> {
-    const { refreshToken } = refreshTokenSchema.parse(req.body);
+    const { refreshToken: bodyRefreshToken } = refreshTokenSchema.parse(req.body ?? {});
+    const cookieRefreshToken = req.cookies?.refreshToken as string | undefined;
+    const refreshToken = bodyRefreshToken ?? cookieRefreshToken;
+
+    if (!refreshToken) {
+      throw new AuthenticationError('No refresh token provided');
+    }
 
     const tokens = await authService.refreshAccessToken(refreshToken);
+
+    // Persistent (rememberMe) sessions authenticate via the cookie alone, so
+    // rotate it to the newly issued refresh token to keep the session alive.
+    if (!bodyRefreshToken && cookieRefreshToken) {
+      res.cookie('refreshToken', tokens.refreshToken, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === 'production',
+        sameSite: 'strict',
+        maxAge: 7 * 24 * 60 * 60 * 1000,
+      });
+    }
 
     ResponseHandler.ok(res, 'Token refreshed', tokens);
   }

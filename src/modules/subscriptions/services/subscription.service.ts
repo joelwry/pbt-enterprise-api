@@ -1,6 +1,6 @@
 import { Subscription, SubscriptionDocument } from '@/modules/subscriptions/schemas/Subscription.schema';
 import { AppError } from '@/core/errors/AppError';
-import { logger } from '@/core/logger/logger';
+import logger from '@/core/logger/logger';
 import { Types } from 'mongoose';
 
 export class SubscriptionService {
@@ -18,7 +18,7 @@ export class SubscriptionService {
       return subscription;
     } catch (error) {
       logger.error('Failed to get current subscription', { userId, error });
-      throw new AppError('ERR_5001', 500, 'Failed to retrieve subscription');
+      throw new AppError(500, 'Failed to retrieve subscription', ['ERR_5001']);
     }
   }
 
@@ -30,7 +30,7 @@ export class SubscriptionService {
       return await Subscription.findById(subscriptionId);
     } catch (error) {
       logger.error('Failed to get subscription by ID', { subscriptionId, error });
-      throw new AppError('ERR_5001', 500, 'Failed to retrieve subscription');
+      throw new AppError(500, 'Failed to retrieve subscription', ['ERR_5001']);
     }
   }
 
@@ -77,7 +77,7 @@ export class SubscriptionService {
       return saved;
     } catch (error) {
       logger.error('Failed to create subscription', { userId, tier, error });
-      throw new AppError('ERR_5002', 500, 'Failed to create subscription');
+      throw new AppError(500, 'Failed to create subscription', ['ERR_5002']);
     }
   }
 
@@ -92,7 +92,7 @@ export class SubscriptionService {
       const currentSubscription = await this.getCurrentSubscription(userId);
 
       if (!currentSubscription) {
-        throw new AppError('ERR_4010', 404, 'No active subscription found');
+        throw new AppError(404, 'No active subscription found', ['ERR_4010']);
       }
 
       // Get tier hierarchy
@@ -106,7 +106,7 @@ export class SubscriptionService {
       const newTierLevel = tierHierarchy[newTier];
 
       if (newTierLevel <= currentTierLevel) {
-        throw new AppError('ERR_3001', 400, 'Can only upgrade to a higher tier');
+        throw new AppError(400, 'Can only upgrade to a higher tier', ['ERR_3001']);
       }
 
       // Cancel old subscription
@@ -124,7 +124,7 @@ export class SubscriptionService {
     } catch (error) {
       if (error instanceof AppError) throw error;
       logger.error('Failed to upgrade subscription', { userId, newTier, error });
-      throw new AppError('ERR_5003', 500, 'Failed to upgrade subscription');
+      throw new AppError(500, 'Failed to upgrade subscription', ['ERR_5003']);
     }
   }
 
@@ -139,7 +139,7 @@ export class SubscriptionService {
       const currentSubscription = await this.getCurrentSubscription(userId);
 
       if (!currentSubscription) {
-        throw new AppError('ERR_4010', 404, 'No active subscription found');
+        throw new AppError(404, 'No active subscription found', ['ERR_4010']);
       }
 
       const tierHierarchy: Record<string, number> = {
@@ -152,7 +152,7 @@ export class SubscriptionService {
       const newTierLevel = tierHierarchy[newTier];
 
       if (newTierLevel >= currentTierLevel) {
-        throw new AppError('ERR_3001', 400, 'Can only downgrade to a lower tier');
+        throw new AppError(400, 'Can only downgrade to a lower tier', ['ERR_3001']);
       }
 
       // Cancel old subscription
@@ -170,7 +170,7 @@ export class SubscriptionService {
     } catch (error) {
       if (error instanceof AppError) throw error;
       logger.error('Failed to downgrade subscription', { userId, newTier, error });
-      throw new AppError('ERR_5004', 500, 'Failed to downgrade subscription');
+      throw new AppError(500, 'Failed to downgrade subscription', ['ERR_5004']);
     }
   }
 
@@ -182,7 +182,7 @@ export class SubscriptionService {
       const subscription = await this.getCurrentSubscription(userId);
 
       if (!subscription) {
-        throw new AppError('ERR_4010', 404, 'No active subscription found');
+        throw new AppError(404, 'No active subscription found', ['ERR_4010']);
       }
 
       subscription.status = 'cancelled';
@@ -194,7 +194,7 @@ export class SubscriptionService {
     } catch (error) {
       if (error instanceof AppError) throw error;
       logger.error('Failed to cancel subscription', { userId, error });
-      throw new AppError('ERR_5005', 500, 'Failed to cancel subscription');
+      throw new AppError(500, 'Failed to cancel subscription', ['ERR_5005']);
     }
   }
 

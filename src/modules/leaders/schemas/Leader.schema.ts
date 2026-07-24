@@ -95,10 +95,8 @@ const leaderSchema = new Schema<ILeader>(
 );
 
 // Soft delete middleware
-leaderSchema.pre(/^find/, function (next) {
-  // @ts-ignore
+leaderSchema.pre(/^find/, function (this: any) {
   this.where({ deletedAt: { $exists: false } });
-  next();
 });
 
 // Create indexes

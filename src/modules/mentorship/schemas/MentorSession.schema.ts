@@ -1,8 +1,8 @@
-import { Schema, model } from 'mongoose';
+import { Schema, model, Types } from 'mongoose';
 
 interface IMentorSession {
-  mentorId: Schema.Types.ObjectId;
-  memberId: Schema.Types.ObjectId;
+  mentorId: Types.ObjectId;
+  memberId: Types.ObjectId;
   scheduledAt: Date;
   duration: number;
   topic: string;

@@ -1,0 +1,566 @@
+2026-07-24 06:47:44 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-07-24 06:47:44 [info]: MongoDB connected successfully
+2026-07-24 06:47:44 [info]: Security middleware initialized
+2026-07-24 06:47:44 [info]: 🚀 Server running on http://localhost:5000
+2026-07-24 06:47:44 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-07-24 06:47:44 [info]: 🔧 Environment: development
+2026-07-24 06:47:44 [info]: 🛣️  API Version: /api/v1
+2026-07-24 06:48:26 [info]: Request completed {
+  "correlationId": "1784900906974-0.3479178341382637",
+  "method": "GET",
+  "path": "/health",
+  "statusCode": 200,
+  "duration": "3ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-24 06:48:27 [error]: Error occurred: next is not a function {
+  "url": "/api/v1/auth/register",
+  "method": "POST",
+  "ip": "::ffff:127.0.0.1",
+  "stack": "TypeError: next is not a function\n    at model.Query.<anonymous> (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\users\\schemas\\User.schema.ts:121:3)\n    at Kareem.execPre (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\kareem\\index.js:59:39)\n    at _executePreHooks (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\mongoose\\lib\\query.js:4871:33)\n    at maybeTracedQueryExec (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\mongoose\\lib\\query.js:4800:13)\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)"
+}
+2026-07-24 06:48:27 [error]: Unknown error {
+  "error": {}
+}
+2026-07-24 06:48:27 [info]: Request completed {
+  "correlationId": "1784900907059-0.4681185397543888",
+  "method": "POST",
+  "path": "/api/v1/auth/register",
+  "statusCode": 500,
+  "duration": "10ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-24 07:23:56 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-07-24 07:23:56 [info]: MongoDB connected successfully
+2026-07-24 07:23:56 [info]: Security middleware initialized
+2026-07-24 07:23:56 [info]: 🚀 Server running on http://localhost:5000
+2026-07-24 07:23:56 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-07-24 07:23:56 [info]: 🔧 Environment: development
+2026-07-24 07:23:56 [info]: 🛣️  API Version: /api/v1
+2026-07-24 07:54:35 [info]: User registered: testuser1@example.com
+2026-07-24 07:54:35 [info]: User registered: testuser1@example.com
+2026-07-24 07:54:35 [info]: Request completed {
+  "correlationId": "1784904874805-0.334284601068108",
+  "method": "POST",
+  "path": "/register",
+  "statusCode": 201,
+  "duration": "294ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-24 07:54:58 [info]: User logged in: testuser1@example.com
+2026-07-24 07:54:58 [info]: User logged in: testuser1@example.com
+2026-07-24 07:54:58 [info]: Request completed {
+  "correlationId": "1784904898163-0.1844854155304254",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "150ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-24 07:54:58 [info]: User logged in: testuser1@example.com
+2026-07-24 07:54:58 [info]: User logged in: testuser1@example.com
+2026-07-24 07:54:58 [info]: Request completed {
+  "correlationId": "1784904898424-0.18282667751967563",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "156ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-24 07:55:24 [info]: User logged in: testuser1@example.com
+2026-07-24 07:55:24 [info]: User logged in: testuser1@example.com
+2026-07-24 07:55:24 [info]: Request completed {
+  "correlationId": "1784904924887-0.8179626243985063",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "94ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-24 07:55:25 [info]: Request completed {
+  "correlationId": "1784904925116-0.22559461296017524",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 200,
+  "duration": "8ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-24 07:55:25 [info]: Request completed {
+  "correlationId": "1784904925255-0.44794971963312424",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 404,
+  "duration": "27ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-24 07:55:25 [debug]: Access token refreshed for user: testuser1@example.com
+2026-07-24 07:55:25 [info]: Request completed {
+  "correlationId": "1784904925390-0.7895256883679882",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "9ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-24 07:55:25 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "::ffff:127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\controllers\\auth.controller.ts:62:13)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\routes\\auth.routes.ts:15:77\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\core\\middleware\\asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at Route.dispatch (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:119:3)\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:284:15\n    at router.process_params (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:280:10)"
+}
+2026-07-24 07:55:25 [info]: Request completed {
+  "correlationId": "1784904925526-0.18715257540300057",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "15ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-24 07:56:32 [info]: User logged in: testuser1@example.com
+2026-07-24 07:56:32 [info]: User logged in: testuser1@example.com
+2026-07-24 07:56:32 [info]: Request completed {
+  "correlationId": "1784904992161-0.04914962192199146",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "160ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-24 07:56:32 [debug]: Access token refreshed for user: testuser1@example.com
+2026-07-24 07:56:32 [info]: Request completed {
+  "correlationId": "1784904992464-0.5359937745576536",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "3ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-24 07:56:32 [warn]: Invalid content-type header {
+  "correlationId": "1784904992597-0.7463900124145795",
+  "method": "POST",
+  "path": "/api/v1/auth/logout"
+}
+2026-07-24 07:56:32 [info]: Request completed {
+  "correlationId": "1784904992597-0.7463900124145795",
+  "method": "POST",
+  "path": "/api/v1/auth/logout",
+  "statusCode": 415,
+  "duration": "2ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-24 07:57:12 [info]: User logged in: testuser1@example.com
+2026-07-24 07:57:12 [info]: User logged in: testuser1@example.com
+2026-07-24 07:57:12 [info]: Request completed {
+  "correlationId": "1784905032615-0.04115262472879799",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "170ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-24 07:57:12 [debug]: Access token refreshed for user: testuser1@example.com
+2026-07-24 07:57:12 [info]: Request completed {
+  "correlationId": "1784905032971-0.18243928029481504",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "3ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-24 07:57:13 [info]: User logged out
+2026-07-24 07:57:13 [info]: Request completed {
+  "correlationId": "1784905033120-0.42395916986454396",
+  "method": "POST",
+  "path": "/logout",
+  "statusCode": 200,
+  "duration": "1ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-24 07:58:43 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "::1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\controllers\\auth.controller.ts:62:13)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\routes\\auth.routes.ts:15:77\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\core\\middleware\\asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at Route.dispatch (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:119:3)\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:284:15\n    at router.process_params (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:280:10)"
+}
+2026-07-24 07:58:43 [info]: Request completed {
+  "correlationId": "1784905123770-0.16365711942772843",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "3ms",
+  "ip": "::1"
+}
+2026-07-24 07:59:33 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "::1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\controllers\\auth.controller.ts:62:13)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\routes\\auth.routes.ts:15:77\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\core\\middleware\\asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at Route.dispatch (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:119:3)\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:284:15\n    at router.process_params (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:280:10)"
+}
+2026-07-24 07:59:33 [info]: Request completed {
+  "correlationId": "1784905173155-0.26551711865832994",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "3ms",
+  "ip": "::1"
+}
+2026-07-24 07:59:33 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "::1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\controllers\\auth.controller.ts:62:13)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\routes\\auth.routes.ts:15:77\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\core\\middleware\\asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at Route.dispatch (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:119:3)\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:284:15\n    at router.process_params (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:280:10)"
+}
+2026-07-24 07:59:33 [info]: Request completed {
+  "correlationId": "1784905173754-0.7441084181779617",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "2ms",
+  "ip": "::1"
+}
+2026-07-24 08:01:25 [info]: User logged in: testuser1@example.com
+2026-07-24 08:01:25 [info]: User logged in: testuser1@example.com
+2026-07-24 08:01:25 [info]: Request completed {
+  "correlationId": "1784905284913-0.21631619841546168",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "266ms",
+  "ip": "::1"
+}
+2026-07-24 08:01:25 [info]: Request completed {
+  "correlationId": "1784905285190-0.6884328392934179",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 404,
+  "duration": "5ms",
+  "ip": "::1"
+}
+2026-07-24 08:02:14 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "::1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\controllers\\auth.controller.ts:62:13)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\routes\\auth.routes.ts:15:77\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\core\\middleware\\asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at Route.dispatch (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:119:3)\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:284:15\n    at router.process_params (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:280:10)"
+}
+2026-07-24 08:02:14 [info]: Request completed {
+  "correlationId": "1784905334377-0.23124059868777003",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "2ms",
+  "ip": "::1"
+}
+2026-07-24 08:03:26 [info]: User logged in: testuser1@example.com
+2026-07-24 08:03:26 [info]: User logged in: testuser1@example.com
+2026-07-24 08:03:26 [info]: Request completed {
+  "correlationId": "1784905406616-0.0034590419041050646",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "106ms",
+  "ip": "::1"
+}
+2026-07-24 08:03:26 [info]: Request completed {
+  "correlationId": "1784905406737-0.2883304888387057",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 404,
+  "duration": "2ms",
+  "ip": "::1"
+}
+2026-07-24 08:05:25 [debug]: Access token refreshed for user: testuser1@example.com
+2026-07-24 08:05:25 [info]: Request completed {
+  "correlationId": "1784905525273-0.9853773962006618",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "4ms",
+  "ip": "::1"
+}
+2026-07-24 08:05:25 [info]: Request completed {
+  "correlationId": "1784905525287-0.5281195876363335",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 200,
+  "duration": "3ms",
+  "ip": "::1"
+}
+2026-07-24 08:05:25 [info]: Request completed {
+  "correlationId": "1784905525298-0.7861021395340937",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 404,
+  "duration": "1ms",
+  "ip": "::1"
+}
+2026-07-24 08:07:07 [debug]: Access token refreshed for user: testuser1@example.com
+2026-07-24 08:07:07 [info]: Request completed {
+  "correlationId": "1784905627097-0.466452386882212",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "6ms",
+  "ip": "::1"
+}
+2026-07-24 08:07:07 [info]: Request completed {
+  "correlationId": "1784905627144-0.5579822289348773",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 304,
+  "duration": "4ms",
+  "ip": "::1"
+}
+2026-07-24 08:07:07 [info]: Request completed {
+  "correlationId": "1784905627162-0.6682924417178404",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 404,
+  "duration": "3ms",
+  "ip": "::1"
+}
+2026-07-24 08:16:03 [info]: User logged in: testuser1@example.com
+2026-07-24 08:16:03 [info]: User logged in: testuser1@example.com
+2026-07-24 08:16:03 [info]: Request completed {
+  "correlationId": "1784906162959-0.6997454868984301",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "127ms",
+  "ip": "::1"
+}
+2026-07-24 08:16:03 [info]: Request completed {
+  "correlationId": "1784906163092-0.8167538387378398",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 404,
+  "duration": "4ms",
+  "ip": "::1"
+}
+2026-07-24 08:17:25 [debug]: Access token refreshed for user: testuser1@example.com
+2026-07-24 08:17:25 [info]: Request completed {
+  "correlationId": "1784906245968-0.4212108896463853",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "5ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-24 08:17:44 [warn]: Invalid content-type header {
+  "correlationId": "1784906264150-0.9451198928027255",
+  "method": "POST",
+  "path": "/api/v1/auth/logout"
+}
+2026-07-24 08:17:44 [info]: Request completed {
+  "correlationId": "1784906264150-0.9451198928027255",
+  "method": "POST",
+  "path": "/api/v1/auth/logout",
+  "statusCode": 415,
+  "duration": "1ms",
+  "ip": "::1"
+}
+2026-07-24 08:18:28 [info]: User logged in: testuser1@example.com
+2026-07-24 08:18:28 [info]: User logged in: testuser1@example.com
+2026-07-24 08:18:28 [info]: Request completed {
+  "correlationId": "1784906308772-0.9993567941465882",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "117ms",
+  "ip": "::1"
+}
+2026-07-24 08:18:28 [info]: Request completed {
+  "correlationId": "1784906308901-0.5993399132437983",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 404,
+  "duration": "3ms",
+  "ip": "::1"
+}
+2026-07-24 08:18:43 [debug]: Access token refreshed for user: testuser1@example.com
+2026-07-24 08:18:43 [info]: Request completed {
+  "correlationId": "1784906323667-0.10203116975943083",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "5ms",
+  "ip": "::1"
+}
+2026-07-24 08:18:43 [info]: Request completed {
+  "correlationId": "1784906323684-0.8981103182780902",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 304,
+  "duration": "2ms",
+  "ip": "::1"
+}
+2026-07-24 08:18:43 [info]: Request completed {
+  "correlationId": "1784906323697-0.4280862297806096",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 404,
+  "duration": "3ms",
+  "ip": "::1"
+}
+2026-07-24 08:20:10 [error]: Error occurred: No token provided {
+  "url": "/api/v1/auth/logout",
+  "method": "POST",
+  "ip": "::1",
+  "stack": "AuthenticationError: No token provided\n    at authenticate (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\core\\middleware\\authMiddleware.ts:22:13)\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at Route.dispatch (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:119:3)\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:284:15\n    at router.process_params (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:280:10)\n    at router.handle (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:175:3)\n    at router (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:47:12)"
+}
+2026-07-24 08:20:10 [info]: Request completed {
+  "correlationId": "1784906410762-0.16154010647634143",
+  "method": "POST",
+  "path": "/api/v1/auth/logout",
+  "statusCode": 401,
+  "duration": "4ms",
+  "ip": "::1"
+}
+2026-07-24 08:21:12 [debug]: Access token refreshed for user: testuser1@example.com
+2026-07-24 08:21:12 [info]: Request completed {
+  "correlationId": "1784906472888-0.22299891610584366",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "4ms",
+  "ip": "::1"
+}
+2026-07-24 08:21:12 [info]: Request completed {
+  "correlationId": "1784906472913-0.5765568631867849",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 304,
+  "duration": "4ms",
+  "ip": "::1"
+}
+2026-07-24 08:21:12 [info]: Request completed {
+  "correlationId": "1784906472927-0.532268778795461",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 404,
+  "duration": "3ms",
+  "ip": "::1"
+}
+2026-07-24 08:23:10 [info]: User logged in: testuser1@example.com
+2026-07-24 08:23:10 [info]: User logged in: testuser1@example.com
+2026-07-24 08:23:10 [info]: Request completed {
+  "correlationId": "1784906589988-0.5159436016384951",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "122ms",
+  "ip": "::1"
+}
+2026-07-24 08:23:10 [info]: Request completed {
+  "correlationId": "1784906590117-0.06960572187299818",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 404,
+  "duration": "3ms",
+  "ip": "::1"
+}
+2026-07-24 08:23:47 [error]: Error occurred: No token provided {
+  "url": "/api/v1/auth/logout",
+  "method": "POST",
+  "ip": "::1",
+  "stack": "AuthenticationError: No token provided\n    at authenticate (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\core\\middleware\\authMiddleware.ts:22:13)\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at Route.dispatch (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:119:3)\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:284:15\n    at router.process_params (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:280:10)\n    at router.handle (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:175:3)\n    at router (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:47:12)"
+}
+2026-07-24 08:23:47 [info]: Request completed {
+  "correlationId": "1784906627225-0.7153028412050421",
+  "method": "POST",
+  "path": "/api/v1/auth/logout",
+  "statusCode": 401,
+  "duration": "2ms",
+  "ip": "::1"
+}
+2026-07-24 08:56:01 [error]: Error occurred: Invalid email or password {
+  "url": "/api/v1/auth/login",
+  "method": "POST",
+  "ip": "::1",
+  "stack": "AuthenticationError: Invalid email or password\n    at AuthService.login (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\services\\auth.service.ts:72:13)\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async AuthController.login (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\controllers\\auth.controller.ts:36:20)"
+}
+2026-07-24 08:56:01 [info]: Request completed {
+  "correlationId": "1784908561729-0.7493091938619117",
+  "method": "POST",
+  "path": "/api/v1/auth/login",
+  "statusCode": 401,
+  "duration": "21ms",
+  "ip": "::1"
+}
+2026-07-24 08:56:03 [error]: Error occurred: Invalid email or password {
+  "url": "/api/v1/auth/login",
+  "method": "POST",
+  "ip": "::1",
+  "stack": "AuthenticationError: Invalid email or password\n    at AuthService.login (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\services\\auth.service.ts:72:13)\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async AuthController.login (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\controllers\\auth.controller.ts:36:20)"
+}
+2026-07-24 08:56:03 [info]: Request completed {
+  "correlationId": "1784908563471-0.132075448060465",
+  "method": "POST",
+  "path": "/api/v1/auth/login",
+  "statusCode": 401,
+  "duration": "9ms",
+  "ip": "::1"
+}
+2026-07-24 08:56:36 [debug]: Access token refreshed for user: testuser1@example.com
+2026-07-24 08:56:36 [info]: Request completed {
+  "correlationId": "1784908596451-0.37743592192945097",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "9ms",
+  "ip": "::1"
+}
+2026-07-24 08:56:36 [info]: Request completed {
+  "correlationId": "1784908596481-0.4274442401889279",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 304,
+  "duration": "4ms",
+  "ip": "::1"
+}
+2026-07-24 08:56:36 [info]: Request completed {
+  "correlationId": "1784908596512-0.45555108479612516",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 404,
+  "duration": "3ms",
+  "ip": "::1"
+}
+2026-07-24 08:56:37 [debug]: Access token refreshed for user: testuser1@example.com
+2026-07-24 08:56:37 [info]: Request completed {
+  "correlationId": "1784908597391-0.4721360659166759",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "4ms",
+  "ip": "::1"
+}
+2026-07-24 08:56:37 [info]: Request completed {
+  "correlationId": "1784908597407-0.9853887483504872",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 304,
+  "duration": "2ms",
+  "ip": "::1"
+}
+2026-07-24 08:56:37 [info]: Request completed {
+  "correlationId": "1784908597415-0.21817048791445048",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 404,
+  "duration": "2ms",
+  "ip": "::1"
+}
+2026-07-24 08:58:39 [error]: Error occurred: No token provided {
+  "url": "/api/v1/auth/logout",
+  "method": "POST",
+  "ip": "::1",
+  "stack": "AuthenticationError: No token provided\n    at authenticate (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\core\\middleware\\authMiddleware.ts:22:13)\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at Route.dispatch (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:119:3)\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:284:15\n    at router.process_params (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:280:10)\n    at router.handle (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:175:3)\n    at router (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:47:12)"
+}
+2026-07-24 08:58:39 [info]: Request completed {
+  "correlationId": "1784908719003-0.23745548320936405",
+  "method": "POST",
+  "path": "/api/v1/auth/logout",
+  "statusCode": 401,
+  "duration": "2ms",
+  "ip": "::1"
+}

@@ -8,7 +8,7 @@ export class ProgressService {
     try {
       const progress = await UserProgress.findOne({ userId, programmeId });
       if (!progress) {
-        throw new AppError('User progress not found', 404, 'ERR_3001');
+        throw new AppError(404, 'User progress not found', ['ERR_3001']);
       }
       return progress;
     } catch (error) {
@@ -63,7 +63,7 @@ export class ProgressService {
     try {
       const progress = await UserProgress.findOne({ userId, programmeId });
       if (!progress) {
-        throw new AppError('User progress not found', 404, 'ERR_3001');
+        throw new AppError(404, 'User progress not found', ['ERR_3001']);
       }
 
       // Update lesson progress
@@ -98,7 +98,7 @@ export class ProgressService {
     try {
       const progress = await UserProgress.findOne({ userId, programmeId });
       if (!progress) {
-        throw new AppError('User progress not found', 404, 'ERR_3001');
+        throw new AppError(404, 'User progress not found', ['ERR_3001']);
       }
 
       if (!progress.completedLessons.includes(lessonId)) {
@@ -127,7 +127,7 @@ export class ProgressService {
     try {
       const progress = await UserProgress.findOne({ userId, programmeId });
       if (!progress) {
-        throw new AppError('User progress not found', 404, 'ERR_3001');
+        throw new AppError(404, 'User progress not found', ['ERR_3001']);
       }
 
       // Find the first incomplete lesson
@@ -157,7 +157,7 @@ export class ProgressService {
     try {
       const progress = await UserProgress.findOne({ userId, programmeId });
       if (!progress) {
-        throw new AppError('User progress not found', 404, 'ERR_3001');
+        throw new AppError(404, 'User progress not found', ['ERR_3001']);
       }
 
       progress.notes.push({
@@ -187,7 +187,7 @@ export class ProgressService {
       return {
         programmesEnrolled: progressRecords.length,
         averageProgress: Math.round(avgProgress),
-        totalLearningMinutes,
+        totalLearningMinutes: totalMinutes,
         maxStreak: Math.max(...progressRecords.map((p) => p.streakDays), 0),
       };
     } catch (error) {

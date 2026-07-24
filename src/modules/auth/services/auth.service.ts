@@ -1,4 +1,4 @@
-import { AuthRepository, authRepository } from '@/modules/auth/repositories/auth.repository';
+import { AuthRepository, authRepository as defaultAuthRepository } from '@/modules/auth/repositories/auth.repository';
 import { JwtHelper } from '@/core/auth/JwtHelper';
 import {
   ConflictError,
@@ -24,7 +24,7 @@ export interface LoginResponse {
 }
 
 export class AuthService {
-  constructor(private authRepository: AuthRepository = authRepository) {}
+  constructor(private authRepository: AuthRepository = defaultAuthRepository) {}
 
   /**
    * Register new user

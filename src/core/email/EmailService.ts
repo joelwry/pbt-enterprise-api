@@ -1,5 +1,5 @@
 import { config } from '@/config/environment';
-import { logger } from '@/core/logger/logger';
+import logger from '@/core/logger/logger';
 
 /**
  * Email service for sending emails

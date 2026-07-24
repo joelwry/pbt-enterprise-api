@@ -10,7 +10,7 @@ export class PowerTeamController {
    */
   async getPowerTeamMembers(req: Request, res: Response): Promise<void> {
     const { page = 1, limit = 20, category, region, search } = req.query;
-    const query = PaginationHelper.parse({ page, limit, search: search as string });
+    const query = PaginationHelper.parse({ page: page as string, limit: limit as string, search: search as string });
 
     const filter: any = { isActive: true };
 
@@ -60,14 +60,14 @@ export class PowerTeamController {
   async getMembersByCategory(req: Request, res: Response): Promise<void> {
     const { category } = req.params;
     const { page = 1, limit = 20 } = req.query;
-    const query = PaginationHelper.parse({ page, limit });
+    const query = PaginationHelper.parse({ page: page as string, limit: limit as string });
 
-    const members = await PowerTeamMember.find({ category, isActive: true })
+    const members = await PowerTeamMember.find({ category: category as any, isActive: true })
       .skip(query.skip)
       .limit(query.limit)
       .sort({ rating: -1, isVerified: -1 });
 
-    const total = await PowerTeamMember.countDocuments({ category, isActive: true });
+    const total = await PowerTeamMember.countDocuments({ category: category as any, isActive: true });
 
     const pagination = PaginationHelper.createMeta(query.page, query.limit, total);
     ResponseHandler.paginated(res, 200, 'Members retrieved', members, pagination);
@@ -102,7 +102,7 @@ export class PowerTeamController {
    */
   async getVerifiedMembers(req: Request, res: Response): Promise<void> {
     const { page = 1, limit = 20 } = req.query;
-    const query = PaginationHelper.parse({ page, limit });
+    const query = PaginationHelper.parse({ page: page as string, limit: limit as string });
 
     const members = await PowerTeamMember.find({ isActive: true, isVerified: true })
       .skip(query.skip)

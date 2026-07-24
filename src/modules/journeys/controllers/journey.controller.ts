@@ -9,7 +9,7 @@ export class JourneyController {
     const { status } = req.query;
 
     const journeys = await JourneyService.getUserJourneys(userId, status as string);
-    return ResponseHandler.success(res, journeys, 'User journeys retrieved');
+    return ResponseHandler.ok(res, 'User journeys retrieved', journeys);
   });
 
   createJourney = asyncHandler(async (req: Request, res: Response) => {
@@ -25,13 +25,13 @@ export class JourneyController {
       estimatedDurationHours,
     });
 
-    return ResponseHandler.success(res, journey, 'Learning journey created', 201);
+    return ResponseHandler.created(res, 'Learning journey created', journey);
   });
 
   getJourneyDetails = asyncHandler(async (req: Request, res: Response) => {
     const { journeyId } = req.params;
     // Implementation would fetch the journey from database
-    return ResponseHandler.success(res, { journeyId }, 'Journey details retrieved');
+    return ResponseHandler.ok(res, 'Journey details retrieved', { journeyId });
   });
 
   updateProgress = asyncHandler(async (req: Request, res: Response) => {
@@ -39,35 +39,35 @@ export class JourneyController {
     const { currentStep, progress } = req.body;
 
     const updatedJourney = await JourneyService.updateJourneyProgress(journeyId, currentStep, progress);
-    return ResponseHandler.success(res, updatedJourney, 'Journey progress updated');
+    return ResponseHandler.ok(res, 'Journey progress updated', updatedJourney);
   });
 
   completeJourney = asyncHandler(async (req: Request, res: Response) => {
     const { journeyId } = req.params;
 
     const completedJourney = await JourneyService.completeJourney(journeyId);
-    return ResponseHandler.success(res, completedJourney, 'Journey completed');
+    return ResponseHandler.ok(res, 'Journey completed', completedJourney);
   });
 
   pauseJourney = asyncHandler(async (req: Request, res: Response) => {
     const { journeyId } = req.params;
 
     const pausedJourney = await JourneyService.pauseJourney(journeyId);
-    return ResponseHandler.success(res, pausedJourney, 'Journey paused');
+    return ResponseHandler.ok(res, 'Journey paused', pausedJourney);
   });
 
   resumeJourney = asyncHandler(async (req: Request, res: Response) => {
     const { journeyId } = req.params;
 
     const resumedJourney = await JourneyService.resumeJourney(journeyId);
-    return ResponseHandler.success(res, resumedJourney, 'Journey resumed');
+    return ResponseHandler.ok(res, 'Journey resumed', resumedJourney);
   });
 
   getStats = asyncHandler(async (req: Request, res: Response) => {
     const { journeyId } = req.params;
 
     const stats = await JourneyService.getJourneyStats(journeyId);
-    return ResponseHandler.success(res, stats, 'Journey statistics retrieved');
+    return ResponseHandler.ok(res, 'Journey statistics retrieved', stats);
   });
 
   getActiveJourneys = asyncHandler(async (req: Request, res: Response) => {
@@ -75,7 +75,7 @@ export class JourneyController {
     const { limit } = req.query;
 
     const journeys = await JourneyService.getUserActiveJourneys(userId, parseInt(limit as string) || 5);
-    return ResponseHandler.success(res, journeys, 'Active journeys retrieved');
+    return ResponseHandler.ok(res, 'Active journeys retrieved', journeys);
   });
 }
 

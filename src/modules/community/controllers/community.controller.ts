@@ -4,7 +4,7 @@ import { asyncHandler } from '@/core/middleware/asyncHandler';
 import { PaginationHelper } from '@/core/pagination/PaginationHelper';
 import { CommunityThread } from '@/modules/community/schemas/Community.schema';
 import { AppError } from '@/core/errors/AppError';
-import { logger } from '@/core/logger/logger';
+import logger from '@/core/logger/logger';
 
 export class CommunityController {
   /**
@@ -14,10 +14,7 @@ export class CommunityController {
     const userId = (req as any).userId;
     const { page = 1, limit = 20, category, search } = req.query;
 
-    const pagination = PaginationHelper.calculatePagination(
-      parseInt(page as string),
-      parseInt(limit as string)
-    );
+    const pagination = PaginationHelper.parse({ page: page as string, limit: limit as string });
 
     let query: any = { deletedAt: null };
 
@@ -41,15 +38,11 @@ export class CommunityController {
       .lean();
 
     const totalItems = await CommunityThread.countDocuments(query);
-    const paginationData = PaginationHelper.buildPaginationData(
-      page as string,
-      limit as string,
-      totalItems
-    );
+    const paginationData = PaginationHelper.createMeta(pagination.page, pagination.limit, totalItems);
 
     logger.info(`[CommunityController] Fetched ${threads.length} threads for user ${userId}`);
 
-    return ResponseHandler.paginated(res, threads, paginationData, 'Threads retrieved successfully');
+    return ResponseHandler.paginated(res, 200, 'Threads retrieved successfully', threads, paginationData);
   });
 
   /**
@@ -71,7 +64,7 @@ export class CommunityController {
       .lean();
 
     if (!thread) {
-      throw new AppError('Thread not found', 404);
+      throw new AppError(404, 'Thread not found');
     }
 
     // Increment view count
@@ -79,7 +72,7 @@ export class CommunityController {
 
     logger.info(`[CommunityController] Fetched thread ${threadId} for user ${userId}`);
 
-    return ResponseHandler.success(res, thread, 'Thread retrieved successfully');
+    return ResponseHandler.ok(res, 'Thread retrieved successfully', thread);
   });
 
   /**
@@ -104,7 +97,7 @@ export class CommunityController {
 
     logger.info(`[CommunityController] Created thread ${newThread._id} by user ${userId}`);
 
-    return ResponseHandler.created(res, newThread, 'Thread created successfully');
+    return ResponseHandler.created(res, 'Thread created successfully', newThread);
   });
 
   /**
@@ -118,7 +111,7 @@ export class CommunityController {
     const thread = await CommunityThread.findOne({ _id: threadId, deletedAt: null });
 
     if (!thread) {
-      throw new AppError('Thread not found', 404);
+      throw new AppError(404, 'Thread not found');
     }
 
     const newReply = {
@@ -137,7 +130,7 @@ export class CommunityController {
 
     logger.info(`[CommunityController] Added reply to thread ${threadId} by user ${userId}`);
 
-    return ResponseHandler.created(res, newReply, 'Reply added successfully');
+    return ResponseHandler.created(res, 'Reply added successfully', newReply);
   });
 
   /**
@@ -150,7 +143,7 @@ export class CommunityController {
     const thread = await CommunityThread.findOne({ _id: threadId, deletedAt: null });
 
     if (!thread) {
-      throw new AppError('Thread not found', 404);
+      throw new AppError(404, 'Thread not found');
     }
 
     const alreadyLiked = thread.likes.includes(userId);
@@ -167,7 +160,7 @@ export class CommunityController {
       `[CommunityController] User ${userId} ${alreadyLiked ? 'unliked' : 'liked'} thread ${threadId}`
     );
 
-    return ResponseHandler.success(res, { liked: !alreadyLiked }, 'Like toggled successfully');
+    return ResponseHandler.ok(res, 'Like toggled successfully', { liked: !alreadyLiked });
   });
 
   /**
@@ -183,6 +176,6 @@ export class CommunityController {
       { id: 'off-topic', label: 'Off Topic' },
     ];
 
-    return ResponseHandler.success(res, categories, 'Categories retrieved successfully');
+    return ResponseHandler.ok(res, 'Categories retrieved successfully', categories);
   });
 }

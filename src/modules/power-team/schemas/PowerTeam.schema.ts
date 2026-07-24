@@ -95,10 +95,8 @@ const powerTeamMemberSchema = new Schema<IPowerTeamMember>(
 );
 
 // Soft delete middleware
-powerTeamMemberSchema.pre(/^find/, function (next) {
-  // @ts-ignore
+powerTeamMemberSchema.pre(/^find/, function (this: any) {
   this.where({ deletedAt: { $exists: false } });
-  next();
 });
 
 // Create indexes

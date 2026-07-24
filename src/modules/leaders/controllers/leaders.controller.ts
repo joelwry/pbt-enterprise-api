@@ -10,7 +10,7 @@ export class LeadersController {
    */
   async getLeaders(req: Request, res: Response): Promise<void> {
     const { page = 1, limit = 20, region, specialism, search } = req.query;
-    const query = PaginationHelper.parse({ page, limit, search: search as string });
+    const query = PaginationHelper.parse({ page: page as string, limit: limit as string, search: search as string });
 
     const filter: any = { isActive: true };
 
@@ -61,7 +61,7 @@ export class LeadersController {
   async getLeadersByRegion(req: Request, res: Response): Promise<void> {
     const { region } = req.params;
     const { page = 1, limit = 20 } = req.query;
-    const query = PaginationHelper.parse({ page, limit });
+    const query = PaginationHelper.parse({ page: page as string, limit: limit as string });
 
     const leaders = await Leader.find({ region, isActive: true })
       .populate('userId', 'fullName email avatarUrl')

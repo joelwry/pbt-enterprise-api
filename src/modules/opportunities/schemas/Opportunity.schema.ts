@@ -1,7 +1,7 @@
-import { Schema, model } from 'mongoose';
+import { Schema, model, Types } from 'mongoose';
 
 interface IOpportunity {
-  memberId: Schema.Types.ObjectId;
+  memberId: Types.ObjectId;
   type: 'networking' | 'collaboration' | 'partnership' | 'event' | 'speaking' | 'venture';
   title: string;
   description: string;

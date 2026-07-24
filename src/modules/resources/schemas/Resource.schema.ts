@@ -98,12 +98,10 @@ const resourceSchema = new Schema<IResource>(
 );
 
 // Soft delete middleware
-resourceSchema.pre(/^find/, function (next: Function) {
-  // @ts-ignore
+resourceSchema.pre(/^find/, function (this: any) {
   if (this.where) {
     this.where({ deletedAt: { $exists: false } });
   }
-  next();
 });
 
 // Create indexes

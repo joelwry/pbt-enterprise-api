@@ -4,19 +4,19 @@ import { ResponseHandler } from '../../../core/response/ResponseHandler';
 
 export class RecommendationController {
   async getProgrammeRecommendations(req: Request, res: Response) {
-    const recs = await recommendationService.generateRecommendations(req.user!.id, 'programme');
-    ResponseHandler.success(res, recs, 'Recommendations retrieved');
+    const recs = await recommendationService.generateRecommendations(req.user!.userId, 'programme');
+    ResponseHandler.ok(res, 'Recommendations retrieved', recs);
   }
 
   async getEventRecommendations(req: Request, res: Response) {
-    const recs = await recommendationService.generateRecommendations(req.user!.id, 'event');
-    ResponseHandler.success(res, recs, 'Recommendations retrieved');
+    const recs = await recommendationService.generateRecommendations(req.user!.userId, 'event');
+    ResponseHandler.ok(res, 'Recommendations retrieved', recs);
   }
 
   async markEngaged(req: Request, res: Response) {
     const { recommendationId } = req.params;
     const rec = await recommendationService.markEngaged(recommendationId);
-    ResponseHandler.success(res, rec, 'Recommendation marked as engaged');
+    ResponseHandler.ok(res, 'Recommendation marked as engaged', rec);
   }
 }
 

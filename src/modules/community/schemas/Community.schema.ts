@@ -105,10 +105,8 @@ const communityThreadSchema = new Schema<ICommunityThread>(
 );
 
 // Soft delete middleware
-communityThreadSchema.pre(/^find/, function (next) {
-  // @ts-ignore
+communityThreadSchema.pre(/^find/, function (this: any) {
   this.where({ deletedAt: { $exists: false } });
-  next();
 });
 
 // Create indexes

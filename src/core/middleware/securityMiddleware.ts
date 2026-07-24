@@ -1,7 +1,18 @@
 import { Request, Response, NextFunction } from 'express';
-import rateLimit from 'express-rate-limit';
+import rateLimit, { RateLimitInfo } from 'express-rate-limit';
 import mongoSanitize from 'express-mongo-sanitize';
-import { logger } from '@/core/logger/logger';
+import logger from '@/core/logger/logger';
+
+declare global {
+  namespace Express {
+    interface Request {
+      /** Correlation ID assigned by correlationIdMiddleware, used to trace a request across logs. */
+      id?: string;
+      /** Populated by express-rate-limit's middleware once a limiter has run for this request. */
+      rateLimit?: RateLimitInfo;
+    }
+  }
+}
 
 /**
  * Request correlation ID middleware
@@ -36,7 +47,7 @@ export const requestDurationMiddleware = (
   const originalEnd = res.end;
 
   // Override res.end to log request duration
-  res.end = function (chunk?: any, encoding?: any) {
+  res.end = ((chunk?: any, encoding?: any) => {
     const duration = Date.now() - startTime;
 
     logger.info('Request completed', {
@@ -50,8 +61,8 @@ export const requestDurationMiddleware = (
     });
 
     // Call the original end method
-    originalEnd.call(this, chunk, encoding);
-  };
+    return originalEnd.call(res, chunk, encoding);
+  }) as typeof res.end;
 
   next();
 };
@@ -203,10 +214,11 @@ export const requestValidationMiddleware = (
         path: req.path,
       });
 
-      return res.status(415).json({
+      res.status(415).json({
         success: false,
         message: 'Unsupported Media Type. Please use application/json or multipart/form-data.',
       });
+      return;
     }
   }
 

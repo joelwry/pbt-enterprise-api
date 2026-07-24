@@ -1,10 +1,10 @@
 import { Router } from 'express';
-import { protect } from '@/core/middleware/authMiddleware';
+import { authenticate } from '@/core/middleware/authMiddleware';
 import BookmarkController from '../controllers/bookmark.controller';
 
 const router = Router();
 
-router.use(protect);
+router.use(authenticate);
 
 router.get('/', BookmarkController.getBookmarks);
 router.post('/', BookmarkController.createBookmark);

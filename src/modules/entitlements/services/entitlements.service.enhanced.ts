@@ -1,5 +1,5 @@
 import { subscriptionService } from '@/modules/subscriptions/services/subscription.service';
-import { logger } from '@/core/logger/logger';
+import logger from '@/core/logger/logger';
 import { Types } from 'mongoose';
 
 export interface Feature {

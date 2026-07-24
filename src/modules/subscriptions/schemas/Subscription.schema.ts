@@ -1,7 +1,7 @@
-import { Schema, model, Document } from 'mongoose';
+import { Schema, model, Document, Types } from 'mongoose';
 
 export interface SubscriptionDocument extends Document {
-  userId: Schema.Types.ObjectId;
+  userId: Types.ObjectId;
   tier: 'pathway' | 'plus' | 'mentorship';
   status: 'active' | 'pending' | 'cancelled' | 'expired';
   startDate: Date;
@@ -86,11 +86,10 @@ subscriptionSchema.index({ endDate: 1, status: 1 });
 subscriptionSchema.index({ tier: 1 });
 
 // Query middleware to exclude soft-deleted subscriptions
-subscriptionSchema.pre(/^find/, function (next: Function) {
+subscriptionSchema.pre(/^find/, function (this: any) {
   if (this.where) {
     this.where({ cancelledAt: { $exists: false } });
   }
-  next();
 });
 
 export const Subscription = model<SubscriptionDocument>(

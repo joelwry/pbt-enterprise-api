@@ -72,10 +72,8 @@ const membershipSchema = new Schema<IMembership>(
 );
 
 // Soft delete query middleware
-membershipSchema.pre(/^find/, function (next) {
-  // @ts-ignore
+membershipSchema.pre(/^find/, function (this: any) {
   this.where({ deletedAt: { $exists: false } });
-  next();
 });
 
 // Create indexes

@@ -1,4 +1,4 @@
-import { logger } from '@/core/logger/logger';
+import logger from '@/core/logger/logger';
 import { AppError } from '@/core/errors/AppError';
 import { ErrorCode } from '@/shared/errorCodes';
 

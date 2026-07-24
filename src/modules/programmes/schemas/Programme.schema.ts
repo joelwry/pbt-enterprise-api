@@ -1,4 +1,4 @@
-import { Schema, Document, model } from 'mongoose';
+import { Schema, Document, model, Types } from 'mongoose';
 
 // Type definition
 export interface IProgramme extends Document {
@@ -14,18 +14,18 @@ export interface IProgramme extends Document {
   learningOutcomes: string[];
   prerequisites: Schema.Types.ObjectId[];
   instructors: {
-    instructorId: Schema.Types.ObjectId;
+    instructorId: Types.ObjectId;
     name: string;
     bio: string;
     avatar: string;
   }[];
   modules: {
-    moduleId: Schema.Types.ObjectId;
+    moduleId: Types.ObjectId;
     title: string;
     order: number;
     description: string;
     lessons: {
-      lessonId: Schema.Types.ObjectId;
+      lessonId: Types.ObjectId;
       title: string;
       order: number;
       duration: number;
@@ -34,7 +34,7 @@ export interface IProgramme extends Document {
     }[];
   }[];
   relatedResources: {
-    resourceId: Schema.Types.ObjectId;
+    resourceId: Types.ObjectId;
     type: 'template' | 'checklist' | 'toolkit' | 'playbook' | 'case_study';
     title: string;
   }[];
@@ -49,7 +49,7 @@ export interface IProgramme extends Document {
   requiresSubscription: boolean;
   subscriptionTier?: 'free' | 'pathway' | 'plus' | 'mentorship';
   tags: string[];
-  createdBy: Schema.Types.ObjectId;
+  createdBy: Types.ObjectId;
   publishedAt?: Date;
   createdAt: Date;
   updatedAt: Date;
@@ -202,12 +202,10 @@ programmeSchema.index({ deletedAt: 1 });
 programmeSchema.index({ subscriptionTier: 1 });
 
 // Soft delete middleware
-programmeSchema.pre(/^find/, function (next: Function) {
-  // @ts-ignore
+programmeSchema.pre(/^find/, function (this: any) {
   if (this.where) {
     this.where({ deletedAt: { $exists: false } });
   }
-  next();
 });
 
 export const ProgrammeModel = model<IProgramme>('Programme', programmeSchema);

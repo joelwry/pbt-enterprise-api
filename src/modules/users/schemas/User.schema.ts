@@ -96,16 +96,11 @@ const userSchema = new Schema<IUser>(
 );
 
 // Hash password before saving
-userSchema.pre('save', async function (next: Function) {
-  if (!this.isModified('password')) return next();
+userSchema.pre('save', async function (this: any) {
+  if (!this.isModified('password')) return;
 
-  try {
-    const salt = await bcrypt.genSalt(10);
-    this.password = await bcrypt.hash(this.password, salt);
-    next();
-  } catch (error) {
-    next(error as Error);
-  }
+  const salt = await bcrypt.genSalt(10);
+  this.password = await bcrypt.hash(this.password, salt);
 });
 
 // Compare password method
@@ -114,12 +109,10 @@ userSchema.methods.comparePassword = async function (password: string): Promise<
 };
 
 // Soft delete query middleware
-userSchema.pre(/^find/, function (next: Function) {
-  // @ts-ignore
+userSchema.pre(/^find/, function (this: any) {
   if (this.where) {
     this.where({ deletedAt: { $exists: false } });
   }
-  next();
 });
 
 // Create indexes

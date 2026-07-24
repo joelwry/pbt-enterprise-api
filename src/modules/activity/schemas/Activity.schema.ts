@@ -1,9 +1,9 @@
-import { Schema, model } from 'mongoose';
+import { Schema, model, Types } from 'mongoose';
 
 interface IActivity {
-  memberId: Schema.Types.ObjectId;
+  memberId: Types.ObjectId;
   activityType: string;
-  itemId: Schema.Types.ObjectId;
+  itemId: Types.ObjectId;
   itemType: string;
   description: string;
   metadata?: Record<string, any>;

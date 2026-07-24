@@ -15,10 +15,11 @@ export class SubscriptionController {
     const subscription = await subscriptionService.getCurrentSubscription(userId);
 
     if (!subscription) {
-      return ResponseHandler.success(res, null, 'No active subscription');
+      ResponseHandler.ok(res, 'No active subscription', null);
+      return;
     }
 
-    ResponseHandler.success(res, subscription, 'Subscription retrieved successfully');
+    ResponseHandler.ok(res, 'Subscription retrieved successfully', subscription);
   });
 
   /**
@@ -36,7 +37,7 @@ export class SubscriptionController {
       features: data.features,
     }));
 
-    ResponseHandler.success(res, plans, 'Plans retrieved successfully');
+    ResponseHandler.ok(res, 'Plans retrieved successfully', plans);
   });
 
   /**
@@ -61,7 +62,7 @@ export class SubscriptionController {
       correlationId
     );
 
-    ResponseHandler.success(res, updated, 'Subscription upgraded successfully', 201);
+    ResponseHandler.created(res, 'Subscription upgraded successfully', updated);
   });
 
   /**
@@ -86,7 +87,7 @@ export class SubscriptionController {
       correlationId
     );
 
-    ResponseHandler.success(res, updated, 'Subscription downgraded successfully');
+    ResponseHandler.ok(res, 'Subscription downgraded successfully', updated);
   });
 
   /**
@@ -110,7 +111,7 @@ export class SubscriptionController {
       correlationId
     );
 
-    ResponseHandler.success(res, subscription, 'Subscription cancelled successfully');
+    ResponseHandler.ok(res, 'Subscription cancelled successfully', subscription);
   });
 
   /**
@@ -127,7 +128,7 @@ export class SubscriptionController {
 
     const comparison = enhancedEntitlementsService.compareFeatures(tierArray);
 
-    ResponseHandler.success(res, comparison, 'Features compared successfully');
+    ResponseHandler.ok(res, 'Features compared successfully', comparison);
   });
 
   /**
@@ -138,7 +139,7 @@ export class SubscriptionController {
 
     const suggestions = await enhancedEntitlementsService.getUpgradeSuggestions(userId);
 
-    ResponseHandler.success(res, suggestions, 'Upgrade suggestions retrieved successfully');
+    ResponseHandler.ok(res, 'Upgrade suggestions retrieved successfully', suggestions);
   });
 }
 

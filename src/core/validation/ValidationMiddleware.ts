@@ -12,8 +12,8 @@ export const validateBody = (schema: ZodSchema) => {
       req.body = validated;
       next();
     } catch (error: any) {
-      const errors = error.errors?.map((e: any) => `${e.path.join('.')}: ${e.message}`) || [];
-      throw new AppError('Validation failed', 400, errors);
+      const errors = error.issues?.map((e: any) => `${e.path.join('.')}: ${e.message}`) || [];
+      throw new AppError(400, 'Validation failed', errors);
     }
   };
 };
@@ -28,8 +28,8 @@ export const validateQuery = (schema: ZodSchema) => {
       req.query = validated as any;
       next();
     } catch (error: any) {
-      const errors = error.errors?.map((e: any) => `${e.path.join('.')}: ${e.message}`) || [];
-      throw new AppError('Query validation failed', 400, errors);
+      const errors = error.issues?.map((e: any) => `${e.path.join('.')}: ${e.message}`) || [];
+      throw new AppError(400, 'Query validation failed', errors);
     }
   };
 };
@@ -44,8 +44,8 @@ export const validateParams = (schema: ZodSchema) => {
       req.params = validated as any;
       next();
     } catch (error: any) {
-      const errors = error.errors?.map((e: any) => `${e.path.join('.')}: ${e.message}`) || [];
-      throw new AppError('Parameter validation failed', 400, errors);
+      const errors = error.issues?.map((e: any) => `${e.path.join('.')}: ${e.message}`) || [];
+      throw new AppError(400, 'Parameter validation failed', errors);
     }
   };
 };

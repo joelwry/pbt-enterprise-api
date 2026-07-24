@@ -11,7 +11,7 @@ export class EventsController {
    */
   async getUpcomingEvents(req: Request, res: Response): Promise<void> {
     const { page = 1, limit = 20 } = req.query;
-    const query = PaginationHelper.parse({ page, limit });
+    const query = PaginationHelper.parse({ page: page as string, limit: limit as string });
 
     const now = new Date();
     const events = await Event.find({
@@ -37,7 +37,7 @@ export class EventsController {
    */
   async getPastEvents(req: Request, res: Response): Promise<void> {
     const { page = 1, limit = 20 } = req.query;
-    const query = PaginationHelper.parse({ page, limit });
+    const query = PaginationHelper.parse({ page: page as string, limit: limit as string });
 
     const now = new Date();
     const events = await Event.find({

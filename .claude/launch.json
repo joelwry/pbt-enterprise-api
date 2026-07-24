@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "pbt-portal-dev",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["--prefix", "C:\\Users\\dell\\Documents\\codebase\\nextjs_apps\\pbt-portal-claude", "run", "dev"],
+      "port": 3000
+    }
+  ]
+}

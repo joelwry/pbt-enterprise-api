@@ -1,9 +1,9 @@
-import { Schema, model } from 'mongoose';
+import { Schema, model, Types } from 'mongoose';
 
 interface IDashboardData {
-  memberId: Schema.Types.ObjectId;
+  memberId: Types.ObjectId;
   continuJourney?: {
-    journeyId: Schema.Types.ObjectId;
+    journeyId: Types.ObjectId;
     title: string;
     progress: number;
   };
@@ -13,7 +13,7 @@ interface IDashboardData {
   notifications: Array<any>;
   teamUpdates: Schema.Types.ObjectId[];
   suggestedConnections: Schema.Types.ObjectId[];
-  mentorActivity?: Schema.Types.ObjectId;
+  mentorActivity?: Types.ObjectId;
   lastUpdated: Date;
   createdAt: Date;
 }

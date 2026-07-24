@@ -1,8 +1,8 @@
-import { Schema, model, Document } from 'mongoose';
+import { Schema, model, Document, Types } from 'mongoose';
 
 export interface SessionDocument extends Document {
-  userId: Schema.Types.ObjectId;
-  deviceId: Schema.Types.ObjectId;
+  userId: Types.ObjectId;
+  deviceId: Types.ObjectId;
   refreshTokenHash: string;
   refreshTokenExpiresAt: Date;
   ipAddress: string;

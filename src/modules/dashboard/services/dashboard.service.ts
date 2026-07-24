@@ -8,14 +8,15 @@ export class DashboardService {
       await dashboard.save();
     }
     dashboard.lastUpdated = new Date();
-    return dashboard.populate([
+    await dashboard.populate([
       'continuJourney.journeyId',
       'upcomingEvents',
       'recommendedResources',
       'industryInsights',
       'teamUpdates',
       'suggestedConnections',
-    ]).save();
+    ]);
+    return dashboard.save();
   }
 
   async getSummary(memberId: string) {

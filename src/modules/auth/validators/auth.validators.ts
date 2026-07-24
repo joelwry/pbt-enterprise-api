@@ -13,8 +13,11 @@ export const loginSchema = z.object({
   rememberMe: z.boolean().optional().default(false),
 });
 
+// Optional here because a persistent (rememberMe) session supplies the
+// refresh token via the httpOnly cookie instead of the request body — the
+// controller falls back to req.cookies.refreshToken when this is absent.
 export const refreshTokenSchema = z.object({
-  refreshToken: z.string().min(1, 'Refresh token is required'),
+  refreshToken: z.string().min(1).optional(),
 });
 
 export const forgotPasswordSchema = z.object({

@@ -1,10 +1,10 @@
 import { Router } from 'express';
-import { protect } from '@/core/middleware/authMiddleware';
+import { authenticate } from '@/core/middleware/authMiddleware';
 import JourneyController from '../controllers/journey.controller';
 
 const router = Router();
 
-router.use(protect);
+router.use(authenticate);
 
 router.get('/', JourneyController.getUserJourneys);
 router.post('/', JourneyController.createJourney);

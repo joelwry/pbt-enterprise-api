@@ -103,10 +103,8 @@ const eventSchema = new Schema<IEvent>(
 );
 
 // Soft delete middleware
-eventSchema.pre(/^find/, function (next) {
-  // @ts-ignore
+eventSchema.pre(/^find/, function (this: any) {
   this.where({ deletedAt: { $exists: false } });
-  next();
 });
 
 // Create indexes

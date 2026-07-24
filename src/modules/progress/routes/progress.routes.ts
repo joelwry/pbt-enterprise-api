@@ -1,10 +1,10 @@
 import { Router } from 'express';
-import { protect } from '@/core/middleware/authMiddleware';
+import { authenticate } from '@/core/middleware/authMiddleware';
 import ProgressController from '../controllers/progress.controller';
 
 const router = Router();
 
-router.use(protect);
+router.use(authenticate);
 
 router.get('/:programmeId', ProgressController.getProgress);
 router.patch('/:programmeId/lessons/:lessonId', ProgressController.updateLessonProgress);
