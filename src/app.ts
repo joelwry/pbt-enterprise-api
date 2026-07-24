@@ -1,0 +1,101 @@
+import express, { Application, Request, Response } from 'express';
+import helmet from 'helmet';
+import cors from 'cors';
+import compression from 'compression';
+import { config } from '@/config/environment';
+import { errorHandler, notFoundHandler } from '@/core/middleware/errorHandler';
+import { logger } from '@/core/logger/logger';
+import { setupSecurityMiddleware } from '@/core/middleware/securityMiddleware';
+import healthRoutes from '@/core/health/health.routes';
+
+// Routes
+import authRoutes from '@/modules/auth/routes/auth.routes';
+import learningRoutes from '@/modules/learning/routes/learning.routes';
+import membershipRoutes from '@/modules/memberships/routes/membership.routes';
+import subscriptionRoutes from '@/modules/subscriptions/routes/subscription.routes';
+import eventsRoutes from '@/modules/events/routes/events.routes';
+import resourcesRoutes from '@/modules/resources/routes/resources.routes';
+import leadersRoutes from '@/modules/leaders/routes/leaders.routes';
+import powerTeamRoutes from '@/modules/power-team/routes/power-team.routes';
+import communityRoutes from '@/modules/community/routes/community.routes';
+import progressRoutes from '@/modules/progress/routes/progress.routes';
+import bookmarkRoutes from '@/modules/bookmarks/routes/bookmark.routes';
+import journeyRoutes from '@/modules/journeys/routes/journey.routes';
+import introductionRoutes from '@/modules/introductions/routes/introduction.routes';
+import storyRoutes from '@/modules/stories/routes/story.routes';
+import questionRoutes from '@/modules/questions/routes/question.routes';
+import mentorRoutes from '@/modules/mentorship/routes/mentor.routes';
+import insightRoutes from '@/modules/insights/routes/insight.routes';
+import dashboardRoutes from '@/modules/dashboard/routes/dashboard.routes';
+import recommendationRoutes from '@/modules/recommendations/routes/recommendation.routes';
+import activityRoutes from '@/modules/activity/routes/activity.routes';
+import opportunityRoutes from '@/modules/opportunities/routes/opportunity.routes';
+
+export function createApp(): Application {
+  const app = express();
+
+  // ==================== SECURITY MIDDLEWARE ====================
+  if (config.ENABLE_HELMET === 'true') {
+    app.use(helmet({
+      contentSecurityPolicy: false, // We handle CSP separately
+      crossOriginEmbedderPolicy: false,
+    }));
+  }
+
+  app.use(cors({
+    origin: config.CORS_ORIGIN,
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'X-Correlation-ID'],
+  }));
+
+  // ==================== COMPRESSION ====================
+  app.use(compression());
+
+  // ==================== BODY PARSERS ====================
+  app.use(express.json({ limit: '10mb' }));
+  app.use(express.urlencoded({ limit: '10mb', extended: true }));
+
+  // ==================== ADVANCED SECURITY MIDDLEWARE ====================
+  setupSecurityMiddleware(app);
+
+  // ==================== HEALTH CHECK ROUTES ====================
+  app.use(healthRoutes);
+
+  // ==================== API ROUTES ====================
+  app.use(`/api/${config.API_VERSION}/auth`, authRoutes);
+  app.use(`/api/${config.API_VERSION}/learning`, learningRoutes);
+  app.use(`/api/${config.API_VERSION}/memberships`, membershipRoutes);
+  app.use(`/api/${config.API_VERSION}/subscriptions`, subscriptionRoutes);
+  app.use(`/api/${config.API_VERSION}/events`, eventsRoutes);
+  app.use(`/api/${config.API_VERSION}/resources`, resourcesRoutes);
+  app.use(`/api/${config.API_VERSION}/leaders`, leadersRoutes);
+  app.use(`/api/${config.API_VERSION}/power-team`, powerTeamRoutes);
+  app.use(`/api/${config.API_VERSION}/community`, communityRoutes);
+  app.use(`/api/${config.API_VERSION}/progress`, progressRoutes);
+  app.use(`/api/${config.API_VERSION}/bookmarks`, bookmarkRoutes);
+  app.use(`/api/${config.API_VERSION}/journeys`, journeyRoutes);
+  
+  // Sprint 4 - Community & Ecosystem
+  app.use(`/api/${config.API_VERSION}/introductions`, introductionRoutes);
+  app.use(`/api/${config.API_VERSION}/stories`, storyRoutes);
+  app.use(`/api/${config.API_VERSION}/questions`, questionRoutes);
+  app.use(`/api/${config.API_VERSION}/mentors`, mentorRoutes);
+  app.use(`/api/${config.API_VERSION}/insights`, insightRoutes);
+  
+  // Sprint 5 - Experience Layer
+  app.use(`/api/${config.API_VERSION}/dashboard`, dashboardRoutes);
+  app.use(`/api/${config.API_VERSION}/recommendations`, recommendationRoutes);
+  app.use(`/api/${config.API_VERSION}/activity`, activityRoutes);
+  app.use(`/api/${config.API_VERSION}/opportunities`, opportunityRoutes);
+
+  // ==================== SWAGGER DOCUMENTATION ====================
+  // Swagger setup will be added here
+  // app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
+  // ==================== ERROR HANDLING ====================
+  app.use(notFoundHandler);
+  app.use(errorHandler);
+
+  return app;
+}
