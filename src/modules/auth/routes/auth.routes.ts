@@ -19,6 +19,12 @@ router.post('/reset-password', catchAsync((req, res, next) => authController.res
 
 // Protected routes
 router.get('/me', authenticate, catchAsync((req, res, next) => authController.getCurrentUser(req, res)));
+router.patch('/me', authenticate, catchAsync((req, res, next) => authController.updateProfile(req, res)));
+router.patch(
+  '/me/notifications',
+  authenticate,
+  catchAsync((req, res, next) => authController.updateNotificationPreference(req, res))
+);
 router.post('/logout', authenticate, catchAsync((req, res, next) => authController.logout(req, res)));
 
 export default router;

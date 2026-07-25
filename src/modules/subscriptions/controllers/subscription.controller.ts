@@ -10,7 +10,7 @@ export class SubscriptionController {
    * Get current subscription
    */
   getCurrentSubscription = asyncHandler(async (req: Request, res: Response) => {
-    const userId = (req as any).user?.id;
+    const userId = (req as any).user?.userId;
 
     const subscription = await subscriptionService.getCurrentSubscription(userId);
 
@@ -44,7 +44,7 @@ export class SubscriptionController {
    * Upgrade subscription
    */
   upgradeSubscription = asyncHandler(async (req: Request, res: Response) => {
-    const userId = (req as any).user?.id;
+    const userId = (req as any).user?.userId;
     const { newTier } = req.body;
     const ipAddress = req.ip || '';
     const userAgent = req.get('user-agent') || '';
@@ -69,7 +69,7 @@ export class SubscriptionController {
    * Downgrade subscription
    */
   downgradeSubscription = asyncHandler(async (req: Request, res: Response) => {
-    const userId = (req as any).user?.id;
+    const userId = (req as any).user?.userId;
     const { newTier } = req.body;
     const ipAddress = req.ip || '';
     const userAgent = req.get('user-agent') || '';
@@ -94,7 +94,7 @@ export class SubscriptionController {
    * Cancel subscription
    */
   cancelSubscription = asyncHandler(async (req: Request, res: Response) => {
-    const userId = (req as any).user?.id;
+    const userId = (req as any).user?.userId;
     const ipAddress = req.ip || '';
     const userAgent = req.get('user-agent') || '';
     const correlationId = (req as any).correlationId;
@@ -135,7 +135,7 @@ export class SubscriptionController {
    * Get upgrade suggestions
    */
   getUpgradeSuggestions = asyncHandler(async (req: Request, res: Response) => {
-    const userId = (req as any).user?.id;
+    const userId = (req as any).user?.userId;
 
     const suggestions = await enhancedEntitlementsService.getUpgradeSuggestions(userId);
 

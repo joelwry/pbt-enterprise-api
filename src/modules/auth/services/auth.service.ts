@@ -184,10 +184,65 @@ export class AuthService {
       fullName: user.fullName,
       phone: user.phone,
       avatarUrl: user.avatarUrl,
+      location: user.location,
+      investmentFocus: user.investmentFocus,
+      assignedLeader: user.assignedLeader,
+      notificationPreferences: user.notificationPreferences,
       role: user.role,
       emailVerified: user.emailVerified,
       isActive: user.isActive,
     };
+  }
+
+  /**
+   * Update the current member's editable profile details.
+   */
+  async updateProfile(
+    userId: string,
+    updates: { fullName: string; email: string; phone: string; location: string; investmentFocus: string }
+  ) {
+    const existing = await this.authRepository.findById(userId);
+    if (!existing) {
+      throw new NotFoundError('User not found');
+    }
+
+    const emailChanged = updates.email.toLowerCase() !== existing.email;
+    const updated = await this.authRepository.update(userId, {
+      ...updates,
+      email: updates.email.toLowerCase(),
+      // Changing the email address means the new one hasn't been verified yet.
+      ...(emailChanged ? { emailVerified: false } : {}),
+    });
+
+    logger.info(`Profile updated: ${updated.email}`);
+
+    return {
+      fullName: updated.fullName,
+      email: updated.email,
+      phone: updated.phone,
+      location: updated.location,
+      investmentFocus: updated.investmentFocus,
+      assignedLeader: updated.assignedLeader,
+    };
+  }
+
+  /**
+   * Update a single notification preference for the current member.
+   */
+  async updateNotificationPreference(
+    userId: string,
+    key: keyof import('@/modules/users/schemas/User.schema').INotificationPreferences,
+    value: boolean
+  ) {
+    const user = await this.authRepository.findById(userId);
+    if (!user) {
+      throw new NotFoundError('User not found');
+    }
+
+    user.notificationPreferences[key] = value;
+    await user.save();
+
+    return user.notificationPreferences;
   }
 
   /**

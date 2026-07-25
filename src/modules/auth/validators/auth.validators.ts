@@ -37,9 +37,24 @@ export const emailVerificationSchema = z.object({
   token: z.string().min(1, 'Verification token is required'),
 });
 
+export const updateProfileSchema = z.object({
+  fullName: z.string().min(2, 'Enter your full name'),
+  email: z.string().email('Enter a valid email address'),
+  phone: z.string().min(6, 'Enter a valid phone number'),
+  location: z.string().min(2, 'Enter your location'),
+  investmentFocus: z.string().min(1, 'Select an investment focus'),
+});
+
+export const updateNotificationPreferenceSchema = z.object({
+  key: z.enum(['communityReplies', 'eventReminders', 'newModuleReleases', 'marketingUpdates']),
+  value: z.boolean(),
+});
+
 export type RegisterInput = z.infer<typeof registerSchema>;
 export type LoginInput = z.infer<typeof loginSchema>;
 export type RefreshTokenInput = z.infer<typeof refreshTokenSchema>;
 export type ForgotPasswordInput = z.infer<typeof forgotPasswordSchema>;
 export type ResetPasswordInput = z.infer<typeof resetPasswordSchema>;
 export type EmailVerificationInput = z.infer<typeof emailVerificationSchema>;
+export type UpdateProfileInput = z.infer<typeof updateProfileSchema>;
+export type UpdateNotificationPreferenceInput = z.infer<typeof updateNotificationPreferenceSchema>;

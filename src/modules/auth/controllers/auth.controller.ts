@@ -9,6 +9,8 @@ import {
   emailVerificationSchema,
   forgotPasswordSchema,
   resetPasswordSchema,
+  updateProfileSchema,
+  updateNotificationPreferenceSchema,
 } from '@/modules/auth/validators/auth.validators';
 import logger from '@/core/logger/logger';
 
@@ -129,6 +131,38 @@ export class AuthController {
     const user = await authService.getCurrentUser(req.user.userId);
 
     ResponseHandler.ok(res, 'Current user retrieved', user);
+  }
+
+  /**
+   * Update Profile
+   * PATCH /api/v1/auth/me
+   */
+  async updateProfile(req: Request, res: Response): Promise<void> {
+    if (!req.user) {
+      ResponseHandler.unauthorized(res);
+      return;
+    }
+
+    const updates = updateProfileSchema.parse(req.body);
+    const profile = await authService.updateProfile(req.user.userId, updates);
+
+    ResponseHandler.ok(res, 'Profile updated successfully', profile);
+  }
+
+  /**
+   * Update Notification Preference
+   * PATCH /api/v1/auth/me/notifications
+   */
+  async updateNotificationPreference(req: Request, res: Response): Promise<void> {
+    if (!req.user) {
+      ResponseHandler.unauthorized(res);
+      return;
+    }
+
+    const { key, value } = updateNotificationPreferenceSchema.parse(req.body);
+    const notificationPreferences = await authService.updateNotificationPreference(req.user.userId, key, value);
+
+    ResponseHandler.ok(res, 'Preference updated successfully', notificationPreferences);
   }
 
   /**

@@ -564,3 +564,549 @@
   "duration": "2ms",
   "ip": "::1"
 }
+2026-07-25 09:17:54 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-07-25 09:17:54 [info]: MongoDB connected successfully
+2026-07-25 09:17:54 [info]: Security middleware initialized
+2026-07-25 09:17:54 [info]: 🚀 Server running on http://localhost:5000
+2026-07-25 09:17:54 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-07-25 09:17:54 [info]: 🔧 Environment: development
+2026-07-25 09:17:54 [info]: 🛣️  API Version: /api/v1
+2026-07-25 09:18:44 [info]: Request completed {
+  "correlationId": "1784996324715-0.9422972638617291",
+  "method": "GET",
+  "path": "/health",
+  "statusCode": 200,
+  "duration": "3ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-25 09:19:39 [info]: User logged in: testuser1@example.com
+2026-07-25 09:19:39 [info]: User logged in: testuser1@example.com
+2026-07-25 09:19:39 [info]: Request completed {
+  "correlationId": "1784996379504-0.8649025698677382",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "148ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-25 09:19:39 [info]: Request completed {
+  "correlationId": "1784996379744-0.7527289301558843",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 200,
+  "duration": "4ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-25 09:21:02 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-07-25 09:21:02 [info]: MongoDB connected successfully
+2026-07-25 09:21:02 [info]: Security middleware initialized
+2026-07-25 09:21:02 [info]: 🚀 Server running on http://localhost:5000
+2026-07-25 09:21:02 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-07-25 09:21:02 [info]: 🔧 Environment: development
+2026-07-25 09:21:02 [info]: 🛣️  API Version: /api/v1
+2026-07-25 09:21:20 [info]: User logged in: testuser1@example.com
+2026-07-25 09:21:20 [info]: User logged in: testuser1@example.com
+2026-07-25 09:21:20 [info]: Request completed {
+  "correlationId": "1784996480163-0.9102194028803252",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "109ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-25 09:21:20 [info]: Request completed {
+  "correlationId": "1784996480359-0.5013250677483667",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 200,
+  "duration": "6ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-25 09:23:07 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-07-25 09:23:08 [info]: MongoDB connected successfully
+2026-07-25 09:23:08 [info]: Security middleware initialized
+2026-07-25 09:23:08 [info]: 🚀 Server running on http://localhost:5000
+2026-07-25 09:23:08 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-07-25 09:23:08 [info]: 🔧 Environment: development
+2026-07-25 09:23:08 [info]: 🛣️  API Version: /api/v1
+2026-07-25 09:23:32 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-07-25 09:23:32 [info]: MongoDB connected successfully
+2026-07-25 09:23:32 [info]: Security middleware initialized
+2026-07-25 09:23:32 [info]: 🚀 Server running on http://localhost:5000
+2026-07-25 09:23:32 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-07-25 09:23:32 [info]: 🔧 Environment: development
+2026-07-25 09:23:32 [info]: 🛣️  API Version: /api/v1
+2026-07-25 09:25:36 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-07-25 09:25:36 [info]: MongoDB connected successfully
+2026-07-25 09:25:36 [info]: Security middleware initialized
+2026-07-25 09:25:36 [info]: 🚀 Server running on http://localhost:5000
+2026-07-25 09:25:36 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-07-25 09:25:36 [info]: 🔧 Environment: development
+2026-07-25 09:25:36 [info]: 🛣️  API Version: /api/v1
+2026-07-25 09:25:56 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-07-25 09:25:56 [info]: MongoDB connected successfully
+2026-07-25 09:25:56 [info]: Security middleware initialized
+2026-07-25 09:25:56 [info]: 🚀 Server running on http://localhost:5000
+2026-07-25 09:25:56 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-07-25 09:25:56 [info]: 🔧 Environment: development
+2026-07-25 09:25:56 [info]: 🛣️  API Version: /api/v1
+2026-07-25 09:26:24 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-07-25 09:26:24 [info]: MongoDB connected successfully
+2026-07-25 09:26:24 [info]: Security middleware initialized
+2026-07-25 09:26:24 [info]: 🚀 Server running on http://localhost:5000
+2026-07-25 09:26:24 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-07-25 09:26:24 [info]: 🔧 Environment: development
+2026-07-25 09:26:24 [info]: 🛣️  API Version: /api/v1
+2026-07-25 09:26:45 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-07-25 09:26:45 [info]: MongoDB connected successfully
+2026-07-25 09:26:45 [info]: Security middleware initialized
+2026-07-25 09:26:45 [info]: 🚀 Server running on http://localhost:5000
+2026-07-25 09:26:45 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-07-25 09:26:45 [info]: 🔧 Environment: development
+2026-07-25 09:26:45 [info]: 🛣️  API Version: /api/v1
+2026-07-25 09:30:49 [info]: User logged in: testuser1@example.com
+2026-07-25 09:30:49 [info]: User logged in: testuser1@example.com
+2026-07-25 09:30:49 [info]: Request completed {
+  "correlationId": "1784997049423-0.806911297569909",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "107ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-25 09:30:49 [info]: Request completed {
+  "correlationId": "1784997049591-0.8083495704797393",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 200,
+  "duration": "4ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-25 09:30:49 [info]: Profile updated: testuser1@example.com
+2026-07-25 09:30:49 [info]: Request completed {
+  "correlationId": "1784997049652-0.9603165339959759",
+  "method": "PATCH",
+  "path": "/me",
+  "statusCode": 200,
+  "duration": "7ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-25 09:30:49 [info]: Request completed {
+  "correlationId": "1784997049731-0.6616529907818759",
+  "method": "PATCH",
+  "path": "/me/notifications",
+  "statusCode": 200,
+  "duration": "14ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-25 09:40:14 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-07-25 09:40:14 [info]: MongoDB connected successfully
+2026-07-25 09:40:14 [info]: Security middleware initialized
+2026-07-25 09:40:14 [info]: 🚀 Server running on http://localhost:5000
+2026-07-25 09:40:14 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-07-25 09:40:14 [info]: 🔧 Environment: development
+2026-07-25 09:40:14 [info]: 🛣️  API Version: /api/v1
+2026-07-25 09:41:49 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-07-25 09:41:49 [info]: MongoDB connected successfully
+2026-07-25 09:41:49 [info]: Security middleware initialized
+2026-07-25 09:41:49 [info]: 🚀 Server running on http://localhost:5000
+2026-07-25 09:41:49 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-07-25 09:41:49 [info]: 🔧 Environment: development
+2026-07-25 09:41:49 [info]: 🛣️  API Version: /api/v1
+2026-07-25 09:42:31 [info]: User logged in: testuser1@example.com
+2026-07-25 09:42:31 [info]: User logged in: testuser1@example.com
+2026-07-25 09:42:31 [info]: Request completed {
+  "correlationId": "1784997750893-0.29788299928593753",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "142ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-25 09:42:31 [info]: Request completed {
+  "correlationId": "1784997751117-0.06454710309348144",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 200,
+  "duration": "8ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-25 09:44:12 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "::1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\controllers\\auth.controller.ts:64:13)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\routes\\auth.routes.ts:15:77\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\core\\middleware\\asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at Route.dispatch (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:119:3)\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:284:15\n    at router.process_params (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:280:10)"
+}
+2026-07-25 09:44:12 [info]: Request completed {
+  "correlationId": "1784997852986-0.25466824973041124",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "7ms",
+  "ip": "::1"
+}
+2026-07-25 09:44:21 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "::1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\controllers\\auth.controller.ts:64:13)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\routes\\auth.routes.ts:15:77\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\core\\middleware\\asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at Route.dispatch (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:119:3)\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:284:15\n    at router.process_params (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:280:10)"
+}
+2026-07-25 09:44:21 [info]: Request completed {
+  "correlationId": "1784997861753-0.12901132586025188",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "2ms",
+  "ip": "::1"
+}
+2026-07-25 09:44:45 [info]: User logged in: testuser1@example.com
+2026-07-25 09:44:45 [info]: User logged in: testuser1@example.com
+2026-07-25 09:44:45 [info]: Request completed {
+  "correlationId": "1784997885444-0.5710244114043602",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "158ms",
+  "ip": "::1"
+}
+2026-07-25 09:44:45 [info]: Request completed {
+  "correlationId": "1784997885611-0.9193488771314692",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 200,
+  "duration": "54ms",
+  "ip": "::1"
+}
+2026-07-25 09:44:45 [info]: Request completed {
+  "correlationId": "1784997885942-0.6361309120794685",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 200,
+  "duration": "9ms",
+  "ip": "::1"
+}
+2026-07-25 09:45:03 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "::1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\controllers\\auth.controller.ts:64:13)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\routes\\auth.routes.ts:15:77\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\core\\middleware\\asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at Route.dispatch (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:119:3)\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:284:15\n    at router.process_params (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:280:10)"
+}
+2026-07-25 09:45:03 [info]: Request completed {
+  "correlationId": "1784997903070-0.7714274586167772",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "2ms",
+  "ip": "::1"
+}
+2026-07-25 09:45:14 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "::1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\controllers\\auth.controller.ts:64:13)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\routes\\auth.routes.ts:15:77\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\core\\middleware\\asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at Route.dispatch (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:119:3)\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:284:15\n    at router.process_params (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:280:10)"
+}
+2026-07-25 09:45:14 [info]: Request completed {
+  "correlationId": "1784997914210-0.45720184719199186",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "1ms",
+  "ip": "::1"
+}
+2026-07-25 09:51:08 [info]: User logged in: testuser1@example.com
+2026-07-25 09:51:08 [info]: User logged in: testuser1@example.com
+2026-07-25 09:51:08 [info]: Request completed {
+  "correlationId": "1784998267909-0.373121015705527",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "112ms",
+  "ip": "::1"
+}
+2026-07-25 09:51:08 [info]: Request completed {
+  "correlationId": "1784998268030-0.25642924530751887",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 304,
+  "duration": "3ms",
+  "ip": "::1"
+}
+2026-07-25 09:51:08 [info]: Request completed {
+  "correlationId": "1784998268191-0.9092515664619462",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 200,
+  "duration": "3ms",
+  "ip": "::1"
+}
+2026-07-25 09:51:20 [debug]: Access token refreshed for user: testuser1@example.com
+2026-07-25 09:51:20 [info]: Request completed {
+  "correlationId": "1784998280376-0.8019792308027396",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "5ms",
+  "ip": "::1"
+}
+2026-07-25 09:51:20 [info]: Request completed {
+  "correlationId": "1784998280390-0.8308298519030344",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 304,
+  "duration": "4ms",
+  "ip": "::1"
+}
+2026-07-25 09:51:20 [info]: Request completed {
+  "correlationId": "1784998280407-0.43623739030326936",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 304,
+  "duration": "3ms",
+  "ip": "::1"
+}
+2026-07-25 09:51:20 [info]: Request completed {
+  "correlationId": "1784998280502-0.016952246097658663",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 304,
+  "duration": "3ms",
+  "ip": "::1"
+}
+2026-07-25 09:52:02 [info]: Profile updated: testuser1@example.com
+2026-07-25 09:52:02 [info]: Request completed {
+  "correlationId": "1784998322091-0.2650510259589697",
+  "method": "PATCH",
+  "path": "/me",
+  "statusCode": 200,
+  "duration": "8ms",
+  "ip": "::1"
+}
+2026-07-25 09:53:49 [info]: User logged in: testuser1@example.com
+2026-07-25 09:53:49 [info]: User logged in: testuser1@example.com
+2026-07-25 09:53:49 [info]: Request completed {
+  "correlationId": "1784998429156-0.9864655411906508",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "92ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-25 09:53:49 [info]: Request completed {
+  "correlationId": "1784998429311-0.2136940406191714",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 200,
+  "duration": "2ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-25 09:53:59 [info]: Request completed {
+  "correlationId": "1784998439352-0.7811571423738529",
+  "method": "PATCH",
+  "path": "/me/notifications",
+  "statusCode": 200,
+  "duration": "17ms",
+  "ip": "::1"
+}
+2026-07-25 09:57:06 [info]: User logged in: testuser1@example.com
+2026-07-25 09:57:06 [info]: User logged in: testuser1@example.com
+2026-07-25 09:57:06 [info]: Request completed {
+  "correlationId": "1784998625926-0.1094339998942947",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "94ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-25 09:57:06 [info]: Request completed {
+  "correlationId": "1784998626126-0.9086598397256321",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 200,
+  "duration": "3ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-25 10:06:14 [debug]: Access token refreshed for user: testuser1@example.com
+2026-07-25 10:06:14 [info]: Request completed {
+  "correlationId": "1784999174424-0.8138786725541216",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "3ms",
+  "ip": "::1"
+}
+2026-07-25 10:21:08 [debug]: Access token refreshed for user: testuser1@example.com
+2026-07-25 10:21:08 [info]: Request completed {
+  "correlationId": "1785000068452-0.36801688696495705",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "7ms",
+  "ip": "::1"
+}
+2026-07-25 10:27:04 [debug]: Access token refreshed for user: testuser1@example.com
+2026-07-25 10:27:04 [info]: Request completed {
+  "correlationId": "1785000424094-0.8212855292140596",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "4ms",
+  "ip": "::1"
+}
+2026-07-25 10:27:04 [info]: Request completed {
+  "correlationId": "1785000424108-0.5857582213313354",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 200,
+  "duration": "3ms",
+  "ip": "::1"
+}
+2026-07-25 10:27:04 [info]: Request completed {
+  "correlationId": "1785000424120-0.16605227314313398",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 304,
+  "duration": "3ms",
+  "ip": "::1"
+}
+2026-07-25 10:27:04 [info]: Request completed {
+  "correlationId": "1785000424196-0.5778118579710494",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "6ms",
+  "ip": "::1"
+}
+2026-07-25 10:27:36 [info]: Request completed {
+  "correlationId": "1785000456150-0.13767869507075503",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 304,
+  "duration": "5ms",
+  "ip": "::1"
+}
+2026-07-25 10:27:51 [info]: Profile updated: testuser1@example.com
+2026-07-25 10:27:51 [info]: Request completed {
+  "correlationId": "1785000471630-0.2534942553342384",
+  "method": "PATCH",
+  "path": "/me",
+  "statusCode": 200,
+  "duration": "9ms",
+  "ip": "::1"
+}
+2026-07-25 10:28:47 [info]: Request completed {
+  "correlationId": "1785000527017-0.8188085194111089",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "8ms",
+  "ip": "::1"
+}
+2026-07-25 10:29:12 [info]: Request completed {
+  "correlationId": "1785000552786-0.7370039438057058",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 200,
+  "duration": "3ms",
+  "ip": "::1"
+}
+2026-07-25 10:41:09 [error]: Error occurred: Route not found: GET /admin-login {
+  "url": "/admin-login",
+  "method": "GET",
+  "ip": "::1",
+  "stack": "AppError: Route not found: GET /admin-login\n    at notFoundHandler (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\core\\middleware\\errorHandler.ts:48:17)\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:328:13)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:286:9\n    at router.process_params (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:280:10)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:646:15\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:265:14)\n    at router.handle (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:175:3)\n    at router (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:47:12)"
+}
+2026-07-25 10:41:09 [info]: Request completed {
+  "correlationId": "1785001269326-0.06821650093423726",
+  "method": "GET",
+  "path": "/admin-login",
+  "statusCode": 404,
+  "duration": "4ms",
+  "ip": "::1"
+}
+2026-07-25 10:41:50 [error]: Error occurred: Route not found: GET /admin/my-profile {
+  "url": "/admin/my-profile",
+  "method": "GET",
+  "ip": "::1",
+  "stack": "AppError: Route not found: GET /admin/my-profile\n    at notFoundHandler (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\core\\middleware\\errorHandler.ts:48:17)\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:328:13)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:286:9\n    at router.process_params (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:280:10)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:646:15\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:265:14)\n    at router.handle (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:175:3)\n    at router (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:47:12)"
+}
+2026-07-25 10:41:50 [info]: Request completed {
+  "correlationId": "1785001310163-0.439363225189751",
+  "method": "GET",
+  "path": "/admin/my-profile",
+  "statusCode": 404,
+  "duration": "2ms",
+  "ip": "::1"
+}
+2026-07-25 10:41:59 [debug]: Access token refreshed for user: testuser1@example.com
+2026-07-25 10:41:59 [info]: Request completed {
+  "correlationId": "1785001319063-0.26680232829245343",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "7ms",
+  "ip": "::1"
+}
+2026-07-25 10:56:54 [debug]: Access token refreshed for user: testuser1@example.com
+2026-07-25 10:56:54 [info]: Request completed {
+  "correlationId": "1785002214068-0.0808481129449754",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "12ms",
+  "ip": "::1"
+}
+2026-07-25 11:11:49 [debug]: Access token refreshed for user: testuser1@example.com
+2026-07-25 11:11:49 [info]: Request completed {
+  "correlationId": "1785003109063-0.23058860561409233",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "8ms",
+  "ip": "::1"
+}
+2026-07-25 11:16:11 [info]: Request completed {
+  "correlationId": "1785003371316-0.9418852174037012",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 304,
+  "duration": "6ms",
+  "ip": "::1"
+}
+2026-07-25 11:18:17 [info]: Request completed {
+  "correlationId": "1785003497477-0.6309520507326066",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 304,
+  "duration": "7ms",
+  "ip": "::1"
+}
+2026-07-25 11:26:44 [debug]: Access token refreshed for user: testuser1@example.com
+2026-07-25 11:26:44 [info]: Request completed {
+  "correlationId": "1785004004058-0.09027949325871631",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "7ms",
+  "ip": "::1"
+}
+2026-07-25 11:38:36 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-07-25 11:38:36 [info]: MongoDB connected successfully
+2026-07-25 11:38:36 [info]: Security middleware initialized
+2026-07-25 11:38:36 [info]: 🚀 Server running on http://localhost:5000
+2026-07-25 11:38:36 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-07-25 11:38:36 [info]: 🔧 Environment: development
+2026-07-25 11:38:36 [info]: 🛣️  API Version: /api/v1
+2026-07-25 11:38:55 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-07-25 11:38:55 [info]: MongoDB connected successfully
+2026-07-25 11:38:55 [info]: Security middleware initialized
+2026-07-25 11:38:55 [info]: 🚀 Server running on http://localhost:5000
+2026-07-25 11:38:55 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-07-25 11:38:55 [info]: 🔧 Environment: development
+2026-07-25 11:38:55 [info]: 🛣️  API Version: /api/v1
+2026-07-25 11:39:39 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-07-25 11:39:39 [info]: MongoDB connected successfully
+2026-07-25 11:39:39 [info]: Security middleware initialized
+2026-07-25 11:39:39 [info]: 🚀 Server running on http://localhost:5000
+2026-07-25 11:39:39 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-07-25 11:39:39 [info]: 🔧 Environment: development
+2026-07-25 11:39:39 [info]: 🛣️  API Version: /api/v1

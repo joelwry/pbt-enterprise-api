@@ -1,12 +1,24 @@
 import { Schema, model, Document } from 'mongoose';
 import bcrypt from 'bcryptjs';
 
+export interface INotificationPreferences {
+  communityReplies: boolean;
+  eventReminders: boolean;
+  newModuleReleases: boolean;
+  marketingUpdates: boolean;
+}
+
 export interface IUser extends Document {
   email: string;
   password: string;
   fullName: string;
   phone?: string;
   avatarUrl?: string;
+  location?: string;
+  investmentFocus?: string;
+  /** Set by admin/mentor-matching tooling, not editable by the member. */
+  assignedLeader?: string;
+  notificationPreferences: INotificationPreferences;
   role: 'member' | 'admin' | 'super_admin' | 'visitor';
   emailVerified: boolean;
   emailVerificationToken?: string;
@@ -49,6 +61,24 @@ const userSchema = new Schema<IUser>(
     },
     avatarUrl: {
       type: String,
+    },
+    location: {
+      type: String,
+      trim: true,
+    },
+    investmentFocus: {
+      type: String,
+      trim: true,
+    },
+    assignedLeader: {
+      type: String,
+      trim: true,
+    },
+    notificationPreferences: {
+      communityReplies: { type: Boolean, default: true },
+      eventReminders: { type: Boolean, default: true },
+      newModuleReleases: { type: Boolean, default: true },
+      marketingUpdates: { type: Boolean, default: false },
     },
     role: {
       type: String,

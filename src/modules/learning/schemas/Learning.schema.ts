@@ -46,7 +46,7 @@ export interface ILesson extends Document {
 }
 
 export interface IModule extends Document {
-  programYear: string;
+  roadmapWeekId: Types.ObjectId;
   moduleNumber: number;
   title: string;
   description?: string;
@@ -62,6 +62,7 @@ export interface IUserLessonProgress extends Document {
   moduleId: Types.ObjectId;
   status: LessonStatus;
   progressPercent: number;
+  timeSpentMinutes: number;
   completedAt?: Date;
   lastAccessedAt: Date;
   quizScore?: number;
@@ -153,8 +154,9 @@ const lessonSchema = new Schema<ILesson>(
 // Module Schema
 const moduleSchema = new Schema<IModule>(
   {
-    programYear: {
-      type: String,
+    roadmapWeekId: {
+      type: Schema.Types.ObjectId,
+      ref: 'RoadmapWeek',
       required: true,
       index: true,
     },
@@ -218,6 +220,11 @@ const userLessonProgressSchema = new Schema<IUserLessonProgress>(
       min: 0,
       max: 100,
     },
+    timeSpentMinutes: {
+      type: Number,
+      default: 0,
+      min: 0,
+    },
     completedAt: {
       type: Date,
     },
@@ -256,7 +263,7 @@ userLessonProgressSchema.pre(/^find/, function (this: any) {
 
 // Create indexes
 lessonSchema.index({ moduleId: 1, type: 1 });
-moduleSchema.index({ programYear: 1, moduleNumber: 1 });
+moduleSchema.index({ roadmapWeekId: 1, moduleNumber: 1 });
 userLessonProgressSchema.index({ userId: 1, lessonId: 1 });
 userLessonProgressSchema.index({ userId: 1, moduleId: 1 });
 
