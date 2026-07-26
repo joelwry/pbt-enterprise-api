@@ -72,7 +72,7 @@ const membershipSchema = new Schema<IMembership>(
 );
 
 // Soft delete query middleware
-membershipSchema.pre(/^find|^countDocuments/, function (this: any) {
+membershipSchema.pre(/^find|^countDocuments|^distinct/, function (this: any) {
   this.where({ deletedAt: { $exists: false } });
 });
 

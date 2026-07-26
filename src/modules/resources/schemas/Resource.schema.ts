@@ -110,7 +110,7 @@ const resourceSchema = new Schema<IResource>(
 );
 
 // Soft delete middleware
-resourceSchema.pre(/^find|^countDocuments/, function (this: any) {
+resourceSchema.pre(/^find|^countDocuments|^distinct/, function (this: any) {
   if (this.where) {
     this.where({ deletedAt: { $exists: false } });
   }

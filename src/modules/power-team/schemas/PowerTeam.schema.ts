@@ -95,7 +95,7 @@ const powerTeamMemberSchema = new Schema<IPowerTeamMember>(
 );
 
 // Soft delete middleware
-powerTeamMemberSchema.pre(/^find|^countDocuments/, function (this: any) {
+powerTeamMemberSchema.pre(/^find|^countDocuments|^distinct/, function (this: any) {
   this.where({ deletedAt: { $exists: false } });
 });
 

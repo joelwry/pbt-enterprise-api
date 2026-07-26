@@ -1,4 +1,4 @@
-import express, { Application, Request, Response } from 'express';
+import express, { Application, Request, Response, NextFunction } from 'express';
 import helmet from 'helmet';
 import cors from 'cors';
 import compression from 'compression';
@@ -37,6 +37,7 @@ import opportunityRoutes from '@/modules/opportunities/routes/opportunity.routes
 import adminLearningRoutes from '@/modules/admin-learning/routes/admin-learning.routes';
 import adminEventsRoutes from '@/modules/admin-events/routes/admin-events.routes';
 import adminResourcesRoutes from '@/modules/admin-resources/routes/admin-resources.routes';
+import adminLeadersRoutes from '@/modules/admin-leaders/routes/admin-leaders.routes';
 
 export function createApp(): Application {
   const app = express();
@@ -71,6 +72,14 @@ export function createApp(): Application {
   app.use(healthRoutes);
 
   // ==================== LOCAL UPLOADS (dev/test storage only) ====================
+  // helmet's default Cross-Origin-Resource-Policy: same-origin (set above) blocks the
+  // frontend -- a different origin in dev, and likely a different subdomain/host in any
+  // real deployment too -- from ever rendering these as <img>/<video> at all. These are
+  // meant to be publicly embeddable uploaded assets, so relax it just for this path.
+  app.use('/uploads', (req: Request, res: Response, next: NextFunction) => {
+    res.setHeader('Cross-Origin-Resource-Policy', 'cross-origin');
+    next();
+  });
   app.use('/uploads', express.static('uploads'));
 
   // ==================== API ROUTES ====================
@@ -104,6 +113,7 @@ export function createApp(): Application {
   app.use(`/api/${config.API_VERSION}/admin/learning`, adminLearningRoutes);
   app.use(`/api/${config.API_VERSION}/admin/events`, adminEventsRoutes);
   app.use(`/api/${config.API_VERSION}/admin/resources`, adminResourcesRoutes);
+  app.use(`/api/${config.API_VERSION}/admin/leaders`, adminLeadersRoutes);
 
   // ==================== SWAGGER DOCUMENTATION ====================
   // Swagger setup will be added here

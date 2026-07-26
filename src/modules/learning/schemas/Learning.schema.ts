@@ -256,12 +256,13 @@ const userLessonProgressSchema = new Schema<IUserLessonProgress>(
 );
 
 // Soft delete middleware.
-// /^find/ alone does not match countDocuments (its Mongoose op name is
-// exactly "countDocuments", which doesn't start with "find") — every count
-// used for progress percentages and admin stats was silently including
-// soft-deleted documents until this was caught testing against seeded data
-// with an actual deleted lesson. Matching both is required.
-const EXCLUDE_SOFT_DELETED = /^find|^countDocuments/;
+// /^find/ alone does not match countDocuments or distinct (their Mongoose op
+// names are exactly "countDocuments" / "distinct", neither starts with
+// "find") — every count used for progress percentages and admin stats was
+// silently including soft-deleted documents until this was caught testing
+// against seeded data with an actual deleted lesson, and distinct() had the
+// same gap (caught later testing a Leader region list after a delete).
+const EXCLUDE_SOFT_DELETED = /^find|^countDocuments|^distinct/;
 
 lessonSchema.pre(EXCLUDE_SOFT_DELETED, function (this: any) {
   this.where({ deletedAt: { $exists: false } });
