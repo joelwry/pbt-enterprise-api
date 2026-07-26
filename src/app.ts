@@ -38,6 +38,7 @@ import adminLearningRoutes from '@/modules/admin-learning/routes/admin-learning.
 import adminEventsRoutes from '@/modules/admin-events/routes/admin-events.routes';
 import adminResourcesRoutes from '@/modules/admin-resources/routes/admin-resources.routes';
 import adminLeadersRoutes from '@/modules/admin-leaders/routes/admin-leaders.routes';
+import adminPowerTeamRoutes from '@/modules/admin-power-team/routes/admin-power-team.routes';
 
 export function createApp(): Application {
   const app = express();
@@ -114,6 +115,7 @@ export function createApp(): Application {
   app.use(`/api/${config.API_VERSION}/admin/events`, adminEventsRoutes);
   app.use(`/api/${config.API_VERSION}/admin/resources`, adminResourcesRoutes);
   app.use(`/api/${config.API_VERSION}/admin/leaders`, adminLeadersRoutes);
+  app.use(`/api/${config.API_VERSION}/admin/power-team`, adminPowerTeamRoutes);
 
   // ==================== SWAGGER DOCUMENTATION ====================
   // Swagger setup will be added here

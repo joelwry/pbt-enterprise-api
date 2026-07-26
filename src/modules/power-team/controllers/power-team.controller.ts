@@ -14,23 +14,24 @@ export class PowerTeamController {
 
     const filter: any = { isActive: true };
 
-    if (category) filter.category = category;
+    if (category && category !== 'All') filter.category = category;
     if (region) filter.region = region;
 
     if (search) {
       filter.$or = [
         { name: { $regex: search, $options: 'i' } },
-        { company: { $regex: search, $options: 'i' } },
+        { region: { $regex: search, $options: 'i' } },
         { bio: { $regex: search, $options: 'i' } },
       ];
     }
 
-    const members = await PowerTeamMember.find(filter)
-      .skip(query.skip)
-      .limit(query.limit)
-      .sort({ rating: -1, isVerified: -1 });
-
-    const total = await PowerTeamMember.countDocuments(filter);
+    const [members, total] = await Promise.all([
+      PowerTeamMember.find(filter)
+        .skip(query.skip)
+        .limit(query.limit)
+        .sort({ isVerified: -1, createdAt: -1 }),
+      PowerTeamMember.countDocuments(filter),
+    ]);
 
     const pagination = PaginationHelper.createMeta(query.page, query.limit, total);
     ResponseHandler.paginated(res, 200, 'Power team members retrieved', members, pagination);
@@ -43,7 +44,7 @@ export class PowerTeamController {
   async getMemberById(req: Request, res: Response): Promise<void> {
     const { memberId } = req.params;
 
-    const member = await PowerTeamMember.findById(memberId);
+    const member = await PowerTeamMember.findOne({ _id: memberId, isActive: true });
 
     if (!member) {
       ResponseHandler.notFound(res, 'Member not found');
@@ -62,12 +63,13 @@ export class PowerTeamController {
     const { page = 1, limit = 20 } = req.query;
     const query = PaginationHelper.parse({ page: page as string, limit: limit as string });
 
-    const members = await PowerTeamMember.find({ category: category as any, isActive: true })
-      .skip(query.skip)
-      .limit(query.limit)
-      .sort({ rating: -1, isVerified: -1 });
-
-    const total = await PowerTeamMember.countDocuments({ category: category as any, isActive: true });
+    const [members, total] = await Promise.all([
+      PowerTeamMember.find({ category: category as any, isActive: true })
+        .skip(query.skip)
+        .limit(query.limit)
+        .sort({ isVerified: -1, createdAt: -1 }),
+      PowerTeamMember.countDocuments({ category: category as any, isActive: true }),
+    ]);
 
     const pagination = PaginationHelper.createMeta(query.page, query.limit, total);
     ResponseHandler.paginated(res, 200, 'Members retrieved', members, pagination);
@@ -98,18 +100,19 @@ export class PowerTeamController {
 
   /**
    * Get verified members
-   * GET /api/v1/power-team/verified
+   * GET /api/v1/power-team/verified/list
    */
   async getVerifiedMembers(req: Request, res: Response): Promise<void> {
     const { page = 1, limit = 20 } = req.query;
     const query = PaginationHelper.parse({ page: page as string, limit: limit as string });
 
-    const members = await PowerTeamMember.find({ isActive: true, isVerified: true })
-      .skip(query.skip)
-      .limit(query.limit)
-      .sort({ rating: -1 });
-
-    const total = await PowerTeamMember.countDocuments({ isActive: true, isVerified: true });
+    const [members, total] = await Promise.all([
+      PowerTeamMember.find({ isActive: true, isVerified: true })
+        .skip(query.skip)
+        .limit(query.limit)
+        .sort({ createdAt: -1 }),
+      PowerTeamMember.countDocuments({ isActive: true, isVerified: true }),
+    ]);
 
     const pagination = PaginationHelper.createMeta(query.page, query.limit, total);
     ResponseHandler.paginated(res, 200, 'Verified members retrieved', members, pagination);
