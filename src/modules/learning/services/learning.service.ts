@@ -10,29 +10,50 @@ import {
 import { Roadmap } from '@/modules/learning/schemas/Roadmap.schema';
 import { RoadmapWeek } from '@/modules/learning/schemas/RoadmapWeek.schema';
 import { learningProgressService } from '@/modules/learning/services/learning-progress.service';
-import { subscriptionService } from '@/modules/subscriptions/services/subscription.service';
 import { UserProgress } from '@/modules/progress/schemas/UserProgress.schema';
 import { NotFoundError, AuthorizationError } from '@/core/errors/AppError';
 import logger from '@/core/logger/logger';
 
+// How many years back from the current year members can browse in My
+// Learning (inclusive of the current year). Per product direction: never
+// show a future-dated roadmap to members, even if the admin has already
+// created one ahead of time for planning purposes.
+const VISIBLE_YEARS_BACK = 2;
+
 export class LearningService {
-  /** Available roadmap years — what used to be called "years" before Programme was retired. */
+  /**
+   * Available roadmap years for the member-facing My Learning year picker.
+   * Only the current year and up to VISIBLE_YEARS_BACK years before it are
+   * shown — never a future year, regardless of what roadmaps already exist
+   * in the database (admins may pre-create next year's roadmap in advance).
+   */
   async getRoadmapYears() {
-    return Roadmap.find().sort({ year: -1 }).select('year title isCurrent');
+    const currentYear = new Date().getFullYear();
+    const oldestVisibleYear = currentYear - VISIBLE_YEARS_BACK;
+
+    const roadmaps = await Roadmap.find().sort({ year: -1 }).select('year title isCurrent');
+    return roadmaps.filter((r) => {
+      const year = parseInt(r.year, 10);
+      return !Number.isNaN(year) && year <= currentYear && year >= oldestVisibleYear;
+    });
   }
 
   /**
-   * Lesson access passes two independent gates: the Membership Gate (tier
-   * hierarchy) and the Release Gate (unlocksAt). Both are enforced here,
-   * server-side — never trust a client to have hidden locked content.
+   * Lesson access in My Learning is governed by a single gate: the Release
+   * Gate (unlocksAt). Product decision (see docs/ui_adjustment.md): My
+   * Learning content is available to every subscription tier — mixing a
+   * higher-tier-only lesson into a shared roadmap module was identified as
+   * wrong. Tier-restricted content lives in its own dedicated areas (PBT
+   * Plus / PBT Mentorship), not in the general Roadmap. `requiredTier` is
+   * still stored on the lesson (and settable by admins) for that purpose,
+   * it just isn't enforced here anymore.
    */
   isLessonUnlocked(lesson: ILesson): boolean {
     return new Date() >= lesson.access.unlocksAt;
   }
 
   async canAccessLesson(userId: string, lesson: ILesson): Promise<boolean> {
-    if (!this.isLessonUnlocked(lesson)) return false;
-    return subscriptionService.canAccessTier(userId, lesson.access.requiredTier);
+    return this.isLessonUnlocked(lesson);
   }
 
   async getUserLessonProgress(userId: string, lessonId: string): Promise<IUserLessonProgress | null> {
@@ -45,7 +66,8 @@ export class LearningService {
     moduleId: string,
     status: LessonStatus,
     progressPercent: number = 0,
-    quizScore?: number
+    quizScore?: number,
+    timeSpentMinutes: number = 0
   ): Promise<IUserLessonProgress> {
     let progress = await UserLessonProgress.findOne({ userId, lessonId });
 
@@ -57,12 +79,18 @@ export class LearningService {
         status,
         progressPercent,
         quizScore,
+        timeSpentMinutes: Math.max(0, timeSpentMinutes),
         lastAccessedAt: new Date(),
       });
     } else {
       progress.status = status;
       progress.progressPercent = progressPercent;
       if (quizScore !== undefined) progress.quizScore = quizScore;
+      // Accumulated, not overwritten — a member typically reaches "completed"
+      // across more than one visit to the lesson.
+      if (timeSpentMinutes > 0) {
+        progress.timeSpentMinutes = (progress.timeSpentMinutes || 0) + timeSpentMinutes;
+      }
       progress.lastAccessedAt = new Date();
 
       if (status === 'completed' && !progress.completedAt) {
@@ -86,7 +114,7 @@ export class LearningService {
     // until a member first opens them, which would otherwise inflate the %.
     const [progresses, total] = await Promise.all([
       UserLessonProgress.find({ userId, moduleId }),
-      Lesson.countDocuments({ moduleId }),
+      Lesson.countDocuments({ moduleId, isDraft: { $ne: true } }),
     ]);
 
     const completed = progresses.filter((p) => p.status === 'completed').length;
@@ -107,7 +135,7 @@ export class LearningService {
 
   async getLesson(lessonId: string, userId: string) {
     const lesson = await Lesson.findById(lessonId).populate<{ moduleId: IModule }>('moduleId');
-    if (!lesson) throw new NotFoundError('Lesson not found');
+    if (!lesson || lesson.isDraft) throw new NotFoundError('Lesson not found');
 
     const canAccess = await this.canAccessLesson(userId, lesson as unknown as ILesson);
     if (!canAccess) throw new AuthorizationError('You do not have access to this lesson');
@@ -131,16 +159,15 @@ export class LearningService {
   }
 
   async getModuleLessons(userId: string, moduleId: string): Promise<any[]> {
-    const lessons = await Lesson.find({ moduleId });
+    const lessons = await Lesson.find({ moduleId, isDraft: { $ne: true } });
 
     return Promise.all(
       lessons.map(async (lesson) => {
         const canAccess = await this.canAccessLesson(userId, lesson);
         const progress = await this.getUserLessonProgress(userId, lesson._id.toString());
-        const unlocked = this.isLessonUnlocked(lesson);
 
         let status: LessonStatus;
-        if (!canAccess && !unlocked) {
+        if (!canAccess) {
           status = 'locked';
         } else if (progress?.status) {
           status = progress.status;
@@ -148,11 +175,9 @@ export class LearningService {
           status = 'not-started';
         }
 
-        const lockReason = !unlocked
+        const lockReason = !canAccess
           ? `Unlocks ${new Date(lesson.access.unlocksAt).toLocaleDateString()}`
-          : !canAccess
-            ? `Requires ${lesson.access.requiredTier} membership`
-            : undefined;
+          : undefined;
 
         return {
           id: lesson._id,
@@ -178,19 +203,20 @@ export class LearningService {
     const week = await RoadmapWeek.findById(weekId);
     if (!week) throw new NotFoundError('Roadmap week not found');
 
-    const modules = await Module.find({ roadmapWeekId: weekId })
-      .populate({ path: 'lessons', select: 'title type month category' })
-      .sort({ moduleNumber: 1 });
+    const modules = await Module.find({ roadmapWeekId: weekId }).sort({ moduleNumber: 1 });
 
     const moduleSummaries = await Promise.all(
       modules.map(async (learningModule) => {
+        // lessonCount comes from getModuleProgress's draft-excluded count, not
+        // the module's raw lessons[] length — a draft lesson still lives in
+        // that array but must never be visible to members.
         const progress = await this.getModuleProgress(userId, learningModule._id.toString());
         return {
           id: learningModule._id,
           moduleNumber: learningModule.moduleNumber,
           title: learningModule.title,
           badge: progress.badge,
-          lessonCount: learningModule.lessons?.length || 0,
+          lessonCount: progress.total,
         };
       })
     );
@@ -225,7 +251,7 @@ export class LearningService {
               moduleNumber: learningModule.moduleNumber,
               title: learningModule.title,
               badge: progress.badge,
-              lessonCount: learningModule.lessons?.length || 0,
+              lessonCount: progress.total,
               progressPercent: progress.progressPercent,
             };
           })
@@ -283,7 +309,6 @@ export class LearningService {
     // Full lesson shape (not a stub) — the frontend's LessonCard resolves
     // access client-side too, as a defense-in-depth UI check, and needs the
     // same fields getModuleLessons returns.
-    const unlocked = this.isLessonUnlocked(lesson);
     const canAccess = await this.canAccessLesson(userId, lesson);
 
     return [
@@ -299,11 +324,9 @@ export class LearningService {
         progressPercent: lessonProgress?.progressPercent ?? 0,
         status: lessonProgress?.status ?? 'not-started',
         access: lesson.access,
-        lockReason: !unlocked
+        lockReason: !canAccess
           ? `Unlocks ${new Date(lesson.access.unlocksAt).toLocaleDateString()}`
-          : !canAccess
-            ? `Requires ${lesson.access.requiredTier} membership`
-            : undefined,
+          : undefined,
         body: canAccess ? lesson.body : undefined,
       },
     ];

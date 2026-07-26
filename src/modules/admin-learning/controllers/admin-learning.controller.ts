@@ -77,6 +77,36 @@ export class AdminLearningController {
     ResponseHandler.ok(res, 'Lessons retrieved', lessons);
   }
 
+  /** Flat, paginated, searchable lesson list for the Content Management screen. */
+  async listLessonsFlat(req: Request, res: Response): Promise<void> {
+    const page = Math.max(1, parseInt(String(req.query.page ?? '1'), 10) || 1);
+    const limit = Math.max(1, parseInt(String(req.query.limit ?? '10'), 10) || 10);
+    const year = typeof req.query.year === 'string' && req.query.year !== 'All' ? req.query.year : undefined;
+    const search = typeof req.query.search === 'string' ? req.query.search : undefined;
+
+    const { items, totalItems } = await adminLearningService.listLessonsFlat({ year, search, page, limit });
+    const totalPages = Math.max(1, Math.ceil(totalItems / limit));
+
+    ResponseHandler.paginated(res, 200, 'Lessons retrieved', items, {
+      page,
+      limit,
+      totalItems,
+      totalPages,
+      hasNextPage: page < totalPages,
+      hasPreviousPage: page > 1,
+    });
+  }
+
+  async getStats(req: Request, res: Response): Promise<void> {
+    const stats = await adminLearningService.getStats();
+    ResponseHandler.ok(res, 'Content stats retrieved', stats);
+  }
+
+  async getLessonById(req: Request, res: Response): Promise<void> {
+    const result = await adminLearningService.getLessonById(req.params.lessonId);
+    ResponseHandler.ok(res, 'Lesson retrieved', result);
+  }
+
   async createLesson(req: Request, res: Response): Promise<void> {
     const lesson = await adminLearningService.createLesson(req.params.moduleId, req.body);
     ResponseHandler.created(res, 'Lesson created', lesson);

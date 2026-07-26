@@ -40,6 +40,8 @@ export interface ILesson extends Document {
   metaLabel: string;
   access: ILessonAccess;
   body: ILessonBody;
+  /** Admin "Save as Draft" — hidden from every member-facing query regardless of unlocksAt. */
+  isDraft: boolean;
   createdAt: Date;
   updatedAt: Date;
   deletedAt?: Date;
@@ -99,11 +101,16 @@ const lessonSchema = new Schema<ILesson>(
     },
     author: {
       type: String,
-      required: true,
+      default: 'PBT Team',
     },
     metaLabel: {
       type: String,
       required: true,
+    },
+    isDraft: {
+      type: Boolean,
+      default: false,
+      index: true,
     },
     access: {
       unlocksAt: {

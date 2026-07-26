@@ -28,6 +28,13 @@ router.delete('/modules/:moduleId', catchAsync((req, res) => c.deleteModule(req,
 
 router.get('/modules/:moduleId/lessons', catchAsync((req, res) => c.listLessons(req, res)));
 router.post('/modules/:moduleId/lessons', catchAsync((req, res) => c.createLesson(req, res)));
+
+// Flat lesson list/search/paginate + stats for the Content Management screen —
+// registered before /lessons/:lessonId so 'stats' isn't swallowed as an id.
+router.get('/lessons', catchAsync((req, res) => c.listLessonsFlat(req, res)));
+router.get('/lessons/stats', catchAsync((req, res) => c.getStats(req, res)));
+
+router.get('/lessons/:lessonId', catchAsync((req, res) => c.getLessonById(req, res)));
 router.patch('/lessons/:lessonId', catchAsync((req, res) => c.updateLesson(req, res)));
 router.delete('/lessons/:lessonId', catchAsync((req, res) => c.deleteLesson(req, res)));
 router.post('/lessons/:lessonId/upload', upload.single('file'), catchAsync((req, res) => c.uploadLessonAsset(req, res)));

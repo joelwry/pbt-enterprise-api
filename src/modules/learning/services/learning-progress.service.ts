@@ -20,14 +20,14 @@ export class LearningProgressService {
     const moduleIds = [...new Set(progressRecords.map((p) => p.moduleId.toString()))];
     let completedModulesCount = 0;
     for (const moduleId of moduleIds) {
-      const lessonsInModule = await Lesson.countDocuments({ moduleId });
+      const lessonsInModule = await Lesson.countDocuments({ moduleId, isDraft: { $ne: true } });
       const completedInModule = progressRecords.filter(
         (p) => p.moduleId.toString() === moduleId && p.status === 'completed'
       ).length;
       if (lessonsInModule > 0 && completedInModule === lessonsInModule) completedModulesCount++;
     }
 
-    const totalLessons = await Lesson.countDocuments({});
+    const totalLessons = await Lesson.countDocuments({ isDraft: { $ne: true } });
     const overallProgress = totalLessons > 0 ? Math.round((completedLessonsCount / totalLessons) * 100) : 0;
 
     // "Continue" target: the most recently touched in-progress lesson, or
@@ -41,7 +41,10 @@ export class LearningProgressService {
 
     if (!currentLessonId) {
       const completedLessonIds = progressRecords.filter((p) => p.status === 'completed').map((p) => p.lessonId);
-      const nextLesson = await Lesson.findOne({ _id: { $nin: completedLessonIds } }).sort({ month: 1 });
+      const nextLesson = await Lesson.findOne({
+        _id: { $nin: completedLessonIds },
+        isDraft: { $ne: true },
+      }).sort({ month: 1 });
       currentLessonId = nextLesson?._id as Types.ObjectId | undefined;
       currentModuleId = nextLesson?.moduleId;
     }

@@ -93,7 +93,7 @@ export class LearningController {
     }
 
     const { lessonId } = req.params;
-    const { moduleId, status, progressPercent, quizScore } = req.body;
+    const { moduleId, status, progressPercent, quizScore, timeSpentMinutes } = req.body;
 
     const progress = await learningService.updateLessonProgress(
       req.user.userId,
@@ -101,7 +101,8 @@ export class LearningController {
       moduleId,
       status,
       progressPercent,
-      quizScore
+      quizScore,
+      timeSpentMinutes
     );
 
     logger.info(`Lesson progress updated: ${lessonId} - ${status}`);
