@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { authService } from '@/modules/auth/services/auth.service';
 import { ResponseHandler } from '@/core/response/ResponseHandler';
-import { AuthenticationError } from '@/core/errors/AppError';
+import { AuthenticationError, AuthorizationError } from '@/core/errors/AppError';
 import {
   registerSchema,
   loginSchema,
@@ -13,6 +13,15 @@ import {
   updateNotificationPreferenceSchema,
 } from '@/modules/auth/validators/auth.validators';
 import logger from '@/core/logger/logger';
+
+const ADMIN_ROLES = new Set(['admin', 'super_admin']);
+
+const REFRESH_COOKIE_OPTIONS = {
+  httpOnly: true,
+  secure: process.env.NODE_ENV === 'production',
+  sameSite: 'strict' as const,
+  maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+};
 
 export class AuthController {
   /**
@@ -39,15 +48,35 @@ export class AuthController {
 
     // Set secure HTTP-only cookie if rememberMe is true
     if (rememberMe) {
-      res.cookie('refreshToken', result.tokens.refreshToken, {
-        httpOnly: true,
-        secure: process.env.NODE_ENV === 'production',
-        sameSite: 'strict',
-        maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
-      });
+      res.cookie('refreshToken', result.tokens.refreshToken, REFRESH_COOKIE_OPTIONS);
     }
 
     logger.info(`User logged in: ${email}`);
+    ResponseHandler.ok(res, 'Login successful', result);
+  }
+
+  /**
+   * Admin Login -- identical to login() but issues a separately-named
+   * refresh cookie (adminRefreshToken) so an admin and a member logged in
+   * persistently in the same browser don't clobber each other's session
+   * (both portals previously shared one `refreshToken` cookie). Also
+   * enforces the admin-role check server-side instead of leaving it to the
+   * admin frontend's own (bypassable) check.
+   * POST /api/v1/auth/admin/login
+   */
+  async adminLogin(req: Request, res: Response): Promise<void> {
+    const { email, password, rememberMe } = loginSchema.parse(req.body);
+
+    const result = await authService.login(email, password);
+    if (!ADMIN_ROLES.has(result.user.role)) {
+      throw new AuthorizationError('This account does not have admin access');
+    }
+
+    if (rememberMe) {
+      res.cookie('adminRefreshToken', result.tokens.refreshToken, REFRESH_COOKIE_OPTIONS);
+    }
+
+    logger.info(`Admin logged in: ${email}`);
     ResponseHandler.ok(res, 'Login successful', result);
   }
 
@@ -69,12 +98,30 @@ export class AuthController {
     // Persistent (rememberMe) sessions authenticate via the cookie alone, so
     // rotate it to the newly issued refresh token to keep the session alive.
     if (!bodyRefreshToken && cookieRefreshToken) {
-      res.cookie('refreshToken', tokens.refreshToken, {
-        httpOnly: true,
-        secure: process.env.NODE_ENV === 'production',
-        sameSite: 'strict',
-        maxAge: 7 * 24 * 60 * 60 * 1000,
-      });
+      res.cookie('refreshToken', tokens.refreshToken, REFRESH_COOKIE_OPTIONS);
+    }
+
+    ResponseHandler.ok(res, 'Token refreshed', tokens);
+  }
+
+  /**
+   * Admin Refresh Token -- mirrors refreshToken() against the separate
+   * adminRefreshToken cookie.
+   * POST /api/v1/auth/admin/refresh-token
+   */
+  async adminRefreshToken(req: Request, res: Response): Promise<void> {
+    const { refreshToken: bodyRefreshToken } = refreshTokenSchema.parse(req.body ?? {});
+    const cookieRefreshToken = req.cookies?.adminRefreshToken as string | undefined;
+    const refreshToken = bodyRefreshToken ?? cookieRefreshToken;
+
+    if (!refreshToken) {
+      throw new AuthenticationError('No refresh token provided');
+    }
+
+    const tokens = await authService.refreshAccessToken(refreshToken);
+
+    if (!bodyRefreshToken && cookieRefreshToken) {
+      res.cookie('adminRefreshToken', tokens.refreshToken, REFRESH_COOKIE_OPTIONS);
     }
 
     ResponseHandler.ok(res, 'Token refreshed', tokens);
@@ -174,6 +221,19 @@ export class AuthController {
     res.clearCookie('refreshToken');
 
     logger.info('User logged out');
+    ResponseHandler.ok(res, 'Logout successful', {});
+  }
+
+  /**
+   * Admin Logout -- clears the separate adminRefreshToken cookie only, so
+   * an admin logging out doesn't clear a member session's cookie (or
+   * vice versa) in the same browser.
+   * POST /api/v1/auth/admin/logout
+   */
+  async adminLogout(req: Request, res: Response): Promise<void> {
+    res.clearCookie('adminRefreshToken');
+
+    logger.info('Admin logged out');
     ResponseHandler.ok(res, 'Logout successful', {});
   }
 }
