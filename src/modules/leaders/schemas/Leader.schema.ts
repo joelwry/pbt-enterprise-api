@@ -95,7 +95,7 @@ const leaderSchema = new Schema<ILeader>(
 );
 
 // Soft delete middleware
-leaderSchema.pre(/^find/, function (this: any) {
+leaderSchema.pre(/^find|^countDocuments/, function (this: any) {
   this.where({ deletedAt: { $exists: false } });
 });
 

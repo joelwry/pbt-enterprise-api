@@ -139,7 +139,7 @@ userSchema.methods.comparePassword = async function (password: string): Promise<
 };
 
 // Soft delete query middleware
-userSchema.pre(/^find/, function (this: any) {
+userSchema.pre(/^find|^countDocuments/, function (this: any) {
   if (this.where) {
     this.where({ deletedAt: { $exists: false } });
   }

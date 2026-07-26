@@ -103,7 +103,7 @@ const eventSchema = new Schema<IEvent>(
 );
 
 // Soft delete middleware
-eventSchema.pre(/^find/, function (this: any) {
+eventSchema.pre(/^find|^countDocuments/, function (this: any) {
   this.where({ deletedAt: { $exists: false } });
 });
 

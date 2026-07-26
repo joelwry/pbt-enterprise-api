@@ -86,7 +86,7 @@ subscriptionSchema.index({ endDate: 1, status: 1 });
 subscriptionSchema.index({ tier: 1 });
 
 // Query middleware to exclude soft-deleted subscriptions
-subscriptionSchema.pre(/^find/, function (this: any) {
+subscriptionSchema.pre(/^find|^countDocuments/, function (this: any) {
   if (this.where) {
     this.where({ cancelledAt: { $exists: false } });
   }

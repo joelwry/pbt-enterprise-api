@@ -105,7 +105,7 @@ const communityThreadSchema = new Schema<ICommunityThread>(
 );
 
 // Soft delete middleware
-communityThreadSchema.pre(/^find/, function (this: any) {
+communityThreadSchema.pre(/^find|^countDocuments/, function (this: any) {
   this.where({ deletedAt: { $exists: false } });
 });
 
