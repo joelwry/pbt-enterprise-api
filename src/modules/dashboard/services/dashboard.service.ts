@@ -49,7 +49,7 @@ export class DashboardService {
     const [user, progressRecords, allLessons, upcomingEvents, recentThreads] = await Promise.all([
       User.findById(userId),
       UserLessonProgress.find({ userId }),
-      Lesson.find({}).sort({ 'access.unlocksAt': 1 }),
+      Lesson.find({ isDraft: { $ne: true } }).sort({ 'access.unlocksAt': 1 }),
       Event.find({ date: { $gte: now }, isActive: true }).sort({ date: 1 }).limit(3),
       CommunityThread.find({}).sort({ createdAt: -1 }).limit(3),
     ]);
