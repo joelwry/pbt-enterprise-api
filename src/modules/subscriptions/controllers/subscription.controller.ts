@@ -1,9 +1,16 @@
 import { Request, Response } from 'express';
 import { subscriptionService } from '@/modules/subscriptions/services/subscription.service';
+import { SubscriptionDocument } from '@/modules/subscriptions/schemas/Subscription.schema';
 import { enhancedEntitlementsService } from '@/modules/entitlements/services/entitlements.service.enhanced';
 import { ResponseHandler } from '@/core/response/ResponseHandler';
 import { asyncHandler } from '@/core/middleware/asyncHandler';
 import { auditService } from '@/modules/audit/services/audit.service';
+import { PaginationHelper } from '@/core/pagination/PaginationHelper';
+
+/** Adds the computed `cancelled` flag the frontend gates its Cancel button on. */
+function toSubscriptionDto(subscription: SubscriptionDocument) {
+  return { ...subscription.toObject(), cancelled: Boolean(subscription.cancelledAt) };
+}
 
 export class SubscriptionController {
   /**
@@ -19,7 +26,27 @@ export class SubscriptionController {
       return;
     }
 
-    ResponseHandler.ok(res, 'Subscription retrieved successfully', subscription);
+    ResponseHandler.ok(res, 'Subscription retrieved successfully', toSubscriptionDto(subscription));
+  });
+
+  /**
+   * Member's own billing history, paginated, projected into invoice rows.
+   */
+  getInvoices = asyncHandler(async (req: Request, res: Response) => {
+    const userId = (req as any).user?.userId;
+    const { page, limit } = PaginationHelper.parse({ page: req.query.page as string, limit: req.query.limit as string });
+
+    const { items, totalItems } = await subscriptionService.getBillingHistory(userId, page, limit);
+
+    const invoices = items.map((sub) => ({
+      id: sub._id.toString(),
+      invoiceNumber: `INV-${sub.createdAt.getFullYear()}-${sub._id.toString().slice(-6).toUpperCase()}`,
+      dateLabel: sub.createdAt.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }),
+      amountLabel: `£${sub.amount.toFixed(2)}`,
+      status: 'Paid' as const,
+    }));
+
+    ResponseHandler.paginated(res, 200, 'Billing history retrieved successfully', invoices, PaginationHelper.createMeta(page, limit, totalItems));
   });
 
   /**
@@ -111,7 +138,7 @@ export class SubscriptionController {
       correlationId
     );
 
-    ResponseHandler.ok(res, 'Subscription cancelled successfully', subscription);
+    ResponseHandler.ok(res, 'Subscription cancelled successfully', { cancelled: Boolean(subscription?.cancelledAt) });
   });
 
   /**

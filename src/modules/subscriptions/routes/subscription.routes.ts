@@ -12,6 +12,7 @@ router.get('/plans/compare', subscriptionController.compareFeatures);
 router.use(authenticate);
 
 router.get('/current', subscriptionController.getCurrentSubscription);
+router.get('/invoices', subscriptionController.getInvoices);
 router.post('/upgrade', subscriptionController.upgradeSubscription);
 router.post('/downgrade', subscriptionController.downgradeSubscription);
 router.post('/cancel', subscriptionController.cancelSubscription);
