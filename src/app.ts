@@ -36,6 +36,7 @@ import activityRoutes from '@/modules/activity/routes/activity.routes';
 import opportunityRoutes from '@/modules/opportunities/routes/opportunity.routes';
 import adminLearningRoutes from '@/modules/admin-learning/routes/admin-learning.routes';
 import adminEventsRoutes from '@/modules/admin-events/routes/admin-events.routes';
+import adminResourcesRoutes from '@/modules/admin-resources/routes/admin-resources.routes';
 
 export function createApp(): Application {
   const app = express();
@@ -102,6 +103,7 @@ export function createApp(): Application {
   // Admin — content management
   app.use(`/api/${config.API_VERSION}/admin/learning`, adminLearningRoutes);
   app.use(`/api/${config.API_VERSION}/admin/events`, adminEventsRoutes);
+  app.use(`/api/${config.API_VERSION}/admin/resources`, adminResourcesRoutes);
 
   // ==================== SWAGGER DOCUMENTATION ====================
   // Swagger setup will be added here

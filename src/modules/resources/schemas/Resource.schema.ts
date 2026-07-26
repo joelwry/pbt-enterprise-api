@@ -1,6 +1,10 @@
 import { Schema, model, Document, Types } from 'mongoose';
 
-export type ResourceType = 'Template' | 'Guide' | 'Tool' | 'Video' | 'Document';
+// Reconciled to match the frontend's actual, already-built category
+// taxonomy (member resources-view.tsx / admin resource-editor-view.tsx both
+// consistently use these four) — this module had never been wired to any
+// frontend before, so nothing depended on the previous, different enum.
+export type ResourceType = 'Template' | 'Guide' | 'Webinar' | 'Toolkit';
 export type ResourceTier = 'Pathway' | 'Plus' | 'Mentorship';
 
 export interface IResource extends Document {
@@ -8,14 +12,18 @@ export interface IResource extends Document {
   description: string;
   type: ResourceType;
   requiredTier: ResourceTier;
+  /** Free descriptive line the admin sets — "12 pages", "58 min", "Interactive". */
+  metaLabel: string;
+  /** Empty until an admin uploads a file via the storage abstraction. */
   fileUrl: string;
   fileType: string;
   fileSize: number;
-  category: string;
   tags: string[];
   downloads: number;
   createdBy: Types.ObjectId;
   isActive: boolean;
+  /** Admin "Save as Draft" — hidden from every member-facing query regardless of isActive. */
+  isDraft: boolean;
   releasedAt?: Date;
   createdAt: Date;
   updatedAt: Date;
@@ -35,7 +43,7 @@ const resourceSchema = new Schema<IResource>(
     },
     type: {
       type: String,
-      enum: ['Template', 'Guide', 'Tool', 'Video', 'Document'],
+      enum: ['Template', 'Guide', 'Webinar', 'Toolkit'],
       required: true,
       index: true,
     },
@@ -45,9 +53,13 @@ const resourceSchema = new Schema<IResource>(
       default: 'Pathway',
       index: true,
     },
+    metaLabel: {
+      type: String,
+      default: '',
+    },
     fileUrl: {
       type: String,
-      required: true,
+      default: '',
     },
     fileType: {
       type: String,
@@ -55,12 +67,7 @@ const resourceSchema = new Schema<IResource>(
     },
     fileSize: {
       type: Number,
-      required: true,
-    },
-    category: {
-      type: String,
-      required: true,
-      index: true,
+      default: 0,
     },
     tags: [
       {
@@ -80,6 +87,11 @@ const resourceSchema = new Schema<IResource>(
     isActive: {
       type: Boolean,
       default: true,
+      index: true,
+    },
+    isDraft: {
+      type: Boolean,
+      default: false,
       index: true,
     },
     releasedAt: {
@@ -105,7 +117,6 @@ resourceSchema.pre(/^find|^countDocuments/, function (this: any) {
 });
 
 // Create indexes
-resourceSchema.index({ category: 1, type: 1 });
 resourceSchema.index({ isActive: 1, releasedAt: 1 });
 
 export const Resource = model<IResource>('Resource', resourceSchema);
