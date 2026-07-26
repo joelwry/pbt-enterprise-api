@@ -1,172 +1,154 @@
 import { Request, Response } from 'express';
 import { ResponseHandler } from '@/core/response/ResponseHandler';
-import { asyncHandler } from '@/core/middleware/asyncHandler';
+import { catchAsync } from '@/core/middleware/asyncHandler';
 import { PaginationHelper } from '@/core/pagination/PaginationHelper';
+import { AppError, NotFoundError } from '@/core/errors/AppError';
 import { CommunityThread } from '@/modules/community/schemas/Community.schema';
-import { AppError } from '@/core/errors/AppError';
+import {
+  getCommunityMeta,
+  toDiscussionListDto,
+  toDiscussionDetailDto,
+} from '@/modules/community/services/community.service';
 import logger from '@/core/logger/logger';
 
-export class CommunityController {
-  /**
-   * Get community threads with pagination and filtering
-   */
-  static getThreads = asyncHandler(async (req: Request, res: Response) => {
-    const userId = (req as any).userId;
-    const { page = 1, limit = 20, category, search } = req.query;
+const AUTHOR_SELECT = 'fullName';
 
+export class CommunityController {
+  static getMeta = catchAsync(async (req: Request, res: Response) => {
+    const meta = await getCommunityMeta();
+    ResponseHandler.ok(res, 'Community data retrieved successfully', meta);
+  });
+
+  static getThreads = catchAsync(async (req: Request, res: Response) => {
+    const userId = req.user!.userId;
+    const { page = 1, limit = 20, category, search } = req.query;
     const pagination = PaginationHelper.parse({ page: page as string, limit: limit as string });
 
-    let query: any = { deletedAt: null };
-
-    if (category) {
-      query.category = category;
-    }
-
+    const filter: any = {};
+    if (category && category !== 'All') filter.category = category;
     if (search) {
-      query.$or = [
+      filter.$or = [
         { title: { $regex: search, $options: 'i' } },
-        { description: { $regex: search, $options: 'i' } },
+        { content: { $regex: search, $options: 'i' } },
       ];
     }
 
-    const threads = await CommunityThread.find(query)
-      .select('-__v')
-      .sort({ pinnedAt: -1, createdAt: -1 })
-      .skip(pagination.skip)
-      .limit(pagination.limit)
-      .populate('createdBy', 'firstName lastName avatar')
-      .lean();
+    const [threads, totalItems] = await Promise.all([
+      CommunityThread.find(filter)
+        .populate('authorId', AUTHOR_SELECT)
+        .sort({ isPinned: -1, createdAt: -1 })
+        .skip(pagination.skip)
+        .limit(pagination.limit),
+      CommunityThread.countDocuments(filter),
+    ]);
 
-    const totalItems = await CommunityThread.countDocuments(query);
+    const items = await Promise.all(threads.map((thread) => toDiscussionListDto(thread, userId)));
     const paginationData = PaginationHelper.createMeta(pagination.page, pagination.limit, totalItems);
 
-    logger.info(`[CommunityController] Fetched ${threads.length} threads for user ${userId}`);
-
-    return ResponseHandler.paginated(res, 200, 'Threads retrieved successfully', threads, paginationData);
+    ResponseHandler.paginated(res, 200, 'Threads retrieved successfully', items, paginationData);
   });
 
-  /**
-   * Get single thread with replies
-   */
-  static getThreadDetail = asyncHandler(async (req: Request, res: Response) => {
+  static getThreadDetail = catchAsync(async (req: Request, res: Response) => {
+    const userId = req.user!.userId;
     const { threadId } = req.params;
-    const userId = (req as any).userId;
 
-    const thread = await CommunityThread.findOne({ _id: threadId, deletedAt: null })
-      .populate('createdBy', 'firstName lastName avatar role')
-      .populate({
-        path: 'replies',
-        populate: {
-          path: 'createdBy',
-          select: 'firstName lastName avatar role',
-        },
-      })
-      .lean();
+    const thread = await CommunityThread.findById(threadId)
+      .populate('authorId', AUTHOR_SELECT)
+      .populate('replies.authorId', AUTHOR_SELECT);
 
     if (!thread) {
-      throw new AppError(404, 'Thread not found');
+      throw new NotFoundError('Thread not found');
     }
 
-    // Increment view count
-    await CommunityThread.findByIdAndUpdate(threadId, { $inc: { viewCount: 1 } });
-
-    logger.info(`[CommunityController] Fetched thread ${threadId} for user ${userId}`);
-
-    return ResponseHandler.ok(res, 'Thread retrieved successfully', thread);
+    const dto = await toDiscussionDetailDto(thread, userId);
+    ResponseHandler.ok(res, 'Thread retrieved successfully', dto);
   });
 
-  /**
-   * Create new community thread
-   */
-  static createThread = asyncHandler(async (req: Request, res: Response) => {
-    const userId = (req as any).userId;
-    const { title, description, category, attachments } = req.body;
+  static createThread = catchAsync(async (req: Request, res: Response) => {
+    const userId = req.user!.userId;
+    const { title, content, category } = req.body;
 
-    const newThread = new CommunityThread({
+    const thread = await CommunityThread.create({
       title,
-      description,
-      category,
-      attachments: attachments || [],
-      createdBy: userId,
-      replyCount: 0,
-      viewCount: 0,
-    });
-
-    await newThread.save();
-    await newThread.populate('createdBy', 'firstName lastName avatar');
-
-    logger.info(`[CommunityController] Created thread ${newThread._id} by user ${userId}`);
-
-    return ResponseHandler.created(res, 'Thread created successfully', newThread);
-  });
-
-  /**
-   * Add reply to thread
-   */
-  static addReply = asyncHandler(async (req: Request, res: Response) => {
-    const userId = (req as any).userId;
-    const { threadId } = req.params;
-    const { content, attachments } = req.body;
-
-    const thread = await CommunityThread.findOne({ _id: threadId, deletedAt: null });
-
-    if (!thread) {
-      throw new AppError(404, 'Thread not found');
-    }
-
-    const newReply = {
       content,
-      attachments: attachments || [],
-      createdBy: userId,
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    };
+      category: category || 'general',
+      authorId: userId,
+    });
+    await thread.populate('authorId', AUTHOR_SELECT);
 
-    thread.replies.push(newReply as any);
-    thread.replyCount += 1;
-    await thread.save();
+    logger.info('Community thread created', { threadId: thread._id, userId });
 
-    await thread.populate('createdBy', 'firstName lastName avatar');
-
-    logger.info(`[CommunityController] Added reply to thread ${threadId} by user ${userId}`);
-
-    return ResponseHandler.created(res, 'Reply added successfully', newReply);
+    const dto = await toDiscussionDetailDto(thread, userId);
+    ResponseHandler.created(res, 'Thread created successfully', dto);
   });
 
-  /**
-   * Like/Unlike thread
-   */
-  static toggleLike = asyncHandler(async (req: Request, res: Response) => {
-    const userId = (req as any).userId;
+  static addReply = catchAsync(async (req: Request, res: Response) => {
+    const userId = req.user!.userId;
+    const { threadId } = req.params;
+    const { content } = req.body;
+
+    const thread = await CommunityThread.findById(threadId);
+    if (!thread) {
+      throw new NotFoundError('Thread not found');
+    }
+    if (thread.isLocked) {
+      throw new AppError(400, 'This discussion is locked and no longer accepting replies');
+    }
+
+    thread.replies.push({ authorId: userId, content } as any);
+    await thread.save();
+    await thread.populate('authorId', AUTHOR_SELECT);
+    await thread.populate('replies.authorId', AUTHOR_SELECT);
+
+    logger.info('Reply added to community thread', { threadId, userId });
+
+    const dto = await toDiscussionDetailDto(thread, userId);
+    ResponseHandler.created(res, 'Reply added successfully', dto);
+  });
+
+  static toggleLike = catchAsync(async (req: Request, res: Response) => {
+    const userId = req.user!.userId;
     const { threadId } = req.params;
 
-    const thread = await CommunityThread.findOne({ _id: threadId, deletedAt: null });
-
+    const thread = await CommunityThread.findById(threadId);
     if (!thread) {
-      throw new AppError(404, 'Thread not found');
+      throw new NotFoundError('Thread not found');
     }
 
-    const alreadyLiked = thread.likes.includes(userId);
-
+    const alreadyLiked = thread.likedBy.some((id) => id.toString() === userId);
     if (alreadyLiked) {
-      thread.likes = thread.likes.filter((id) => id.toString() !== userId);
+      thread.likedBy = thread.likedBy.filter((id) => id.toString() !== userId) as any;
     } else {
-      thread.likes.push(userId);
+      thread.likedBy.push(userId as any);
     }
-
     await thread.save();
+    await thread.populate('authorId', AUTHOR_SELECT);
+    await thread.populate('replies.authorId', AUTHOR_SELECT);
 
-    logger.info(
-      `[CommunityController] User ${userId} ${alreadyLiked ? 'unliked' : 'liked'} thread ${threadId}`
-    );
+    logger.info(`User ${userId} ${alreadyLiked ? 'unliked' : 'liked'} thread ${threadId}`);
 
-    return ResponseHandler.ok(res, 'Like toggled successfully', { liked: !alreadyLiked });
+    const dto = await toDiscussionDetailDto(thread, userId);
+    ResponseHandler.ok(res, 'Like toggled successfully', dto);
   });
 
-  /**
-   * Get community categories
-   */
-  static getCategories = asyncHandler(async (req: Request, res: Response) => {
+  static reportThread = catchAsync(async (req: Request, res: Response) => {
+    const { threadId } = req.params;
+    const { reason } = req.body;
+
+    const thread = await CommunityThread.findByIdAndUpdate(
+      threadId,
+      { $inc: { reportCount: 1 }, reportReason: reason || 'No reason given' },
+      { new: true }
+    );
+    if (!thread) {
+      throw new NotFoundError('Thread not found');
+    }
+
+    logger.info('Community thread reported', { threadId, reason });
+    ResponseHandler.ok(res, 'Thread reported for review', { reported: true });
+  });
+
+  static getCategories = catchAsync(async (req: Request, res: Response) => {
     const categories = [
       { id: 'general', label: 'General Discussion' },
       { id: 'strategies', label: 'Strategies & Tips' },
@@ -176,6 +158,6 @@ export class CommunityController {
       { id: 'off-topic', label: 'Off Topic' },
     ];
 
-    return ResponseHandler.ok(res, 'Categories retrieved successfully', categories);
+    ResponseHandler.ok(res, 'Categories retrieved successfully', categories);
   });
 }

@@ -18,10 +18,7 @@ import eventsRoutes from '@/modules/events/routes/events.routes';
 import resourcesRoutes from '@/modules/resources/routes/resources.routes';
 import leadersRoutes from '@/modules/leaders/routes/leaders.routes';
 import powerTeamRoutes from '@/modules/power-team/routes/power-team.routes';
-// Community routes temporarily disabled: the controller and schema implement
-// different data models for likes/replies (real design work, not a bug) —
-// tracked as a Phase 3 follow-up, not part of auth integration.
-// import communityRoutes from '@/modules/community/routes/community.routes';
+import communityRoutes from '@/modules/community/routes/community.routes';
 import progressRoutes from '@/modules/progress/routes/progress.routes';
 import bookmarkRoutes from '@/modules/bookmarks/routes/bookmark.routes';
 import journeyRoutes from '@/modules/journeys/routes/journey.routes';
@@ -39,6 +36,7 @@ import adminEventsRoutes from '@/modules/admin-events/routes/admin-events.routes
 import adminResourcesRoutes from '@/modules/admin-resources/routes/admin-resources.routes';
 import adminLeadersRoutes from '@/modules/admin-leaders/routes/admin-leaders.routes';
 import adminPowerTeamRoutes from '@/modules/admin-power-team/routes/admin-power-team.routes';
+import adminCommunityRoutes from '@/modules/admin-community/routes/admin-community.routes';
 
 export function createApp(): Application {
   const app = express();
@@ -92,7 +90,7 @@ export function createApp(): Application {
   app.use(`/api/${config.API_VERSION}/resources`, resourcesRoutes);
   app.use(`/api/${config.API_VERSION}/leaders`, leadersRoutes);
   app.use(`/api/${config.API_VERSION}/power-team`, powerTeamRoutes);
-  // app.use(`/api/${config.API_VERSION}/community`, communityRoutes); // see import note above
+  app.use(`/api/${config.API_VERSION}/community`, communityRoutes);
   app.use(`/api/${config.API_VERSION}/progress`, progressRoutes);
   app.use(`/api/${config.API_VERSION}/bookmarks`, bookmarkRoutes);
   app.use(`/api/${config.API_VERSION}/journeys`, journeyRoutes);
@@ -116,6 +114,7 @@ export function createApp(): Application {
   app.use(`/api/${config.API_VERSION}/admin/resources`, adminResourcesRoutes);
   app.use(`/api/${config.API_VERSION}/admin/leaders`, adminLeadersRoutes);
   app.use(`/api/${config.API_VERSION}/admin/power-team`, adminPowerTeamRoutes);
+  app.use(`/api/${config.API_VERSION}/admin/community`, adminCommunityRoutes);
 
   // ==================== SWAGGER DOCUMENTATION ====================
   // Swagger setup will be added here
