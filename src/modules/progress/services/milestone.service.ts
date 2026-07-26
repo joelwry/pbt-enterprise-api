@@ -3,22 +3,22 @@ import { AppError } from '@/core/errors/AppError';
 import logger from '@/core/logger/logger';
 
 export class MilestoneService {
-  async getUserMilestones(userId: string, programmeId: string) {
+  async getUserMilestones(userId: string, roadmapId: string) {
     try {
-      const milestones = await Milestone.find({ userId, programmeId });
+      const milestones = await Milestone.find({ userId, roadmapId });
       return milestones;
     } catch (error) {
-      logger.error('Error fetching user milestones', { userId, programmeId, error });
+      logger.error('Error fetching user milestones', { userId, roadmapId, error });
       throw error;
     }
   }
 
-  async initializeMilestones(userId: string, programmeId: string) {
+  async initializeMilestones(userId: string, roadmapId: string) {
     try {
       const defaultMilestones = [
         {
           userId,
-          programmeId,
+          roadmapId,
           title: 'First Steps',
           description: 'Complete your first lesson',
           type: 'completion',
@@ -28,9 +28,9 @@ export class MilestoneService {
         },
         {
           userId,
-          programmeId,
+          roadmapId,
           title: 'Quarter Way',
-          description: 'Complete 25% of the programme',
+          description: 'Complete 25% of the roadmap',
           type: 'completion',
           requiredValue: 25,
           currentValue: 0,
@@ -38,9 +38,9 @@ export class MilestoneService {
         },
         {
           userId,
-          programmeId,
+          roadmapId,
           title: 'Halfway There',
-          description: 'Complete 50% of the programme',
+          description: 'Complete 50% of the roadmap',
           type: 'completion',
           requiredValue: 50,
           currentValue: 0,
@@ -48,9 +48,9 @@ export class MilestoneService {
         },
         {
           userId,
-          programmeId,
+          roadmapId,
           title: 'Learning Champion',
-          description: 'Complete 100% of the programme',
+          description: 'Complete 100% of the roadmap',
           type: 'completion',
           requiredValue: 100,
           currentValue: 0,
@@ -58,7 +58,7 @@ export class MilestoneService {
         },
         {
           userId,
-          programmeId,
+          roadmapId,
           title: 'Daily Warrior',
           description: 'Maintain a 7-day learning streak',
           type: 'streak',
@@ -68,22 +68,22 @@ export class MilestoneService {
         },
       ];
 
-      const existingCount = await Milestone.countDocuments({ userId, programmeId });
+      const existingCount = await Milestone.countDocuments({ userId, roadmapId });
       if (existingCount === 0) {
         await Milestone.insertMany(defaultMilestones);
-        logger.info('Milestones initialized', { userId, programmeId });
+        logger.info('Milestones initialized', { userId, roadmapId });
       }
 
       return defaultMilestones;
     } catch (error) {
-      logger.error('Error initializing milestones', { userId, programmeId, error });
+      logger.error('Error initializing milestones', { userId, roadmapId, error });
       throw error;
     }
   }
 
-  async updateMilestoneProgress(userId: string, programmeId: string, currentProgress: number) {
+  async updateMilestoneProgress(userId: string, roadmapId: string, currentProgress: number) {
     try {
-      const milestones = await Milestone.find({ userId, programmeId, isUnlocked: false });
+      const milestones = await Milestone.find({ userId, roadmapId, isUnlocked: false });
 
       for (const milestone of milestones) {
         if (milestone.type === 'completion') {
@@ -100,24 +100,24 @@ export class MilestoneService {
       await Promise.all(milestones.map((m) => m.save()));
       return milestones;
     } catch (error) {
-      logger.error('Error updating milestone progress', { userId, programmeId, error });
+      logger.error('Error updating milestone progress', { userId, roadmapId, error });
       throw error;
     }
   }
 
-  async getUnlockedMilestones(userId: string, programmeId: string) {
+  async getUnlockedMilestones(userId: string, roadmapId: string) {
     try {
-      const unlockedMilestones = await Milestone.find({ userId, programmeId, isUnlocked: true });
+      const unlockedMilestones = await Milestone.find({ userId, roadmapId, isUnlocked: true });
       return unlockedMilestones;
     } catch (error) {
-      logger.error('Error fetching unlocked milestones', { userId, programmeId, error });
+      logger.error('Error fetching unlocked milestones', { userId, roadmapId, error });
       throw error;
     }
   }
 
-  async calculateTotalRewards(userId: string, programmeId: string) {
+  async calculateTotalRewards(userId: string, roadmapId: string) {
     try {
-      const unlockedMilestones = await Milestone.find({ userId, programmeId, isUnlocked: true });
+      const unlockedMilestones = await Milestone.find({ userId, roadmapId, isUnlocked: true });
 
       const totalPoints = unlockedMilestones.reduce((acc, m) => acc + (m.reward?.points || 0), 0);
       const badges = unlockedMilestones.map((m) => m.reward?.badge).filter(Boolean);
@@ -130,7 +130,7 @@ export class MilestoneService {
         unlockedCount: unlockedMilestones.length,
       };
     } catch (error) {
-      logger.error('Error calculating rewards', { userId, programmeId, error });
+      logger.error('Error calculating rewards', { userId, roadmapId, error });
       throw error;
     }
   }

@@ -1110,3 +1110,2215 @@
 2026-07-25 11:39:39 [info]: 📚 API Documentation: http://localhost:5000/api/docs
 2026-07-25 11:39:39 [info]: 🔧 Environment: development
 2026-07-25 11:39:39 [info]: 🛣️  API Version: /api/v1
+2026-07-25 11:45:13 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-07-25 11:45:13 [info]: MongoDB connected successfully
+2026-07-25 11:45:13 [info]: Security middleware initialized
+2026-07-25 11:45:13 [info]: 🚀 Server running on http://localhost:5000
+2026-07-25 11:45:13 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-07-25 11:45:13 [info]: 🔧 Environment: development
+2026-07-25 11:45:13 [info]: 🛣️  API Version: /api/v1
+2026-07-25 11:47:04 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-07-25 11:47:04 [info]: MongoDB connected successfully
+2026-07-25 11:47:04 [info]: Security middleware initialized
+2026-07-25 11:47:04 [info]: 🚀 Server running on http://localhost:5000
+2026-07-25 11:47:04 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-07-25 11:47:04 [info]: 🔧 Environment: development
+2026-07-25 11:47:04 [info]: 🛣️  API Version: /api/v1
+2026-07-25 11:47:21 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-07-25 11:47:21 [info]: MongoDB connected successfully
+2026-07-25 11:47:21 [info]: Security middleware initialized
+2026-07-25 11:47:21 [info]: 🚀 Server running on http://localhost:5000
+2026-07-25 11:47:21 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-07-25 11:47:21 [info]: 🔧 Environment: development
+2026-07-25 11:47:21 [info]: 🛣️  API Version: /api/v1
+2026-07-25 11:48:16 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-07-25 11:48:16 [info]: MongoDB connected successfully
+2026-07-25 11:48:16 [info]: Security middleware initialized
+2026-07-25 11:48:16 [info]: 🚀 Server running on http://localhost:5000
+2026-07-25 11:48:16 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-07-25 11:48:16 [info]: 🔧 Environment: development
+2026-07-25 11:48:16 [info]: 🛣️  API Version: /api/v1
+2026-07-25 11:51:12 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-07-25 11:51:12 [info]: MongoDB connected successfully
+2026-07-25 11:51:12 [info]: Security middleware initialized
+2026-07-25 11:51:12 [info]: 🚀 Server running on http://localhost:5000
+2026-07-25 11:51:12 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-07-25 11:51:12 [info]: 🔧 Environment: development
+2026-07-25 11:51:12 [info]: 🛣️  API Version: /api/v1
+2026-07-25 11:51:52 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-07-25 11:51:52 [info]: MongoDB connected successfully
+2026-07-25 11:51:52 [info]: Security middleware initialized
+2026-07-25 11:51:53 [info]: 🚀 Server running on http://localhost:5000
+2026-07-25 11:51:53 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-07-25 11:51:53 [info]: 🔧 Environment: development
+2026-07-25 11:51:53 [info]: 🛣️  API Version: /api/v1
+2026-07-25 11:52:35 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-07-25 11:52:35 [info]: MongoDB connected successfully
+2026-07-25 11:52:35 [info]: Security middleware initialized
+2026-07-25 11:52:35 [info]: 🚀 Server running on http://localhost:5000
+2026-07-25 11:52:35 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-07-25 11:52:35 [info]: 🔧 Environment: development
+2026-07-25 11:52:35 [info]: 🛣️  API Version: /api/v1
+2026-07-25 11:55:43 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-07-25 11:55:43 [info]: MongoDB connected successfully
+2026-07-25 11:55:43 [info]: Security middleware initialized
+2026-07-25 11:55:43 [info]: 🚀 Server running on http://localhost:5000
+2026-07-25 11:55:43 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-07-25 11:55:43 [info]: 🔧 Environment: development
+2026-07-25 11:55:43 [info]: 🛣️  API Version: /api/v1
+2026-07-25 12:00:12 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-07-25 12:00:12 [info]: MongoDB connected successfully
+2026-07-25 12:00:12 [info]: Security middleware initialized
+2026-07-25 12:00:12 [info]: 🚀 Server running on http://localhost:5000
+2026-07-25 12:00:12 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-07-25 12:00:12 [info]: 🔧 Environment: development
+2026-07-25 12:00:12 [info]: 🛣️  API Version: /api/v1
+2026-07-25 12:03:43 [debug]: Access token refreshed for user: testuser1@example.com
+2026-07-25 12:03:43 [info]: Request completed {
+  "correlationId": "1785006223863-0.6441815625474622",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "64ms",
+  "ip": "::1"
+}
+2026-07-25 12:03:43 [info]: Request completed {
+  "correlationId": "1785006223957-0.45043949789210447",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 304,
+  "duration": "8ms",
+  "ip": "::1"
+}
+2026-07-25 12:03:43 [info]: Request completed {
+  "correlationId": "1785006223978-0.9098762568698382",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 304,
+  "duration": "8ms",
+  "ip": "::1"
+}
+2026-07-25 12:05:53 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-07-25 12:05:53 [info]: MongoDB connected successfully
+2026-07-25 12:05:53 [info]: Security middleware initialized
+2026-07-25 12:05:53 [info]: 🚀 Server running on http://localhost:5000
+2026-07-25 12:05:53 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-07-25 12:05:53 [info]: 🔧 Environment: development
+2026-07-25 12:05:53 [info]: 🛣️  API Version: /api/v1
+2026-07-25 12:06:38 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-07-25 12:06:38 [info]: MongoDB connected successfully
+2026-07-25 12:06:38 [info]: Security middleware initialized
+2026-07-25 12:06:38 [info]: 🚀 Server running on http://localhost:5000
+2026-07-25 12:06:38 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-07-25 12:06:38 [info]: 🔧 Environment: development
+2026-07-25 12:06:38 [info]: 🛣️  API Version: /api/v1
+2026-07-25 12:27:29 [info]: User logged in: testuser1@example.com
+2026-07-25 12:27:29 [info]: User logged in: testuser1@example.com
+2026-07-25 12:27:29 [info]: Request completed {
+  "correlationId": "1785007649640-0.6384184743328172",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "114ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-25 12:27:29 [info]: Request completed {
+  "correlationId": "1785007649839-0.4447796959844592",
+  "method": "GET",
+  "path": "/years",
+  "statusCode": 200,
+  "duration": "5ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-25 12:27:29 [info]: Request completed {
+  "correlationId": "1785007649906-0.8352729116566798",
+  "method": "GET",
+  "path": "/roadmap/2026",
+  "statusCode": 200,
+  "duration": "17ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-25 12:27:52 [info]: User logged in: testuser1@example.com
+2026-07-25 12:27:52 [info]: User logged in: testuser1@example.com
+2026-07-25 12:27:52 [info]: Request completed {
+  "correlationId": "1785007672079-0.10119387411193015",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "85ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-25 12:27:52 [info]: Request completed {
+  "correlationId": "1785007672247-0.040800782972218674",
+  "method": "GET",
+  "path": "/weeks/6a6509b110c9e70d6c2e8c81",
+  "statusCode": 200,
+  "duration": "16ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-25 12:27:52 [info]: Request completed {
+  "correlationId": "1785007672328-0.7292602849901785",
+  "method": "GET",
+  "path": "/modules/6a6509b103df60e5adb51d20",
+  "statusCode": 200,
+  "duration": "209ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-25 12:28:59 [info]: User logged in: testuser1@example.com
+2026-07-25 12:28:59 [info]: User logged in: testuser1@example.com
+2026-07-25 12:28:59 [info]: Request completed {
+  "correlationId": "1785007739167-0.4516040996480589",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "103ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-25 12:28:59 [info]: Lesson progress updated: 6a637caacf6205acbaaf8cdc - 6a6509b103df60e5adb51d22 - in-progress
+2026-07-25 12:28:59 [info]: User progress recalculated {
+  "userId": "6a637caacf6205acbaaf8cdc",
+  "overallProgress": 0,
+  "completedLessonsCount": 0
+}
+2026-07-25 12:28:59 [info]: Lesson progress updated: 6a6509b103df60e5adb51d22 - in-progress
+2026-07-25 12:28:59 [info]: Request completed {
+  "correlationId": "1785007739397-0.6825362926288716",
+  "method": "POST",
+  "path": "/lessons/6a6509b103df60e5adb51d22/progress",
+  "statusCode": 200,
+  "duration": "101ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-25 12:28:59 [info]: Request completed {
+  "correlationId": "1785007739625-0.894660975867847",
+  "method": "GET",
+  "path": "/continue",
+  "statusCode": 200,
+  "duration": "9ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-25 12:28:59 [info]: Request completed {
+  "correlationId": "1785007739740-0.5477614139817946",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 200,
+  "duration": "3ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-25 12:29:54 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-07-25 12:29:54 [info]: MongoDB connected successfully
+2026-07-25 12:29:54 [info]: Security middleware initialized
+2026-07-25 12:29:54 [info]: 🚀 Server running on http://localhost:5000
+2026-07-25 12:29:54 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-07-25 12:29:54 [info]: 🔧 Environment: development
+2026-07-25 12:29:54 [info]: 🛣️  API Version: /api/v1
+2026-07-25 12:30:15 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-07-25 12:30:15 [info]: MongoDB connected successfully
+2026-07-25 12:30:15 [info]: Security middleware initialized
+2026-07-25 12:30:15 [info]: 🚀 Server running on http://localhost:5000
+2026-07-25 12:30:15 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-07-25 12:30:15 [info]: 🔧 Environment: development
+2026-07-25 12:30:15 [info]: 🛣️  API Version: /api/v1
+2026-07-25 12:30:40 [info]: User logged in: testuser1@example.com
+2026-07-25 12:30:40 [info]: User logged in: testuser1@example.com
+2026-07-25 12:30:40 [info]: Request completed {
+  "correlationId": "1785007839996-0.10781175364136253",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "119ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-25 12:30:40 [info]: Request completed {
+  "correlationId": "1785007840225-0.6226391762989213",
+  "method": "GET",
+  "path": "/continue",
+  "statusCode": 200,
+  "duration": "21ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-25 12:30:40 [info]: Lesson progress updated: 6a637caacf6205acbaaf8cdc - 6a6509b103df60e5adb51d22 - completed
+2026-07-25 12:30:40 [info]: User progress recalculated {
+  "userId": "6a637caacf6205acbaaf8cdc",
+  "overallProgress": 25,
+  "completedLessonsCount": 1
+}
+2026-07-25 12:30:40 [info]: Lesson progress updated: 6a6509b103df60e5adb51d22 - completed
+2026-07-25 12:30:40 [info]: Request completed {
+  "correlationId": "1785007840350-0.12696118861651906",
+  "method": "POST",
+  "path": "/lessons/6a6509b103df60e5adb51d22/progress",
+  "statusCode": 200,
+  "duration": "41ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-25 12:30:40 [info]: Request completed {
+  "correlationId": "1785007840489-0.5188572682496556",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 200,
+  "duration": "3ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-25 12:30:40 [info]: Request completed {
+  "correlationId": "1785007840552-0.8621780243205689",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 200,
+  "duration": "13ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-25 12:31:47 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-07-25 12:31:47 [info]: MongoDB connected successfully
+2026-07-25 12:31:47 [info]: Security middleware initialized
+2026-07-25 12:31:47 [info]: 🚀 Server running on http://localhost:5000
+2026-07-25 12:31:47 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-07-25 12:31:47 [info]: 🔧 Environment: development
+2026-07-25 12:31:47 [info]: 🛣️  API Version: /api/v1
+2026-07-25 12:32:43 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-07-25 12:32:43 [info]: MongoDB connected successfully
+2026-07-25 12:32:43 [info]: Security middleware initialized
+2026-07-25 12:32:43 [info]: 🚀 Server running on http://localhost:5000
+2026-07-25 12:32:43 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-07-25 12:32:43 [info]: 🔧 Environment: development
+2026-07-25 12:32:43 [info]: 🛣️  API Version: /api/v1
+2026-07-25 12:33:46 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-07-25 12:33:46 [info]: MongoDB connected successfully
+2026-07-25 12:33:46 [info]: Security middleware initialized
+2026-07-25 12:33:46 [info]: 🚀 Server running on http://localhost:5000
+2026-07-25 12:33:46 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-07-25 12:33:46 [info]: 🔧 Environment: development
+2026-07-25 12:33:46 [info]: 🛣️  API Version: /api/v1
+2026-07-25 12:34:00 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-07-25 12:34:00 [info]: MongoDB connected successfully
+2026-07-25 12:34:00 [info]: Security middleware initialized
+2026-07-25 12:34:00 [info]: 🚀 Server running on http://localhost:5000
+2026-07-25 12:34:00 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-07-25 12:34:00 [info]: 🔧 Environment: development
+2026-07-25 12:34:00 [info]: 🛣️  API Version: /api/v1
+2026-07-25 12:35:01 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-07-25 12:35:01 [info]: MongoDB connected successfully
+2026-07-25 12:35:01 [info]: Security middleware initialized
+2026-07-25 12:35:01 [info]: 🚀 Server running on http://localhost:5000
+2026-07-25 12:35:01 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-07-25 12:35:01 [info]: 🔧 Environment: development
+2026-07-25 12:35:01 [info]: 🛣️  API Version: /api/v1
+2026-07-25 12:35:40 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-07-25 12:35:40 [info]: MongoDB connected successfully
+2026-07-25 12:35:40 [info]: Security middleware initialized
+2026-07-25 12:35:40 [info]: 🚀 Server running on http://localhost:5000
+2026-07-25 12:35:40 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-07-25 12:35:40 [info]: 🔧 Environment: development
+2026-07-25 12:35:40 [info]: 🛣️  API Version: /api/v1
+2026-07-25 12:36:33 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-07-25 12:36:34 [info]: MongoDB connected successfully
+2026-07-25 12:36:34 [info]: Security middleware initialized
+2026-07-25 12:36:34 [info]: 🚀 Server running on http://localhost:5000
+2026-07-25 12:36:34 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-07-25 12:36:34 [info]: 🔧 Environment: development
+2026-07-25 12:36:34 [info]: 🛣️  API Version: /api/v1
+2026-07-25 12:36:45 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-07-25 12:36:45 [info]: MongoDB connected successfully
+2026-07-25 12:36:45 [info]: Security middleware initialized
+2026-07-25 12:36:45 [info]: 🚀 Server running on http://localhost:5000
+2026-07-25 12:36:45 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-07-25 12:36:45 [info]: 🔧 Environment: development
+2026-07-25 12:36:45 [info]: 🛣️  API Version: /api/v1
+2026-07-25 12:36:55 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-07-25 12:36:55 [info]: MongoDB connected successfully
+2026-07-25 12:36:55 [info]: Security middleware initialized
+2026-07-25 12:36:55 [info]: 🚀 Server running on http://localhost:5000
+2026-07-25 12:36:55 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-07-25 12:36:55 [info]: 🔧 Environment: development
+2026-07-25 12:36:55 [info]: 🛣️  API Version: /api/v1
+2026-07-25 12:37:17 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-07-25 12:37:17 [info]: MongoDB connected successfully
+2026-07-25 12:37:17 [info]: Security middleware initialized
+2026-07-25 12:37:17 [info]: 🚀 Server running on http://localhost:5000
+2026-07-25 12:37:17 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-07-25 12:37:17 [info]: 🔧 Environment: development
+2026-07-25 12:37:17 [info]: 🛣️  API Version: /api/v1
+2026-07-25 12:44:41 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-07-25 12:44:41 [info]: MongoDB connected successfully
+2026-07-25 12:44:41 [info]: Security middleware initialized
+2026-07-25 12:44:41 [info]: 🚀 Server running on http://localhost:5000
+2026-07-25 12:44:41 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-07-25 12:44:41 [info]: 🔧 Environment: development
+2026-07-25 12:44:41 [info]: 🛣️  API Version: /api/v1
+2026-07-25 12:59:32 [info]: User registered: admintest@example.com
+2026-07-25 12:59:32 [info]: User registered: admintest@example.com
+2026-07-25 12:59:32 [info]: Request completed {
+  "correlationId": "1785009572183-0.9311143005515871",
+  "method": "POST",
+  "path": "/register",
+  "statusCode": 201,
+  "duration": "445ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-25 13:00:16 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-07-25 13:00:16 [info]: MongoDB connected successfully
+2026-07-25 13:00:16 [info]: Security middleware initialized
+2026-07-25 13:00:16 [info]: 🚀 Server running on http://localhost:5000
+2026-07-25 13:00:16 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-07-25 13:00:16 [info]: 🔧 Environment: development
+2026-07-25 13:00:16 [info]: 🛣️  API Version: /api/v1
+2026-07-25 13:03:49 [info]: User logged in: admintest@example.com
+2026-07-25 13:03:49 [info]: User logged in: admintest@example.com
+2026-07-25 13:03:49 [info]: Request completed {
+  "correlationId": "1785009829045-0.3491274646182193",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "165ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-25 13:03:49 [info]: Request completed {
+  "correlationId": "1785009829334-0.20671489658934084",
+  "method": "GET",
+  "path": "/roadmaps",
+  "statusCode": 200,
+  "duration": "14ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-25 13:03:49 [info]: Roadmap created {
+  "roadmapId": "6a6516a593912b475d51b216",
+  "year": "2027"
+}
+2026-07-25 13:03:49 [info]: Request completed {
+  "correlationId": "1785009829476-0.24051741515282954",
+  "method": "POST",
+  "path": "/roadmaps",
+  "statusCode": 201,
+  "duration": "77ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-25 13:03:49 [info]: User logged in: testuser1@example.com
+2026-07-25 13:03:49 [info]: User logged in: testuser1@example.com
+2026-07-25 13:03:49 [info]: Request completed {
+  "correlationId": "1785009829728-0.43195228647824024",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "116ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-25 13:03:49 [error]: Error occurred: Insufficient permissions {
+  "url": "/api/v1/admin/learning/roadmaps",
+  "method": "GET",
+  "ip": "::ffff:127.0.0.1",
+  "stack": "AuthorizationError: Insufficient permissions\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\core\\middleware\\authMiddleware.ts:46:13\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:328:13)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:286:9\n    at router.process_params (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:280:10)\n    at authenticate (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\core\\middleware\\authMiddleware.ts:27:5)\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:328:13)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:286:9"
+}
+2026-07-25 13:03:49 [info]: Request completed {
+  "correlationId": "1785009829982-0.66596686536289",
+  "method": "GET",
+  "path": "/api/v1/admin/learning/roadmaps",
+  "statusCode": 403,
+  "duration": "9ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-25 13:04:23 [info]: User logged in: admintest@example.com
+2026-07-25 13:04:23 [info]: User logged in: admintest@example.com
+2026-07-25 13:04:23 [info]: Request completed {
+  "correlationId": "1785009863558-0.503733070618906",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "144ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-25 13:04:23 [info]: Roadmap week created {
+  "weekId": "6a6516c793912b475d51b217",
+  "roadmapId": "6a6516a593912b475d51b216"
+}
+2026-07-25 13:04:23 [info]: Request completed {
+  "correlationId": "1785009863870-0.3893173081491067",
+  "method": "POST",
+  "path": "/roadmaps/6a6516a593912b475d51b216/weeks",
+  "statusCode": 201,
+  "duration": "7ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-25 13:04:24 [info]: Module created {
+  "moduleId": "6a6516c893912b475d51b218",
+  "weekId": "6a6516c793912b475d51b217"
+}
+2026-07-25 13:04:24 [info]: Request completed {
+  "correlationId": "1785009864311-0.9545239317325631",
+  "method": "POST",
+  "path": "/weeks/6a6516c793912b475d51b217/modules",
+  "statusCode": 201,
+  "duration": "92ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-25 13:04:24 [info]: Lesson created {
+  "lessonId": "6a6516c893912b475d51b219",
+  "moduleId": "6a6516c893912b475d51b218"
+}
+2026-07-25 13:04:24 [info]: Request completed {
+  "correlationId": "1785009864934-0.4997790940109088",
+  "method": "POST",
+  "path": "/modules/6a6516c893912b475d51b218/lessons",
+  "statusCode": 201,
+  "duration": "60ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-25 13:04:53 [info]: User logged in: admintest@example.com
+2026-07-25 13:04:53 [info]: User logged in: admintest@example.com
+2026-07-25 13:04:53 [info]: Request completed {
+  "correlationId": "1785009893444-0.7570349324512664",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "98ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-25 13:04:53 [info]: Lesson asset uploaded {
+  "lessonId": "6a6516c893912b475d51b219",
+  "url": "http://localhost:5000/uploads/lessons/6a6516c893912b475d51b219/5e7e0b05-5306-4100-9f82-c0f2e727a649.txt"
+}
+2026-07-25 13:04:53 [info]: Request completed {
+  "correlationId": "1785009893639-0.48596021642734344",
+  "method": "POST",
+  "path": "/lessons/6a6516c893912b475d51b219/upload",
+  "statusCode": 200,
+  "duration": "14ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-25 13:07:18 [info]: Request completed {
+  "correlationId": "1785010038112-0.5336596021504483",
+  "method": "GET",
+  "path": "/lessons/6a6516c893912b475d51b219/5e7e0b05-5306-4100-9f82-c0f2e727a649.txt",
+  "statusCode": 200,
+  "duration": "8ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-25 13:24:30 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-07-25 13:24:30 [info]: MongoDB connected successfully
+2026-07-25 13:24:30 [info]: Security middleware initialized
+2026-07-25 13:24:30 [info]: 🚀 Server running on http://localhost:5000
+2026-07-25 13:24:30 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-07-25 13:24:30 [info]: 🔧 Environment: development
+2026-07-25 13:24:30 [info]: 🛣️  API Version: /api/v1
+2026-07-25 13:27:29 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-07-25 13:27:29 [info]: MongoDB connected successfully
+2026-07-25 13:27:29 [info]: Security middleware initialized
+2026-07-25 13:27:29 [info]: 🚀 Server running on http://localhost:5000
+2026-07-25 13:27:29 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-07-25 13:27:29 [info]: 🔧 Environment: development
+2026-07-25 13:27:29 [info]: 🛣️  API Version: /api/v1
+2026-07-25 13:29:26 [info]: User logged in: testuser1@example.com
+2026-07-25 13:29:26 [info]: User logged in: testuser1@example.com
+2026-07-25 13:29:26 [info]: Request completed {
+  "correlationId": "1785011366006-0.7456492019720454",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "205ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-25 13:29:26 [info]: Request completed {
+  "correlationId": "1785011366408-0.9693557328984128",
+  "method": "GET",
+  "path": "/roadmap/2026",
+  "statusCode": 200,
+  "duration": "115ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-25 13:45:12 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-07-25 13:45:12 [info]: MongoDB connected successfully
+2026-07-25 13:45:12 [info]: Security middleware initialized
+2026-07-25 13:45:12 [info]: 🚀 Server running on http://localhost:5000
+2026-07-25 13:45:12 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-07-25 13:45:12 [info]: 🔧 Environment: development
+2026-07-25 13:45:12 [info]: 🛣️  API Version: /api/v1
+2026-07-25 13:45:32 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-07-25 13:45:32 [info]: MongoDB connected successfully
+2026-07-25 13:45:32 [info]: Security middleware initialized
+2026-07-25 13:45:32 [info]: 🚀 Server running on http://localhost:5000
+2026-07-25 13:45:32 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-07-25 13:45:32 [info]: 🔧 Environment: development
+2026-07-25 13:45:32 [info]: 🛣️  API Version: /api/v1
+2026-07-25 13:45:58 [info]: User logged in: testuser1@example.com
+2026-07-25 13:45:58 [info]: User logged in: testuser1@example.com
+2026-07-25 13:45:58 [info]: Request completed {
+  "correlationId": "1785012358524-0.0016430895681481816",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "164ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-25 13:45:58 [info]: Request completed {
+  "correlationId": "1785012358809-0.5494275471194932",
+  "method": "GET",
+  "path": "/roadmap/2026",
+  "statusCode": 200,
+  "duration": "32ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-25 13:49:32 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-07-25 13:49:32 [info]: MongoDB connected successfully
+2026-07-25 13:49:32 [info]: Security middleware initialized
+2026-07-25 13:49:32 [info]: 🚀 Server running on http://localhost:5000
+2026-07-25 13:49:32 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-07-25 13:49:32 [info]: 🔧 Environment: development
+2026-07-25 13:49:32 [info]: 🛣️  API Version: /api/v1
+2026-07-25 14:05:03 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-07-25 14:05:04 [info]: MongoDB connected successfully
+2026-07-25 14:05:04 [info]: Security middleware initialized
+2026-07-25 14:05:04 [info]: 🚀 Server running on http://localhost:5000
+2026-07-25 14:05:04 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-07-25 14:05:04 [info]: 🔧 Environment: development
+2026-07-25 14:05:04 [info]: 🛣️  API Version: /api/v1
+2026-07-25 14:05:28 [info]: Request completed {
+  "correlationId": "1785013528762-0.783411909505716",
+  "method": "GET",
+  "path": "/health",
+  "statusCode": 200,
+  "duration": "12ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-25 14:06:24 [debug]: Access token refreshed for user: testuser1@example.com
+2026-07-25 14:06:24 [info]: Request completed {
+  "correlationId": "1785013584957-0.16540343914758582",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "37ms",
+  "ip": "::1"
+}
+2026-07-25 14:06:25 [info]: Request completed {
+  "correlationId": "1785013585006-0.6090665427945402",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 304,
+  "duration": "11ms",
+  "ip": "::1"
+}
+2026-07-25 14:06:25 [info]: Request completed {
+  "correlationId": "1785013585030-0.739509946166373",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 304,
+  "duration": "94ms",
+  "ip": "::1"
+}
+2026-07-25 14:07:00 [debug]: Access token refreshed for user: testuser1@example.com
+2026-07-25 14:07:00 [info]: Request completed {
+  "correlationId": "1785013620962-0.03753914644670264",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "7ms",
+  "ip": "::1"
+}
+2026-07-25 14:07:00 [info]: Request completed {
+  "correlationId": "1785013620983-0.028590882017491492",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 304,
+  "duration": "5ms",
+  "ip": "::1"
+}
+2026-07-25 14:07:01 [info]: Request completed {
+  "correlationId": "1785013621000-0.10624385904403122",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 304,
+  "duration": "8ms",
+  "ip": "::1"
+}
+2026-07-25 14:07:01 [info]: Request completed {
+  "correlationId": "1785013621177-0.5510354719368731",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 200,
+  "duration": "85ms",
+  "ip": "::1"
+}
+2026-07-25 14:09:56 [debug]: Access token refreshed for user: testuser1@example.com
+2026-07-25 14:09:56 [info]: Request completed {
+  "correlationId": "1785013796598-0.400608055606553",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "10ms",
+  "ip": "::1"
+}
+2026-07-25 14:09:56 [info]: Request completed {
+  "correlationId": "1785013796622-0.9499149437529236",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 304,
+  "duration": "6ms",
+  "ip": "::1"
+}
+2026-07-25 14:09:56 [info]: Request completed {
+  "correlationId": "1785013796639-0.8314969844635253",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 304,
+  "duration": "5ms",
+  "ip": "::1"
+}
+2026-07-25 14:09:56 [info]: Request completed {
+  "correlationId": "1785013796757-0.8599418382298902",
+  "method": "GET",
+  "path": "/years",
+  "statusCode": 200,
+  "duration": "28ms",
+  "ip": "::1"
+}
+2026-07-25 14:09:56 [info]: Request completed {
+  "correlationId": "1785013796760-0.5227235020882414",
+  "method": "GET",
+  "path": "/continue",
+  "statusCode": 200,
+  "duration": "76ms",
+  "ip": "::1"
+}
+2026-07-25 14:09:56 [info]: Request completed {
+  "correlationId": "1785013796802-0.5930608278848244",
+  "method": "GET",
+  "path": "/roadmap/2026",
+  "statusCode": 200,
+  "duration": "139ms",
+  "ip": "::1"
+}
+2026-07-25 14:09:57 [info]: Request completed {
+  "correlationId": "1785013796995-0.11857379057837902",
+  "method": "GET",
+  "path": "/modules/6a6509b103df60e5adb51d20",
+  "statusCode": 200,
+  "duration": "101ms",
+  "ip": "::1"
+}
+2026-07-25 14:09:57 [info]: Request completed {
+  "correlationId": "1785013796999-0.4142052994594714",
+  "method": "GET",
+  "path": "/modules/6a6509b103df60e5adb51d21",
+  "statusCode": 200,
+  "duration": "99ms",
+  "ip": "::1"
+}
+2026-07-25 14:11:52 [debug]: Access token refreshed for user: testuser1@example.com
+2026-07-25 14:11:52 [info]: Request completed {
+  "correlationId": "1785013912261-0.24549535407905032",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "6ms",
+  "ip": "::1"
+}
+2026-07-25 14:11:52 [info]: Request completed {
+  "correlationId": "1785013912282-0.07876291916266853",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 304,
+  "duration": "4ms",
+  "ip": "::1"
+}
+2026-07-25 14:11:52 [info]: Request completed {
+  "correlationId": "1785013912298-0.2358238802697149",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 304,
+  "duration": "5ms",
+  "ip": "::1"
+}
+2026-07-25 14:11:52 [info]: Request completed {
+  "correlationId": "1785013912410-0.3557934106254982",
+  "method": "GET",
+  "path": "/lessons/6a6509b103df60e5adb51d23",
+  "statusCode": 200,
+  "duration": "39ms",
+  "ip": "::1"
+}
+2026-07-25 14:11:52 [info]: Request completed {
+  "correlationId": "1785013912460-0.23386339684289048",
+  "method": "GET",
+  "path": "/modules/6a6509b103df60e5adb51d20",
+  "statusCode": 304,
+  "duration": "16ms",
+  "ip": "::1"
+}
+2026-07-25 14:19:41 [info]: Request completed {
+  "correlationId": "1785014381130-0.7394655782383349",
+  "method": "GET",
+  "path": "/lessons/6a6509b103df60e5adb51d23",
+  "statusCode": 304,
+  "duration": "15ms",
+  "ip": "::1"
+}
+2026-07-25 14:19:41 [info]: Request completed {
+  "correlationId": "1785014381156-0.8621200742786699",
+  "method": "GET",
+  "path": "/modules/6a6509b103df60e5adb51d20",
+  "statusCode": 304,
+  "duration": "17ms",
+  "ip": "::1"
+}
+2026-07-25 14:21:15 [debug]: Access token refreshed for user: testuser1@example.com
+2026-07-25 14:21:15 [info]: Request completed {
+  "correlationId": "1785014475733-0.6805089487672713",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "4ms",
+  "ip": "::1"
+}
+2026-07-25 14:21:15 [info]: Request completed {
+  "correlationId": "1785014475745-0.1453780344190031",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 304,
+  "duration": "2ms",
+  "ip": "::1"
+}
+2026-07-25 14:21:15 [info]: Request completed {
+  "correlationId": "1785014475753-0.492412919666402",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 304,
+  "duration": "2ms",
+  "ip": "::1"
+}
+2026-07-25 14:21:15 [info]: Request completed {
+  "correlationId": "1785014475793-0.49892617971675113",
+  "method": "GET",
+  "path": "/lessons/6a6509b103df60e5adb51d23",
+  "statusCode": 304,
+  "duration": "5ms",
+  "ip": "::1"
+}
+2026-07-25 14:21:15 [info]: Request completed {
+  "correlationId": "1785014475804-0.6910947195082145",
+  "method": "GET",
+  "path": "/modules/6a6509b103df60e5adb51d20",
+  "statusCode": 304,
+  "duration": "8ms",
+  "ip": "::1"
+}
+2026-07-25 14:21:16 [debug]: Access token refreshed for user: testuser1@example.com
+2026-07-25 14:21:16 [info]: Request completed {
+  "correlationId": "1785014476437-0.3673790178124786",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "4ms",
+  "ip": "::1"
+}
+2026-07-25 14:21:16 [info]: Request completed {
+  "correlationId": "1785014476455-0.9227957738825632",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 304,
+  "duration": "4ms",
+  "ip": "::1"
+}
+2026-07-25 14:21:16 [info]: Request completed {
+  "correlationId": "1785014476467-0.9330243304905447",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 304,
+  "duration": "4ms",
+  "ip": "::1"
+}
+2026-07-25 14:21:16 [info]: Request completed {
+  "correlationId": "1785014476554-0.28435197946553625",
+  "method": "GET",
+  "path": "/lessons/6a6509b103df60e5adb51d23",
+  "statusCode": 304,
+  "duration": "9ms",
+  "ip": "::1"
+}
+2026-07-25 14:21:16 [info]: Request completed {
+  "correlationId": "1785014476570-0.5882652031891334",
+  "method": "GET",
+  "path": "/modules/6a6509b103df60e5adb51d20",
+  "statusCode": 304,
+  "duration": "10ms",
+  "ip": "::1"
+}
+2026-07-25 14:22:29 [debug]: Access token refreshed for user: testuser1@example.com
+2026-07-25 14:22:29 [info]: Request completed {
+  "correlationId": "1785014549194-0.8472442658215439",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "6ms",
+  "ip": "::1"
+}
+2026-07-25 14:22:29 [info]: Request completed {
+  "correlationId": "1785014549232-0.24818425716634007",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 304,
+  "duration": "5ms",
+  "ip": "::1"
+}
+2026-07-25 14:22:29 [info]: Request completed {
+  "correlationId": "1785014549250-0.5648005567394969",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 304,
+  "duration": "6ms",
+  "ip": "::1"
+}
+2026-07-25 14:22:29 [info]: Request completed {
+  "correlationId": "1785014549375-0.8280600890942463",
+  "method": "GET",
+  "path": "/lessons/6a6509b103df60e5adb51d23",
+  "statusCode": 304,
+  "duration": "10ms",
+  "ip": "::1"
+}
+2026-07-25 14:22:29 [info]: Request completed {
+  "correlationId": "1785014549394-0.5949337310754013",
+  "method": "GET",
+  "path": "/modules/6a6509b103df60e5adb51d20",
+  "statusCode": 304,
+  "duration": "10ms",
+  "ip": "::1"
+}
+2026-07-25 14:22:44 [debug]: Access token refreshed for user: testuser1@example.com
+2026-07-25 14:22:44 [info]: Request completed {
+  "correlationId": "1785014564302-0.7667304947944705",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "4ms",
+  "ip": "::1"
+}
+2026-07-25 14:22:44 [info]: Request completed {
+  "correlationId": "1785014564316-0.6816114124300973",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 304,
+  "duration": "3ms",
+  "ip": "::1"
+}
+2026-07-25 14:22:44 [info]: Request completed {
+  "correlationId": "1785014564328-0.812214094146956",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 304,
+  "duration": "3ms",
+  "ip": "::1"
+}
+2026-07-25 14:22:44 [info]: Request completed {
+  "correlationId": "1785014564407-0.13200476781724169",
+  "method": "GET",
+  "path": "/lessons/6a6509b103df60e5adb51d23",
+  "statusCode": 304,
+  "duration": "9ms",
+  "ip": "::1"
+}
+2026-07-25 14:22:44 [info]: Request completed {
+  "correlationId": "1785014564423-0.6564190714510713",
+  "method": "GET",
+  "path": "/modules/6a6509b103df60e5adb51d20",
+  "statusCode": 304,
+  "duration": "10ms",
+  "ip": "::1"
+}
+2026-07-25 14:23:05 [error]: Error occurred: Cast to ObjectId failed for value "undefined" (type string) at path "lessonId" for model "UserLessonProgress" {
+  "url": "/api/v1/learning/lessons/undefined/progress",
+  "method": "POST",
+  "ip": "::1",
+  "stack": "CastError: Cast to ObjectId failed for value \"undefined\" (type string) at path \"lessonId\" for model \"UserLessonProgress\"\n    at SchemaObjectId.cast (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\mongoose\\lib\\schema\\objectId.js:252:11)\n    at SchemaObjectId.SchemaType.applySetters (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\mongoose\\lib\\schemaType.js:1373:12)\n    at SchemaObjectId.SchemaType.castForQuery (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\mongoose\\lib\\schemaType.js:1793:17)\n    at cast (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\mongoose\\lib\\cast.js:386:32)\n    at model.Query.Query.cast (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\mongoose\\lib\\query.js:5233:12)\n    at model.Query.Query._castConditions (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\mongoose\\lib\\query.js:2411:10)\n    at model.Query._findOne (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\mongoose\\lib\\query.js:2758:8)\n    at maybeTracedQueryExec (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\mongoose\\lib\\query.js:4801:83)\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async LearningService.updateLessonProgress (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\learning\\services\\learning.service.ts:50:20)"
+}
+2026-07-25 14:23:05 [error]: Unknown error {
+  "error": {
+    "stringValue": "\"undefined\"",
+    "valueType": "string",
+    "kind": "ObjectId",
+    "value": "undefined",
+    "path": "lessonId",
+    "reason": {},
+    "name": "CastError",
+    "message": "Cast to ObjectId failed for value \"undefined\" (type string) at path \"lessonId\" for model \"UserLessonProgress\""
+  }
+}
+2026-07-25 14:23:05 [info]: Request completed {
+  "correlationId": "1785014585208-0.24862798601377034",
+  "method": "POST",
+  "path": "/api/v1/learning/lessons/undefined/progress",
+  "statusCode": 500,
+  "duration": "22ms",
+  "ip": "::1"
+}
+2026-07-25 14:25:38 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-07-25 14:25:38 [info]: MongoDB connected successfully
+2026-07-25 14:25:38 [info]: Security middleware initialized
+2026-07-25 14:25:38 [info]: 🚀 Server running on http://localhost:5000
+2026-07-25 14:25:38 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-07-25 14:25:38 [info]: 🔧 Environment: development
+2026-07-25 14:25:38 [info]: 🛣️  API Version: /api/v1
+2026-07-25 14:26:47 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-07-25 14:26:47 [info]: MongoDB connected successfully
+2026-07-25 14:26:48 [info]: Security middleware initialized
+2026-07-25 14:26:48 [info]: 🚀 Server running on http://localhost:5000
+2026-07-25 14:26:48 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-07-25 14:26:48 [info]: 🔧 Environment: development
+2026-07-25 14:26:48 [info]: 🛣️  API Version: /api/v1
+2026-07-25 14:26:48 [debug]: Access token refreshed for user: testuser1@example.com
+2026-07-25 14:26:48 [info]: Request completed {
+  "correlationId": "1785014808102-0.9065361122547898",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "57ms",
+  "ip": "::1"
+}
+2026-07-25 14:26:48 [info]: Request completed {
+  "correlationId": "1785014808194-0.02142736563920211",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 304,
+  "duration": "15ms",
+  "ip": "::1"
+}
+2026-07-25 14:26:48 [info]: Request completed {
+  "correlationId": "1785014808225-0.7255584396494309",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 304,
+  "duration": "6ms",
+  "ip": "::1"
+}
+2026-07-25 14:26:48 [info]: Request completed {
+  "correlationId": "1785014808326-0.22076803644891918",
+  "method": "GET",
+  "path": "/lessons/6a6509b103df60e5adb51d23",
+  "statusCode": 200,
+  "duration": "29ms",
+  "ip": "::1"
+}
+2026-07-25 14:26:48 [info]: Request completed {
+  "correlationId": "1785014808373-0.6544283808665162",
+  "method": "GET",
+  "path": "/modules/6a6509b103df60e5adb51d20",
+  "statusCode": 304,
+  "duration": "44ms",
+  "ip": "::1"
+}
+2026-07-25 14:27:04 [info]: Request completed {
+  "correlationId": "1785014824645-0.7940556203460165",
+  "method": "GET",
+  "path": "/health",
+  "statusCode": 200,
+  "duration": "1ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-25 14:27:30 [debug]: Access token refreshed for user: testuser1@example.com
+2026-07-25 14:27:30 [info]: Request completed {
+  "correlationId": "1785014850409-0.11600678483418614",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "10ms",
+  "ip": "::1"
+}
+2026-07-25 14:27:30 [info]: Request completed {
+  "correlationId": "1785014850431-0.3418802625687377",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 304,
+  "duration": "4ms",
+  "ip": "::1"
+}
+2026-07-25 14:27:30 [info]: Request completed {
+  "correlationId": "1785014850444-0.7385929781660323",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 304,
+  "duration": "6ms",
+  "ip": "::1"
+}
+2026-07-25 14:27:30 [info]: Request completed {
+  "correlationId": "1785014850541-0.007520308481093418",
+  "method": "GET",
+  "path": "/lessons/6a6509b103df60e5adb51d23",
+  "statusCode": 304,
+  "duration": "11ms",
+  "ip": "::1"
+}
+2026-07-25 14:27:30 [info]: Request completed {
+  "correlationId": "1785014850559-0.23223060720850186",
+  "method": "GET",
+  "path": "/modules/6a6509b103df60e5adb51d20",
+  "statusCode": 304,
+  "duration": "9ms",
+  "ip": "::1"
+}
+2026-07-25 14:29:59 [info]: Lesson progress updated: 6a637caacf6205acbaaf8cdc - 6a6509b103df60e5adb51d23 - completed
+2026-07-25 14:29:59 [info]: User progress recalculated {
+  "userId": "6a637caacf6205acbaaf8cdc",
+  "overallProgress": 40,
+  "completedLessonsCount": 2
+}
+2026-07-25 14:30:00 [info]: Lesson progress updated: 6a6509b103df60e5adb51d23 - completed
+2026-07-25 14:30:00 [info]: Request completed {
+  "correlationId": "1785014999795-0.06335165102862417",
+  "method": "POST",
+  "path": "/lessons/6a6509b103df60e5adb51d23/progress",
+  "statusCode": 200,
+  "duration": "205ms",
+  "ip": "::1"
+}
+2026-07-25 14:30:00 [info]: Request completed {
+  "correlationId": "1785015000015-0.5682454976417513",
+  "method": "GET",
+  "path": "/lessons/6a6509b103df60e5adb51d23",
+  "statusCode": 200,
+  "duration": "13ms",
+  "ip": "::1"
+}
+2026-07-25 14:30:00 [info]: Request completed {
+  "correlationId": "1785015000039-0.7298083582929978",
+  "method": "GET",
+  "path": "/modules/6a6509b103df60e5adb51d20",
+  "statusCode": 200,
+  "duration": "17ms",
+  "ip": "::1"
+}
+2026-07-25 14:31:52 [debug]: Access token refreshed for user: testuser1@example.com
+2026-07-25 14:31:52 [info]: Request completed {
+  "correlationId": "1785015112425-0.5115446640860715",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "7ms",
+  "ip": "::1"
+}
+2026-07-25 14:31:52 [info]: Request completed {
+  "correlationId": "1785015112445-0.3652528997645693",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 304,
+  "duration": "5ms",
+  "ip": "::1"
+}
+2026-07-25 14:31:52 [info]: Request completed {
+  "correlationId": "1785015112461-0.11279794740697247",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 304,
+  "duration": "4ms",
+  "ip": "::1"
+}
+2026-07-25 14:31:52 [info]: Request completed {
+  "correlationId": "1785015112622-0.7971025171858406",
+  "method": "GET",
+  "path": "/years",
+  "statusCode": 304,
+  "duration": "15ms",
+  "ip": "::1"
+}
+2026-07-25 14:31:52 [info]: Request completed {
+  "correlationId": "1785015112630-0.7163548951754853",
+  "method": "GET",
+  "path": "/continue",
+  "statusCode": 200,
+  "duration": "19ms",
+  "ip": "::1"
+}
+2026-07-25 14:31:52 [info]: Request completed {
+  "correlationId": "1785015112669-0.45874930085349996",
+  "method": "GET",
+  "path": "/roadmap/2026",
+  "statusCode": 200,
+  "duration": "66ms",
+  "ip": "::1"
+}
+2026-07-25 14:31:52 [info]: Request completed {
+  "correlationId": "1785015112804-0.44743808386690376",
+  "method": "GET",
+  "path": "/modules/6a6509b103df60e5adb51d20",
+  "statusCode": 304,
+  "duration": "27ms",
+  "ip": "::1"
+}
+2026-07-25 14:31:52 [info]: Request completed {
+  "correlationId": "1785015112806-0.4286251562911494",
+  "method": "GET",
+  "path": "/modules/6a6509b103df60e5adb51d21",
+  "statusCode": 304,
+  "duration": "29ms",
+  "ip": "::1"
+}
+2026-07-25 14:32:39 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-07-25 14:32:39 [info]: MongoDB connected successfully
+2026-07-25 14:32:39 [info]: Security middleware initialized
+2026-07-25 14:32:39 [info]: 🚀 Server running on http://localhost:5000
+2026-07-25 14:32:39 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-07-25 14:32:39 [info]: 🔧 Environment: development
+2026-07-25 14:32:39 [info]: 🛣️  API Version: /api/v1
+2026-07-25 14:42:33 [info]: Request completed {
+  "correlationId": "1785015753591-0.7118395974998761",
+  "method": "GET",
+  "path": "/years",
+  "statusCode": 304,
+  "duration": "71ms",
+  "ip": "::1"
+}
+2026-07-25 14:42:33 [info]: Request completed {
+  "correlationId": "1785015753628-0.6637189263327393",
+  "method": "GET",
+  "path": "/continue",
+  "statusCode": 304,
+  "duration": "193ms",
+  "ip": "::1"
+}
+2026-07-25 14:42:33 [info]: Request completed {
+  "correlationId": "1785015753643-0.47355217964508933",
+  "method": "GET",
+  "path": "/modules/6a6509b103df60e5adb51d21",
+  "statusCode": 304,
+  "duration": "198ms",
+  "ip": "::1"
+}
+2026-07-25 14:42:33 [info]: Request completed {
+  "correlationId": "1785015753639-0.6034316171734273",
+  "method": "GET",
+  "path": "/modules/6a6509b103df60e5adb51d20",
+  "statusCode": 304,
+  "duration": "219ms",
+  "ip": "::1"
+}
+2026-07-25 14:42:33 [info]: Request completed {
+  "correlationId": "1785015753637-0.4727097036410044",
+  "method": "GET",
+  "path": "/roadmap/2026",
+  "statusCode": 304,
+  "duration": "241ms",
+  "ip": "::1"
+}
+2026-07-25 14:46:46 [debug]: Access token refreshed for user: testuser1@example.com
+2026-07-25 14:46:46 [info]: Request completed {
+  "correlationId": "1785016006573-0.9324147766201635",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "38ms",
+  "ip": "::1"
+}
+2026-07-26 08:21:28 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-07-26 08:21:28 [info]: MongoDB connected successfully
+2026-07-26 08:21:28 [info]: Security middleware initialized
+2026-07-26 08:21:28 [info]: 🚀 Server running on http://localhost:5000
+2026-07-26 08:21:28 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-07-26 08:21:28 [info]: 🔧 Environment: development
+2026-07-26 08:21:28 [info]: 🛣️  API Version: /api/v1
+2026-07-26 08:21:52 [error]: Error occurred: Route not found: GET /api/docs {
+  "url": "/api/docs",
+  "method": "GET",
+  "ip": "::1",
+  "stack": "AppError: Route not found: GET /api/docs\n    at notFoundHandler (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\core\\middleware\\errorHandler.ts:48:17)\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:328:13)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:286:9\n    at router.process_params (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:280:10)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:646:15\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:265:14)\n    at router.handle (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:175:3)\n    at router (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:47:12)"
+}
+2026-07-26 08:21:52 [info]: Request completed {
+  "correlationId": "1785079312463-0.7733967287650184",
+  "method": "GET",
+  "path": "/api/docs",
+  "statusCode": 404,
+  "duration": "17ms",
+  "ip": "::1"
+}
+2026-07-26 08:21:52 [error]: Error occurred: Route not found: GET /favicon.ico {
+  "url": "/favicon.ico",
+  "method": "GET",
+  "ip": "::1",
+  "stack": "AppError: Route not found: GET /favicon.ico\n    at notFoundHandler (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\core\\middleware\\errorHandler.ts:48:17)\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:328:13)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:286:9\n    at router.process_params (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:280:10)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:646:15\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:265:14)\n    at router.handle (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:175:3)\n    at router (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:47:12)"
+}
+2026-07-26 08:21:52 [info]: Request completed {
+  "correlationId": "1785079312657-0.955125884687455",
+  "method": "GET",
+  "path": "/favicon.ico",
+  "statusCode": 404,
+  "duration": "5ms",
+  "ip": "::1"
+}
+2026-07-26 08:22:16 [error]: Error occurred: Route not found: GET / {
+  "url": "/",
+  "method": "GET",
+  "ip": "::1",
+  "stack": "AppError: Route not found: GET /\n    at notFoundHandler (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\core\\middleware\\errorHandler.ts:48:17)\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:328:13)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:286:9\n    at router.process_params (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:280:10)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:646:15\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:265:14)\n    at router.handle (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:175:3)\n    at router (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:47:12)"
+}
+2026-07-26 08:22:16 [info]: Request completed {
+  "correlationId": "1785079336868-0.921953185220371",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 404,
+  "duration": "3ms",
+  "ip": "::1"
+}
+2026-07-26 08:22:27 [error]: Error occurred: Route not found: GET /api/v1 {
+  "url": "/api/v1",
+  "method": "GET",
+  "ip": "::1",
+  "stack": "AppError: Route not found: GET /api/v1\n    at notFoundHandler (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\core\\middleware\\errorHandler.ts:48:17)\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:328:13)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:286:9\n    at router.process_params (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:280:10)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:646:15\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:265:14)\n    at router.handle (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:175:3)\n    at router (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:47:12)"
+}
+2026-07-26 08:22:27 [info]: Request completed {
+  "correlationId": "1785079347194-0.437948037221633",
+  "method": "GET",
+  "path": "/api/v1",
+  "statusCode": 404,
+  "duration": "2ms",
+  "ip": "::1"
+}
+2026-07-26 08:22:36 [error]: Error occurred: Route not found: GET /api/v1/login {
+  "url": "/api/v1/login",
+  "method": "GET",
+  "ip": "::1",
+  "stack": "AppError: Route not found: GET /api/v1/login\n    at notFoundHandler (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\core\\middleware\\errorHandler.ts:48:17)\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:328:13)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:286:9\n    at router.process_params (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:280:10)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:646:15\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:265:14)\n    at router.handle (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:175:3)\n    at router (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:47:12)"
+}
+2026-07-26 08:22:36 [info]: Request completed {
+  "correlationId": "1785079356056-0.48921416753215907",
+  "method": "GET",
+  "path": "/api/v1/login",
+  "statusCode": 404,
+  "duration": "3ms",
+  "ip": "::1"
+}
+2026-07-26 08:23:15 [error]: Error occurred: Route not found: GET /api/v1/auth/login {
+  "url": "/api/v1/auth/login",
+  "method": "GET",
+  "ip": "::1",
+  "stack": "AppError: Route not found: GET /api/v1/auth/login\n    at notFoundHandler (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\core\\middleware\\errorHandler.ts:48:17)\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:328:13)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:286:9\n    at router.process_params (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:280:10)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:646:15\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:265:14)\n    at router.handle (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:175:3)\n    at router (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:47:12)"
+}
+2026-07-26 08:23:15 [info]: Request completed {
+  "correlationId": "1785079395391-0.03490793975609263",
+  "method": "GET",
+  "path": "/api/v1/auth/login",
+  "statusCode": 404,
+  "duration": "3ms",
+  "ip": "::1"
+}
+2026-07-26 08:23:31 [error]: Error occurred: No token provided {
+  "url": "/api/v1/auth/me",
+  "method": "GET",
+  "ip": "::1",
+  "stack": "AuthenticationError: No token provided\n    at authenticate (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\core\\middleware\\authMiddleware.ts:22:13)\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at Route.dispatch (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:119:3)\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:284:15\n    at router.process_params (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:280:10)\n    at router.handle (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:175:3)\n    at router (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:47:12)"
+}
+2026-07-26 08:23:31 [info]: Request completed {
+  "correlationId": "1785079411112-0.5187636544561851",
+  "method": "GET",
+  "path": "/api/v1/auth/me",
+  "statusCode": 401,
+  "duration": "6ms",
+  "ip": "::1"
+}
+2026-07-26 08:28:20 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-07-26 08:28:20 [info]: MongoDB connected successfully
+2026-07-26 08:28:20 [info]: Security middleware initialized
+2026-07-26 08:28:20 [info]: 🚀 Server running on http://localhost:5000
+2026-07-26 08:28:20 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-07-26 08:28:20 [info]: 🔧 Environment: development
+2026-07-26 08:28:20 [info]: 🛣️  API Version: /api/v1
+2026-07-26 08:28:35 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-07-26 08:28:35 [info]: MongoDB connected successfully
+2026-07-26 08:28:35 [info]: Security middleware initialized
+2026-07-26 08:28:35 [info]: 🚀 Server running on http://localhost:5000
+2026-07-26 08:28:35 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-07-26 08:28:35 [info]: 🔧 Environment: development
+2026-07-26 08:28:35 [info]: 🛣️  API Version: /api/v1
+2026-07-26 08:57:45 [error]: Error occurred: [
+  {
+    "expected": "string",
+    "code": "invalid_type",
+    "path": [
+      "email"
+    ],
+    "message": "Invalid input: expected string, received undefined"
+  },
+  {
+    "expected": "string",
+    "code": "invalid_type",
+    "path": [
+      "password"
+    ],
+    "message": "Invalid input: expected string, received undefined"
+  }
+] {
+  "url": "/api/v1/auth/login",
+  "method": "POST",
+  "ip": "::ffff:127.0.0.1",
+  "stack": "ZodError: [\n  {\n    \"expected\": \"string\",\n    \"code\": \"invalid_type\",\n    \"path\": [\n      \"email\"\n    ],\n    \"message\": \"Invalid input: expected string, received undefined\"\n  },\n  {\n    \"expected\": \"string\",\n    \"code\": \"invalid_type\",\n    \"path\": [\n      \"password\"\n    ],\n    \"message\": \"Invalid input: expected string, received undefined\"\n  }\n]\n    at AuthController.login (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\controllers\\auth.controller.ts:36:57)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\routes\\auth.routes.ts:14:69\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\core\\middleware\\asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at Route.dispatch (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:119:3)\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:284:15\n    at router.process_params (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:280:10)"
+}
+2026-07-26 08:57:45 [info]: Request completed {
+  "correlationId": "1785081465389-0.9684343937196179",
+  "method": "POST",
+  "path": "/api/v1/auth/login",
+  "statusCode": 400,
+  "duration": "21ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-26 08:59:04 [error]: Error occurred: [
+  {
+    "expected": "string",
+    "code": "invalid_type",
+    "path": [
+      "email"
+    ],
+    "message": "Invalid input: expected string, received undefined"
+  },
+  {
+    "expected": "string",
+    "code": "invalid_type",
+    "path": [
+      "password"
+    ],
+    "message": "Invalid input: expected string, received undefined"
+  }
+] {
+  "url": "/api/v1/auth/login",
+  "method": "POST",
+  "ip": "::ffff:127.0.0.1",
+  "stack": "ZodError: [\n  {\n    \"expected\": \"string\",\n    \"code\": \"invalid_type\",\n    \"path\": [\n      \"email\"\n    ],\n    \"message\": \"Invalid input: expected string, received undefined\"\n  },\n  {\n    \"expected\": \"string\",\n    \"code\": \"invalid_type\",\n    \"path\": [\n      \"password\"\n    ],\n    \"message\": \"Invalid input: expected string, received undefined\"\n  }\n]\n    at AuthController.login (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\controllers\\auth.controller.ts:36:57)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\routes\\auth.routes.ts:14:69\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\core\\middleware\\asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at Route.dispatch (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:119:3)\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:284:15\n    at router.process_params (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:280:10)"
+}
+2026-07-26 08:59:04 [info]: Request completed {
+  "correlationId": "1785081544555-0.24658463292628252",
+  "method": "POST",
+  "path": "/api/v1/auth/login",
+  "statusCode": 400,
+  "duration": "6ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-26 08:59:06 [error]: Error occurred: [
+  {
+    "expected": "string",
+    "code": "invalid_type",
+    "path": [
+      "email"
+    ],
+    "message": "Invalid input: expected string, received undefined"
+  },
+  {
+    "expected": "string",
+    "code": "invalid_type",
+    "path": [
+      "password"
+    ],
+    "message": "Invalid input: expected string, received undefined"
+  }
+] {
+  "url": "/api/v1/auth/login",
+  "method": "POST",
+  "ip": "::ffff:127.0.0.1",
+  "stack": "ZodError: [\n  {\n    \"expected\": \"string\",\n    \"code\": \"invalid_type\",\n    \"path\": [\n      \"email\"\n    ],\n    \"message\": \"Invalid input: expected string, received undefined\"\n  },\n  {\n    \"expected\": \"string\",\n    \"code\": \"invalid_type\",\n    \"path\": [\n      \"password\"\n    ],\n    \"message\": \"Invalid input: expected string, received undefined\"\n  }\n]\n    at AuthController.login (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\controllers\\auth.controller.ts:36:57)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\routes\\auth.routes.ts:14:69\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\core\\middleware\\asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at Route.dispatch (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:119:3)\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:284:15\n    at router.process_params (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:280:10)"
+}
+2026-07-26 08:59:06 [info]: Request completed {
+  "correlationId": "1785081546487-0.5984642887486474",
+  "method": "POST",
+  "path": "/api/v1/auth/login",
+  "statusCode": 400,
+  "duration": "2ms",
+  "ip": "::ffff:127.0.0.1"
+}
+2026-07-26 09:01:20 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "::1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\controllers\\auth.controller.ts:64:13)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\routes\\auth.routes.ts:15:77\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\core\\middleware\\asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at Route.dispatch (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:119:3)\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:284:15\n    at router.process_params (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:280:10)"
+}
+2026-07-26 09:01:20 [info]: Request completed {
+  "correlationId": "1785081680352-0.1913277613609169",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "2ms",
+  "ip": "::1"
+}
+2026-07-26 09:01:51 [error]: Error occurred: Invalid email or password {
+  "url": "/api/v1/auth/login",
+  "method": "POST",
+  "ip": "::1",
+  "stack": "AuthenticationError: Invalid email or password\n    at AuthService.login (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\services\\auth.service.ts:72:13)\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async AuthController.login (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\controllers\\auth.controller.ts:38:20)"
+}
+2026-07-26 09:01:51 [info]: Request completed {
+  "correlationId": "1785081711439-0.7222941001641577",
+  "method": "POST",
+  "path": "/api/v1/auth/login",
+  "statusCode": 401,
+  "duration": "31ms",
+  "ip": "::1"
+}
+2026-07-26 09:01:58 [error]: Error occurred: Invalid email or password {
+  "url": "/api/v1/auth/login",
+  "method": "POST",
+  "ip": "::1",
+  "stack": "AuthenticationError: Invalid email or password\n    at AuthService.login (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\services\\auth.service.ts:72:13)\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async AuthController.login (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\controllers\\auth.controller.ts:38:20)"
+}
+2026-07-26 09:01:58 [info]: Request completed {
+  "correlationId": "1785081718717-0.4026442687052946",
+  "method": "POST",
+  "path": "/api/v1/auth/login",
+  "statusCode": 401,
+  "duration": "12ms",
+  "ip": "::1"
+}
+2026-07-26 09:02:31 [info]: User logged in: testuser1@example.com
+2026-07-26 09:02:31 [info]: User logged in: testuser1@example.com
+2026-07-26 09:02:31 [info]: Request completed {
+  "correlationId": "1785081751703-0.1172752091627387",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "248ms",
+  "ip": "::1"
+}
+2026-07-26 09:02:32 [info]: Request completed {
+  "correlationId": "1785081751962-0.4529875567546694",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 200,
+  "duration": "61ms",
+  "ip": "::1"
+}
+2026-07-26 09:02:32 [info]: Request completed {
+  "correlationId": "1785081752319-0.9605425112338981",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 200,
+  "duration": "130ms",
+  "ip": "::1"
+}
+2026-07-26 09:03:59 [info]: Request completed {
+  "correlationId": "1785081839699-0.02661138808003516",
+  "method": "GET",
+  "path": "/years",
+  "statusCode": 200,
+  "duration": "59ms",
+  "ip": "::1"
+}
+2026-07-26 09:04:00 [info]: Request completed {
+  "correlationId": "1785081839706-0.9769556565145316",
+  "method": "GET",
+  "path": "/continue",
+  "statusCode": 200,
+  "duration": "294ms",
+  "ip": "::1"
+}
+2026-07-26 09:04:00 [info]: Request completed {
+  "correlationId": "1785081839787-0.4904299384314348",
+  "method": "GET",
+  "path": "/roadmap/2026",
+  "statusCode": 200,
+  "duration": "353ms",
+  "ip": "::1"
+}
+2026-07-26 09:04:00 [info]: Request completed {
+  "correlationId": "1785081840197-0.6863664575519165",
+  "method": "GET",
+  "path": "/modules/6a6509b103df60e5adb51d20",
+  "statusCode": 200,
+  "duration": "26ms",
+  "ip": "::1"
+}
+2026-07-26 09:04:00 [info]: Request completed {
+  "correlationId": "1785081840200-0.37081021667908576",
+  "method": "GET",
+  "path": "/modules/6a6509b103df60e5adb51d21",
+  "statusCode": 200,
+  "duration": "25ms",
+  "ip": "::1"
+}
+2026-07-26 09:04:08 [info]: Request completed {
+  "correlationId": "1785081848480-0.05269920646438231",
+  "method": "GET",
+  "path": "/roadmap/2027",
+  "statusCode": 200,
+  "duration": "23ms",
+  "ip": "::1"
+}
+2026-07-26 09:04:08 [info]: Request completed {
+  "correlationId": "1785081848527-0.22980873718243777",
+  "method": "GET",
+  "path": "/modules/6a6516c893912b475d51b218",
+  "statusCode": 200,
+  "duration": "11ms",
+  "ip": "::1"
+}
+2026-07-26 09:04:36 [info]: Request completed {
+  "correlationId": "1785081876221-0.266615325544891",
+  "method": "GET",
+  "path": "/lessons/6a6509b103df60e5adb51d22",
+  "statusCode": 200,
+  "duration": "75ms",
+  "ip": "::1"
+}
+2026-07-26 09:04:36 [info]: Request completed {
+  "correlationId": "1785081876305-0.6229610303093457",
+  "method": "GET",
+  "path": "/modules/6a6509b103df60e5adb51d20",
+  "statusCode": 304,
+  "duration": "18ms",
+  "ip": "::1"
+}
+2026-07-26 09:04:47 [info]: Request completed {
+  "correlationId": "1785081887066-0.884619858721002",
+  "method": "GET",
+  "path": "/lessons/6a6509b103df60e5adb51d23",
+  "statusCode": 200,
+  "duration": "10ms",
+  "ip": "::1"
+}
+2026-07-26 09:04:47 [info]: Request completed {
+  "correlationId": "1785081887088-0.02799230541600628",
+  "method": "GET",
+  "path": "/modules/6a6509b103df60e5adb51d20",
+  "statusCode": 304,
+  "duration": "12ms",
+  "ip": "::1"
+}
+2026-07-26 09:05:13 [info]: Request completed {
+  "correlationId": "1785081913956-0.3699330966618345",
+  "method": "GET",
+  "path": "/lessons/6a6509b103df60e5adb51d25",
+  "statusCode": 200,
+  "duration": "13ms",
+  "ip": "::1"
+}
+2026-07-26 09:05:13 [info]: Request completed {
+  "correlationId": "1785081913982-0.26538206376670403",
+  "method": "GET",
+  "path": "/modules/6a6509b103df60e5adb51d21",
+  "statusCode": 304,
+  "duration": "8ms",
+  "ip": "::1"
+}
+2026-07-26 09:05:26 [info]: Request completed {
+  "correlationId": "1785081926558-0.9970123630478597",
+  "method": "GET",
+  "path": "/continue",
+  "statusCode": 304,
+  "duration": "30ms",
+  "ip": "::1"
+}
+2026-07-26 09:05:26 [info]: Request completed {
+  "correlationId": "1785081926564-0.006378798020048704",
+  "method": "GET",
+  "path": "/modules/6a6509b103df60e5adb51d21",
+  "statusCode": 304,
+  "duration": "28ms",
+  "ip": "::1"
+}
+2026-07-26 09:05:26 [info]: Request completed {
+  "correlationId": "1785081926567-0.8632426409459918",
+  "method": "GET",
+  "path": "/modules/6a6509b103df60e5adb51d20",
+  "statusCode": 304,
+  "duration": "38ms",
+  "ip": "::1"
+}
+2026-07-26 09:05:26 [info]: Request completed {
+  "correlationId": "1785081926561-0.7614596477423939",
+  "method": "GET",
+  "path": "/roadmap/2026",
+  "statusCode": 304,
+  "duration": "126ms",
+  "ip": "::1"
+}
+2026-07-26 09:05:29 [info]: Request completed {
+  "correlationId": "1785081929354-0.5836859085601155",
+  "method": "GET",
+  "path": "/modules/6a6516c893912b475d51b218",
+  "statusCode": 304,
+  "duration": "13ms",
+  "ip": "::1"
+}
+2026-07-26 09:05:29 [info]: Request completed {
+  "correlationId": "1785081929356-0.5690427833431353",
+  "method": "GET",
+  "path": "/roadmap/2027",
+  "statusCode": 304,
+  "duration": "25ms",
+  "ip": "::1"
+}
+2026-07-26 09:05:36 [info]: Request completed {
+  "correlationId": "1785081936455-0.46219556898502034",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "6ms",
+  "ip": "::1"
+}
+2026-07-26 09:08:26 [info]: Request completed {
+  "correlationId": "1785082106551-0.3690037399243221",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "10ms",
+  "ip": "::1"
+}
+2026-07-26 09:12:31 [info]: Request completed {
+  "correlationId": "1785082351413-0.8403456206533692",
+  "method": "GET",
+  "path": "/modules/6a6509b103df60e5adb51d20",
+  "statusCode": 304,
+  "duration": "39ms",
+  "ip": "::1"
+}
+2026-07-26 09:12:31 [info]: Request completed {
+  "correlationId": "1785082351417-0.04670268419992196",
+  "method": "GET",
+  "path": "/modules/6a6509b103df60e5adb51d21",
+  "statusCode": 304,
+  "duration": "40ms",
+  "ip": "::1"
+}
+2026-07-26 09:12:31 [info]: Request completed {
+  "correlationId": "1785082351420-0.05255685077353567",
+  "method": "GET",
+  "path": "/roadmap/2026",
+  "statusCode": 304,
+  "duration": "74ms",
+  "ip": "::1"
+}
+2026-07-26 09:12:31 [info]: Request completed {
+  "correlationId": "1785082351432-0.5965333721660702",
+  "method": "GET",
+  "path": "/continue",
+  "statusCode": 304,
+  "duration": "64ms",
+  "ip": "::1"
+}
+2026-07-26 09:15:55 [info]: Request completed {
+  "correlationId": "1785082555115-0.8482019067191455",
+  "method": "GET",
+  "path": "/roadmap/2027",
+  "statusCode": 304,
+  "duration": "21ms",
+  "ip": "::1"
+}
+2026-07-26 09:15:55 [info]: Request completed {
+  "correlationId": "1785082555159-0.9243714423902247",
+  "method": "GET",
+  "path": "/modules/6a6516c893912b475d51b218",
+  "statusCode": 304,
+  "duration": "11ms",
+  "ip": "::1"
+}
+2026-07-26 09:15:57 [info]: Request completed {
+  "correlationId": "1785082557507-0.41370121967350926",
+  "method": "GET",
+  "path": "/modules/6a6509b103df60e5adb51d20",
+  "statusCode": 304,
+  "duration": "18ms",
+  "ip": "::1"
+}
+2026-07-26 09:15:57 [info]: Request completed {
+  "correlationId": "1785082557509-0.3815436237043498",
+  "method": "GET",
+  "path": "/modules/6a6509b103df60e5adb51d21",
+  "statusCode": 304,
+  "duration": "17ms",
+  "ip": "::1"
+}
+2026-07-26 09:15:57 [info]: Request completed {
+  "correlationId": "1785082557511-0.2411806834761956",
+  "method": "GET",
+  "path": "/roadmap/2026",
+  "statusCode": 304,
+  "duration": "35ms",
+  "ip": "::1"
+}
+2026-07-26 09:16:00 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "::1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\controllers\\auth.controller.ts:64:13)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\routes\\auth.routes.ts:15:77\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\core\\middleware\\asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at Route.dispatch (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:119:3)\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:284:15\n    at router.process_params (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:280:10)"
+}
+2026-07-26 09:16:00 [info]: Request completed {
+  "correlationId": "1785082560178-0.5932968612481786",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "3ms",
+  "ip": "::1"
+}
+2026-07-26 09:16:12 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "::1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\controllers\\auth.controller.ts:64:13)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\routes\\auth.routes.ts:15:77\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\core\\middleware\\asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at Route.dispatch (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:119:3)\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:284:15\n    at router.process_params (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:280:10)"
+}
+2026-07-26 09:16:12 [info]: Request completed {
+  "correlationId": "1785082572229-0.4883860160384852",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "2ms",
+  "ip": "::1"
+}
+2026-07-26 09:16:15 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "::1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\controllers\\auth.controller.ts:64:13)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\routes\\auth.routes.ts:15:77\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\core\\middleware\\asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at Route.dispatch (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:119:3)\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:284:15\n    at router.process_params (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:280:10)"
+}
+2026-07-26 09:16:15 [info]: Request completed {
+  "correlationId": "1785082575964-0.6388832672550945",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "3ms",
+  "ip": "::1"
+}
+2026-07-26 09:19:29 [info]: User logged in: testuser1@example.com
+2026-07-26 09:19:29 [info]: User logged in: testuser1@example.com
+2026-07-26 09:19:29 [info]: Request completed {
+  "correlationId": "1785082769059-0.21428262084431182",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "142ms",
+  "ip": "::1"
+}
+2026-07-26 09:19:29 [info]: Request completed {
+  "correlationId": "1785082769214-0.2953201377762322",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 304,
+  "duration": "7ms",
+  "ip": "::1"
+}
+2026-07-26 09:19:29 [info]: Request completed {
+  "correlationId": "1785082769534-0.560440772315056",
+  "method": "GET",
+  "path": "/years",
+  "statusCode": 304,
+  "duration": "6ms",
+  "ip": "::1"
+}
+2026-07-26 09:19:29 [info]: Request completed {
+  "correlationId": "1785082769537-0.7483934738952981",
+  "method": "GET",
+  "path": "/continue",
+  "statusCode": 304,
+  "duration": "12ms",
+  "ip": "::1"
+}
+2026-07-26 09:19:29 [info]: Request completed {
+  "correlationId": "1785082769566-0.2983543260767738",
+  "method": "GET",
+  "path": "/roadmap/2026",
+  "statusCode": 304,
+  "duration": "51ms",
+  "ip": "::1"
+}
+2026-07-26 09:19:29 [info]: Request completed {
+  "correlationId": "1785082769675-0.463024797614643",
+  "method": "GET",
+  "path": "/modules/6a6509b103df60e5adb51d20",
+  "statusCode": 304,
+  "duration": "22ms",
+  "ip": "::1"
+}
+2026-07-26 09:19:29 [info]: Request completed {
+  "correlationId": "1785082769678-0.1341549273345113",
+  "method": "GET",
+  "path": "/modules/6a6509b103df60e5adb51d21",
+  "statusCode": 304,
+  "duration": "22ms",
+  "ip": "::1"
+}
+2026-07-26 09:20:47 [info]: Request completed {
+  "correlationId": "1785082847378-0.9134003804274481",
+  "method": "GET",
+  "path": "/lessons/6a6509b103df60e5adb51d25",
+  "statusCode": 304,
+  "duration": "18ms",
+  "ip": "::1"
+}
+2026-07-26 09:20:47 [info]: Request completed {
+  "correlationId": "1785082847407-0.4424613391859237",
+  "method": "GET",
+  "path": "/modules/6a6509b103df60e5adb51d21",
+  "statusCode": 304,
+  "duration": "13ms",
+  "ip": "::1"
+}
+2026-07-26 09:20:50 [info]: Lesson progress updated: 6a637caacf6205acbaaf8cdc - 6a6509b103df60e5adb51d25 - completed
+2026-07-26 09:20:50 [info]: User progress recalculated {
+  "userId": "6a637caacf6205acbaaf8cdc",
+  "overallProgress": 60,
+  "completedLessonsCount": 3
+}
+2026-07-26 09:20:50 [info]: Lesson progress updated: 6a6509b103df60e5adb51d25 - completed
+2026-07-26 09:20:50 [info]: Request completed {
+  "correlationId": "1785082850442-0.4608632239593611",
+  "method": "POST",
+  "path": "/lessons/6a6509b103df60e5adb51d25/progress",
+  "statusCode": 200,
+  "duration": "279ms",
+  "ip": "::1"
+}
+2026-07-26 09:20:50 [info]: Request completed {
+  "correlationId": "1785082850732-0.9118754779022794",
+  "method": "GET",
+  "path": "/lessons/6a6509b103df60e5adb51d25",
+  "statusCode": 200,
+  "duration": "14ms",
+  "ip": "::1"
+}
+2026-07-26 09:20:50 [info]: Request completed {
+  "correlationId": "1785082850751-0.6063795125527665",
+  "method": "GET",
+  "path": "/modules/6a6509b103df60e5adb51d21",
+  "statusCode": 200,
+  "duration": "9ms",
+  "ip": "::1"
+}
+2026-07-26 09:20:54 [info]: Request completed {
+  "correlationId": "1785082854268-0.7492250604358973",
+  "method": "GET",
+  "path": "/years",
+  "statusCode": 304,
+  "duration": "16ms",
+  "ip": "::1"
+}
+2026-07-26 09:20:54 [info]: Request completed {
+  "correlationId": "1785082854264-0.30757477738025807",
+  "method": "GET",
+  "path": "/modules/6a6509b103df60e5adb51d20",
+  "statusCode": 304,
+  "duration": "29ms",
+  "ip": "::1"
+}
+2026-07-26 09:20:54 [info]: Request completed {
+  "correlationId": "1785082854267-0.6426584054781889",
+  "method": "GET",
+  "path": "/modules/6a6509b103df60e5adb51d21",
+  "statusCode": 304,
+  "duration": "30ms",
+  "ip": "::1"
+}
+2026-07-26 09:20:54 [info]: Request completed {
+  "correlationId": "1785082854281-0.37856098039170305",
+  "method": "GET",
+  "path": "/continue",
+  "statusCode": 304,
+  "duration": "104ms",
+  "ip": "::1"
+}
+2026-07-26 09:20:54 [info]: Request completed {
+  "correlationId": "1785082854279-0.4533304494199165",
+  "method": "GET",
+  "path": "/roadmap/2026",
+  "statusCode": 200,
+  "duration": "124ms",
+  "ip": "::1"
+}
+2026-07-26 09:26:34 [info]: Request completed {
+  "correlationId": "1785083194576-0.6868403829592366",
+  "method": "GET",
+  "path": "/lessons/6a6509b103df60e5adb51d25",
+  "statusCode": 304,
+  "duration": "15ms",
+  "ip": "::1"
+}
+2026-07-26 09:26:34 [info]: Request completed {
+  "correlationId": "1785083194608-0.8145616202289265",
+  "method": "GET",
+  "path": "/modules/6a6509b103df60e5adb51d21",
+  "statusCode": 304,
+  "duration": "15ms",
+  "ip": "::1"
+}
+2026-07-26 09:26:39 [info]: Request completed {
+  "correlationId": "1785083199900-0.818305454303424",
+  "method": "GET",
+  "path": "/modules/6a6509b103df60e5adb51d20",
+  "statusCode": 304,
+  "duration": "22ms",
+  "ip": "::1"
+}
+2026-07-26 09:26:39 [info]: Request completed {
+  "correlationId": "1785083199903-0.4276748458627233",
+  "method": "GET",
+  "path": "/modules/6a6509b103df60e5adb51d21",
+  "statusCode": 304,
+  "duration": "21ms",
+  "ip": "::1"
+}
+2026-07-26 09:26:39 [info]: Request completed {
+  "correlationId": "1785083199904-0.4193816313079145",
+  "method": "GET",
+  "path": "/roadmap/2026",
+  "statusCode": 304,
+  "duration": "46ms",
+  "ip": "::1"
+}
+2026-07-26 09:26:39 [info]: Request completed {
+  "correlationId": "1785083199911-0.3340871723598785",
+  "method": "GET",
+  "path": "/continue",
+  "statusCode": 304,
+  "duration": "40ms",
+  "ip": "::1"
+}
+2026-07-26 09:30:22 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "::1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\controllers\\auth.controller.ts:64:13)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\routes\\auth.routes.ts:15:77\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\core\\middleware\\asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at Route.dispatch (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:119:3)\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:284:15\n    at router.process_params (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:280:10)"
+}
+2026-07-26 09:30:22 [info]: Request completed {
+  "correlationId": "1785083422718-0.3882096250227911",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "4ms",
+  "ip": "::1"
+}
+2026-07-26 09:34:25 [info]: User logged in: testuser1@example.com
+2026-07-26 09:34:25 [info]: User logged in: testuser1@example.com
+2026-07-26 09:34:25 [info]: Request completed {
+  "correlationId": "1785083665313-0.9271780083592684",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "100ms",
+  "ip": "::1"
+}
+2026-07-26 09:34:25 [info]: Request completed {
+  "correlationId": "1785083665420-0.5212338023519453",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 304,
+  "duration": "3ms",
+  "ip": "::1"
+}
+2026-07-26 09:34:25 [info]: Request completed {
+  "correlationId": "1785083665650-0.78818567187887",
+  "method": "GET",
+  "path": "/years",
+  "statusCode": 304,
+  "duration": "8ms",
+  "ip": "::1"
+}
+2026-07-26 09:34:25 [info]: Request completed {
+  "correlationId": "1785083665653-0.2804207854798274",
+  "method": "GET",
+  "path": "/continue",
+  "statusCode": 200,
+  "duration": "6ms",
+  "ip": "::1"
+}
+2026-07-26 09:34:25 [info]: Request completed {
+  "correlationId": "1785083665697-0.7362356420900805",
+  "method": "GET",
+  "path": "/roadmap/2026",
+  "statusCode": 200,
+  "duration": "29ms",
+  "ip": "::1"
+}
+2026-07-26 09:34:25 [info]: Request completed {
+  "correlationId": "1785083665770-0.10177610895671496",
+  "method": "GET",
+  "path": "/modules/6a6509b103df60e5adb51d20",
+  "statusCode": 200,
+  "duration": "18ms",
+  "ip": "::1"
+}
+2026-07-26 09:34:25 [info]: Request completed {
+  "correlationId": "1785083665773-0.2510191082084626",
+  "method": "GET",
+  "path": "/modules/6a6509b103df60e5adb51d21",
+  "statusCode": 200,
+  "duration": "18ms",
+  "ip": "::1"
+}
+2026-07-26 09:34:46 [info]: Request completed {
+  "correlationId": "1785083685996-0.7626459121017322",
+  "method": "GET",
+  "path": "/roadmap/2027",
+  "statusCode": 304,
+  "duration": "18ms",
+  "ip": "::1"
+}
+2026-07-26 09:34:46 [info]: Request completed {
+  "correlationId": "1785083686031-0.541000489613519",
+  "method": "GET",
+  "path": "/modules/6a6516c893912b475d51b218",
+  "statusCode": 200,
+  "duration": "5ms",
+  "ip": "::1"
+}
+2026-07-26 09:35:42 [info]: Request completed {
+  "correlationId": "1785083742655-0.625302831777602",
+  "method": "GET",
+  "path": "/modules/6a6509b103df60e5adb51d21",
+  "statusCode": 304,
+  "duration": "19ms",
+  "ip": "::1"
+}
+2026-07-26 09:35:42 [info]: Request completed {
+  "correlationId": "1785083742653-0.48496987921880774",
+  "method": "GET",
+  "path": "/modules/6a6509b103df60e5adb51d20",
+  "statusCode": 304,
+  "duration": "35ms",
+  "ip": "::1"
+}
+2026-07-26 09:35:42 [info]: Request completed {
+  "correlationId": "1785083742658-0.6407704913231244",
+  "method": "GET",
+  "path": "/roadmap/2026",
+  "statusCode": 304,
+  "duration": "53ms",
+  "ip": "::1"
+}
+2026-07-26 09:35:51 [info]: Request completed {
+  "correlationId": "1785083751465-0.36807457829207235",
+  "method": "GET",
+  "path": "/modules/6a6516c893912b475d51b218",
+  "statusCode": 304,
+  "duration": "8ms",
+  "ip": "::1"
+}
+2026-07-26 09:35:51 [info]: Request completed {
+  "correlationId": "1785083751468-0.3586570778336695",
+  "method": "GET",
+  "path": "/roadmap/2027",
+  "statusCode": 304,
+  "duration": "17ms",
+  "ip": "::1"
+}
+2026-07-26 09:36:11 [info]: Request completed {
+  "correlationId": "1785083771252-0.3523958175725259",
+  "method": "GET",
+  "path": "/lessons/6a6509b103df60e5adb51d22",
+  "statusCode": 200,
+  "duration": "15ms",
+  "ip": "::1"
+}
+2026-07-26 09:36:11 [info]: Request completed {
+  "correlationId": "1785083771282-0.6854983189164036",
+  "method": "GET",
+  "path": "/modules/6a6509b103df60e5adb51d20",
+  "statusCode": 304,
+  "duration": "14ms",
+  "ip": "::1"
+}
+2026-07-26 09:36:20 [info]: Lesson progress updated: 6a637caacf6205acbaaf8cdc - 6a6509b103df60e5adb51d22 - completed
+2026-07-26 09:36:20 [info]: User progress recalculated {
+  "userId": "6a637caacf6205acbaaf8cdc",
+  "overallProgress": 20,
+  "completedLessonsCount": 1
+}
+2026-07-26 09:36:20 [info]: Lesson progress updated: 6a6509b103df60e5adb51d22 - completed
+2026-07-26 09:36:20 [info]: Request completed {
+  "correlationId": "1785083780837-0.157116397027386",
+  "method": "POST",
+  "path": "/lessons/6a6509b103df60e5adb51d22/progress",
+  "statusCode": 200,
+  "duration": "21ms",
+  "ip": "::1"
+}
+2026-07-26 09:36:20 [info]: Request completed {
+  "correlationId": "1785083780870-0.9248018767603241",
+  "method": "GET",
+  "path": "/lessons/6a6509b103df60e5adb51d22",
+  "statusCode": 200,
+  "duration": "12ms",
+  "ip": "::1"
+}
+2026-07-26 09:36:20 [info]: Request completed {
+  "correlationId": "1785083780895-0.33054728065651917",
+  "method": "GET",
+  "path": "/modules/6a6509b103df60e5adb51d20",
+  "statusCode": 200,
+  "duration": "9ms",
+  "ip": "::1"
+}
+2026-07-26 09:36:26 [info]: Request completed {
+  "correlationId": "1785083786481-0.1664709536069383",
+  "method": "GET",
+  "path": "/lessons/6a6509b103df60e5adb51d23",
+  "statusCode": 200,
+  "duration": "11ms",
+  "ip": "::1"
+}
+2026-07-26 09:36:26 [info]: Request completed {
+  "correlationId": "1785083786502-0.1991234184144416",
+  "method": "GET",
+  "path": "/modules/6a6509b103df60e5adb51d20",
+  "statusCode": 304,
+  "duration": "12ms",
+  "ip": "::1"
+}
+2026-07-26 09:36:41 [info]: Lesson progress updated: 6a637caacf6205acbaaf8cdc - 6a6509b103df60e5adb51d23 - completed
+2026-07-26 09:36:42 [info]: User progress recalculated {
+  "userId": "6a637caacf6205acbaaf8cdc",
+  "overallProgress": 40,
+  "completedLessonsCount": 2
+}
+2026-07-26 09:36:42 [info]: Lesson progress updated: 6a6509b103df60e5adb51d23 - completed
+2026-07-26 09:36:42 [info]: Request completed {
+  "correlationId": "1785083801980-0.2161627035573862",
+  "method": "POST",
+  "path": "/lessons/6a6509b103df60e5adb51d23/progress",
+  "statusCode": 200,
+  "duration": "23ms",
+  "ip": "::1"
+}
+2026-07-26 09:36:42 [info]: Request completed {
+  "correlationId": "1785083802016-0.5971378821153986",
+  "method": "GET",
+  "path": "/lessons/6a6509b103df60e5adb51d23",
+  "statusCode": 200,
+  "duration": "16ms",
+  "ip": "::1"
+}
+2026-07-26 09:36:42 [info]: Request completed {
+  "correlationId": "1785083802040-0.2145251749957403",
+  "method": "GET",
+  "path": "/modules/6a6509b103df60e5adb51d20",
+  "statusCode": 200,
+  "duration": "9ms",
+  "ip": "::1"
+}
+2026-07-26 09:36:51 [info]: Request completed {
+  "correlationId": "1785083811452-0.020792124929566724",
+  "method": "GET",
+  "path": "/years",
+  "statusCode": 304,
+  "duration": "10ms",
+  "ip": "::1"
+}
+2026-07-26 09:36:51 [info]: Request completed {
+  "correlationId": "1785083811450-0.5199490561844469",
+  "method": "GET",
+  "path": "/modules/6a6509b103df60e5adb51d21",
+  "statusCode": 304,
+  "duration": "25ms",
+  "ip": "::1"
+}
+2026-07-26 09:36:51 [info]: Request completed {
+  "correlationId": "1785083811464-0.9476744623702411",
+  "method": "GET",
+  "path": "/continue",
+  "statusCode": 200,
+  "duration": "19ms",
+  "ip": "::1"
+}
+2026-07-26 09:36:51 [info]: Request completed {
+  "correlationId": "1785083811448-0.4844151522119",
+  "method": "GET",
+  "path": "/modules/6a6509b103df60e5adb51d20",
+  "statusCode": 304,
+  "duration": "41ms",
+  "ip": "::1"
+}
+2026-07-26 09:36:51 [info]: Request completed {
+  "correlationId": "1785083811453-0.39198897968324453",
+  "method": "GET",
+  "path": "/roadmap/2026",
+  "statusCode": 200,
+  "duration": "56ms",
+  "ip": "::1"
+}
+2026-07-26 09:42:19 [info]: SIGINT received, starting graceful shutdown...

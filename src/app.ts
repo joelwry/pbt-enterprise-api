@@ -34,6 +34,7 @@ import dashboardRoutes from '@/modules/dashboard/routes/dashboard.routes';
 import recommendationRoutes from '@/modules/recommendations/routes/recommendation.routes';
 import activityRoutes from '@/modules/activity/routes/activity.routes';
 import opportunityRoutes from '@/modules/opportunities/routes/opportunity.routes';
+import adminLearningRoutes from '@/modules/admin-learning/routes/admin-learning.routes';
 
 export function createApp(): Application {
   const app = express();
@@ -67,6 +68,9 @@ export function createApp(): Application {
   // ==================== HEALTH CHECK ROUTES ====================
   app.use(healthRoutes);
 
+  // ==================== LOCAL UPLOADS (dev/test storage only) ====================
+  app.use('/uploads', express.static('uploads'));
+
   // ==================== API ROUTES ====================
   app.use(`/api/${config.API_VERSION}/auth`, authRoutes);
   app.use(`/api/${config.API_VERSION}/learning`, learningRoutes);
@@ -93,6 +97,9 @@ export function createApp(): Application {
   app.use(`/api/${config.API_VERSION}/recommendations`, recommendationRoutes);
   app.use(`/api/${config.API_VERSION}/activity`, activityRoutes);
   app.use(`/api/${config.API_VERSION}/opportunities`, opportunityRoutes);
+
+  // Admin — content management
+  app.use(`/api/${config.API_VERSION}/admin/learning`, adminLearningRoutes);
 
   // ==================== SWAGGER DOCUMENTATION ====================
   // Swagger setup will be added here

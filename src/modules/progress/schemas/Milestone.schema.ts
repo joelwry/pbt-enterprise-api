@@ -2,7 +2,7 @@ import { Schema, model } from 'mongoose';
 
 interface IMilestone {
   userId: string;
-  programmeId: string;
+  roadmapId: string;
   title: string;
   description: string;
   type: 'completion' | 'streak' | 'achievement' | 'badge';
@@ -26,7 +26,7 @@ const milestoneSchema = new Schema<IMilestone>(
       required: true,
       index: true,
     },
-    programmeId: {
+    roadmapId: {
       type: String,
       required: true,
       index: true,
@@ -67,7 +67,7 @@ const milestoneSchema = new Schema<IMilestone>(
   }
 );
 
-milestoneSchema.index({ userId: 1, programmeId: 1 });
+milestoneSchema.index({ userId: 1, roadmapId: 1 });
 milestoneSchema.index({ userId: 1, isUnlocked: 1 });
 
 export const Milestone = model<IMilestone>('Milestone', milestoneSchema);

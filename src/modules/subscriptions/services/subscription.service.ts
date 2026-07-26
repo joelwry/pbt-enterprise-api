@@ -235,6 +235,23 @@ export class SubscriptionService {
   }
 
   /**
+   * Membership gate for content access — does this member's subscription
+   * tier meet or exceed the tier a piece of content requires? Only the tier
+   * hierarchy is checked here; time-based release (unlocksAt) is a separate,
+   * independent gate enforced by the caller (see learning.service.ts).
+   */
+  async canAccessTier(userId: string, requiredTier: 'Pathway' | 'Plus' | 'Mentorship'): Promise<boolean> {
+    const subscription = await this.getCurrentSubscription(userId);
+    if (!subscription) return false;
+
+    const tierHierarchy: Record<string, number> = { pathway: 1, plus: 2, mentorship: 3 };
+    const memberLevel = tierHierarchy[subscription.tier];
+    const requiredLevel = tierHierarchy[requiredTier.toLowerCase()];
+
+    return memberLevel >= requiredLevel;
+  }
+
+  /**
    * Check if subscription is valid
    */
   isSubscriptionValid(subscription: SubscriptionDocument | null): boolean {

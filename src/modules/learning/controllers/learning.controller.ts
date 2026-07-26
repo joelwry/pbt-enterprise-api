@@ -1,12 +1,11 @@
 import { Request, Response } from 'express';
 import { learningService } from '@/modules/learning/services/learning.service';
 import { ResponseHandler } from '@/core/response/ResponseHandler';
-import { PaginationHelper } from '@/core/pagination/PaginationHelper';
 import logger from '@/core/logger/logger';
 
 export class LearningController {
   /**
-   * Get year programmes
+   * Available roadmap years
    * GET /api/v1/learning/years
    */
   async getYearOptions(req: Request, res: Response): Promise<void> {
@@ -15,29 +14,40 @@ export class LearningController {
       return;
     }
 
-    // TODO: Implement fetching available years
-    const years = [
-      { year: '2024', label: '2024 Cohort', isCurrent: true },
-      { year: '2023', label: '2023 Cohort', isCurrent: false },
-    ];
-
+    const years = await learningService.getRoadmapYears();
     ResponseHandler.ok(res, 'Years retrieved', years);
   }
 
   /**
-   * Get programme overview for year
-   * GET /api/v1/learning/programmes/:year
+   * Roadmap overview for a year
+   * GET /api/v1/learning/roadmap/:year
    */
-  async getProgrammeByYear(req: Request, res: Response): Promise<void> {
+  async getRoadmap(req: Request, res: Response): Promise<void> {
     if (!req.user) {
       ResponseHandler.unauthorized(res);
       return;
     }
 
     const { year } = req.params;
-    const programme = await learningService.getYearProgramme(req.user.userId, year);
+    const roadmap = await learningService.getRoadmapForYear(req.user.userId, year);
 
-    ResponseHandler.ok(res, 'Programme retrieved', programme);
+    ResponseHandler.ok(res, 'Roadmap retrieved', roadmap);
+  }
+
+  /**
+   * A roadmap week's modules
+   * GET /api/v1/learning/weeks/:weekId
+   */
+  async getWeek(req: Request, res: Response): Promise<void> {
+    if (!req.user) {
+      ResponseHandler.unauthorized(res);
+      return;
+    }
+
+    const { weekId } = req.params;
+    const week = await learningService.getWeekModules(weekId, req.user.userId);
+
+    ResponseHandler.ok(res, 'Roadmap week retrieved', week);
   }
 
   /**
@@ -99,7 +109,7 @@ export class LearningController {
   }
 
   /**
-   * Get continue where left off
+   * Continue where left off — reads the aggregate UserProgress projection only.
    * GET /api/v1/learning/continue
    */
   async getContinueWhereLeftOff(req: Request, res: Response): Promise<void> {

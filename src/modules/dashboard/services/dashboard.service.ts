@@ -86,17 +86,17 @@ export class DashboardService {
       nextUnlockLabel: nextLesson ? nextLesson.title : 'No upcoming unlocks',
     };
 
-    // ---- Programme progress ----
+    // ---- Roadmap progress ----
     const inProgressRecords = progressRecords.filter((p) => p.status === 'in-progress');
     const overallPercent = contentUnlockedTotal > 0 ? Math.round((lessonsCompleted / contentUnlockedTotal) * 100) : 0;
-    const programmeProgress = {
+    const roadmapProgress = {
       overallPercent,
       encouragement: encouragementFor(overallPercent),
       completed: lessonsCompleted,
       unlockedInProgress: inProgressRecords.length,
       upcoming: Math.max(contentUnlockedTotal - lessonsCompleted - inProgressRecords.length, 0),
       totalThisYear: contentUnlockedTotal,
-      programmeLabel: `${now.getFullYear()} Programme`,
+      roadmapLabel: `${now.getFullYear()} Roadmap`,
     };
 
     // ---- Continue learning ----
@@ -123,7 +123,7 @@ export class DashboardService {
     return {
       memberFirstName: user?.fullName?.split(' ')[0] ?? 'Member',
       stats,
-      programmeProgress,
+      roadmapProgress,
       continueLearning,
       quickAccess: QUICK_ACCESS,
       upcomingEvents: upcomingEvents.map((event) => ({
