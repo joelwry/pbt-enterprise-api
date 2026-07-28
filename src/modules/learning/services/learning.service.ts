@@ -226,6 +226,7 @@ export class LearningService {
       weekNumber: week.weekNumber,
       title: week.title,
       description: week.description,
+      isCheckpoint: week.isCheckpoint,
       modules: moduleSummaries,
     };
   }
@@ -268,6 +269,7 @@ export class LearningService {
           weekNumber: week.weekNumber,
           title: week.title,
           description: week.description,
+          isCheckpoint: week.isCheckpoint,
           progressPercent: totalLessons > 0 ? Math.round((completedLessons / totalLessons) * 100) : 0,
           modules: moduleSummaries,
         };

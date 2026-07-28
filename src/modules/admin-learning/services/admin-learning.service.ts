@@ -43,7 +43,7 @@ export class AdminLearningService {
     return RoadmapWeek.find({ roadmapId }).sort({ weekNumber: 1 });
   }
 
-  async createWeek(roadmapId: string, data: { weekNumber: number; title: string; description?: string }) {
+  async createWeek(roadmapId: string, data: { weekNumber: number; title: string; description?: string; isCheckpoint?: boolean }) {
     const roadmap = await Roadmap.findById(roadmapId);
     if (!roadmap) throw new NotFoundError('Roadmap not found');
 
@@ -52,7 +52,7 @@ export class AdminLearningService {
     return week;
   }
 
-  async updateWeek(weekId: string, data: Partial<{ weekNumber: number; title: string; description: string }>) {
+  async updateWeek(weekId: string, data: Partial<{ weekNumber: number; title: string; description: string; isCheckpoint: boolean }>) {
     const week = await RoadmapWeek.findByIdAndUpdate(weekId, data, { new: true });
     if (!week) throw new NotFoundError('Roadmap week not found');
     return week;

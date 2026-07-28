@@ -10,6 +10,8 @@ export interface IRoadmapWeek extends Document {
   weekNumber: number;
   title: string;
   description?: string;
+  /** A milestone week (e.g. after month 2/4) where members review learning so far via a summary video and can submit a question, instead of new module content. */
+  isCheckpoint: boolean;
   createdAt: Date;
   updatedAt: Date;
 }
@@ -31,6 +33,10 @@ const roadmapWeekSchema = new Schema<IRoadmapWeek>(
       required: true,
     },
     description: String,
+    isCheckpoint: {
+      type: Boolean,
+      default: false,
+    },
   },
   {
     timestamps: true,
