@@ -11381,3 +11381,3275 @@
   "duration": "12ms",
   "ip": "127.0.0.1"
 }
+2026-07-28 18:31:58 [info]: Connecting to MongoDB at mongodb://127.0.0.1:27017/pbtDb
+2026-07-28 18:31:59 [info]: MongoDB connected successfully
+2026-07-28 18:31:59 [info]: Security middleware initialized
+2026-07-28 18:31:59 [info]: 🚀 Server running on http://localhost:5000
+2026-07-28 18:31:59 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-07-28 18:31:59 [info]: 🔧 Environment: development
+2026-07-28 18:31:59 [info]: 🛣️  API Version: /api/v1
+2026-07-28 18:32:16 [error]: Error occurred: Route not found: GET /api/v1/auth/login {
+  "url": "/api/v1/auth/login",
+  "method": "GET",
+  "ip": "127.0.0.1",
+  "stack": "AppError: Route not found: GET /api/v1/auth/login\n    at notFoundHandler (/home/user/pbt-enterprise-api/src/core/middleware/errorHandler.ts:48:17)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at trim_prefix (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:328:13)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:286:9\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:646:15\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:265:14)\n    at Function.handle (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:175:3)\n    at router (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:47:12)"
+}
+2026-07-28 18:32:16 [info]: Request completed {
+  "correlationId": "1785263536683-0.6728664464536194",
+  "method": "GET",
+  "path": "/api/v1/auth/login",
+  "statusCode": 404,
+  "duration": "8ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:32:24 [info]: User logged in: admintest@example.com
+2026-07-28 18:32:24 [info]: Admin logged in: admintest@example.com
+2026-07-28 18:32:24 [info]: Request completed {
+  "correlationId": "1785263544726-0.3464477215835249",
+  "method": "POST",
+  "path": "/admin/login",
+  "statusCode": 200,
+  "duration": "156ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:32:25 [info]: User logged in: testuser1@example.com
+2026-07-28 18:32:25 [info]: User logged in: testuser1@example.com
+2026-07-28 18:32:25 [info]: Request completed {
+  "correlationId": "1785263544958-0.9782286950457824",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "100ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:32:25 [info]: User logged in: testuser2@example.com
+2026-07-28 18:32:25 [info]: User logged in: testuser2@example.com
+2026-07-28 18:32:25 [info]: Request completed {
+  "correlationId": "1785263545135-0.9621465599967935",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "94ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:33:06 [info]: User logged in: admintest@example.com
+2026-07-28 18:33:06 [info]: Admin logged in: admintest@example.com
+2026-07-28 18:33:06 [info]: Request completed {
+  "correlationId": "1785263586382-0.5439857874893019",
+  "method": "POST",
+  "path": "/admin/login",
+  "statusCode": 200,
+  "duration": "113ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:33:06 [debug]: Access token refreshed for user: admintest@example.com
+2026-07-28 18:33:06 [info]: Request completed {
+  "correlationId": "1785263586515-0.9107864592895691",
+  "method": "POST",
+  "path": "/admin/refresh-token",
+  "statusCode": 200,
+  "duration": "10ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:33:46 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/admin/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.adminRefreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:118:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:25:83\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-07-28 18:33:46 [info]: Request completed {
+  "correlationId": "1785263626764-0.8726005242376993",
+  "method": "POST",
+  "path": "/api/v1/auth/admin/refresh-token",
+  "statusCode": 401,
+  "duration": "12ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:33:46 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:93:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-07-28 18:33:46 [info]: Request completed {
+  "correlationId": "1785263626784-0.3260900253395358",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "2ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:33:47 [info]: User logged in: admintest@example.com
+2026-07-28 18:33:47 [info]: Admin logged in: admintest@example.com
+2026-07-28 18:33:47 [info]: Request completed {
+  "correlationId": "1785263627148-0.5314871091828879",
+  "method": "POST",
+  "path": "/admin/login",
+  "statusCode": 200,
+  "duration": "112ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:33:49 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:93:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-07-28 18:33:49 [info]: Request completed {
+  "correlationId": "1785263629037-0.008956441697603346",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "3ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:33:49 [debug]: Access token refreshed for user: admintest@example.com
+2026-07-28 18:33:49 [info]: Request completed {
+  "correlationId": "1785263629030-0.6184459054625067",
+  "method": "POST",
+  "path": "/admin/refresh-token",
+  "statusCode": 200,
+  "duration": "13ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:33:49 [info]: Request completed {
+  "correlationId": "1785263629082-0.6352542930849894",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 200,
+  "duration": "7ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:34:03 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/admin/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.adminRefreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:118:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:25:83\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-07-28 18:34:03 [info]: Request completed {
+  "correlationId": "1785263643518-0.4340652003671406",
+  "method": "POST",
+  "path": "/api/v1/auth/admin/refresh-token",
+  "statusCode": 401,
+  "duration": "2ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:34:03 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:93:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-07-28 18:34:03 [info]: Request completed {
+  "correlationId": "1785263643524-0.4008419118528539",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "3ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:34:03 [info]: User logged in: admintest@example.com
+2026-07-28 18:34:03 [info]: Admin logged in: admintest@example.com
+2026-07-28 18:34:03 [info]: Request completed {
+  "correlationId": "1785263643632-0.9440399371959236",
+  "method": "POST",
+  "path": "/admin/login",
+  "statusCode": 200,
+  "duration": "98ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:34:17 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/admin/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.adminRefreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:118:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:25:83\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-07-28 18:34:17 [info]: Request completed {
+  "correlationId": "1785263657211-0.10859197983141722",
+  "method": "POST",
+  "path": "/api/v1/auth/admin/refresh-token",
+  "statusCode": 401,
+  "duration": "2ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:34:17 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:93:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-07-28 18:34:17 [info]: Request completed {
+  "correlationId": "1785263657214-0.9062216345308212",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "4ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:34:17 [info]: User logged in: admintest@example.com
+2026-07-28 18:34:17 [info]: Admin logged in: admintest@example.com
+2026-07-28 18:34:17 [info]: Request completed {
+  "correlationId": "1785263657365-0.5441999991349304",
+  "method": "POST",
+  "path": "/admin/login",
+  "statusCode": 200,
+  "duration": "97ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:34:18 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:93:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-07-28 18:34:18 [info]: Request completed {
+  "correlationId": "1785263658304-0.5387596092258582",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "1ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:34:18 [debug]: Access token refreshed for user: admintest@example.com
+2026-07-28 18:34:18 [info]: Request completed {
+  "correlationId": "1785263658301-0.16307392952435884",
+  "method": "POST",
+  "path": "/admin/refresh-token",
+  "statusCode": 200,
+  "duration": "6ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:34:18 [info]: Request completed {
+  "correlationId": "1785263658318-0.9517338666911743",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 200,
+  "duration": "5ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:36:38 [info]: Connecting to MongoDB at mongodb://127.0.0.1:27017/pbtDb
+2026-07-28 18:36:38 [info]: MongoDB connected successfully
+2026-07-28 18:36:38 [info]: Security middleware initialized
+2026-07-28 18:36:38 [info]: 🚀 Server running on http://localhost:5000
+2026-07-28 18:36:38 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-07-28 18:36:38 [info]: 🔧 Environment: development
+2026-07-28 18:36:38 [info]: 🛣️  API Version: /api/v1
+2026-07-28 18:36:40 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/admin/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.adminRefreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:128:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:25:83\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-07-28 18:36:40 [info]: Request completed {
+  "correlationId": "1785263800359-0.9468335156435812",
+  "method": "POST",
+  "path": "/api/v1/auth/admin/refresh-token",
+  "statusCode": 401,
+  "duration": "9ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:36:40 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-07-28 18:36:40 [info]: Request completed {
+  "correlationId": "1785263800372-0.7618058338621072",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "4ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:36:40 [info]: User logged in: admintest@example.com
+2026-07-28 18:36:40 [info]: Admin logged in: admintest@example.com
+2026-07-28 18:36:40 [info]: Request completed {
+  "correlationId": "1785263800444-0.9221669274650304",
+  "method": "POST",
+  "path": "/admin/login",
+  "statusCode": 200,
+  "duration": "138ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:36:41 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-07-28 18:36:41 [info]: Request completed {
+  "correlationId": "1785263801603-0.39253749563369245",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "2ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:36:41 [debug]: Access token refreshed for user: admintest@example.com
+2026-07-28 18:36:41 [info]: Request completed {
+  "correlationId": "1785263801599-0.6463620114981843",
+  "method": "POST",
+  "path": "/admin/refresh-token",
+  "statusCode": 200,
+  "duration": "9ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:36:41 [info]: Request completed {
+  "correlationId": "1785263801772-0.15404151677931632",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 200,
+  "duration": "6ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:37:20 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-07-28 18:37:20 [info]: Request completed {
+  "correlationId": "1785263840213-0.5441550949463725",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "2ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:37:20 [info]: User logged in: testuser1@example.com
+2026-07-28 18:37:20 [info]: User logged in: testuser1@example.com
+2026-07-28 18:37:20 [info]: Request completed {
+  "correlationId": "1785263840336-0.3162958607325206",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "100ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:37:20 [info]: Request completed {
+  "correlationId": "1785263840446-0.7820435853228922",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 200,
+  "duration": "17ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:37:22 [info]: Request completed {
+  "correlationId": "1785263842188-0.16834768086182028",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 200,
+  "duration": "293ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:37:23 [debug]: Access token refreshed for user: testuser1@example.com
+2026-07-28 18:37:23 [info]: Request completed {
+  "correlationId": "1785263843144-0.915115360828443",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "10ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:37:23 [info]: Request completed {
+  "correlationId": "1785263843163-0.02828333078678047",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 200,
+  "duration": "5ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:37:23 [info]: Request completed {
+  "correlationId": "1785263843174-0.37578386687478527",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 304,
+  "duration": "7ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:37:23 [info]: Request completed {
+  "correlationId": "1785263843258-0.11273258730027158",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 200,
+  "duration": "18ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:40:22 [info]: Connecting to MongoDB at mongodb://127.0.0.1:27017/pbtDb
+2026-07-28 18:40:22 [info]: MongoDB connected successfully
+2026-07-28 18:40:22 [info]: Security middleware initialized
+2026-07-28 18:40:22 [info]: 🚀 Server running on http://localhost:5000
+2026-07-28 18:40:22 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-07-28 18:40:22 [info]: 🔧 Environment: development
+2026-07-28 18:40:22 [info]: 🛣️  API Version: /api/v1
+2026-07-28 18:48:50 [info]: Connecting to MongoDB at mongodb://127.0.0.1:27017/pbtDb
+2026-07-28 18:48:50 [info]: MongoDB connected successfully
+2026-07-28 18:48:50 [info]: Security middleware initialized
+2026-07-28 18:48:50 [info]: 🚀 Server running on http://localhost:5000
+2026-07-28 18:48:50 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-07-28 18:48:50 [info]: 🔧 Environment: development
+2026-07-28 18:48:50 [info]: 🛣️  API Version: /api/v1
+2026-07-28 18:49:25 [info]: Connecting to MongoDB at mongodb://127.0.0.1:27017/pbtDb
+2026-07-28 18:49:25 [info]: MongoDB connected successfully
+2026-07-28 18:49:30 [error]: Error occurred: Route not found: GET /api/v1/auth/login {
+  "url": "/api/v1/auth/login",
+  "method": "GET",
+  "ip": "127.0.0.1",
+  "stack": "AppError: Route not found: GET /api/v1/auth/login\n    at notFoundHandler (/home/user/pbt-enterprise-api/src/core/middleware/errorHandler.ts:48:17)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at trim_prefix (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:328:13)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:286:9\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:646:15\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:265:14)\n    at Function.handle (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:175:3)\n    at router (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:47:12)"
+}
+2026-07-28 18:49:30 [info]: Request completed {
+  "correlationId": "1785264570901-0.7056818283482087",
+  "method": "GET",
+  "path": "/api/v1/auth/login",
+  "statusCode": 404,
+  "duration": "9ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:50:03 [info]: Connecting to MongoDB at mongodb://127.0.0.1:27017/pbtDb
+2026-07-28 18:50:03 [info]: MongoDB connected successfully
+2026-07-28 18:50:03 [info]: Security middleware initialized
+2026-07-28 18:50:03 [info]: 🚀 Server running on http://localhost:5000
+2026-07-28 18:50:03 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-07-28 18:50:03 [info]: 🔧 Environment: development
+2026-07-28 18:50:03 [info]: 🛣️  API Version: /api/v1
+2026-07-28 18:50:03 [error]: Error occurred: Route not found: GET /api/v1/auth/login {
+  "url": "/api/v1/auth/login",
+  "method": "GET",
+  "ip": "127.0.0.1",
+  "stack": "AppError: Route not found: GET /api/v1/auth/login\n    at notFoundHandler (/home/user/pbt-enterprise-api/src/core/middleware/errorHandler.ts:48:17)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at trim_prefix (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:328:13)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:286:9\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:646:15\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:265:14)\n    at Function.handle (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:175:3)\n    at router (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:47:12)"
+}
+2026-07-28 18:50:03 [info]: Request completed {
+  "correlationId": "1785264603923-0.5244153736664119",
+  "method": "GET",
+  "path": "/api/v1/auth/login",
+  "statusCode": 404,
+  "duration": "7ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:50:14 [info]: User logged in: admintest@example.com
+2026-07-28 18:50:14 [info]: Admin logged in: admintest@example.com
+2026-07-28 18:50:14 [info]: Request completed {
+  "correlationId": "1785264614373-0.9698728105050478",
+  "method": "POST",
+  "path": "/admin/login",
+  "statusCode": 200,
+  "duration": "133ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:50:14 [info]: Request completed {
+  "correlationId": "1785264614524-0.04599028351318801",
+  "method": "GET",
+  "path": "/stats",
+  "statusCode": 200,
+  "duration": "34ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:50:14 [info]: Request completed {
+  "correlationId": "1785264614575-0.08015798360215776",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 200,
+  "duration": "38ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:50:21 [info]: Request completed {
+  "correlationId": "1785264621959-0.6332378077075871",
+  "method": "GET",
+  "path": "/6a660cf062f710a1936202af",
+  "statusCode": 200,
+  "duration": "17ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:50:21 [info]: Request completed {
+  "correlationId": "1785264621987-0.6077010841344441",
+  "method": "GET",
+  "path": "/6a660cf062f710a1936202af/billing",
+  "statusCode": 200,
+  "duration": "8ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:50:22 [info]: Request completed {
+  "correlationId": "1785264622007-0.4588572145405958",
+  "method": "GET",
+  "path": "/6a660cf062f710a1936202af/learning-progress",
+  "statusCode": 200,
+  "duration": "5ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:50:35 [info]: User logged in: testuser2@example.com
+2026-07-28 18:50:35 [info]: User logged in: testuser2@example.com
+2026-07-28 18:50:35 [info]: Request completed {
+  "correlationId": "1785264635015-0.4623084779528355",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "97ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:50:35 [info]: Request completed {
+  "correlationId": "1785264635131-0.15387226840970247",
+  "method": "GET",
+  "path": "/roadmap/2026",
+  "statusCode": 200,
+  "duration": "51ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:50:40 [info]: User logged in: testuser2@example.com
+2026-07-28 18:50:40 [info]: User logged in: testuser2@example.com
+2026-07-28 18:50:40 [info]: Request completed {
+  "correlationId": "1785264640321-0.7596581667988345",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "100ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:50:40 [info]: Request completed {
+  "correlationId": "1785264640443-0.0812830858965028",
+  "method": "GET",
+  "path": "/modules/6a660d1b53bc1fc14485f648",
+  "statusCode": 200,
+  "duration": "16ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:50:48 [warn]: [EmailService] SMTP not configured -- would send email to browsertest-member@example.com: "Set up your Property Business Training account"
+2026-07-28 18:50:48 [info]: [EmailService] Account setup email sent to browsertest-member@example.com
+2026-07-28 18:50:48 [info]: Admin created member: browsertest-member@example.com
+2026-07-28 18:50:48 [info]: Request completed {
+  "correlationId": "1785264648040-0.4911483130664236",
+  "method": "POST",
+  "path": "/",
+  "statusCode": 201,
+  "duration": "165ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:51:02 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/admin/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.adminRefreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:128:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:25:83\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-07-28 18:51:02 [info]: Request completed {
+  "correlationId": "1785264662181-0.26315393027317846",
+  "method": "POST",
+  "path": "/api/v1/auth/admin/refresh-token",
+  "statusCode": 401,
+  "duration": "16ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:51:02 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-07-28 18:51:02 [info]: Request completed {
+  "correlationId": "1785264662199-0.6371579905848914",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "2ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:51:02 [info]: User logged in: admintest@example.com
+2026-07-28 18:51:02 [info]: Admin logged in: admintest@example.com
+2026-07-28 18:51:02 [info]: Request completed {
+  "correlationId": "1785264662292-0.5321027526903612",
+  "method": "POST",
+  "path": "/admin/login",
+  "statusCode": 200,
+  "duration": "96ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:51:04 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-07-28 18:51:04 [info]: Request completed {
+  "correlationId": "1785264664584-0.7741633065023588",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "7ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:51:04 [debug]: Access token refreshed for user: admintest@example.com
+2026-07-28 18:51:04 [info]: Request completed {
+  "correlationId": "1785264664579-0.8105505577605325",
+  "method": "POST",
+  "path": "/admin/refresh-token",
+  "statusCode": 200,
+  "duration": "17ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:51:04 [info]: Request completed {
+  "correlationId": "1785264664603-0.7305144903609124",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 200,
+  "duration": "4ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:51:04 [info]: Request completed {
+  "correlationId": "1785264664728-0.4759179376861966",
+  "method": "GET",
+  "path": "/stats",
+  "statusCode": 200,
+  "duration": "11ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:51:04 [info]: Request completed {
+  "correlationId": "1785264664741-0.06114051372011531",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 200,
+  "duration": "9ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:51:59 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/admin/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.adminRefreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:128:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:25:83\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-07-28 18:51:59 [info]: Request completed {
+  "correlationId": "1785264719222-0.8740311459180246",
+  "method": "POST",
+  "path": "/api/v1/auth/admin/refresh-token",
+  "statusCode": 401,
+  "duration": "7ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:51:59 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-07-28 18:51:59 [info]: Request completed {
+  "correlationId": "1785264719231-0.19250546450717132",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "2ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:51:59 [info]: User logged in: admintest@example.com
+2026-07-28 18:51:59 [info]: Admin logged in: admintest@example.com
+2026-07-28 18:51:59 [info]: Request completed {
+  "correlationId": "1785264719321-0.7749605369375525",
+  "method": "POST",
+  "path": "/admin/login",
+  "statusCode": 200,
+  "duration": "92ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:52:02 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-07-28 18:52:02 [info]: Request completed {
+  "correlationId": "1785264722275-0.05356152053458718",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "3ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:52:02 [debug]: Access token refreshed for user: admintest@example.com
+2026-07-28 18:52:02 [info]: Request completed {
+  "correlationId": "1785264722271-0.3216436679879242",
+  "method": "POST",
+  "path": "/admin/refresh-token",
+  "statusCode": 200,
+  "duration": "12ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:52:02 [info]: Request completed {
+  "correlationId": "1785264722315-0.1423539498653772",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 200,
+  "duration": "4ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:52:02 [info]: Request completed {
+  "correlationId": "1785264722416-0.17900788973947446",
+  "method": "GET",
+  "path": "/6a660cf062f710a1936202af",
+  "statusCode": 200,
+  "duration": "11ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:52:02 [info]: Request completed {
+  "correlationId": "1785264722496-0.9769008102377352",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 200,
+  "duration": "10ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:52:04 [info]: Request completed {
+  "correlationId": "1785264724786-0.41252431197431805",
+  "method": "GET",
+  "path": "/6a660cf062f710a1936202af/learning-progress",
+  "statusCode": 200,
+  "duration": "6ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:52:06 [info]: Request completed {
+  "correlationId": "1785264726299-0.5091354930116792",
+  "method": "GET",
+  "path": "/6a660cf062f710a1936202af/billing",
+  "statusCode": 200,
+  "duration": "11ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:54:58 [warn]: Invalid content-type header {
+  "correlationId": "1785264898998-0.8599643967669475",
+  "method": "POST",
+  "path": "/api/v1/admin/members/6a68fa083092bf13f7af3aa0/resend-welcome"
+}
+2026-07-28 18:54:58 [info]: Request completed {
+  "correlationId": "1785264898998-0.8599643967669475",
+  "method": "POST",
+  "path": "/api/v1/admin/members/6a68fa083092bf13f7af3aa0/resend-welcome",
+  "statusCode": 415,
+  "duration": "1ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:55:04 [warn]: [EmailService] SMTP not configured -- would send email to browsertest-member@example.com: "Set up your Property Business Training account"
+2026-07-28 18:55:04 [info]: [EmailService] Account setup email sent to browsertest-member@example.com
+2026-07-28 18:55:04 [info]: Request completed {
+  "correlationId": "1785264904606-0.36946153682438343",
+  "method": "POST",
+  "path": "/6a68fa083092bf13f7af3aa0/resend-welcome",
+  "statusCode": 200,
+  "duration": "8ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:55:30 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-07-28 18:55:30 [info]: Request completed {
+  "correlationId": "1785264930104-0.2545873837649042",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "2ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:55:31 [error]: Error occurred: [
+  {
+    "expected": "string",
+    "code": "invalid_type",
+    "path": [
+      "confirmPassword"
+    ],
+    "message": "Invalid input: expected string, received undefined"
+  }
+] {
+  "url": "/api/v1/auth/reset-password",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "ZodError: [\n  {\n    \"expected\": \"string\",\n    \"code\": \"invalid_type\",\n    \"path\": [\n      \"confirmPassword\"\n    ],\n    \"message\": \"Invalid input: expected string, received undefined\"\n  }\n]\n    at AuthController.resetPassword (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:170:56)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:18:78\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-07-28 18:55:31 [info]: Request completed {
+  "correlationId": "1785264931699-0.7408005754054943",
+  "method": "POST",
+  "path": "/api/v1/auth/reset-password",
+  "statusCode": 400,
+  "duration": "4ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:55:59 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-07-28 18:55:59 [info]: Request completed {
+  "correlationId": "1785264959430-0.85010113062524",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "4ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:56:01 [info]: Password reset completed for user: browsertest-member@example.com
+2026-07-28 18:56:01 [info]: Password reset completed
+2026-07-28 18:56:01 [info]: Request completed {
+  "correlationId": "1785264961013-0.9795280242238533",
+  "method": "POST",
+  "path": "/reset-password",
+  "statusCode": 200,
+  "duration": "103ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:56:10 [info]: User logged in: browsertest-member@example.com
+2026-07-28 18:56:10 [info]: User logged in: browsertest-member@example.com
+2026-07-28 18:56:10 [info]: Request completed {
+  "correlationId": "1785264970683-0.706755708698465",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "93ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:58:28 [info]: Roadmap created {
+  "roadmapId": "6a68fbd43092bf13f7af3aa2",
+  "year": "2029"
+}
+2026-07-28 18:58:28 [info]: Request completed {
+  "correlationId": "1785265108309-0.1772567496213775",
+  "method": "POST",
+  "path": "/roadmaps",
+  "statusCode": 201,
+  "duration": "9ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:58:39 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/admin/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.adminRefreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:128:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:25:83\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-07-28 18:58:39 [info]: Request completed {
+  "correlationId": "1785265119457-0.6906689597574416",
+  "method": "POST",
+  "path": "/api/v1/auth/admin/refresh-token",
+  "statusCode": 401,
+  "duration": "4ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:58:39 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-07-28 18:58:39 [info]: Request completed {
+  "correlationId": "1785265119464-0.9509144345073728",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "6ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:58:39 [info]: User logged in: admintest@example.com
+2026-07-28 18:58:39 [info]: Admin logged in: admintest@example.com
+2026-07-28 18:58:39 [info]: Request completed {
+  "correlationId": "1785265119646-0.42545702275389785",
+  "method": "POST",
+  "path": "/admin/login",
+  "statusCode": 200,
+  "duration": "102ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:58:42 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-07-28 18:58:42 [info]: Request completed {
+  "correlationId": "1785265122386-0.47385558212139345",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "2ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:58:42 [debug]: Access token refreshed for user: admintest@example.com
+2026-07-28 18:58:42 [info]: Request completed {
+  "correlationId": "1785265122379-0.6864431129053175",
+  "method": "POST",
+  "path": "/admin/refresh-token",
+  "statusCode": 200,
+  "duration": "11ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:58:42 [info]: Request completed {
+  "correlationId": "1785265122407-0.5254224913484848",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 200,
+  "duration": "6ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:58:42 [info]: Request completed {
+  "correlationId": "1785265122558-0.9437013931357827",
+  "method": "GET",
+  "path": "/roadmaps",
+  "statusCode": 200,
+  "duration": "7ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:58:42 [info]: Request completed {
+  "correlationId": "1785265122568-0.49829161563739244",
+  "method": "GET",
+  "path": "/roadmaps",
+  "statusCode": 304,
+  "duration": "3ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:58:42 [info]: Request completed {
+  "correlationId": "1785265122621-0.018107717224793873",
+  "method": "GET",
+  "path": "/roadmaps/6a68fbd43092bf13f7af3aa2/weeks",
+  "statusCode": 200,
+  "duration": "6ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:58:42 [info]: Request completed {
+  "correlationId": "1785265122624-0.4334056478713726",
+  "method": "GET",
+  "path": "/roadmaps/6a660d1b53bc1fc14485f645/weeks",
+  "statusCode": 200,
+  "duration": "11ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:58:42 [info]: Request completed {
+  "correlationId": "1785265122633-0.29687346596399977",
+  "method": "GET",
+  "path": "/roadmaps/6a660d1b53bc1fc14485f644/weeks",
+  "statusCode": 200,
+  "duration": "15ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:58:42 [info]: Request completed {
+  "correlationId": "1785265122684-0.7587509039752205",
+  "method": "GET",
+  "path": "/weeks/6a660d1b53bc1fc14485f646/modules",
+  "statusCode": 200,
+  "duration": "10ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:58:42 [info]: Request completed {
+  "correlationId": "1785265122688-0.9957204419867316",
+  "method": "GET",
+  "path": "/weeks/6a660d1b53bc1fc14485f647/modules",
+  "statusCode": 200,
+  "duration": "11ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:58:42 [info]: Request completed {
+  "correlationId": "1785265122690-0.09189166657756065",
+  "method": "GET",
+  "path": "/weeks/6a68a6323209f42f7ccacc1c/modules",
+  "statusCode": 200,
+  "duration": "10ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:58:42 [info]: Request completed {
+  "correlationId": "1785265122701-0.49765045476635184",
+  "method": "GET",
+  "path": "/weeks/6a68a6323209f42f7ccacc1d/modules",
+  "statusCode": 200,
+  "duration": "3ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 18:59:06 [info]: Roadmap deleted {
+  "roadmapId": "6a68fbd43092bf13f7af3aa2"
+}
+2026-07-28 18:59:06 [info]: Request completed {
+  "correlationId": "1785265146936-0.12404745404198514",
+  "method": "DELETE",
+  "path": "/roadmaps/6a68fbd43092bf13f7af3aa2",
+  "statusCode": 200,
+  "duration": "6ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:02:56 [info]: Connecting to MongoDB at mongodb://127.0.0.1:27017/pbtDb
+2026-07-28 19:02:56 [info]: MongoDB connected successfully
+2026-07-28 19:02:56 [info]: Security middleware initialized
+2026-07-28 19:02:56 [info]: 🚀 Server running on http://localhost:5000
+2026-07-28 19:02:56 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-07-28 19:02:56 [info]: 🔧 Environment: development
+2026-07-28 19:02:56 [info]: 🛣️  API Version: /api/v1
+2026-07-28 19:05:52 [error]: Error occurred: Route not found: GET /api/v1/auth/login {
+  "url": "/api/v1/auth/login",
+  "method": "GET",
+  "ip": "127.0.0.1",
+  "stack": "AppError: Route not found: GET /api/v1/auth/login\n    at notFoundHandler (/home/user/pbt-enterprise-api/src/core/middleware/errorHandler.ts:48:17)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at trim_prefix (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:328:13)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:286:9\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:646:15\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:265:14)\n    at Function.handle (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:175:3)\n    at router (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:47:12)"
+}
+2026-07-28 19:05:52 [info]: Request completed {
+  "correlationId": "1785265552654-0.642886600039853",
+  "method": "GET",
+  "path": "/api/v1/auth/login",
+  "statusCode": 404,
+  "duration": "11ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:06:05 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/admin/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.adminRefreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:128:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:25:83\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-07-28 19:06:05 [info]: Request completed {
+  "correlationId": "1785265565195-0.3131136904176941",
+  "method": "POST",
+  "path": "/api/v1/auth/admin/refresh-token",
+  "statusCode": 401,
+  "duration": "10ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:06:05 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-07-28 19:06:05 [info]: Request completed {
+  "correlationId": "1785265565212-0.9191112667150858",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "2ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:06:05 [info]: User logged in: admintest@example.com
+2026-07-28 19:06:05 [info]: Admin logged in: admintest@example.com
+2026-07-28 19:06:05 [info]: Request completed {
+  "correlationId": "1785265565288-0.9431637870469212",
+  "method": "POST",
+  "path": "/admin/login",
+  "statusCode": 200,
+  "duration": "143ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:06:06 [debug]: Access token refreshed for user: admintest@example.com
+2026-07-28 19:06:06 [info]: Request completed {
+  "correlationId": "1785265566497-0.3729168499389246",
+  "method": "POST",
+  "path": "/admin/refresh-token",
+  "statusCode": 200,
+  "duration": "7ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:06:06 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-07-28 19:06:06 [info]: Request completed {
+  "correlationId": "1785265566511-0.9908483418043919",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "2ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:06:06 [info]: Request completed {
+  "correlationId": "1785265566529-0.14168221065914421",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 200,
+  "duration": "6ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:06:06 [info]: Request completed {
+  "correlationId": "1785265566690-0.7029498117510506",
+  "method": "GET",
+  "path": "/roadmaps",
+  "statusCode": 200,
+  "duration": "11ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:06:06 [info]: Request completed {
+  "correlationId": "1785265566705-0.5769251603648522",
+  "method": "GET",
+  "path": "/roadmaps",
+  "statusCode": 304,
+  "duration": "4ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:06:06 [info]: Request completed {
+  "correlationId": "1785265566752-0.22197068882605397",
+  "method": "GET",
+  "path": "/roadmaps/6a660d1b53bc1fc14485f645/weeks",
+  "statusCode": 200,
+  "duration": "13ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:06:06 [info]: Request completed {
+  "correlationId": "1785265566761-0.9333054151193425",
+  "method": "GET",
+  "path": "/roadmaps/6a660d1b53bc1fc14485f644/weeks",
+  "statusCode": 200,
+  "duration": "10ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:06:06 [info]: Request completed {
+  "correlationId": "1785265566800-0.585860999193067",
+  "method": "GET",
+  "path": "/weeks/6a660d1b53bc1fc14485f646/modules",
+  "statusCode": 200,
+  "duration": "12ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:06:06 [info]: Request completed {
+  "correlationId": "1785265566806-0.16007522676485308",
+  "method": "GET",
+  "path": "/weeks/6a660d1b53bc1fc14485f647/modules",
+  "statusCode": 200,
+  "duration": "9ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:06:06 [info]: Request completed {
+  "correlationId": "1785265566816-0.6278511424221205",
+  "method": "GET",
+  "path": "/weeks/6a68a6323209f42f7ccacc1c/modules",
+  "statusCode": 200,
+  "duration": "9ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:06:06 [info]: Request completed {
+  "correlationId": "1785265566822-0.22285386235465365",
+  "method": "GET",
+  "path": "/weeks/6a68a6323209f42f7ccacc1d/modules",
+  "statusCode": 200,
+  "duration": "4ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:06:31 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/admin/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.adminRefreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:128:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:25:83\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-07-28 19:06:31 [info]: Request completed {
+  "correlationId": "1785265591188-0.28863988086624315",
+  "method": "POST",
+  "path": "/api/v1/auth/admin/refresh-token",
+  "statusCode": 401,
+  "duration": "3ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:06:31 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-07-28 19:06:31 [info]: Request completed {
+  "correlationId": "1785265591192-0.5822613117772264",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "1ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:06:31 [info]: User logged in: admintest@example.com
+2026-07-28 19:06:31 [info]: Admin logged in: admintest@example.com
+2026-07-28 19:06:31 [info]: Request completed {
+  "correlationId": "1785265591289-0.1655789569637265",
+  "method": "POST",
+  "path": "/admin/login",
+  "statusCode": 200,
+  "duration": "117ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:06:32 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-07-28 19:06:32 [info]: Request completed {
+  "correlationId": "1785265592233-0.5647602979539368",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "3ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:06:32 [debug]: Access token refreshed for user: admintest@example.com
+2026-07-28 19:06:32 [info]: Request completed {
+  "correlationId": "1785265592230-0.47683927672561355",
+  "method": "POST",
+  "path": "/admin/refresh-token",
+  "statusCode": 200,
+  "duration": "15ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:06:32 [info]: Request completed {
+  "correlationId": "1785265592257-0.16341290032706657",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 200,
+  "duration": "6ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:06:32 [info]: Request completed {
+  "correlationId": "1785265592483-0.06485791963422094",
+  "method": "GET",
+  "path": "/roadmaps",
+  "statusCode": 200,
+  "duration": "3ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:06:32 [info]: Request completed {
+  "correlationId": "1785265592494-0.14390124268766358",
+  "method": "GET",
+  "path": "/roadmaps",
+  "statusCode": 304,
+  "duration": "6ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:06:32 [info]: Request completed {
+  "correlationId": "1785265592528-0.8494527252506756",
+  "method": "GET",
+  "path": "/roadmaps/6a660d1b53bc1fc14485f645/weeks",
+  "statusCode": 200,
+  "duration": "5ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:06:32 [info]: Request completed {
+  "correlationId": "1785265592531-0.49968081819024235",
+  "method": "GET",
+  "path": "/roadmaps/6a660d1b53bc1fc14485f644/weeks",
+  "statusCode": 200,
+  "duration": "5ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:06:32 [info]: Request completed {
+  "correlationId": "1785265592558-0.6988569593353846",
+  "method": "GET",
+  "path": "/weeks/6a660d1b53bc1fc14485f646/modules",
+  "statusCode": 200,
+  "duration": "6ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:06:32 [info]: Request completed {
+  "correlationId": "1785265592569-0.33620841571786775",
+  "method": "GET",
+  "path": "/weeks/6a660d1b53bc1fc14485f647/modules",
+  "statusCode": 200,
+  "duration": "7ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:06:32 [info]: Request completed {
+  "correlationId": "1785265592572-0.19804499591358282",
+  "method": "GET",
+  "path": "/weeks/6a68a6323209f42f7ccacc1c/modules",
+  "statusCode": 200,
+  "duration": "6ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:06:32 [info]: Request completed {
+  "correlationId": "1785265592574-0.8999043119888608",
+  "method": "GET",
+  "path": "/weeks/6a68a6323209f42f7ccacc1d/modules",
+  "statusCode": 200,
+  "duration": "5ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:06:35 [info]: Lesson created {
+  "lessonId": "6a68fdbb6a480a85c8f69f29",
+  "moduleId": "6a660d1b53bc1fc14485f648"
+}
+2026-07-28 19:06:35 [info]: Request completed {
+  "correlationId": "1785265595321-0.06437739946762688",
+  "method": "POST",
+  "path": "/modules/6a660d1b53bc1fc14485f648/lessons",
+  "statusCode": 201,
+  "duration": "44ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:06:35 [info]: Request completed {
+  "correlationId": "1785265595378-0.348472796000016",
+  "method": "GET",
+  "path": "/roadmaps",
+  "statusCode": 304,
+  "duration": "5ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:06:35 [info]: Request completed {
+  "correlationId": "1785265595408-0.3474010311218212",
+  "method": "GET",
+  "path": "/roadmaps",
+  "statusCode": 304,
+  "duration": "6ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:06:35 [info]: Request completed {
+  "correlationId": "1785265595509-0.15265967268795877",
+  "method": "GET",
+  "path": "/roadmaps/6a660d1b53bc1fc14485f645/weeks",
+  "statusCode": 304,
+  "duration": "10ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:06:35 [info]: Request completed {
+  "correlationId": "1785265595512-0.43166566708971543",
+  "method": "GET",
+  "path": "/roadmaps/6a660d1b53bc1fc14485f644/weeks",
+  "statusCode": 304,
+  "duration": "14ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:06:35 [info]: Request completed {
+  "correlationId": "1785265595630-0.6532359042598967",
+  "method": "GET",
+  "path": "/weeks/6a660d1b53bc1fc14485f646/modules",
+  "statusCode": 200,
+  "duration": "19ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:06:35 [info]: Request completed {
+  "correlationId": "1785265595641-0.17129622510701936",
+  "method": "GET",
+  "path": "/weeks/6a660d1b53bc1fc14485f647/modules",
+  "statusCode": 304,
+  "duration": "8ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:06:35 [info]: Request completed {
+  "correlationId": "1785265595645-0.09481997259399066",
+  "method": "GET",
+  "path": "/weeks/6a68a6323209f42f7ccacc1c/modules",
+  "statusCode": 304,
+  "duration": "6ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:06:35 [info]: Request completed {
+  "correlationId": "1785265595652-0.1396944599092862",
+  "method": "GET",
+  "path": "/weeks/6a68a6323209f42f7ccacc1d/modules",
+  "statusCode": 304,
+  "duration": "11ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:06:48 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/admin/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.adminRefreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:128:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:25:83\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-07-28 19:06:48 [info]: Request completed {
+  "correlationId": "1785265608357-0.31248825251938794",
+  "method": "POST",
+  "path": "/api/v1/auth/admin/refresh-token",
+  "statusCode": 401,
+  "duration": "4ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:06:48 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-07-28 19:06:48 [info]: Request completed {
+  "correlationId": "1785265608363-0.505778423173475",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "1ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:06:48 [info]: User logged in: admintest@example.com
+2026-07-28 19:06:48 [info]: Admin logged in: admintest@example.com
+2026-07-28 19:06:48 [info]: Request completed {
+  "correlationId": "1785265608454-0.4816996705872556",
+  "method": "POST",
+  "path": "/admin/login",
+  "statusCode": 200,
+  "duration": "99ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:06:49 [debug]: Access token refreshed for user: admintest@example.com
+2026-07-28 19:06:49 [info]: Request completed {
+  "correlationId": "1785265609509-0.8586789527762873",
+  "method": "POST",
+  "path": "/admin/refresh-token",
+  "statusCode": 200,
+  "duration": "11ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:06:49 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-07-28 19:06:49 [info]: Request completed {
+  "correlationId": "1785265609522-0.7118988143003651",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "2ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:06:49 [info]: Request completed {
+  "correlationId": "1785265609537-0.7731478996580696",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 200,
+  "duration": "6ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:06:49 [info]: Request completed {
+  "correlationId": "1785265609791-0.6097258253808027",
+  "method": "GET",
+  "path": "/roadmaps",
+  "statusCode": 200,
+  "duration": "4ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:06:49 [info]: Request completed {
+  "correlationId": "1785265609801-0.3045967910472489",
+  "method": "GET",
+  "path": "/roadmaps",
+  "statusCode": 304,
+  "duration": "5ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:06:49 [info]: Request completed {
+  "correlationId": "1785265609844-0.43332704855514526",
+  "method": "GET",
+  "path": "/roadmaps/6a660d1b53bc1fc14485f645/weeks",
+  "statusCode": 200,
+  "duration": "6ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:06:49 [info]: Request completed {
+  "correlationId": "1785265609847-0.8819770528309991",
+  "method": "GET",
+  "path": "/roadmaps/6a660d1b53bc1fc14485f644/weeks",
+  "statusCode": 200,
+  "duration": "5ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:06:49 [info]: Request completed {
+  "correlationId": "1785265609908-0.30633863867075783",
+  "method": "GET",
+  "path": "/weeks/6a660d1b53bc1fc14485f646/modules",
+  "statusCode": 200,
+  "duration": "8ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:06:49 [info]: Request completed {
+  "correlationId": "1785265609913-0.12428327670996442",
+  "method": "GET",
+  "path": "/weeks/6a660d1b53bc1fc14485f647/modules",
+  "statusCode": 200,
+  "duration": "5ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:06:49 [info]: Request completed {
+  "correlationId": "1785265609923-0.3782562247515411",
+  "method": "GET",
+  "path": "/weeks/6a68a6323209f42f7ccacc1d/modules",
+  "statusCode": 200,
+  "duration": "6ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:06:49 [info]: Request completed {
+  "correlationId": "1785265609926-0.1831199312085532",
+  "method": "GET",
+  "path": "/weeks/6a68a6323209f42f7ccacc1c/modules",
+  "statusCode": 200,
+  "duration": "9ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:06:52 [info]: Lesson created {
+  "lessonId": "6a68fdcc6a480a85c8f69f2b",
+  "moduleId": "6a660d1b53bc1fc14485f648"
+}
+2026-07-28 19:06:52 [info]: Request completed {
+  "correlationId": "1785265612646-0.695881484107262",
+  "method": "POST",
+  "path": "/modules/6a660d1b53bc1fc14485f648/lessons",
+  "statusCode": 201,
+  "duration": "15ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:06:52 [info]: Request completed {
+  "correlationId": "1785265612669-0.20015808193507412",
+  "method": "GET",
+  "path": "/roadmaps",
+  "statusCode": 304,
+  "duration": "4ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:06:52 [info]: Request completed {
+  "correlationId": "1785265612676-0.7421607062692057",
+  "method": "GET",
+  "path": "/roadmaps",
+  "statusCode": 304,
+  "duration": "3ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:06:52 [info]: Request completed {
+  "correlationId": "1785265612730-0.251368142013916",
+  "method": "GET",
+  "path": "/roadmaps/6a660d1b53bc1fc14485f645/weeks",
+  "statusCode": 304,
+  "duration": "13ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:06:52 [info]: Request completed {
+  "correlationId": "1785265612740-0.7541686579185931",
+  "method": "GET",
+  "path": "/roadmaps/6a660d1b53bc1fc14485f644/weeks",
+  "statusCode": 304,
+  "duration": "5ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:06:52 [info]: Request completed {
+  "correlationId": "1785265612770-0.73889580054188",
+  "method": "GET",
+  "path": "/weeks/6a660d1b53bc1fc14485f647/modules",
+  "statusCode": 304,
+  "duration": "4ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:06:52 [info]: Request completed {
+  "correlationId": "1785265612768-0.26959833702993996",
+  "method": "GET",
+  "path": "/weeks/6a660d1b53bc1fc14485f646/modules",
+  "statusCode": 200,
+  "duration": "11ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:06:52 [info]: Request completed {
+  "correlationId": "1785265612772-0.7435843080599318",
+  "method": "GET",
+  "path": "/weeks/6a68a6323209f42f7ccacc1c/modules",
+  "statusCode": 304,
+  "duration": "8ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:06:52 [info]: Request completed {
+  "correlationId": "1785265612776-0.4099560284542869",
+  "method": "GET",
+  "path": "/weeks/6a68a6323209f42f7ccacc1d/modules",
+  "statusCode": 304,
+  "duration": "4ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:06:52 [info]: Request completed {
+  "correlationId": "1785265612925-0.5119457643738892",
+  "method": "GET",
+  "path": "/lessons/stats",
+  "statusCode": 200,
+  "duration": "13ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:06:52 [info]: Request completed {
+  "correlationId": "1785265612932-0.014257738751648708",
+  "method": "GET",
+  "path": "/lessons",
+  "statusCode": 200,
+  "duration": "23ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:07:10 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-07-28 19:07:10 [info]: Request completed {
+  "correlationId": "1785265630456-0.5853378287043935",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "5ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:07:10 [info]: User logged in: testuser2@example.com
+2026-07-28 19:07:10 [info]: User logged in: testuser2@example.com
+2026-07-28 19:07:10 [info]: Request completed {
+  "correlationId": "1785265630561-0.7541237284619746",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "100ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:07:10 [info]: Request completed {
+  "correlationId": "1785265630669-0.9590403592836949",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 200,
+  "duration": "4ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:07:11 [info]: Request completed {
+  "correlationId": "1785265631031-0.14129722892903152",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 200,
+  "duration": "63ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:07:12 [debug]: Access token refreshed for user: testuser2@example.com
+2026-07-28 19:07:12 [info]: Request completed {
+  "correlationId": "1785265632244-0.8551319890068758",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "4ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:07:12 [info]: Request completed {
+  "correlationId": "1785265632258-0.8425620987395148",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 200,
+  "duration": "4ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:07:12 [info]: Request completed {
+  "correlationId": "1785265632270-0.7742600196182343",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 304,
+  "duration": "3ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:07:29 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-07-28 19:07:29 [info]: Request completed {
+  "correlationId": "1785265649838-0.021238813598991824",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "2ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:07:30 [info]: User logged in: testuser2@example.com
+2026-07-28 19:07:30 [info]: User logged in: testuser2@example.com
+2026-07-28 19:07:30 [info]: Request completed {
+  "correlationId": "1785265649954-0.05841634314527888",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "116ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:07:30 [info]: Request completed {
+  "correlationId": "1785265650081-0.1035226663148332",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 200,
+  "duration": "4ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:07:30 [info]: Request completed {
+  "correlationId": "1785265650392-0.892783754027465",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 200,
+  "duration": "36ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:07:32 [debug]: Access token refreshed for user: testuser2@example.com
+2026-07-28 19:07:32 [info]: Request completed {
+  "correlationId": "1785265652531-0.5332869843260686",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "8ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:07:32 [info]: Request completed {
+  "correlationId": "1785265652555-0.4625778321127505",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 200,
+  "duration": "5ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:07:32 [info]: Request completed {
+  "correlationId": "1785265652568-0.7583867594569524",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 304,
+  "duration": "5ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:07:32 [info]: Request completed {
+  "correlationId": "1785265652667-0.5328755658791815",
+  "method": "GET",
+  "path": "/lessons/6a68fdbb6a480a85c8f69f29",
+  "statusCode": 200,
+  "duration": "16ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:07:32 [info]: Request completed {
+  "correlationId": "1785265652700-0.2016800017704834",
+  "method": "GET",
+  "path": "/modules/6a660d1b53bc1fc14485f648",
+  "statusCode": 200,
+  "duration": "15ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:07:50 [error]: Error occurred: Invalid or expired token {
+  "url": "/api/v1/admin/learning/lessons/6a68fdbb6a480a85c8f69f29",
+  "method": "DELETE",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: Invalid or expired token\n    at authenticate (/home/user/pbt-enterprise-api/src/core/middleware/authMiddleware.ts:32:11)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at trim_prefix (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:328:13)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:286:9\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)\n    at Function.handle (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:175:3)\n    at router (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:47:12)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at trim_prefix (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:328:13)"
+}
+2026-07-28 19:07:50 [info]: Request completed {
+  "correlationId": "1785265670160-0.4727761460458373",
+  "method": "DELETE",
+  "path": "/api/v1/admin/learning/lessons/6a68fdbb6a480a85c8f69f29",
+  "statusCode": 401,
+  "duration": "4ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:07:55 [info]: User logged in: admintest@example.com
+2026-07-28 19:07:55 [info]: Admin logged in: admintest@example.com
+2026-07-28 19:07:55 [info]: Request completed {
+  "correlationId": "1785265675798-0.049190911554352734",
+  "method": "POST",
+  "path": "/admin/login",
+  "statusCode": 200,
+  "duration": "94ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:07:55 [info]: Lesson soft-deleted {
+  "lessonId": "6a68fdbb6a480a85c8f69f29"
+}
+2026-07-28 19:07:55 [info]: Request completed {
+  "correlationId": "1785265675909-0.5535293780926493",
+  "method": "DELETE",
+  "path": "/lessons/6a68fdbb6a480a85c8f69f29",
+  "statusCode": 200,
+  "duration": "9ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:08:13 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/admin/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.adminRefreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:128:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:25:83\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-07-28 19:08:13 [info]: Request completed {
+  "correlationId": "1785265693871-0.4167579317349499",
+  "method": "POST",
+  "path": "/api/v1/auth/admin/refresh-token",
+  "statusCode": 401,
+  "duration": "10ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:08:13 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-07-28 19:08:13 [info]: Request completed {
+  "correlationId": "1785265693882-0.5178022848167492",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "2ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:08:14 [info]: User logged in: admintest@example.com
+2026-07-28 19:08:14 [info]: Admin logged in: admintest@example.com
+2026-07-28 19:08:14 [info]: Request completed {
+  "correlationId": "1785265693988-0.5071827694352531",
+  "method": "POST",
+  "path": "/admin/login",
+  "statusCode": 200,
+  "duration": "108ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:08:14 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-07-28 19:08:14 [info]: Request completed {
+  "correlationId": "1785265694992-0.23734641720923144",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "5ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:08:15 [debug]: Access token refreshed for user: admintest@example.com
+2026-07-28 19:08:15 [info]: Request completed {
+  "correlationId": "1785265694988-0.6905878435688206",
+  "method": "POST",
+  "path": "/admin/refresh-token",
+  "statusCode": 200,
+  "duration": "14ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:08:15 [info]: Request completed {
+  "correlationId": "1785265695011-0.9624553296814577",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 200,
+  "duration": "4ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:08:15 [info]: Request completed {
+  "correlationId": "1785265695182-0.50606838388935",
+  "method": "GET",
+  "path": "/roadmaps",
+  "statusCode": 200,
+  "duration": "4ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:08:15 [info]: Request completed {
+  "correlationId": "1785265695191-0.48216856108336725",
+  "method": "GET",
+  "path": "/roadmaps",
+  "statusCode": 304,
+  "duration": "5ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:08:15 [info]: Request completed {
+  "correlationId": "1785265695240-0.17936287402710804",
+  "method": "GET",
+  "path": "/roadmaps/6a660d1b53bc1fc14485f645/weeks",
+  "statusCode": 200,
+  "duration": "5ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:08:15 [info]: Request completed {
+  "correlationId": "1785265695247-0.5644433232858961",
+  "method": "GET",
+  "path": "/roadmaps/6a660d1b53bc1fc14485f644/weeks",
+  "statusCode": 200,
+  "duration": "5ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:08:15 [info]: Request completed {
+  "correlationId": "1785265695289-0.3498551715268192",
+  "method": "GET",
+  "path": "/weeks/6a660d1b53bc1fc14485f646/modules",
+  "statusCode": 200,
+  "duration": "10ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:08:15 [info]: Request completed {
+  "correlationId": "1785265695292-0.6143726504681271",
+  "method": "GET",
+  "path": "/weeks/6a660d1b53bc1fc14485f647/modules",
+  "statusCode": 200,
+  "duration": "9ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:08:15 [info]: Request completed {
+  "correlationId": "1785265695303-0.007995698069852786",
+  "method": "GET",
+  "path": "/weeks/6a68a6323209f42f7ccacc1c/modules",
+  "statusCode": 200,
+  "duration": "4ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:08:15 [info]: Request completed {
+  "correlationId": "1785265695308-0.6323578649498598",
+  "method": "GET",
+  "path": "/weeks/6a68a6323209f42f7ccacc1d/modules",
+  "statusCode": 200,
+  "duration": "4ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:08:17 [info]: Lesson created {
+  "lessonId": "6a68fe216a480a85c8f69f3b",
+  "moduleId": "6a660d1b53bc1fc14485f648"
+}
+2026-07-28 19:08:17 [info]: Request completed {
+  "correlationId": "1785265697726-0.15806836429930526",
+  "method": "POST",
+  "path": "/modules/6a660d1b53bc1fc14485f648/lessons",
+  "statusCode": 201,
+  "duration": "20ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:08:17 [info]: Request completed {
+  "correlationId": "1785265697761-0.3340897392840536",
+  "method": "GET",
+  "path": "/roadmaps",
+  "statusCode": 304,
+  "duration": "5ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:08:17 [info]: Request completed {
+  "correlationId": "1785265697769-0.889401271179391",
+  "method": "GET",
+  "path": "/roadmaps",
+  "statusCode": 304,
+  "duration": "3ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:08:17 [info]: Request completed {
+  "correlationId": "1785265697832-0.6522897848308971",
+  "method": "GET",
+  "path": "/roadmaps/6a660d1b53bc1fc14485f644/weeks",
+  "statusCode": 304,
+  "duration": "14ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:08:17 [info]: Request completed {
+  "correlationId": "1785265697828-0.9636789616146817",
+  "method": "GET",
+  "path": "/roadmaps/6a660d1b53bc1fc14485f645/weeks",
+  "statusCode": 304,
+  "duration": "19ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:08:17 [info]: Request completed {
+  "correlationId": "1785265697856-0.42695870856345386",
+  "method": "GET",
+  "path": "/weeks/6a660d1b53bc1fc14485f646/modules",
+  "statusCode": 200,
+  "duration": "17ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:08:17 [info]: Request completed {
+  "correlationId": "1785265697862-0.9539414940022322",
+  "method": "GET",
+  "path": "/weeks/6a660d1b53bc1fc14485f647/modules",
+  "statusCode": 304,
+  "duration": "17ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:08:17 [info]: Request completed {
+  "correlationId": "1785265697869-0.626713779305113",
+  "method": "GET",
+  "path": "/weeks/6a68a6323209f42f7ccacc1c/modules",
+  "statusCode": 304,
+  "duration": "12ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:08:17 [info]: Lesson asset uploaded {
+  "lessonId": "6a68fe216a480a85c8f69f3b",
+  "url": "http://localhost:5000/uploads/lessons/6a68fe216a480a85c8f69f3b/7220696b-56c0-4282-bf6a-f583c1a4b6d5.mp4",
+  "type": "Video"
+}
+2026-07-28 19:08:17 [info]: Request completed {
+  "correlationId": "1785265697814-0.12062271348316478",
+  "method": "POST",
+  "path": "/lessons/6a68fe216a480a85c8f69f3b/upload",
+  "statusCode": 200,
+  "duration": "72ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:08:17 [info]: Request completed {
+  "correlationId": "1785265697882-0.47423913196374445",
+  "method": "GET",
+  "path": "/weeks/6a68a6323209f42f7ccacc1d/modules",
+  "statusCode": 304,
+  "duration": "5ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:08:18 [info]: Request completed {
+  "correlationId": "1785265698230-0.6804338056379629",
+  "method": "GET",
+  "path": "/lessons/stats",
+  "statusCode": 200,
+  "duration": "36ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:08:18 [info]: Request completed {
+  "correlationId": "1785265698393-0.2797700840896771",
+  "method": "GET",
+  "path": "/lessons",
+  "statusCode": 200,
+  "duration": "40ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:08:20 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-07-28 19:08:20 [info]: Request completed {
+  "correlationId": "1785265700278-0.5107635891973807",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "2ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:08:20 [debug]: Access token refreshed for user: admintest@example.com
+2026-07-28 19:08:20 [info]: Request completed {
+  "correlationId": "1785265700275-0.2600999675823228",
+  "method": "POST",
+  "path": "/admin/refresh-token",
+  "statusCode": 200,
+  "duration": "7ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:08:20 [info]: Request completed {
+  "correlationId": "1785265700293-0.14355372121464138",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 304,
+  "duration": "4ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:08:20 [info]: Request completed {
+  "correlationId": "1785265700436-0.5982945260312784",
+  "method": "GET",
+  "path": "/roadmaps",
+  "statusCode": 304,
+  "duration": "5ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:08:20 [info]: Request completed {
+  "correlationId": "1785265700445-0.11443372111149652",
+  "method": "GET",
+  "path": "/roadmaps",
+  "statusCode": 304,
+  "duration": "4ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:08:20 [info]: Request completed {
+  "correlationId": "1785265700485-0.027739352518673543",
+  "method": "GET",
+  "path": "/roadmaps/6a660d1b53bc1fc14485f644/weeks",
+  "statusCode": 304,
+  "duration": "3ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:08:20 [info]: Request completed {
+  "correlationId": "1785265700483-0.5923241468856244",
+  "method": "GET",
+  "path": "/roadmaps/6a660d1b53bc1fc14485f645/weeks",
+  "statusCode": 304,
+  "duration": "9ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:08:20 [info]: Request completed {
+  "correlationId": "1785265700517-0.962035227095581",
+  "method": "GET",
+  "path": "/weeks/6a660d1b53bc1fc14485f647/modules",
+  "statusCode": 304,
+  "duration": "6ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:08:20 [info]: Request completed {
+  "correlationId": "1785265700524-0.3465404691958116",
+  "method": "GET",
+  "path": "/weeks/6a68a6323209f42f7ccacc1c/modules",
+  "statusCode": 304,
+  "duration": "6ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:08:20 [info]: Request completed {
+  "correlationId": "1785265700520-0.5313559143552715",
+  "method": "GET",
+  "path": "/weeks/6a660d1b53bc1fc14485f646/modules",
+  "statusCode": 304,
+  "duration": "12ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:08:20 [info]: Request completed {
+  "correlationId": "1785265700528-0.8993274227435293",
+  "method": "GET",
+  "path": "/weeks/6a68a6323209f42f7ccacc1d/modules",
+  "statusCode": 304,
+  "duration": "6ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:08:23 [info]: Lesson created {
+  "lessonId": "6a68fe276a480a85c8f69f3d",
+  "moduleId": "6a660d1b53bc1fc14485f648"
+}
+2026-07-28 19:08:23 [info]: Request completed {
+  "correlationId": "1785265703709-0.131214454354736",
+  "method": "POST",
+  "path": "/modules/6a660d1b53bc1fc14485f648/lessons",
+  "statusCode": 201,
+  "duration": "24ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:08:23 [info]: Request completed {
+  "correlationId": "1785265703743-0.07650742876382655",
+  "method": "GET",
+  "path": "/roadmaps",
+  "statusCode": 304,
+  "duration": "4ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:08:23 [info]: Request completed {
+  "correlationId": "1785265703754-0.9897210371509149",
+  "method": "GET",
+  "path": "/roadmaps",
+  "statusCode": 304,
+  "duration": "4ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:08:23 [info]: Request completed {
+  "correlationId": "1785265703816-0.9824324945427865",
+  "method": "GET",
+  "path": "/roadmaps/6a660d1b53bc1fc14485f645/weeks",
+  "statusCode": 304,
+  "duration": "13ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:08:23 [info]: Request completed {
+  "correlationId": "1785265703822-0.2663972689414775",
+  "method": "GET",
+  "path": "/roadmaps/6a660d1b53bc1fc14485f644/weeks",
+  "statusCode": 304,
+  "duration": "9ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:08:24 [info]: Request completed {
+  "correlationId": "1785265703999-0.7200459278658358",
+  "method": "GET",
+  "path": "/weeks/6a660d1b53bc1fc14485f646/modules",
+  "statusCode": 200,
+  "duration": "14ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:08:24 [info]: Request completed {
+  "correlationId": "1785265704002-0.20176873344656365",
+  "method": "GET",
+  "path": "/weeks/6a660d1b53bc1fc14485f647/modules",
+  "statusCode": 304,
+  "duration": "13ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:08:24 [info]: Request completed {
+  "correlationId": "1785265704004-0.6642163471786335",
+  "method": "GET",
+  "path": "/weeks/6a68a6323209f42f7ccacc1c/modules",
+  "statusCode": 304,
+  "duration": "12ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:08:24 [info]: Request completed {
+  "correlationId": "1785265704010-0.7945301271882577",
+  "method": "GET",
+  "path": "/weeks/6a68a6323209f42f7ccacc1d/modules",
+  "statusCode": 304,
+  "duration": "7ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:08:24 [info]: Request completed {
+  "correlationId": "1785265704189-0.8650052231324517",
+  "method": "GET",
+  "path": "/lessons/stats",
+  "statusCode": 200,
+  "duration": "20ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:08:24 [info]: Request completed {
+  "correlationId": "1785265704200-0.809504133265438",
+  "method": "GET",
+  "path": "/lessons",
+  "statusCode": 200,
+  "duration": "37ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:08:43 [info]: Lesson soft-deleted {
+  "lessonId": "6a68fe216a480a85c8f69f3b"
+}
+2026-07-28 19:08:43 [info]: Request completed {
+  "correlationId": "1785265723019-0.4471720905030814",
+  "method": "DELETE",
+  "path": "/lessons/6a68fe216a480a85c8f69f3b",
+  "statusCode": 200,
+  "duration": "11ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:08:43 [info]: Lesson soft-deleted {
+  "lessonId": "6a68fe276a480a85c8f69f3d"
+}
+2026-07-28 19:08:43 [info]: Request completed {
+  "correlationId": "1785265723046-0.9484929216892461",
+  "method": "DELETE",
+  "path": "/lessons/6a68fe276a480a85c8f69f3d",
+  "statusCode": 200,
+  "duration": "8ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:13:59 [info]: Connecting to MongoDB at mongodb://127.0.0.1:27017/pbtDb
+2026-07-28 19:13:59 [info]: MongoDB connected successfully
+2026-07-28 19:13:59 [info]: Security middleware initialized
+2026-07-28 19:13:59 [info]: 🚀 Server running on http://localhost:5000
+2026-07-28 19:13:59 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-07-28 19:13:59 [info]: 🔧 Environment: development
+2026-07-28 19:13:59 [info]: 🛣️  API Version: /api/v1
+2026-07-28 19:17:17 [error]: Error occurred: Route not found: GET /api/v1/auth/login {
+  "url": "/api/v1/auth/login",
+  "method": "GET",
+  "ip": "127.0.0.1",
+  "stack": "AppError: Route not found: GET /api/v1/auth/login\n    at notFoundHandler (/home/user/pbt-enterprise-api/src/core/middleware/errorHandler.ts:48:17)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at trim_prefix (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:328:13)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:286:9\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:646:15\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:265:14)\n    at Function.handle (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:175:3)\n    at router (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:47:12)"
+}
+2026-07-28 19:17:17 [info]: Request completed {
+  "correlationId": "1785266237582-0.6589098023037814",
+  "method": "GET",
+  "path": "/api/v1/auth/login",
+  "statusCode": 404,
+  "duration": "8ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:17:24 [info]: User logged in: admintest@example.com
+2026-07-28 19:17:24 [info]: Admin logged in: admintest@example.com
+2026-07-28 19:17:24 [info]: Request completed {
+  "correlationId": "1785266244434-0.16981204912956915",
+  "method": "POST",
+  "path": "/admin/login",
+  "statusCode": 200,
+  "duration": "133ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:17:24 [info]: Request completed {
+  "correlationId": "1785266244588-0.5961626895164234",
+  "method": "GET",
+  "path": "/lessons",
+  "statusCode": 200,
+  "duration": "39ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:17:42 [error]: Error occurred: Lesson not found {
+  "url": "/api/v1/admin/learning/lessons/6a68fdbb6a480a85c8f69f29",
+  "method": "DELETE",
+  "ip": "127.0.0.1",
+  "stack": "NotFoundError: Lesson not found\n    at AdminLearningService.deleteLesson (/home/user/pbt-enterprise-api/src/modules/admin-learning/services/admin-learning.service.ts:283:24)\n    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async AdminLearningController.deleteLesson (/home/user/pbt-enterprise-api/src/modules/admin-learning/controllers/admin-learning.controller.ts:121:5)"
+}
+2026-07-28 19:17:42 [info]: Request completed {
+  "correlationId": "1785266262979-0.011762582180991688",
+  "method": "DELETE",
+  "path": "/api/v1/admin/learning/lessons/6a68fdbb6a480a85c8f69f29",
+  "statusCode": 404,
+  "duration": "12ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:17:43 [info]: Lesson soft-deleted {
+  "lessonId": "6a68fdcc6a480a85c8f69f2b"
+}
+2026-07-28 19:17:43 [info]: Request completed {
+  "correlationId": "1785266263001-0.726259605232676",
+  "method": "DELETE",
+  "path": "/lessons/6a68fdcc6a480a85c8f69f2b",
+  "statusCode": 200,
+  "duration": "10ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:17:43 [error]: Error occurred: Lesson not found {
+  "url": "/api/v1/admin/learning/lessons/6a68fe216a480a85c8f69f3b",
+  "method": "DELETE",
+  "ip": "127.0.0.1",
+  "stack": "NotFoundError: Lesson not found\n    at AdminLearningService.deleteLesson (/home/user/pbt-enterprise-api/src/modules/admin-learning/services/admin-learning.service.ts:283:24)\n    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async AdminLearningController.deleteLesson (/home/user/pbt-enterprise-api/src/modules/admin-learning/controllers/admin-learning.controller.ts:121:5)"
+}
+2026-07-28 19:17:43 [info]: Request completed {
+  "correlationId": "1785266263022-0.9747047738217487",
+  "method": "DELETE",
+  "path": "/api/v1/admin/learning/lessons/6a68fe216a480a85c8f69f3b",
+  "statusCode": 404,
+  "duration": "4ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:17:43 [error]: Error occurred: Lesson not found {
+  "url": "/api/v1/admin/learning/lessons/6a68fe276a480a85c8f69f3d",
+  "method": "DELETE",
+  "ip": "127.0.0.1",
+  "stack": "NotFoundError: Lesson not found\n    at AdminLearningService.deleteLesson (/home/user/pbt-enterprise-api/src/modules/admin-learning/services/admin-learning.service.ts:283:24)\n    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async AdminLearningController.deleteLesson (/home/user/pbt-enterprise-api/src/modules/admin-learning/controllers/admin-learning.controller.ts:121:5)"
+}
+2026-07-28 19:17:43 [info]: Request completed {
+  "correlationId": "1785266263035-0.06647793270340974",
+  "method": "DELETE",
+  "path": "/api/v1/admin/learning/lessons/6a68fe276a480a85c8f69f3d",
+  "statusCode": 404,
+  "duration": "3ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:17:53 [info]: User logged in: testuser2@example.com
+2026-07-28 19:17:53 [info]: User logged in: testuser2@example.com
+2026-07-28 19:17:53 [info]: Request completed {
+  "correlationId": "1785266273822-0.6066985669642584",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "95ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:17:53 [info]: Request completed {
+  "correlationId": "1785266273935-0.8951876682684454",
+  "method": "GET",
+  "path": "/roadmap/2026",
+  "statusCode": 200,
+  "duration": "29ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:18:05 [info]: User logged in: testuser1@example.com
+2026-07-28 19:18:05 [info]: User logged in: testuser1@example.com
+2026-07-28 19:18:05 [info]: Request completed {
+  "correlationId": "1785266284939-0.6158062088631693",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "98ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:18:05 [info]: Request completed {
+  "correlationId": "1785266285063-0.8112259763925072",
+  "method": "GET",
+  "path": "/roadmap/2026",
+  "statusCode": 200,
+  "duration": "25ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:18:12 [info]: User logged in: testuser2@example.com
+2026-07-28 19:18:12 [info]: User logged in: testuser2@example.com
+2026-07-28 19:18:12 [info]: Request completed {
+  "correlationId": "1785266292035-0.13456326000492047",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "95ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:18:12 [info]: Request completed {
+  "correlationId": "1785266292150-0.01069902600170769",
+  "method": "GET",
+  "path": "/modules/6a660d1b53bc1fc14485f648",
+  "statusCode": 200,
+  "duration": "10ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:18:21 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-07-28 19:18:21 [info]: Request completed {
+  "correlationId": "1785266301687-0.9958950123936949",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "8ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:18:21 [info]: User logged in: testuser2@example.com
+2026-07-28 19:18:21 [info]: User logged in: testuser2@example.com
+2026-07-28 19:18:21 [info]: Request completed {
+  "correlationId": "1785266301821-0.16116259482509898",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "102ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:18:21 [info]: Request completed {
+  "correlationId": "1785266301935-0.1483812268401019",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 200,
+  "duration": "5ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:18:22 [info]: Request completed {
+  "correlationId": "1785266302250-0.13505198722030975",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 200,
+  "duration": "56ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:18:24 [debug]: Access token refreshed for user: testuser2@example.com
+2026-07-28 19:18:24 [info]: Request completed {
+  "correlationId": "1785266304048-0.590000219826444",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "5ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:18:24 [info]: Request completed {
+  "correlationId": "1785266304067-0.48053011978636584",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 200,
+  "duration": "4ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:18:24 [info]: Request completed {
+  "correlationId": "1785266304076-0.9577946780413709",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 304,
+  "duration": "7ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:18:24 [info]: Request completed {
+  "correlationId": "1785266304186-0.13935526348816873",
+  "method": "GET",
+  "path": "/years",
+  "statusCode": 200,
+  "duration": "7ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:18:24 [info]: Request completed {
+  "correlationId": "1785266304189-0.15661632946043236",
+  "method": "GET",
+  "path": "/continue",
+  "statusCode": 200,
+  "duration": "5ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:18:24 [info]: Request completed {
+  "correlationId": "1785266304237-0.3931384603792314",
+  "method": "GET",
+  "path": "/roadmap/2026",
+  "statusCode": 200,
+  "duration": "26ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:18:24 [info]: Request completed {
+  "correlationId": "1785266304318-0.7807015829613451",
+  "method": "GET",
+  "path": "/modules/6a660d1b53bc1fc14485f648",
+  "statusCode": 200,
+  "duration": "11ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:24:24 [info]: User logged in: admintest@example.com
+2026-07-28 19:24:24 [info]: Admin logged in: admintest@example.com
+2026-07-28 19:24:24 [info]: Request completed {
+  "correlationId": "1785266664422-0.192906566944127",
+  "method": "POST",
+  "path": "/admin/login",
+  "statusCode": 200,
+  "duration": "98ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:24:24 [info]: User logged in: testuser1@example.com
+2026-07-28 19:24:24 [info]: User logged in: testuser1@example.com
+2026-07-28 19:24:24 [info]: Request completed {
+  "correlationId": "1785266664539-0.7895860954239928",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "90ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:24:24 [info]: Request completed {
+  "correlationId": "1785266664645-0.31511720080012817",
+  "method": "GET",
+  "path": "/roadmap/2026",
+  "statusCode": 200,
+  "duration": "18ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:24:32 [info]: Lesson created {
+  "lessonId": "6a6901f04461948d2e356be9",
+  "moduleId": "6a660d1b53bc1fc14485f649"
+}
+2026-07-28 19:24:32 [info]: Request completed {
+  "correlationId": "1785266672331-0.4443051718197044",
+  "method": "POST",
+  "path": "/modules/6a660d1b53bc1fc14485f649/lessons",
+  "statusCode": 201,
+  "duration": "24ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:24:41 [info]: User logged in: testuser1@example.com
+2026-07-28 19:24:41 [info]: User logged in: testuser1@example.com
+2026-07-28 19:24:41 [info]: Request completed {
+  "correlationId": "1785266681610-0.32784348120164664",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "93ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:24:41 [info]: Request completed {
+  "correlationId": "1785266681719-0.6755459972790949",
+  "method": "GET",
+  "path": "/roadmap/2026",
+  "statusCode": 200,
+  "duration": "19ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:24:41 [info]: Request completed {
+  "correlationId": "1785266681775-0.8435660791266459",
+  "method": "GET",
+  "path": "/roadmap/2026",
+  "statusCode": 200,
+  "duration": "17ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:24:54 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-07-28 19:24:54 [info]: Request completed {
+  "correlationId": "1785266694969-0.7056997789402955",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "2ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:24:55 [info]: User logged in: testuser1@example.com
+2026-07-28 19:24:55 [info]: User logged in: testuser1@example.com
+2026-07-28 19:24:55 [info]: Request completed {
+  "correlationId": "1785266695075-0.9214368503166337",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "99ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:24:55 [info]: Request completed {
+  "correlationId": "1785266695181-0.4877990650343045",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 200,
+  "duration": "3ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:24:55 [info]: Request completed {
+  "correlationId": "1785266695473-0.5235681613193386",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 200,
+  "duration": "34ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:24:56 [debug]: Access token refreshed for user: testuser1@example.com
+2026-07-28 19:24:56 [info]: Request completed {
+  "correlationId": "1785266696811-0.6796892084686845",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "7ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:24:56 [info]: Request completed {
+  "correlationId": "1785266696825-0.5320559294128335",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 200,
+  "duration": "3ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:24:56 [info]: Request completed {
+  "correlationId": "1785266696833-0.3641461706946538",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 304,
+  "duration": "4ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:24:59 [info]: Request completed {
+  "correlationId": "1785266699756-0.6746550173159407",
+  "method": "GET",
+  "path": "/years",
+  "statusCode": 200,
+  "duration": "11ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:24:59 [info]: Request completed {
+  "correlationId": "1785266699768-0.3346414138321281",
+  "method": "GET",
+  "path": "/continue",
+  "statusCode": 200,
+  "duration": "21ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:24:59 [info]: Request completed {
+  "correlationId": "1785266699787-0.7262939517152462",
+  "method": "GET",
+  "path": "/roadmap/2026",
+  "statusCode": 200,
+  "duration": "24ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:24:59 [info]: Request completed {
+  "correlationId": "1785266699865-0.8046635546405803",
+  "method": "GET",
+  "path": "/modules/6a660d1b53bc1fc14485f649",
+  "statusCode": 200,
+  "duration": "7ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:25:01 [error]: Error occurred: No token provided {
+  "url": "/api/v1/auth/logout",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No token provided\n    at authenticate (/home/user/pbt-enterprise-api/src/core/middleware/authMiddleware.ts:22:13)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)\n    at Function.handle (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:175:3)\n    at router (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:47:12)"
+}
+2026-07-28 19:25:01 [info]: Request completed {
+  "correlationId": "1785266701757-0.7560323130372208",
+  "method": "POST",
+  "path": "/api/v1/auth/logout",
+  "statusCode": 401,
+  "duration": "2ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:25:02 [info]: User logged in: testuser2@example.com
+2026-07-28 19:25:02 [info]: User logged in: testuser2@example.com
+2026-07-28 19:25:02 [info]: Request completed {
+  "correlationId": "1785266702884-0.5874410393147689",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "107ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:25:03 [info]: Request completed {
+  "correlationId": "1785266703024-0.05822507713697589",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 200,
+  "duration": "5ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:25:39 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-07-28 19:25:39 [info]: Request completed {
+  "correlationId": "1785266739592-0.3953865755995467",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "2ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:25:39 [info]: User logged in: testuser2@example.com
+2026-07-28 19:25:39 [info]: User logged in: testuser2@example.com
+2026-07-28 19:25:39 [info]: Request completed {
+  "correlationId": "1785266739690-0.5641555766116062",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "109ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:25:39 [info]: Request completed {
+  "correlationId": "1785266739809-0.6915879567966388",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 200,
+  "duration": "4ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:25:40 [info]: Request completed {
+  "correlationId": "1785266740076-0.9531166342075341",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 200,
+  "duration": "22ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:25:40 [debug]: Access token refreshed for user: testuser2@example.com
+2026-07-28 19:25:40 [info]: Request completed {
+  "correlationId": "1785266740475-0.05961767477788937",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "8ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:25:40 [info]: Request completed {
+  "correlationId": "1785266740490-0.8082003827915898",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 200,
+  "duration": "3ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:25:40 [info]: Request completed {
+  "correlationId": "1785266740500-0.4190224012714856",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 304,
+  "duration": "3ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:25:53 [info]: Lesson soft-deleted {
+  "lessonId": "6a6901f04461948d2e356be9"
+}
+2026-07-28 19:25:53 [info]: Request completed {
+  "correlationId": "1785266753510-0.9106879590576638",
+  "method": "DELETE",
+  "path": "/lessons/6a6901f04461948d2e356be9",
+  "statusCode": 200,
+  "duration": "7ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:27:07 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-07-28 19:27:07 [info]: Request completed {
+  "correlationId": "1785266827591-0.8339013266906534",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "1ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:27:07 [info]: User logged in: testuser2@example.com
+2026-07-28 19:27:07 [info]: User logged in: testuser2@example.com
+2026-07-28 19:27:07 [info]: Request completed {
+  "correlationId": "1785266827688-0.5540003411201673",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "91ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:27:07 [info]: Request completed {
+  "correlationId": "1785266827787-0.18191533825726447",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 200,
+  "duration": "3ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:27:08 [info]: Request completed {
+  "correlationId": "1785266828111-0.12764769975390156",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 200,
+  "duration": "20ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:28:35 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-07-28 19:28:35 [info]: Request completed {
+  "correlationId": "1785266915556-0.5717007650045627",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "3ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:28:35 [info]: User logged in: testuser2@example.com
+2026-07-28 19:28:35 [info]: User logged in: testuser2@example.com
+2026-07-28 19:28:35 [info]: Request completed {
+  "correlationId": "1785266915682-0.7505986033067806",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "105ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:28:35 [info]: Request completed {
+  "correlationId": "1785266915798-0.7797297937244705",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 200,
+  "duration": "4ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:28:36 [info]: Request completed {
+  "correlationId": "1785266916143-0.6094712744182478",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 200,
+  "duration": "34ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:31:08 [info]: Connecting to MongoDB at mongodb://127.0.0.1:27017/pbtDb
+2026-07-28 19:31:08 [info]: MongoDB connected successfully
+2026-07-28 19:31:08 [info]: Security middleware initialized
+2026-07-28 19:31:08 [info]: 🚀 Server running on http://localhost:5000
+2026-07-28 19:31:08 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-07-28 19:31:08 [info]: 🔧 Environment: development
+2026-07-28 19:31:08 [info]: 🛣️  API Version: /api/v1
+2026-07-28 19:33:28 [error]: Error occurred: Route not found: GET /api/v1/auth/login {
+  "url": "/api/v1/auth/login",
+  "method": "GET",
+  "ip": "127.0.0.1",
+  "stack": "AppError: Route not found: GET /api/v1/auth/login\n    at notFoundHandler (/home/user/pbt-enterprise-api/src/core/middleware/errorHandler.ts:48:17)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at trim_prefix (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:328:13)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:286:9\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:646:15\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:265:14)\n    at Function.handle (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:175:3)\n    at router (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:47:12)"
+}
+2026-07-28 19:33:28 [info]: Request completed {
+  "correlationId": "1785267208830-0.0587815284484805",
+  "method": "GET",
+  "path": "/api/v1/auth/login",
+  "statusCode": 404,
+  "duration": "8ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:33:34 [info]: User logged in: testuser2@example.com
+2026-07-28 19:33:34 [info]: User logged in: testuser2@example.com
+2026-07-28 19:33:34 [info]: Request completed {
+  "correlationId": "1785267214474-0.0058436740140235255",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "131ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:33:34 [info]: Request completed {
+  "correlationId": "1785267214623-0.34599248640057123",
+  "method": "GET",
+  "path": "/calendar",
+  "statusCode": 200,
+  "duration": "12ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:33:46 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-07-28 19:33:46 [info]: Request completed {
+  "correlationId": "1785267226275-0.7101193574021849",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "7ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:33:46 [info]: User logged in: testuser2@example.com
+2026-07-28 19:33:46 [info]: User logged in: testuser2@example.com
+2026-07-28 19:33:46 [info]: Request completed {
+  "correlationId": "1785267226379-0.6593716468568507",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "96ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:33:46 [info]: Request completed {
+  "correlationId": "1785267226483-0.8226872457259615",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 200,
+  "duration": "5ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:33:46 [info]: Request completed {
+  "correlationId": "1785267226773-0.5525180060191834",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 200,
+  "duration": "61ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:33:48 [debug]: Access token refreshed for user: testuser2@example.com
+2026-07-28 19:33:48 [info]: Request completed {
+  "correlationId": "1785267228292-0.6960191641775315",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "7ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:33:48 [info]: Request completed {
+  "correlationId": "1785267228310-0.017637995938327933",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 200,
+  "duration": "6ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:33:48 [info]: Request completed {
+  "correlationId": "1785267228323-0.6853412510235926",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 304,
+  "duration": "6ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:33:48 [info]: Request completed {
+  "correlationId": "1785267228430-0.43535766215545446",
+  "method": "GET",
+  "path": "/calendar",
+  "statusCode": 200,
+  "duration": "5ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:33:48 [info]: Request completed {
+  "correlationId": "1785267228436-0.845290910637257",
+  "method": "GET",
+  "path": "/upcoming",
+  "statusCode": 200,
+  "duration": "7ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:33:49 [info]: Request completed {
+  "correlationId": "1785267229843-0.2210772706016193",
+  "method": "GET",
+  "path": "/calendar",
+  "statusCode": 200,
+  "duration": "6ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:33:50 [info]: Request completed {
+  "correlationId": "1785267230440-0.644702347910878",
+  "method": "GET",
+  "path": "/calendar",
+  "statusCode": 200,
+  "duration": "13ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:38:33 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-07-28 19:38:33 [info]: Request completed {
+  "correlationId": "1785267513597-0.6289598031735226",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "4ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:38:33 [info]: User logged in: testuser2@example.com
+2026-07-28 19:38:33 [info]: User logged in: testuser2@example.com
+2026-07-28 19:38:33 [info]: Request completed {
+  "correlationId": "1785267513715-0.9801551098421948",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "98ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:38:33 [info]: Request completed {
+  "correlationId": "1785267513821-0.6963364973994828",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 200,
+  "duration": "4ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:38:34 [info]: Request completed {
+  "correlationId": "1785267514202-0.27063334634377356",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 200,
+  "duration": "22ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:38:34 [info]: Request completed {
+  "correlationId": "1785267514299-0.11636709177652116",
+  "method": "GET",
+  "path": "/calendar",
+  "statusCode": 200,
+  "duration": "4ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:39:08 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-07-28 19:39:08 [info]: Request completed {
+  "correlationId": "1785267548069-0.7774027136655426",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "3ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:39:08 [info]: User logged in: testuser1@example.com
+2026-07-28 19:39:08 [info]: User logged in: testuser1@example.com
+2026-07-28 19:39:08 [info]: Request completed {
+  "correlationId": "1785267548190-0.7231034505326013",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "99ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:39:08 [info]: Request completed {
+  "correlationId": "1785267548299-0.18101540966320662",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 200,
+  "duration": "4ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:39:08 [info]: Request completed {
+  "correlationId": "1785267548614-0.6749571838954418",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 200,
+  "duration": "27ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:39:08 [info]: Request completed {
+  "correlationId": "1785267548707-0.1272352496394329",
+  "method": "GET",
+  "path": "/calendar",
+  "statusCode": 200,
+  "duration": "5ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:39:10 [info]: Request completed {
+  "correlationId": "1785267550763-0.6752923878451846",
+  "method": "GET",
+  "path": "/calendar",
+  "statusCode": 200,
+  "duration": "3ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:39:11 [info]: Request completed {
+  "correlationId": "1785267551127-0.6414493510888757",
+  "method": "GET",
+  "path": "/calendar",
+  "statusCode": 200,
+  "duration": "9ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:39:14 [info]: Request completed {
+  "correlationId": "1785267554009-0.8012065617116075",
+  "method": "GET",
+  "path": "/upcoming",
+  "statusCode": 200,
+  "duration": "7ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:44:50 [error]: Error occurred: Route not found: GET /api/v1/health {
+  "url": "/api/v1/health",
+  "method": "GET",
+  "ip": "127.0.0.1",
+  "stack": "AppError: Route not found: GET /api/v1/health\n    at notFoundHandler (/home/user/pbt-enterprise-api/src/core/middleware/errorHandler.ts:48:17)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at trim_prefix (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:328:13)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:286:9\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:646:15\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:265:14)\n    at Function.handle (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:175:3)\n    at router (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:47:12)"
+}
+2026-07-28 19:44:50 [info]: Request completed {
+  "correlationId": "1785267890490-0.7084795071041636",
+  "method": "GET",
+  "path": "/api/v1/health",
+  "statusCode": 404,
+  "duration": "2ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:45:47 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-07-28 19:45:47 [info]: Request completed {
+  "correlationId": "1785267947099-0.9039415862311913",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "3ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:45:47 [info]: User logged in: browsertest-member@example.com
+2026-07-28 19:45:47 [info]: User logged in: browsertest-member@example.com
+2026-07-28 19:45:47 [info]: Request completed {
+  "correlationId": "1785267947198-0.6017333009463512",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "101ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:45:47 [info]: Request completed {
+  "correlationId": "1785267947308-0.7984873880815495",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 200,
+  "duration": "6ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:45:47 [info]: Request completed {
+  "correlationId": "1785267947627-0.6658390742211113",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 200,
+  "duration": "43ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:45:47 [debug]: Access token refreshed for user: browsertest-member@example.com
+2026-07-28 19:45:47 [info]: Request completed {
+  "correlationId": "1785267947982-0.018769787078649847",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "6ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:45:47 [info]: Request completed {
+  "correlationId": "1785267947995-0.6203999744769391",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 200,
+  "duration": "4ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:45:48 [info]: Request completed {
+  "correlationId": "1785267948005-0.9476762304661104",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 304,
+  "duration": "6ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:45:48 [info]: Request completed {
+  "correlationId": "1785267948106-0.1934584816011129",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 200,
+  "duration": "8ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:45:48 [info]: Request completed {
+  "correlationId": "1785267948111-0.4144916129315044",
+  "method": "GET",
+  "path": "/me/referred",
+  "statusCode": 200,
+  "duration": "5ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:46:21 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-07-28 19:46:21 [info]: Request completed {
+  "correlationId": "1785267981779-0.13312536178054857",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "3ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:46:21 [info]: User logged in: browsertest-member@example.com
+2026-07-28 19:46:21 [info]: User logged in: browsertest-member@example.com
+2026-07-28 19:46:21 [info]: Request completed {
+  "correlationId": "1785267981892-0.07265691206179592",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "91ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:46:21 [info]: Request completed {
+  "correlationId": "1785267981992-0.07724918578542095",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 200,
+  "duration": "4ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:46:22 [info]: Request completed {
+  "correlationId": "1785267982309-0.24657455005351014",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 200,
+  "duration": "20ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:46:22 [debug]: Access token refreshed for user: browsertest-member@example.com
+2026-07-28 19:46:22 [info]: Request completed {
+  "correlationId": "1785267982670-0.24219430370701267",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "6ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:46:22 [info]: Request completed {
+  "correlationId": "1785267982683-0.2919965143659644",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 200,
+  "duration": "3ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:46:22 [info]: Request completed {
+  "correlationId": "1785267982690-0.575473654815575",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 304,
+  "duration": "2ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:46:22 [info]: Request completed {
+  "correlationId": "1785267982770-0.8402818509179018",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 200,
+  "duration": "5ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:46:22 [info]: Request completed {
+  "correlationId": "1785267982777-0.5135019753260244",
+  "method": "GET",
+  "path": "/me/referred",
+  "statusCode": 200,
+  "duration": "3ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:47:46 [info]: Connecting to MongoDB at mongodb://127.0.0.1:27017/pbtDb
+2026-07-28 19:47:47 [info]: MongoDB connected successfully
+2026-07-28 19:47:47 [info]: Security middleware initialized
+2026-07-28 19:47:47 [info]: 🚀 Server running on http://localhost:5000
+2026-07-28 19:47:47 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-07-28 19:47:47 [info]: 🔧 Environment: development
+2026-07-28 19:47:47 [info]: 🛣️  API Version: /api/v1
+2026-07-28 19:48:20 [info]: Connecting to MongoDB at mongodb://127.0.0.1:27017/pbtDb
+2026-07-28 19:48:20 [info]: MongoDB connected successfully
+2026-07-28 19:48:20 [info]: Security middleware initialized
+2026-07-28 19:48:20 [info]: 🚀 Server running on http://localhost:5000
+2026-07-28 19:48:20 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-07-28 19:48:20 [info]: 🔧 Environment: development
+2026-07-28 19:48:20 [info]: 🛣️  API Version: /api/v1
+2026-07-28 19:48:38 [info]: Connecting to MongoDB at mongodb://127.0.0.1:27017/pbtDb
+2026-07-28 19:48:38 [info]: MongoDB connected successfully
+2026-07-28 19:48:38 [info]: MongoDB disconnected
+2026-07-28 19:48:45 [info]: Connecting to MongoDB at mongodb://127.0.0.1:27017/pbtDb
+2026-07-28 19:48:45 [info]: MongoDB connected successfully
+2026-07-28 19:48:45 [info]: MongoDB disconnected
+2026-07-28 19:48:53 [info]: Connecting to MongoDB at mongodb://127.0.0.1:27017/pbtDb
+2026-07-28 19:48:53 [info]: MongoDB connected successfully
+2026-07-28 19:48:54 [info]: MongoDB disconnected
+2026-07-28 19:49:00 [info]: User logged in: test.plus.expiring@pbt.test
+2026-07-28 19:49:00 [info]: User logged in: test.plus.expiring@pbt.test
+2026-07-28 19:49:00 [info]: Request completed {
+  "correlationId": "1785268140569-0.33094482990559904",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "139ms",
+  "ip": "127.0.0.1"
+}
+2026-07-28 19:49:00 [info]: User logged in: super.admin@pbt.test
+2026-07-28 19:49:00 [info]: Admin logged in: super.admin@pbt.test
+2026-07-28 19:49:00 [info]: Request completed {
+  "correlationId": "1785268140721-0.7300954166337525",
+  "method": "POST",
+  "path": "/admin/login",
+  "statusCode": 200,
+  "duration": "91ms",
+  "ip": "127.0.0.1"
+}
