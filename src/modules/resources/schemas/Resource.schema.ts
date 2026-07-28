@@ -1,10 +1,11 @@
 import { Schema, model, Document, Types } from 'mongoose';
 
-// Reconciled to match the frontend's actual, already-built category
-// taxonomy (member resources-view.tsx / admin resource-editor-view.tsx both
-// consistently use these four) — this module had never been wired to any
-// frontend before, so nothing depended on the previous, different enum.
-export type ResourceType = 'Template' | 'Guide' | 'Webinar' | 'Toolkit';
+// Reconciled to the client's requested Resources page sections (Downloads,
+// Templates, Guides, Worksheets, Videos, Checklists) -- Webinar renamed to
+// the broader Video, Worksheet/Checklist/Download added. Toolkit is kept
+// alongside these: it backs the existing Featured Toolkit banner, which
+// wasn't part of this request and shouldn't be removed.
+export type ResourceType = 'Download' | 'Template' | 'Guide' | 'Worksheet' | 'Video' | 'Checklist' | 'Toolkit';
 export type ResourceTier = 'Pathway' | 'Plus' | 'Mentorship';
 
 export interface IResource extends Document {
@@ -43,7 +44,7 @@ const resourceSchema = new Schema<IResource>(
     },
     type: {
       type: String,
-      enum: ['Template', 'Guide', 'Webinar', 'Toolkit'],
+      enum: ['Download', 'Template', 'Guide', 'Worksheet', 'Video', 'Checklist', 'Toolkit'],
       required: true,
       index: true,
     },
