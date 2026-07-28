@@ -46,13 +46,22 @@ export class DashboardService {
     const now = new Date();
     const weekAgo = new Date(now.getTime() - WEEK_MS);
 
-    const [user, progressRecords, allLessons, upcomingEvents, recentThreads] = await Promise.all([
-      User.findById(userId),
-      UserLessonProgress.find({ userId }),
-      Lesson.find({ isDraft: { $ne: true } }).sort({ 'access.unlocksAt': 1 }),
-      Event.find({ date: { $gte: now }, isActive: true }).sort({ date: 1 }).limit(3),
-      CommunityThread.find({}).sort({ createdAt: -1 }).limit(3),
-    ]);
+    const workshopFilter = {
+      date: { $gte: now },
+      isActive: true,
+      category: { $in: ['Masterclass', 'Mentorship'] as const },
+    };
+
+    const [user, progressRecords, allLessons, upcomingEvents, recentThreads, nextWorkshop, upcomingWorkshopsCount] =
+      await Promise.all([
+        User.findById(userId),
+        UserLessonProgress.find({ userId }),
+        Lesson.find({ isDraft: { $ne: true } }).sort({ 'access.unlocksAt': 1 }),
+        Event.find({ date: { $gte: now }, isActive: true }).sort({ date: 1 }).limit(3),
+        CommunityThread.find({}).sort({ createdAt: -1 }).limit(3),
+        Event.findOne(workshopFilter).sort({ date: 1 }),
+        Event.countDocuments(workshopFilter),
+      ]);
 
     // ---- Stats ----
     const completedRecords = progressRecords.filter((p) => p.status === 'completed');
@@ -141,6 +150,14 @@ export class DashboardService {
         timeAgoLabel: timeAgoLabel(thread.createdAt, now),
         kind: thread.isPinned ? ('announcement' as const) : ('post' as const),
       })),
+      workshopsPromo: {
+        upcomingCount: upcomingWorkshopsCount,
+        nextWorkshopTitle: nextWorkshop?.title ?? null,
+        nextWorkshopDateLabel: nextWorkshop
+          ? nextWorkshop.date.toLocaleDateString('en-GB', { day: 'numeric', month: 'long' })
+          : null,
+        requiredTier: nextWorkshop?.requiredTier ?? 'Plus',
+      },
     };
   }
 
