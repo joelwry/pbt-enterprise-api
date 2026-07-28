@@ -239,7 +239,7 @@ export class SubscriptionService {
       },
       mentorship: {
         level: 3,
-        name: 'PBT Mentorship',
+        name: 'PBT Masterplan Programme',
         features: ['basic-learning', 'community-access', 'resource-library', 'premium-resources', 'event-access', 'mentorship-access', 'power-team-access'],
       },
     };
@@ -324,7 +324,7 @@ export class SubscriptionService {
   async getRevenueByTier() {
     const now = new Date();
     const activeSubs = await Subscription.find({ status: 'active', endDate: { $gt: now } });
-    const tierNames: Record<string, string> = { pathway: 'PBT Pathway', plus: 'PBT Plus', mentorship: 'PBT Mentorship' };
+    const tierNames: Record<string, string> = { pathway: 'PBT Pathway', plus: 'PBT Plus', mentorship: 'PBT Masterplan Programme' };
 
     const mrrByTier: Record<string, number> = { pathway: 0, plus: 0, mentorship: 0 };
     for (const sub of activeSubs) {

@@ -35,9 +35,9 @@ function encouragementFor(percent: number): string {
 }
 
 const QUICK_ACCESS = [
-  { id: 'qa_learning', label: 'Learning Hub', description: 'Browse this year', href: '/my-learning', icon: 'learning' as const },
+  { id: 'qa_learning', label: 'PBT Pathway', description: 'Browse this year', href: '/pbt-pathway', icon: 'learning' as const },
   { id: 'qa_resources', label: 'Resource Library', description: 'Templates & guides', href: '/resources', icon: 'resources' as const },
-  { id: 'qa_community', label: 'My Community', description: 'Join discussions', href: '/community', icon: 'community' as const },
+  { id: 'qa_community', label: 'Community Group', description: 'Join discussions', href: '/community', icon: 'community' as const },
   { id: 'qa_events', label: 'Events', description: 'Upcoming sessions', href: '/events', icon: 'events' as const },
 ];
 

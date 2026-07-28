@@ -6,10 +6,10 @@ import { AppError, NotFoundError } from '@/core/errors/AppError';
 
 /** Editorial copy for the Mentorship page -- not per-user data, so it stays static here rather than admin-authored (same call as the PBT Plus marketing page). */
 const MENTORSHIP_BENEFITS = [
-  { id: 'b1', title: 'Monthly 1:1 Mentorship Calls', description: '45-minute sessions with your assigned Leader, booked directly from your dashboard.' },
+  { id: 'b1', title: 'Monthly 1:1 Masterplan Calls', description: '45-minute sessions with your assigned Leader, booked directly from your dashboard.' },
   { id: 'b2', title: 'Early Access to New Releases', description: 'See new modules and toolkits before they reach Pathway and Plus members.' },
   { id: 'b3', title: 'Personalised Portfolio Review', description: 'Quarterly review of your deal pipeline and growth targets.' },
-  { id: 'b4', title: 'Mentorship Circle Community', description: 'A smaller, closed discussion group exclusive to Mentorship members.' },
+  { id: 'b4', title: 'Masterplan Circle Community', description: 'A smaller, closed discussion group exclusive to Masterplan Programme members.' },
 ];
 
 function formatDateLabel(date: Date): string {
@@ -37,7 +37,7 @@ export class MembershipBenefitsService {
 
     return {
       tagline: 'Your Active Plan',
-      headline: 'PBT Mentorship — 1:1 guidance from a dedicated Leader.',
+      headline: 'PBT Masterplan Programme — 1:1 guidance from a dedicated Leader.',
       description:
         'Everything in PBT Plus, plus monthly 1:1 mentorship calls, direct message access to your assigned Leader, and early access to new programme releases.',
       renewsLabel: subscription ? formatDateLabel(subscription.endDate) : '—',

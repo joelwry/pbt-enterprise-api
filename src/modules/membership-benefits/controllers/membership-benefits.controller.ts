@@ -8,7 +8,7 @@ import { AuthorizationError, ValidationError } from '@/core/errors/AppError';
 async function requireMentorshipTier(userId: string): Promise<void> {
   const hasAccess = await subscriptionService.canAccessTier(userId, 'Mentorship');
   if (!hasAccess) {
-    throw new AuthorizationError('Requires PBT Mentorship membership or higher');
+    throw new AuthorizationError('Requires PBT Masterplan Programme membership or higher');
   }
 }
 
@@ -18,7 +18,7 @@ export class MembershipBenefitsController {
     await requireMentorshipTier(userId);
 
     const page = await membershipBenefitsService.getMentorshipPage(userId);
-    ResponseHandler.ok(res, 'PBT Mentorship page retrieved successfully', page);
+    ResponseHandler.ok(res, 'PBT Masterplan Programme page retrieved successfully', page);
   }
 
   async getCalls(req: Request, res: Response): Promise<void> {

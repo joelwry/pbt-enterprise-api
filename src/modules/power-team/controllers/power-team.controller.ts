@@ -1,7 +1,17 @@
 import { Request, Response } from 'express';
 import { PowerTeamMember } from '@/modules/power-team/schemas/PowerTeam.schema';
+import { subscriptionService } from '@/modules/subscriptions/services/subscription.service';
 import { ResponseHandler } from '@/core/response/ResponseHandler';
 import { PaginationHelper } from '@/core/pagination/PaginationHelper';
+import { AuthorizationError } from '@/core/errors/AppError';
+
+/** Power Team is restricted to Plus/Masterplan Programme members -- a Pathway member gets an honest 403 here (the frontend shows an upgrade/info page instead of ever calling these routes for real data). */
+async function requirePlusOrHigher(userId: string): Promise<void> {
+  const hasAccess = await subscriptionService.canAccessTier(userId, 'Plus');
+  if (!hasAccess) {
+    throw new AuthorizationError('Requires PBT Plus or PBT Masterplan Programme membership');
+  }
+}
 
 export class PowerTeamController {
   /**
@@ -9,6 +19,7 @@ export class PowerTeamController {
    * GET /api/v1/power-team
    */
   async getPowerTeamMembers(req: Request, res: Response): Promise<void> {
+    await requirePlusOrHigher(req.user!.userId);
     const { page = 1, limit = 20, category, region, search } = req.query;
     const query = PaginationHelper.parse({ page: page as string, limit: limit as string, search: search as string });
 
@@ -42,6 +53,7 @@ export class PowerTeamController {
    * GET /api/v1/power-team/:memberId
    */
   async getMemberById(req: Request, res: Response): Promise<void> {
+    await requirePlusOrHigher(req.user!.userId);
     const { memberId } = req.params;
 
     const member = await PowerTeamMember.findOne({ _id: memberId, isActive: true });
@@ -59,6 +71,7 @@ export class PowerTeamController {
    * GET /api/v1/power-team/category/:category
    */
   async getMembersByCategory(req: Request, res: Response): Promise<void> {
+    await requirePlusOrHigher(req.user!.userId);
     const { category } = req.params;
     const { page = 1, limit = 20 } = req.query;
     const query = PaginationHelper.parse({ page: page as string, limit: limit as string });
@@ -103,6 +116,7 @@ export class PowerTeamController {
    * GET /api/v1/power-team/verified/list
    */
   async getVerifiedMembers(req: Request, res: Response): Promise<void> {
+    await requirePlusOrHigher(req.user!.userId);
     const { page = 1, limit = 20 } = req.query;
     const query = PaginationHelper.parse({ page: page as string, limit: limit as string });
 

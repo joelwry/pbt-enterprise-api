@@ -8,7 +8,7 @@ import {
 import { Leader } from '@/modules/leaders/schemas/Leader.schema';
 import { subscriptionService } from '@/modules/subscriptions/services/subscription.service';
 
-type AuthorRoleTag = 'PBT Leader' | 'Power Team' | 'PBT Plus' | 'PBT Mentorship' | null;
+type AuthorRoleTag = 'PBT Leader' | 'Power Team' | 'PBT Plus' | 'PBT Masterplan Programme' | null;
 
 interface AuthorLike {
   _id: Types.ObjectId;
@@ -47,7 +47,7 @@ export async function roleTagFor(userId: string): Promise<AuthorRoleTag> {
 
   const subscription = await subscriptionService.getCurrentSubscription(userId);
   if (subscription && subscriptionService.isSubscriptionValid(subscription)) {
-    if (subscription.tier === 'mentorship') return 'PBT Mentorship';
+    if (subscription.tier === 'mentorship') return 'PBT Masterplan Programme';
     if (subscription.tier === 'plus') return 'PBT Plus';
   }
   return null;
