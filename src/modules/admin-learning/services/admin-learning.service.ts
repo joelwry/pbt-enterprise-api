@@ -286,12 +286,30 @@ export class AdminLearningService {
   }
 
   /** Uploads lesson media (video/PDF/etc.) through the active StorageProvider and returns its URL. */
+  /**
+   * Uploads the file, then persists the resulting URL directly onto the
+   * lesson's own body -- previously this only ever returned the URL without
+   * saving it anywhere, so every admin-created Video/Download lesson had a
+   * real file sitting in storage that the member-facing player/download
+   * button could never actually reach (body.videoUrl / body.fileUrl stayed
+   * empty forever). Which field to set is derived from the lesson's own
+   * type, not the uploaded file's mime type, matching how the lesson is
+   * rendered on the member side (LessonBodyRenderer switches on body.kind).
+   */
   async uploadLessonAsset(lessonId: string, file: UploadedFile) {
     const lesson = await Lesson.findById(lessonId);
     if (!lesson) throw new NotFoundError('Lesson not found');
 
     const { url } = await storageProvider.upload(file, `lessons/${lessonId}`);
-    logger.info('Lesson asset uploaded', { lessonId, url });
+
+    if (lesson.type === 'Video') {
+      lesson.body.videoUrl = url;
+    } else if (lesson.type === 'PDF') {
+      lesson.body.fileUrl = url;
+    }
+    await lesson.save();
+
+    logger.info('Lesson asset uploaded', { lessonId, url, type: lesson.type });
     return { url };
   }
 }
