@@ -29,9 +29,9 @@ export class AuthController {
    * POST /api/v1/auth/register
    */
   async register(req: Request, res: Response): Promise<void> {
-    const { email, password, fullName, phone } = registerSchema.parse(req.body);
+    const { email, password, fullName, phone, referralCode } = registerSchema.parse(req.body);
 
-    const result = await authService.register(email, password, fullName);
+    const result = await authService.register(email, password, fullName, referralCode);
 
     logger.info(`User registered: ${email}`);
     ResponseHandler.created(res, 'Registration successful', result);

@@ -5,6 +5,8 @@ export const registerSchema = z.object({
   password: z.string().min(6, 'Password must be at least 6 characters'),
   fullName: z.string().min(2, 'Full name must be at least 2 characters'),
   phone: z.string().optional(),
+  /** Another member's Client ID, if they were referred -- see the referrals module. */
+  referralCode: z.string().optional(),
 });
 
 export const loginSchema = z.object({

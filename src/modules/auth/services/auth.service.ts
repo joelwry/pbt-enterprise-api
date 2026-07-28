@@ -1,5 +1,6 @@
 import { AuthRepository, authRepository as defaultAuthRepository } from '@/modules/auth/repositories/auth.repository';
 import { JwtHelper } from '@/core/auth/JwtHelper';
+import { referralService } from '@/modules/referrals/services/referral.service';
 import {
   ConflictError,
   AuthenticationError,
@@ -29,7 +30,7 @@ export class AuthService {
   /**
    * Register new user
    */
-  async register(email: string, password: string, fullName: string): Promise<LoginResponse> {
+  async register(email: string, password: string, fullName: string, referralCode?: string): Promise<LoginResponse> {
     // Check if user already exists
     const existingUser = await this.authRepository.findByEmail(email);
     if (existingUser) {
@@ -46,6 +47,8 @@ export class AuthService {
     });
 
     logger.info(`User registered: ${user.email}`);
+
+    await referralService.recordReferral(referralCode, user._id.toString());
 
     // Generate tokens
     const tokens = this.generateTokens(user._id.toString(), user.email, user.role);

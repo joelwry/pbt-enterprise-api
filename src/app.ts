@@ -39,6 +39,8 @@ import adminPowerTeamRoutes from '@/modules/admin-power-team/routes/admin-power-
 import adminCommunityRoutes from '@/modules/admin-community/routes/admin-community.routes';
 import adminSubscriptionsRoutes from '@/modules/admin-subscriptions/routes/admin-subscriptions.routes';
 import membershipBenefitsRoutes from '@/modules/membership-benefits/routes/membership-benefits.routes';
+import referralRoutes from '@/modules/referrals/routes/referral.routes';
+import adminReferralsRoutes from '@/modules/admin-referrals/routes/admin-referrals.routes';
 
 export function createApp(): Application {
   const app = express();
@@ -89,6 +91,7 @@ export function createApp(): Application {
   app.use(`/api/${config.API_VERSION}/memberships`, membershipRoutes);
   app.use(`/api/${config.API_VERSION}/subscriptions`, subscriptionRoutes);
   app.use(`/api/${config.API_VERSION}/membership`, membershipBenefitsRoutes);
+  app.use(`/api/${config.API_VERSION}/referrals`, referralRoutes);
   app.use(`/api/${config.API_VERSION}/events`, eventsRoutes);
   app.use(`/api/${config.API_VERSION}/resources`, resourcesRoutes);
   app.use(`/api/${config.API_VERSION}/leaders`, leadersRoutes);
@@ -119,6 +122,7 @@ export function createApp(): Application {
   app.use(`/api/${config.API_VERSION}/admin/power-team`, adminPowerTeamRoutes);
   app.use(`/api/${config.API_VERSION}/admin/community`, adminCommunityRoutes);
   app.use(`/api/${config.API_VERSION}/admin/subscriptions`, adminSubscriptionsRoutes);
+  app.use(`/api/${config.API_VERSION}/admin/referrals`, adminReferralsRoutes);
 
   // ==================== SWAGGER DOCUMENTATION ====================
   // Swagger setup will be added here
