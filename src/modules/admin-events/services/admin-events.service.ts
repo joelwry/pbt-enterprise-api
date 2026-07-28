@@ -24,6 +24,9 @@ function toAdminEvent(event: IEvent) {
     location: event.location,
     description: event.description,
     requiredTier: event.requiredTier,
+    photoGalleryUrl: event.photoGalleryUrl,
+    recordingUrl: event.recordingUrl,
+    slidesUrl: event.slidesUrl,
   };
 }
 
@@ -37,6 +40,9 @@ export interface AdminEventInput {
   location: string;
   description: string;
   requiredTier: EventMembershipTier;
+  photoGalleryUrl?: string;
+  recordingUrl?: string;
+  slidesUrl?: string;
 }
 
 export class AdminEventsService {
@@ -112,6 +118,9 @@ export class AdminEventsService {
       category: input.category,
       capacity: input.capacity,
       requiredTier: input.requiredTier,
+      photoGalleryUrl: input.photoGalleryUrl,
+      recordingUrl: input.recordingUrl,
+      slidesUrl: input.slidesUrl,
       createdBy: userId,
     });
     logger.info('Event created', { eventId: event._id });

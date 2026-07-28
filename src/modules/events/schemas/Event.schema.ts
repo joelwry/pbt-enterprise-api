@@ -26,6 +26,10 @@ export interface IEvent extends Document {
   rsvpDetails: Map<string, IRsvpDetails>;
   eventUrl?: string;
   imageUrl?: string;
+  /** Past-event media (see admin event editor "After the event" fields) -- absent until an admin adds it once the event has taken place. */
+  photoGalleryUrl?: string;
+  recordingUrl?: string;
+  slidesUrl?: string;
   createdBy: Types.ObjectId;
   /** Doubles as the "cancelled" flag for admin's Cancel Event action — a cancelled event is never deleted, just deactivated. */
   isActive: boolean;
@@ -100,6 +104,15 @@ const eventSchema = new Schema<IEvent>(
       type: String,
     },
     imageUrl: {
+      type: String,
+    },
+    photoGalleryUrl: {
+      type: String,
+    },
+    recordingUrl: {
+      type: String,
+    },
+    slidesUrl: {
       type: String,
     },
     createdBy: {

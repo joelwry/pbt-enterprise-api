@@ -34,6 +34,9 @@ export class EventsService {
       requiredTier: event.requiredTier,
       rsvped: event.rsvps.some((id) => id.toString() === userId),
       rsvpDetails: details ? { guestCount: details.guestCount, notes: details.notes } : undefined,
+      photoGalleryUrl: event.photoGalleryUrl,
+      recordingUrl: event.recordingUrl,
+      slidesUrl: event.slidesUrl,
     };
   }
 
