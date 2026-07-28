@@ -6,6 +6,7 @@ import {
   IModule,
   IUserLessonProgress,
   LessonStatus,
+  MembershipTier,
 } from '@/modules/learning/schemas/Learning.schema';
 import { Roadmap } from '@/modules/learning/schemas/Roadmap.schema';
 import { RoadmapWeek } from '@/modules/learning/schemas/RoadmapWeek.schema';
@@ -121,14 +122,23 @@ export class LearningService {
     return saved;
   }
 
-  async getModuleProgress(userId: string, moduleId: string) {
+  async getModuleProgress(userId: string, moduleId: string, tier?: MembershipTier) {
     // Denominator must be the module's actual lesson count, not the count of
     // progress records that happen to exist — most lessons have no record
     // until a member first opens them, which would otherwise inflate the %.
-    const [progresses, total] = await Promise.all([
-      UserLessonProgress.find({ userId, moduleId }),
-      Lesson.countDocuments({ moduleId, isDraft: { $ne: true } }),
-    ]);
+    // When scoped to a tier (the Pathway page, or a dedicated Plus/Masterplan
+    // page), both the denominator and the completed count must be scoped to
+    // that same set of lessons -- otherwise a lesson from a different tier
+    // could inflate "completed" without being part of "total".
+    const lessonFilter: Record<string, unknown> = { moduleId, isDraft: { $ne: true } };
+    if (tier) lessonFilter['access.requiredTier'] = tier;
+
+    const tierLessons = tier ? await Lesson.find(lessonFilter).select('_id') : null;
+    const total = tier ? tierLessons!.length : await Lesson.countDocuments(lessonFilter);
+
+    const progressFilter: Record<string, unknown> = { userId, moduleId };
+    if (tier) progressFilter.lessonId = { $in: tierLessons!.map((l) => l._id) };
+    const progresses = await UserLessonProgress.find(progressFilter);
 
     const completed = progresses.filter((p) => p.status === 'completed').length;
     const percent = total > 0 ? Math.round((completed / total) * 100) : 0;
@@ -171,10 +181,27 @@ export class LearningService {
     };
   }
 
-  async getModuleLessons(userId: string, moduleId: string): Promise<any[]> {
-    const lessons = await Lesson.find({ moduleId, isDraft: { $ne: true } });
+  /**
+   * Paginated at the database level (not fetch-all-then-slice) -- a module
+   * can genuinely hold many lessons over a roadmap's lifetime, and every
+   * lesson here still costs a canAccessLesson + getUserLessonProgress
+   * lookup, so loading all of them up front on every page visit doesn't
+   * scale. `tier` restricts to lessons written for exactly that tier (see
+   * getModuleProgress) -- omit it for the general/backward-compatible view.
+   */
+  async getModuleLessons(userId: string, moduleId: string, tier?: MembershipTier, page = 1, limit = 4): Promise<{ items: any[]; totalItems: number }> {
+    const filter: Record<string, unknown> = { moduleId, isDraft: { $ne: true } };
+    if (tier) filter['access.requiredTier'] = tier;
 
-    return Promise.all(
+    const [lessons, totalItems] = await Promise.all([
+      Lesson.find(filter)
+        .sort({ month: 1 })
+        .skip((page - 1) * limit)
+        .limit(limit),
+      Lesson.countDocuments(filter),
+    ]);
+
+    const items = await Promise.all(
       lessons.map(async (lesson) => {
         const canAccess = await this.canAccessLesson(userId, lesson);
         const progress = await this.getUserLessonProgress(userId, lesson._id.toString());
@@ -209,10 +236,12 @@ export class LearningService {
         };
       })
     );
+
+    return { items, totalItems };
   }
 
   /** A Roadmap Week's modules, each with the member's per-module progress badge. */
-  async getWeekModules(weekId: string, userId: string) {
+  async getWeekModules(weekId: string, userId: string, tier?: MembershipTier) {
     const week = await RoadmapWeek.findById(weekId);
     if (!week) throw new NotFoundError('Roadmap week not found');
 
@@ -223,7 +252,7 @@ export class LearningService {
         // lessonCount comes from getModuleProgress's draft-excluded count, not
         // the module's raw lessons[] length — a draft lesson still lives in
         // that array but must never be visible to members.
-        const progress = await this.getModuleProgress(userId, learningModule._id.toString());
+        const progress = await this.getModuleProgress(userId, learningModule._id.toString(), tier);
         return {
           id: learningModule._id,
           moduleNumber: learningModule.moduleNumber,
@@ -240,12 +269,16 @@ export class LearningService {
       title: week.title,
       description: week.description,
       isCheckpoint: week.isCheckpoint,
-      modules: moduleSummaries,
+      // A module with no lessons in scope for this tier is just noise on
+      // the page (real product feedback: it "just creates more void") --
+      // never true for the unscoped/no-tier call, since every module has
+      // at least one lesson of *some* tier by construction.
+      modules: tier ? moduleSummaries.filter((m) => m.lessonCount > 0) : moduleSummaries,
     };
   }
 
   /** Roadmap overview for a year: its weeks, plus the member's overall progress against it. */
-  async getRoadmapForYear(userId: string, year: string) {
+  async getRoadmapForYear(userId: string, year: string, tier?: MembershipTier) {
     const roadmap = await Roadmap.findOne({ year });
     if (!roadmap) throw new NotFoundError('Roadmap not found for this year');
 
@@ -256,10 +289,10 @@ export class LearningService {
     // overview call per page, module lesson bodies still fetched separately.
     const weekSummaries = await Promise.all(
       weeks.map(async (week) => {
-        const modules = await Module.find({ roadmapWeekId: week._id }).sort({ moduleNumber: 1 });
-        const moduleSummaries = await Promise.all(
-          modules.map(async (learningModule) => {
-            const progress = await this.getModuleProgress(userId, learningModule._id.toString());
+        const allModulesInWeek = await Module.find({ roadmapWeekId: week._id }).sort({ moduleNumber: 1 });
+        const allSummaries = await Promise.all(
+          allModulesInWeek.map(async (learningModule) => {
+            const progress = await this.getModuleProgress(userId, learningModule._id.toString(), tier);
             return {
               id: learningModule._id,
               moduleNumber: learningModule.moduleNumber,
@@ -267,15 +300,18 @@ export class LearningService {
               badge: progress.badge,
               lessonCount: progress.total,
               progressPercent: progress.progressPercent,
+              completed: progress.completed,
             };
           })
         );
 
+        // Same reasoning as getWeekModules -- an empty module (no lessons
+        // for this tier) is dropped from what's returned, not just hidden
+        // client-side, so it never counts toward the week's own percentage.
+        const moduleSummaries = tier ? allSummaries.filter((m) => m.lessonCount > 0) : allSummaries;
+
         const totalLessons = moduleSummaries.reduce((sum, m) => sum + m.lessonCount, 0);
-        const moduleProgress = await Promise.all(
-          modules.map((m) => this.getModuleProgress(userId, m._id.toString()))
-        );
-        const completedLessons = moduleProgress.reduce((sum, p) => sum + p.completed, 0);
+        const completedLessons = moduleSummaries.reduce((sum, m) => sum + m.completed, 0);
 
         return {
           id: week._id,
@@ -291,7 +327,7 @@ export class LearningService {
 
     const allModules = await Module.find({ roadmapWeekId: { $in: weeks.map((w) => w._id) } });
     const allModuleProgress = await Promise.all(
-      allModules.map((m) => this.getModuleProgress(userId, m._id.toString()))
+      allModules.map((m) => this.getModuleProgress(userId, m._id.toString(), tier))
     );
     const grandTotalLessons = allModuleProgress.reduce((sum, p) => sum + p.total, 0);
     const grandCompletedLessons = allModuleProgress.reduce((sum, p) => sum + p.completed, 0);
