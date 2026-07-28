@@ -11,10 +11,11 @@ const router = Router();
  */
 router.use(authenticate);
 
-// "my-rsvps" must be registered before "/:eventId" so it isn't swallowed as an id.
+// "my-rsvps"/"calendar" must be registered before "/:eventId" so they aren't swallowed as an id.
 router.get('/upcoming', catchAsync((req, res) => eventsController.getUpcomingEvents(req, res)));
 router.get('/past', catchAsync((req, res) => eventsController.getPastEvents(req, res)));
 router.get('/my-rsvps', catchAsync((req, res) => eventsController.getMyRsvpEvents(req, res)));
+router.get('/calendar', catchAsync((req, res) => eventsController.getCalendarMonth(req, res)));
 router.get('/:eventId', catchAsync((req, res) => eventsController.getEventById(req, res)));
 
 router.post('/:eventId/rsvp', catchAsync((req, res) => eventsController.rsvpEvent(req, res)));
