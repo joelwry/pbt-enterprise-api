@@ -16,10 +16,20 @@ import logger from '@/core/logger/logger';
 
 const ADMIN_ROLES = new Set(['admin', 'super_admin']);
 
+// In production the frontend (Next.js) and this API are deployed on separate
+// domains (Vercel + Render/Railway is the common split) — that makes every
+// refresh-token request cross-site. `sameSite: 'strict'` (and even 'lax')
+// blocks the browser from ever attaching the cookie to a cross-site request,
+// which meant every full page reload silently failed to restore the session
+// and looked like the member/admin being logged out. `'none'` is the only
+// SameSite value browsers honor cross-site, and it requires `secure: true`
+// (HTTPS) to be accepted at all -- true in every real deployment of this app.
+// Locally, frontend and backend share `localhost` (same-site), so 'lax' still
+// works there without needing HTTPS.
 const REFRESH_COOKIE_OPTIONS = {
   httpOnly: true,
   secure: process.env.NODE_ENV === 'production',
-  sameSite: 'strict' as const,
+  sameSite: (process.env.NODE_ENV === 'production' ? 'none' : 'lax') as 'none' | 'lax',
   maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
 };
 
@@ -217,8 +227,10 @@ export class AuthController {
    * POST /api/v1/auth/logout
    */
   async logout(req: Request, res: Response): Promise<void> {
-    // Clear refresh token cookie
-    res.clearCookie('refreshToken');
+    // Clear refresh token cookie -- must repeat the same attributes used to
+    // set it (path/sameSite/secure), or some browsers won't recognize it as
+    // the same cookie and silently keep the old one alive.
+    res.clearCookie('refreshToken', { httpOnly: true, secure: REFRESH_COOKIE_OPTIONS.secure, sameSite: REFRESH_COOKIE_OPTIONS.sameSite });
 
     logger.info('User logged out');
     ResponseHandler.ok(res, 'Logout successful', {});
@@ -231,7 +243,7 @@ export class AuthController {
    * POST /api/v1/auth/admin/logout
    */
   async adminLogout(req: Request, res: Response): Promise<void> {
-    res.clearCookie('adminRefreshToken');
+    res.clearCookie('adminRefreshToken', { httpOnly: true, secure: REFRESH_COOKIE_OPTIONS.secure, sameSite: REFRESH_COOKIE_OPTIONS.sameSite });
 
     logger.info('Admin logged out');
     ResponseHandler.ok(res, 'Logout successful', {});
