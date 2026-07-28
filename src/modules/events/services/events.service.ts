@@ -1,5 +1,6 @@
 import { Event, IEvent, EventMembershipTier } from '@/modules/events/schemas/Event.schema';
 import { subscriptionService } from '@/modules/subscriptions/services/subscription.service';
+import activityService from '@/modules/activity/services/activity.service';
 import { NotFoundError, AuthorizationError, ValidationError } from '@/core/errors/AppError';
 import logger from '@/core/logger/logger';
 
@@ -79,6 +80,15 @@ export class EventsService {
 
     await event.save();
     logger.info(`RSVP created: ${userId} - ${eventId}`);
+
+    if (!alreadyIn) {
+      await activityService.logActivity(userId, 'event_rsvp', {
+        itemId: event._id,
+        itemType: 'event',
+        description: `RSVP'd to "${event.title}"`,
+      });
+    }
+
     return event;
   }
 

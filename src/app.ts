@@ -41,6 +41,7 @@ import adminSubscriptionsRoutes from '@/modules/admin-subscriptions/routes/admin
 import membershipBenefitsRoutes from '@/modules/membership-benefits/routes/membership-benefits.routes';
 import referralRoutes from '@/modules/referrals/routes/referral.routes';
 import adminReferralsRoutes from '@/modules/admin-referrals/routes/admin-referrals.routes';
+import adminMembersRoutes from '@/modules/admin-members/routes/admin-members.routes';
 
 export function createApp(): Application {
   const app = express();
@@ -122,6 +123,7 @@ export function createApp(): Application {
   app.use(`/api/${config.API_VERSION}/admin/power-team`, adminPowerTeamRoutes);
   app.use(`/api/${config.API_VERSION}/admin/community`, adminCommunityRoutes);
   app.use(`/api/${config.API_VERSION}/admin/subscriptions`, adminSubscriptionsRoutes);
+  app.use(`/api/${config.API_VERSION}/admin/members`, adminMembersRoutes);
   app.use(`/api/${config.API_VERSION}/admin/referrals`, adminReferralsRoutes);
 
   // ==================== SWAGGER DOCUMENTATION ====================

@@ -9,6 +9,7 @@ import {
   toDiscussionListDto,
   toDiscussionDetailDto,
 } from '@/modules/community/services/community.service';
+import activityService from '@/modules/activity/services/activity.service';
 import logger from '@/core/logger/logger';
 
 const AUTHOR_SELECT = 'fullName';
@@ -77,6 +78,11 @@ export class CommunityController {
     await thread.populate('authorId', AUTHOR_SELECT);
 
     logger.info('Community thread created', { threadId: thread._id, userId });
+    await activityService.logActivity(userId, 'community_post_created', {
+      itemId: thread._id,
+      itemType: 'discussion',
+      description: `Posted "${thread.title}" in Community Group`,
+    });
 
     const dto = await toDiscussionDetailDto(thread, userId);
     ResponseHandler.created(res, 'Thread created successfully', dto);

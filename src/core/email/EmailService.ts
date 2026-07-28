@@ -1,3 +1,4 @@
+import nodemailer, { Transporter } from 'nodemailer';
 import { config } from '@/config/environment';
 import logger from '@/core/logger/logger';
 
@@ -6,6 +7,51 @@ import logger from '@/core/logger/logger';
  * Can be integrated with SMTP, SendGrid, Mailgun, AWS SES, etc.
  */
 export class EmailService {
+  private static transporter: Transporter | null | undefined;
+
+  /** True once SMTP_USER/SMTP_PASS are actually set -- SMTP_HOST always has a
+   * non-empty default, so it can't be used as the "is email configured" check. */
+  private static isConfigured(): boolean {
+    return Boolean(config.SMTP_USER && config.SMTP_PASS);
+  }
+
+  private static getTransporter(): Transporter | null {
+    if (!this.isConfigured()) return null;
+    if (this.transporter === undefined) {
+      this.transporter = nodemailer.createTransport({
+        host: config.SMTP_HOST,
+        port: config.SMTP_PORT,
+        secure: config.SMTP_PORT === 465,
+        auth: { user: config.SMTP_USER, pass: config.SMTP_PASS },
+      });
+    }
+    return this.transporter;
+  }
+
+  /**
+   * Send account setup email -- used both for a member an admin creates
+   * manually, and (once Stripe is wired up) for a member's first-ever
+   * subscription confirmation. Reuses the same password-reset token
+   * mechanism as "forgot password": the recipient lands on the same
+   * set-password page either way, just with different framing copy.
+   */
+  static async sendAccountSetupEmail(email: string, fullName: string, setupToken: string): Promise<void> {
+    const setupUrl = `${config.FRONTEND_URL}/set-password?token=${setupToken}&mode=setup`;
+    const subject = 'Set up your Property Business Training account';
+    const htmlContent = `
+      <h2>Welcome to Property Business Training, ${fullName}!</h2>
+      <p>An account has been created for you. Set your password to log in for the first time:</p>
+      <a href="${setupUrl}" style="background-color: #007bff; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">
+        Set Up My Account
+      </a>
+      <p>Or copy this link: ${setupUrl}</p>
+      <p>This link expires in 24 hours.</p>
+    `;
+
+    await this.sendEmail(email, subject, htmlContent);
+    logger.info(`[EmailService] Account setup email sent to ${email}`);
+  }
+
   /**
    * Send email verification
    */
@@ -129,31 +175,29 @@ export class EmailService {
     subject: string,
     htmlContent: string
   ): Promise<void> {
+    const transporter = this.getTransporter();
+
+    if (!transporter) {
+      // No SMTP_USER/SMTP_PASS configured -- log instead of sending and
+      // return normally rather than throwing, so nothing that triggers an
+      // email (member creation, password reset, etc.) ever fails just
+      // because email credentials haven't been set up yet.
+      logger.warn(`[EmailService] SMTP not configured -- would send email to ${to}: "${subject}"`);
+      return;
+    }
+
     try {
-      // TODO: Integrate with actual email service
-      // For now, just log the email
-      logger.info(`[EmailService] Would send email to ${to}: ${subject}`);
-
-      // Example with nodemailer (uncomment and configure when ready):
-      // const transporter = nodemailer.createTransport({
-      //   host: config.SMTP_HOST,
-      //   port: config.SMTP_PORT,
-      //   secure: true,
-      //   auth: {
-      //     user: config.SMTP_USER,
-      //     pass: config.SMTP_PASS,
-      //   },
-      // });
-
-      // await transporter.sendMail({
-      //   from: config.SMTP_FROM,
-      //   to,
-      //   subject,
-      //   html: htmlContent,
-      // });
+      await transporter.sendMail({
+        from: `"${config.SMTP_FROM_NAME}" <${config.SMTP_FROM}>`,
+        to,
+        subject,
+        html: htmlContent,
+      });
+      logger.info(`[EmailService] Sent email to ${to}: "${subject}"`);
     } catch (error) {
-      logger.error('[EmailService] Error sending email', error);
-      throw error;
+      // Same reasoning as above -- a downstream SMTP failure (bad creds,
+      // network blip) shouldn't fail the action that triggered the email.
+      logger.error(`[EmailService] Failed to send email to ${to}`, error);
     }
   }
 

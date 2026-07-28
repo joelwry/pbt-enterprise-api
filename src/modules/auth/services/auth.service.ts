@@ -1,5 +1,6 @@
 import { AuthRepository, authRepository as defaultAuthRepository } from '@/modules/auth/repositories/auth.repository';
 import { JwtHelper } from '@/core/auth/JwtHelper';
+import { EmailService } from '@/core/email/EmailService';
 import { referralService } from '@/modules/referrals/services/referral.service';
 import {
   ConflictError,
@@ -150,8 +151,7 @@ export class AuthService {
     const resetToken = await this.authRepository.setPasswordResetToken(user._id.toString());
     logger.info(`Password reset requested for user: ${user.email}`);
 
-    // TODO: Send email with reset token
-    // await emailService.sendPasswordResetEmail(user.email, resetToken);
+    await EmailService.sendPasswordResetEmail(user.email, resetToken);
 
     return resetToken;
   }

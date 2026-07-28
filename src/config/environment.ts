@@ -23,6 +23,10 @@ export const config = {
   SMTP_USER: process.env.SMTP_USER || '',
   SMTP_PASS: process.env.SMTP_PASS || '',
   SMTP_FROM: process.env.SMTP_FROM || 'noreply@pbt.com',
+  SMTP_FROM_NAME: process.env.SMTP_FROM_NAME || 'PBT',
+
+  // Frontend (used to build links inside emails, e.g. password/account setup)
+  FRONTEND_URL: process.env.FRONTEND_URL || 'http://localhost:3000',
 
   // Cloudinary
   CLOUDINARY_CLOUD_NAME: process.env.CLOUDINARY_CLOUD_NAME || '',

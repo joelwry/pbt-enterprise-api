@@ -11,6 +11,7 @@ import { Roadmap } from '@/modules/learning/schemas/Roadmap.schema';
 import { RoadmapWeek } from '@/modules/learning/schemas/RoadmapWeek.schema';
 import { learningProgressService } from '@/modules/learning/services/learning-progress.service';
 import { UserProgress } from '@/modules/progress/schemas/UserProgress.schema';
+import activityService from '@/modules/activity/services/activity.service';
 import { NotFoundError, AuthorizationError } from '@/core/errors/AppError';
 import logger from '@/core/logger/logger';
 
@@ -70,6 +71,7 @@ export class LearningService {
     timeSpentMinutes: number = 0
   ): Promise<IUserLessonProgress> {
     let progress = await UserLessonProgress.findOne({ userId, lessonId });
+    const wasAlreadyCompleted = progress?.status === 'completed';
 
     if (!progress) {
       progress = new UserLessonProgress({
@@ -104,6 +106,17 @@ export class LearningService {
     // UserLessonProgress is the write; UserProgress is always a
     // recalculation of it, never written directly.
     await learningProgressService.recalculate(userId);
+
+    // Real activity feed entry (powers the admin member detail Activity Log)
+    // -- only on the transition into "completed", not every progress tick.
+    if (status === 'completed' && !wasAlreadyCompleted) {
+      const lesson = await Lesson.findById(lessonId).select('title');
+      await activityService.logActivity(userId, 'lesson_completed', {
+        itemId: lessonId,
+        itemType: 'lesson',
+        description: `Completed lesson "${lesson?.title ?? 'Untitled lesson'}"`,
+      });
+    }
 
     return saved;
   }
