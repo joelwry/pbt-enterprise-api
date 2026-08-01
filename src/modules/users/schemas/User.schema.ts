@@ -18,6 +18,8 @@ export interface IUser extends Document {
   investmentFocus?: string;
   /** Set by admin/mentor-matching tooling, not editable by the member. */
   assignedLeader?: string;
+  /** Stripe Customer id, set the first time this member ever completes a Checkout Session. */
+  stripeCustomerId?: string;
   notificationPreferences: INotificationPreferences;
   role: 'member' | 'admin' | 'super_admin' | 'visitor';
   emailVerified: boolean;
@@ -73,6 +75,10 @@ const userSchema = new Schema<IUser>(
     assignedLeader: {
       type: String,
       trim: true,
+    },
+    stripeCustomerId: {
+      type: String,
+      index: true,
     },
     notificationPreferences: {
       communityReplies: { type: Boolean, default: true },

@@ -1,12 +1,10 @@
 import { Referral } from '@/modules/referrals/schemas/Referral.schema';
 import { User } from '@/modules/users/schemas/User.schema';
+import { config } from '@/config/environment';
 import logger from '@/core/logger/logger';
 
 /** Flat credit per successful referral -- there's no real payment/credit ledger yet (same Stripe-dependent gap noted throughout the subscriptions work), so this is tracked and displayed, not actually paid out. */
 const REWARD_PER_REFERRAL = 10;
-
-/** The PBT marketing site members actually join through (see the login page's own "subscribe on our main site" messaging) -- a referral link sends a friend there with the referrer's code attached. */
-const MARKETING_SITE_URL = 'https://propertybusinesstraining.com';
 
 export class ReferralService {
   /** Every member's referral code is simply their own account id (already shown to them as "Client ID" everywhere else in the portal) -- no separate code to generate, store, or collide. */
@@ -15,7 +13,7 @@ export class ReferralService {
 
     return {
       referralCode: userId,
-      referralLink: `${MARKETING_SITE_URL}/?ref=${userId}`,
+      referralLink: `${config.FRONTEND_URL}/join?ref=${userId}`,
       totalReferrals,
       rewardsEarned: totalReferrals * REWARD_PER_REFERRAL,
       rewardPerReferralLabel: `£${REWARD_PER_REFERRAL} per successful referral`,

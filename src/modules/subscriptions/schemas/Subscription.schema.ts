@@ -12,6 +12,8 @@ export interface SubscriptionDocument extends Document {
   currency: string;
   transactionId?: string;
   cancelledAt?: Date;
+  /** Real Stripe subscription id, once the Stripe integration creates this record from a webhook. */
+  stripeSubscriptionId?: string;
   createdAt: Date;
   updatedAt: Date;
 }
@@ -73,6 +75,11 @@ const subscriptionSchema = new Schema<SubscriptionDocument>(
     cancelledAt: {
       type: Date,
       default: null,
+    },
+    stripeSubscriptionId: {
+      type: String,
+      index: true,
+      sparse: true,
     },
   },
   {

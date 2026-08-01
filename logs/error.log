@@ -1420,3 +1420,156 @@
   "ip": "127.0.0.1",
   "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
 }
+2026-08-01 10:55:29 [error]: Error occurred: [
+  {
+    "expected": "string",
+    "code": "invalid_type",
+    "path": [
+      "fullName"
+    ],
+    "message": "Invalid input: expected string, received undefined"
+  },
+  {
+    "expected": "string",
+    "code": "invalid_type",
+    "path": [
+      "email"
+    ],
+    "message": "Invalid input: expected string, received undefined"
+  },
+  {
+    "code": "invalid_value",
+    "values": [
+      "Pathway",
+      "Plus",
+      "Mentorship"
+    ],
+    "path": [
+      "tier"
+    ],
+    "message": "Invalid option: expected one of \"Pathway\"|\"Plus\"|\"Mentorship\""
+  },
+  {
+    "code": "invalid_value",
+    "values": [
+      "monthly",
+      "annual"
+    ],
+    "path": [
+      "billingCycle"
+    ],
+    "message": "Invalid option: expected one of \"monthly\"|\"annual\""
+  }
+] {
+  "url": "/api/v1/billing/signup-checkout",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "ZodError: [\n  {\n    \"expected\": \"string\",\n    \"code\": \"invalid_type\",\n    \"path\": [\n      \"fullName\"\n    ],\n    \"message\": \"Invalid input: expected string, received undefined\"\n  },\n  {\n    \"expected\": \"string\",\n    \"code\": \"invalid_type\",\n    \"path\": [\n      \"email\"\n    ],\n    \"message\": \"Invalid input: expected string, received undefined\"\n  },\n  {\n    \"code\": \"invalid_value\",\n    \"values\": [\n      \"Pathway\",\n      \"Plus\",\n      \"Mentorship\"\n    ],\n    \"path\": [\n      \"tier\"\n    ],\n    \"message\": \"Invalid option: expected one of \\\"Pathway\\\"|\\\"Plus\\\"|\\\"Mentorship\\\"\"\n  },\n  {\n    \"code\": \"invalid_value\",\n    \"values\": [\n      \"monthly\",\n      \"annual\"\n    ],\n    \"path\": [\n      \"billingCycle\"\n    ],\n    \"message\": \"Invalid option: expected one of \\\"monthly\\\"|\\\"annual\\\"\"\n  }\n]\n    at BillingController.createSignupCheckout (/home/user/pbt-enterprise-api/src/modules/billing/controllers/billing.controller.ts:11:40)\n    at /home/user/pbt-enterprise-api/src/modules/billing/routes/billing.routes.ts:9:60\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-01 10:56:47 [error]: Error occurred: Missing Stripe-Signature header {
+  "url": "/api/v1/billing/webhook",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "ValidationError: Missing Stripe-Signature header\n    at BillingController.webhook (/home/user/pbt-enterprise-api/src/modules/billing/controllers/billing.controller.ts:32:13)\n    at /home/user/pbt-enterprise-api/src/app.ts:79:48\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at rawParser (/home/user/pbt-enterprise-api/node_modules/body-parser/lib/types/raw.js:71:7)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)"
+}
+2026-08-01 10:56:54 [error]: Error occurred: No signatures found matching the expected signature for payload. Are you passing the raw request body you received from Stripe? 
+ If a webhook request is being forwarded by a third-party tool, ensure that the exact request body, including JSON formatting and new line style, is preserved.
+
+Learn more about webhook signing and explore webhook integration examples for various frameworks at https://docs.stripe.com/webhooks/signature
+ {
+  "url": "/api/v1/billing/webhook",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "Error: No signatures found matching the expected signature for payload. Are you passing the raw request body you received from Stripe? \n If a webhook request is being forwarded by a third-party tool, ensure that the exact request body, including JSON formatting and new line style, is preserved.\n\nLearn more about webhook signing and explore webhook integration examples for various frameworks at https://docs.stripe.com/webhooks/signature\n\n    at validateComputedSignature (/home/user/pbt-enterprise-api/node_modules/stripe/src/Webhooks.ts:446:13)\n    at Object.verifyHeader (/home/user/pbt-enterprise-api/node_modules/stripe/src/Webhooks.ts:241:7)\n    at Object.constructEvent (/home/user/pbt-enterprise-api/node_modules/stripe/src/Webhooks.ts:105:24)\n    at Function.constructWebhookEvent (/home/user/pbt-enterprise-api/src/core/payments/StripeService.ts:78:28)\n    at BillingController.webhook (/home/user/pbt-enterprise-api/src/modules/billing/controllers/billing.controller.ts:35:33)\n    at /home/user/pbt-enterprise-api/src/app.ts:79:48\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at /home/user/pbt-enterprise-api/node_modules/body-parser/lib/read.js:137:5"
+}
+2026-08-01 10:56:54 [error]: Unknown error {
+  "error": {
+    "type": "StripeSignatureVerificationError",
+    "raw": {
+      "message": "No signatures found matching the expected signature for payload. Are you passing the raw request body you received from Stripe? \n If a webhook request is being forwarded by a third-party tool, ensure that the exact request body, including JSON formatting and new line style, is preserved.\n\nLearn more about webhook signing and explore webhook integration examples for various frameworks at https://docs.stripe.com/webhooks/signature\n"
+    },
+    "header": "t=1,v1=deadbeef",
+    "payload": "{\"id\":\"evt_test_1785581814812\",\"object\":\"event\",\"type\":\"checkout.session.completed\",\"data\":{\"object\":{\"object\":\"checkout.session\",\"id\":\"cs_bad\",\"customer\":\"cus_bad\",\"subscription\":\"sub_bad\",\"metadata\":{}}}}"
+  }
+}
+2026-08-01 11:05:38 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-01 11:05:41 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-01 11:05:42 [error]: Error occurred: No Stripe Price id configured for mentorship/annual -- run src/scripts/stripe-setup.ts {
+  "url": "/api/v1/billing/signup-checkout",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "Error: No Stripe Price id configured for mentorship/annual -- run src/scripts/stripe-setup.ts\n    at Function.priceIdFor (/home/user/pbt-enterprise-api/src/core/payments/StripeService.ts:40:13)\n    at BillingService.createSignupCheckout (/home/user/pbt-enterprise-api/src/modules/billing/services/billing.service.ts:68:35)\n    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async BillingController.createSignupCheckout (/home/user/pbt-enterprise-api/src/modules/billing/controllers/billing.controller.ts:12:20)"
+}
+2026-08-01 11:05:42 [error]: Unknown error {
+  "error": {}
+}
+2026-08-01 11:05:45 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-01 11:05:46 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-01 11:05:48 [error]: Error occurred: No Stripe Price id configured for pathway/monthly -- run src/scripts/stripe-setup.ts {
+  "url": "/api/v1/billing/checkout-session",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "Error: No Stripe Price id configured for pathway/monthly -- run src/scripts/stripe-setup.ts\n    at Function.priceIdFor (/home/user/pbt-enterprise-api/src/core/payments/StripeService.ts:40:13)\n    at BillingService.createMemberCheckout (/home/user/pbt-enterprise-api/src/modules/billing/services/billing.service.ts:95:35)\n    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async BillingController.createMemberCheckout (/home/user/pbt-enterprise-api/src/modules/billing/controllers/billing.controller.ts:19:20)"
+}
+2026-08-01 11:05:48 [error]: Unknown error {
+  "error": {}
+}
+2026-08-01 11:05:51 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-01 11:06:31 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-01 11:07:02 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-01 11:07:21 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-01 11:07:22 [error]: Error occurred: No Stripe Price id configured for plus/monthly -- run src/scripts/stripe-setup.ts {
+  "url": "/api/v1/billing/checkout-session",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "Error: No Stripe Price id configured for plus/monthly -- run src/scripts/stripe-setup.ts\n    at Function.priceIdFor (/home/user/pbt-enterprise-api/src/core/payments/StripeService.ts:40:13)\n    at BillingService.createMemberCheckout (/home/user/pbt-enterprise-api/src/modules/billing/services/billing.service.ts:95:35)\n    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async BillingController.createMemberCheckout (/home/user/pbt-enterprise-api/src/modules/billing/controllers/billing.controller.ts:19:20)"
+}
+2026-08-01 11:07:22 [error]: Unknown error {
+  "error": {}
+}
+2026-08-01 11:07:37 [error]: Error occurred: Route not found: GET /api/v1/referrals/summary {
+  "url": "/api/v1/referrals/summary",
+  "method": "GET",
+  "ip": "127.0.0.1",
+  "stack": "AppError: Route not found: GET /api/v1/referrals/summary\n    at notFoundHandler (/home/user/pbt-enterprise-api/src/core/middleware/errorHandler.ts:48:17)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at trim_prefix (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:328:13)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:286:9\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:646:15\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:265:14)\n    at authenticate (/home/user/pbt-enterprise-api/src/core/middleware/authMiddleware.ts:27:5)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)"
+}

@@ -15354,3 +15354,598 @@
   "duration": "11ms",
   "ip": "127.0.0.1"
 }
+2026-08-01 10:55:28 [info]: Connecting to MongoDB at mongodb://127.0.0.1:27017/pbtDb
+2026-08-01 10:55:28 [info]: MongoDB connected successfully
+2026-08-01 10:55:28 [info]: Security middleware initialized
+2026-08-01 10:55:28 [info]: 🚀 Server running on http://localhost:5000
+2026-08-01 10:55:28 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-08-01 10:55:28 [info]: 🔧 Environment: development
+2026-08-01 10:55:28 [info]: 🛣️  API Version: /api/v1
+2026-08-01 10:55:29 [error]: Error occurred: [
+  {
+    "expected": "string",
+    "code": "invalid_type",
+    "path": [
+      "fullName"
+    ],
+    "message": "Invalid input: expected string, received undefined"
+  },
+  {
+    "expected": "string",
+    "code": "invalid_type",
+    "path": [
+      "email"
+    ],
+    "message": "Invalid input: expected string, received undefined"
+  },
+  {
+    "code": "invalid_value",
+    "values": [
+      "Pathway",
+      "Plus",
+      "Mentorship"
+    ],
+    "path": [
+      "tier"
+    ],
+    "message": "Invalid option: expected one of \"Pathway\"|\"Plus\"|\"Mentorship\""
+  },
+  {
+    "code": "invalid_value",
+    "values": [
+      "monthly",
+      "annual"
+    ],
+    "path": [
+      "billingCycle"
+    ],
+    "message": "Invalid option: expected one of \"monthly\"|\"annual\""
+  }
+] {
+  "url": "/api/v1/billing/signup-checkout",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "ZodError: [\n  {\n    \"expected\": \"string\",\n    \"code\": \"invalid_type\",\n    \"path\": [\n      \"fullName\"\n    ],\n    \"message\": \"Invalid input: expected string, received undefined\"\n  },\n  {\n    \"expected\": \"string\",\n    \"code\": \"invalid_type\",\n    \"path\": [\n      \"email\"\n    ],\n    \"message\": \"Invalid input: expected string, received undefined\"\n  },\n  {\n    \"code\": \"invalid_value\",\n    \"values\": [\n      \"Pathway\",\n      \"Plus\",\n      \"Mentorship\"\n    ],\n    \"path\": [\n      \"tier\"\n    ],\n    \"message\": \"Invalid option: expected one of \\\"Pathway\\\"|\\\"Plus\\\"|\\\"Mentorship\\\"\"\n  },\n  {\n    \"code\": \"invalid_value\",\n    \"values\": [\n      \"monthly\",\n      \"annual\"\n    ],\n    \"path\": [\n      \"billingCycle\"\n    ],\n    \"message\": \"Invalid option: expected one of \\\"monthly\\\"|\\\"annual\\\"\"\n  }\n]\n    at BillingController.createSignupCheckout (/home/user/pbt-enterprise-api/src/modules/billing/controllers/billing.controller.ts:11:40)\n    at /home/user/pbt-enterprise-api/src/modules/billing/routes/billing.routes.ts:9:60\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-01 10:55:29 [info]: Request completed {
+  "correlationId": "1785581729202-0.9630514447066729",
+  "method": "POST",
+  "path": "/api/v1/billing/signup-checkout",
+  "statusCode": 400,
+  "duration": "8ms",
+  "ip": "127.0.0.1"
+}
+2026-08-01 10:56:40 [info]: Connecting to MongoDB at mongodb://127.0.0.1:27017/pbtDb
+2026-08-01 10:56:40 [info]: MongoDB connected successfully
+2026-08-01 10:56:40 [info]: MongoDB disconnected
+2026-08-01 10:56:41 [info]: Connecting to MongoDB at mongodb://127.0.0.1:27017/pbtDb
+2026-08-01 10:56:41 [info]: MongoDB connected successfully
+2026-08-01 10:56:41 [info]: Security middleware initialized
+2026-08-01 10:56:41 [info]: 🚀 Server running on http://localhost:5000
+2026-08-01 10:56:41 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-08-01 10:56:41 [info]: 🔧 Environment: development
+2026-08-01 10:56:41 [info]: 🛣️  API Version: /api/v1
+2026-08-01 10:56:47 [error]: Error occurred: Missing Stripe-Signature header {
+  "url": "/api/v1/billing/webhook",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "ValidationError: Missing Stripe-Signature header\n    at BillingController.webhook (/home/user/pbt-enterprise-api/src/modules/billing/controllers/billing.controller.ts:32:13)\n    at /home/user/pbt-enterprise-api/src/app.ts:79:48\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at rawParser (/home/user/pbt-enterprise-api/node_modules/body-parser/lib/types/raw.js:71:7)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)"
+}
+2026-08-01 10:56:54 [info]: Connecting to MongoDB at mongodb://127.0.0.1:27017/pbtDb
+2026-08-01 10:56:54 [info]: MongoDB connected successfully
+2026-08-01 10:56:54 [info]: Stripe webhook received {
+  "type": "checkout.session.completed",
+  "id": "evt_test_1785581814527"
+}
+2026-08-01 10:56:54 [info]: Referral recorded {
+  "referrerId": "6a660cf062f710a1936202af",
+  "referredUserId": "6a6dd0f67bc97cb46a63e501"
+}
+2026-08-01 10:56:54 [warn]: [EmailService] SMTP not configured -- would send email to stripe-webhook-test-1785581814498@example.com: "Set up your Property Business Training account"
+2026-08-01 10:56:54 [info]: [EmailService] Account setup email sent to stripe-webhook-test-1785581814498@example.com
+2026-08-01 10:56:54 [info]: New member created from Stripe Checkout {
+  "userId": "6a6dd0f67bc97cb46a63e501",
+  "tier": "plus"
+}
+2026-08-01 10:56:54 [info]: Stripe webhook received {
+  "type": "checkout.session.completed",
+  "id": "evt_test_1785581814761"
+}
+2026-08-01 10:56:54 [info]: checkout.session.completed already processed, skipping {
+  "stripeSubscriptionId": "sub_test_signup_1785581814527"
+}
+2026-08-01 10:56:54 [info]: Stripe webhook received {
+  "type": "checkout.session.completed",
+  "id": "evt_test_1785581814772"
+}
+2026-08-01 10:56:54 [warn]: [EmailService] SMTP not configured -- would send email to test.pathway@pbt.test: "Subscription Confirmed - Property Business Training"
+2026-08-01 10:56:54 [info]: [EmailService] Subscription confirmation sent to test.pathway@pbt.test
+2026-08-01 10:56:54 [info]: Member subscription renewed/changed via Stripe Checkout {
+  "userId": "6a6907a5d48eaa9364bad9a1",
+  "tier": "plus"
+}
+2026-08-01 10:56:54 [info]: Stripe webhook received {
+  "type": "customer.subscription.updated",
+  "id": "evt_test_1785581814793"
+}
+2026-08-01 10:56:54 [info]: Stripe webhook received {
+  "type": "customer.subscription.deleted",
+  "id": "evt_test_1785581814802"
+}
+2026-08-01 10:56:54 [error]: Error occurred: No signatures found matching the expected signature for payload. Are you passing the raw request body you received from Stripe? 
+ If a webhook request is being forwarded by a third-party tool, ensure that the exact request body, including JSON formatting and new line style, is preserved.
+
+Learn more about webhook signing and explore webhook integration examples for various frameworks at https://docs.stripe.com/webhooks/signature
+ {
+  "url": "/api/v1/billing/webhook",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "Error: No signatures found matching the expected signature for payload. Are you passing the raw request body you received from Stripe? \n If a webhook request is being forwarded by a third-party tool, ensure that the exact request body, including JSON formatting and new line style, is preserved.\n\nLearn more about webhook signing and explore webhook integration examples for various frameworks at https://docs.stripe.com/webhooks/signature\n\n    at validateComputedSignature (/home/user/pbt-enterprise-api/node_modules/stripe/src/Webhooks.ts:446:13)\n    at Object.verifyHeader (/home/user/pbt-enterprise-api/node_modules/stripe/src/Webhooks.ts:241:7)\n    at Object.constructEvent (/home/user/pbt-enterprise-api/node_modules/stripe/src/Webhooks.ts:105:24)\n    at Function.constructWebhookEvent (/home/user/pbt-enterprise-api/src/core/payments/StripeService.ts:78:28)\n    at BillingController.webhook (/home/user/pbt-enterprise-api/src/modules/billing/controllers/billing.controller.ts:35:33)\n    at /home/user/pbt-enterprise-api/src/app.ts:79:48\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at /home/user/pbt-enterprise-api/node_modules/body-parser/lib/read.js:137:5"
+}
+2026-08-01 10:56:54 [error]: Unknown error {
+  "error": {
+    "type": "StripeSignatureVerificationError",
+    "raw": {
+      "message": "No signatures found matching the expected signature for payload. Are you passing the raw request body you received from Stripe? \n If a webhook request is being forwarded by a third-party tool, ensure that the exact request body, including JSON formatting and new line style, is preserved.\n\nLearn more about webhook signing and explore webhook integration examples for various frameworks at https://docs.stripe.com/webhooks/signature\n"
+    },
+    "header": "t=1,v1=deadbeef",
+    "payload": "{\"id\":\"evt_test_1785581814812\",\"object\":\"event\",\"type\":\"checkout.session.completed\",\"data\":{\"object\":{\"object\":\"checkout.session\",\"id\":\"cs_bad\",\"customer\":\"cus_bad\",\"subscription\":\"sub_bad\",\"metadata\":{}}}}"
+  }
+}
+2026-08-01 10:56:54 [info]: MongoDB disconnected
+2026-08-01 10:57:13 [info]: Connecting to MongoDB at mongodb://127.0.0.1:27017/pbtDb
+2026-08-01 10:57:13 [info]: MongoDB connected successfully
+2026-08-01 10:57:13 [info]: Security middleware initialized
+2026-08-01 10:57:13 [info]: 🚀 Server running on http://localhost:5000
+2026-08-01 10:57:13 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-08-01 10:57:13 [info]: 🔧 Environment: development
+2026-08-01 10:57:13 [info]: 🛣️  API Version: /api/v1
+2026-08-01 10:59:44 [info]: Connecting to MongoDB at mongodb://127.0.0.1:27017/pbtDb
+2026-08-01 10:59:44 [info]: MongoDB connected successfully
+2026-08-01 10:59:44 [info]: Security middleware initialized
+2026-08-01 10:59:44 [info]: 🚀 Server running on http://localhost:5000
+2026-08-01 10:59:44 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-08-01 10:59:44 [info]: 🔧 Environment: development
+2026-08-01 10:59:44 [info]: 🛣️  API Version: /api/v1
+2026-08-01 11:05:38 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-01 11:05:38 [info]: Request completed {
+  "correlationId": "1785582338906-0.5337356004115879",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "11ms",
+  "ip": "127.0.0.1"
+}
+2026-08-01 11:05:41 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-01 11:05:41 [info]: Request completed {
+  "correlationId": "1785582341500-0.22044582464431994",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "3ms",
+  "ip": "127.0.0.1"
+}
+2026-08-01 11:05:42 [error]: Error occurred: No Stripe Price id configured for mentorship/annual -- run src/scripts/stripe-setup.ts {
+  "url": "/api/v1/billing/signup-checkout",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "Error: No Stripe Price id configured for mentorship/annual -- run src/scripts/stripe-setup.ts\n    at Function.priceIdFor (/home/user/pbt-enterprise-api/src/core/payments/StripeService.ts:40:13)\n    at BillingService.createSignupCheckout (/home/user/pbt-enterprise-api/src/modules/billing/services/billing.service.ts:68:35)\n    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async BillingController.createSignupCheckout (/home/user/pbt-enterprise-api/src/modules/billing/controllers/billing.controller.ts:12:20)"
+}
+2026-08-01 11:05:42 [error]: Unknown error {
+  "error": {}
+}
+2026-08-01 11:05:42 [info]: Request completed {
+  "correlationId": "1785582342353-0.3383785366648331",
+  "method": "POST",
+  "path": "/api/v1/billing/signup-checkout",
+  "statusCode": 500,
+  "duration": "10ms",
+  "ip": "127.0.0.1"
+}
+2026-08-01 11:05:45 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-01 11:05:45 [info]: Request completed {
+  "correlationId": "1785582345167-0.36983277665730396",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "5ms",
+  "ip": "127.0.0.1"
+}
+2026-08-01 11:05:46 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-01 11:05:46 [info]: Request completed {
+  "correlationId": "1785582346693-0.2936470821129342",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "4ms",
+  "ip": "127.0.0.1"
+}
+2026-08-01 11:05:46 [info]: User logged in: test.plus.expired@pbt.test
+2026-08-01 11:05:46 [info]: User logged in: test.plus.expired@pbt.test
+2026-08-01 11:05:46 [info]: Request completed {
+  "correlationId": "1785582346788-0.7077525410248273",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "119ms",
+  "ip": "127.0.0.1"
+}
+2026-08-01 11:05:46 [info]: Request completed {
+  "correlationId": "1785582346915-0.5264386501073666",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 200,
+  "duration": "4ms",
+  "ip": "127.0.0.1"
+}
+2026-08-01 11:05:48 [error]: Error occurred: No Stripe Price id configured for pathway/monthly -- run src/scripts/stripe-setup.ts {
+  "url": "/api/v1/billing/checkout-session",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "Error: No Stripe Price id configured for pathway/monthly -- run src/scripts/stripe-setup.ts\n    at Function.priceIdFor (/home/user/pbt-enterprise-api/src/core/payments/StripeService.ts:40:13)\n    at BillingService.createMemberCheckout (/home/user/pbt-enterprise-api/src/modules/billing/services/billing.service.ts:95:35)\n    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async BillingController.createMemberCheckout (/home/user/pbt-enterprise-api/src/modules/billing/controllers/billing.controller.ts:19:20)"
+}
+2026-08-01 11:05:48 [error]: Unknown error {
+  "error": {}
+}
+2026-08-01 11:05:48 [info]: Request completed {
+  "correlationId": "1785582348927-0.7895122738383091",
+  "method": "POST",
+  "path": "/api/v1/billing/checkout-session",
+  "statusCode": 500,
+  "duration": "7ms",
+  "ip": "127.0.0.1"
+}
+2026-08-01 11:05:51 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-01 11:05:51 [info]: Request completed {
+  "correlationId": "1785582351629-0.2225248162550577",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "2ms",
+  "ip": "127.0.0.1"
+}
+2026-08-01 11:05:51 [info]: User logged in: test.pathway@pbt.test
+2026-08-01 11:05:51 [info]: User logged in: test.pathway@pbt.test
+2026-08-01 11:05:51 [info]: Request completed {
+  "correlationId": "1785582351725-0.9148224707963402",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "91ms",
+  "ip": "127.0.0.1"
+}
+2026-08-01 11:05:51 [info]: Request completed {
+  "correlationId": "1785582351822-0.01519224846087841",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 200,
+  "duration": "3ms",
+  "ip": "127.0.0.1"
+}
+2026-08-01 11:05:53 [debug]: Access token refreshed for user: test.pathway@pbt.test
+2026-08-01 11:05:53 [info]: Request completed {
+  "correlationId": "1785582353331-0.08753550040023939",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "10ms",
+  "ip": "127.0.0.1"
+}
+2026-08-01 11:05:53 [info]: Request completed {
+  "correlationId": "1785582353353-0.19846190850778678",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 200,
+  "duration": "6ms",
+  "ip": "127.0.0.1"
+}
+2026-08-01 11:05:53 [info]: Request completed {
+  "correlationId": "1785582353366-0.34934502736792483",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 304,
+  "duration": "3ms",
+  "ip": "127.0.0.1"
+}
+2026-08-01 11:06:31 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-01 11:06:31 [info]: Request completed {
+  "correlationId": "1785582391717-0.5988751589013543",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "3ms",
+  "ip": "127.0.0.1"
+}
+2026-08-01 11:06:31 [info]: User logged in: test.pathway@pbt.test
+2026-08-01 11:06:31 [info]: User logged in: test.pathway@pbt.test
+2026-08-01 11:06:31 [info]: Request completed {
+  "correlationId": "1785582391800-0.6050780242208702",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "87ms",
+  "ip": "127.0.0.1"
+}
+2026-08-01 11:06:31 [info]: Request completed {
+  "correlationId": "1785582391893-0.8495287722093043",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 200,
+  "duration": "4ms",
+  "ip": "127.0.0.1"
+}
+2026-08-01 11:06:32 [debug]: Access token refreshed for user: test.pathway@pbt.test
+2026-08-01 11:06:32 [info]: Request completed {
+  "correlationId": "1785582392281-0.001489670942323107",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "5ms",
+  "ip": "127.0.0.1"
+}
+2026-08-01 11:06:32 [info]: Request completed {
+  "correlationId": "1785582392292-0.27164466519385044",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 200,
+  "duration": "3ms",
+  "ip": "127.0.0.1"
+}
+2026-08-01 11:06:32 [info]: Request completed {
+  "correlationId": "1785582392300-0.7528103018761265",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 304,
+  "duration": "2ms",
+  "ip": "127.0.0.1"
+}
+2026-08-01 11:06:56 [info]: Connecting to MongoDB at mongodb://127.0.0.1:27017/pbtDb
+2026-08-01 11:06:56 [info]: MongoDB connected successfully
+2026-08-01 11:06:57 [info]: MongoDB disconnected
+2026-08-01 11:07:02 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-01 11:07:02 [info]: Request completed {
+  "correlationId": "1785582422541-0.15735395880386527",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "2ms",
+  "ip": "127.0.0.1"
+}
+2026-08-01 11:07:02 [info]: User logged in: test.pathway@pbt.test
+2026-08-01 11:07:02 [info]: User logged in: test.pathway@pbt.test
+2026-08-01 11:07:02 [info]: Request completed {
+  "correlationId": "1785582422619-0.9219299577882378",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "88ms",
+  "ip": "127.0.0.1"
+}
+2026-08-01 11:07:02 [info]: Request completed {
+  "correlationId": "1785582422713-0.5612857695592612",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 200,
+  "duration": "4ms",
+  "ip": "127.0.0.1"
+}
+2026-08-01 11:07:03 [debug]: Access token refreshed for user: test.pathway@pbt.test
+2026-08-01 11:07:03 [info]: Request completed {
+  "correlationId": "1785582423126-0.955031883042285",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "140ms",
+  "ip": "127.0.0.1"
+}
+2026-08-01 11:07:03 [info]: Request completed {
+  "correlationId": "1785582422918-0.3902895452224824",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 200,
+  "duration": "392ms",
+  "ip": "127.0.0.1"
+}
+2026-08-01 11:07:03 [info]: Request completed {
+  "correlationId": "1785582423312-0.8582418319475333",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 200,
+  "duration": "3ms",
+  "ip": "127.0.0.1"
+}
+2026-08-01 11:07:03 [info]: Request completed {
+  "correlationId": "1785582423319-0.9552588291744881",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 304,
+  "duration": "2ms",
+  "ip": "127.0.0.1"
+}
+2026-08-01 11:07:03 [info]: Request completed {
+  "correlationId": "1785582423383-0.2532831951563588",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 304,
+  "duration": "2ms",
+  "ip": "127.0.0.1"
+}
+2026-08-01 11:07:03 [info]: Request completed {
+  "correlationId": "1785582423438-0.10892137128190904",
+  "method": "GET",
+  "path": "/invoices",
+  "statusCode": 200,
+  "duration": "5ms",
+  "ip": "127.0.0.1"
+}
+2026-08-01 11:07:21 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-01 11:07:21 [info]: Request completed {
+  "correlationId": "1785582441747-0.7022663247534793",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "2ms",
+  "ip": "127.0.0.1"
+}
+2026-08-01 11:07:21 [info]: User logged in: test.pathway@pbt.test
+2026-08-01 11:07:21 [info]: User logged in: test.pathway@pbt.test
+2026-08-01 11:07:21 [info]: Request completed {
+  "correlationId": "1785582441816-0.5956140981861808",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "87ms",
+  "ip": "127.0.0.1"
+}
+2026-08-01 11:07:21 [info]: Request completed {
+  "correlationId": "1785582441910-0.09018948519074987",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 200,
+  "duration": "3ms",
+  "ip": "127.0.0.1"
+}
+2026-08-01 11:07:22 [info]: Request completed {
+  "correlationId": "1785582442145-0.8923887513216433",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 200,
+  "duration": "23ms",
+  "ip": "127.0.0.1"
+}
+2026-08-01 11:07:22 [debug]: Access token refreshed for user: test.pathway@pbt.test
+2026-08-01 11:07:22 [info]: Request completed {
+  "correlationId": "1785582442396-0.19061288408061206",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "5ms",
+  "ip": "127.0.0.1"
+}
+2026-08-01 11:07:22 [info]: Request completed {
+  "correlationId": "1785582442412-0.9622445269093678",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 200,
+  "duration": "3ms",
+  "ip": "127.0.0.1"
+}
+2026-08-01 11:07:22 [info]: Request completed {
+  "correlationId": "1785582442420-0.5918732067162442",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 304,
+  "duration": "2ms",
+  "ip": "127.0.0.1"
+}
+2026-08-01 11:07:22 [info]: Request completed {
+  "correlationId": "1785582442484-0.61528289147047",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 304,
+  "duration": "3ms",
+  "ip": "127.0.0.1"
+}
+2026-08-01 11:07:22 [info]: Request completed {
+  "correlationId": "1785582442542-0.8366154265427621",
+  "method": "GET",
+  "path": "/invoices",
+  "statusCode": 200,
+  "duration": "4ms",
+  "ip": "127.0.0.1"
+}
+2026-08-01 11:07:22 [error]: Error occurred: No Stripe Price id configured for plus/monthly -- run src/scripts/stripe-setup.ts {
+  "url": "/api/v1/billing/checkout-session",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "Error: No Stripe Price id configured for plus/monthly -- run src/scripts/stripe-setup.ts\n    at Function.priceIdFor (/home/user/pbt-enterprise-api/src/core/payments/StripeService.ts:40:13)\n    at BillingService.createMemberCheckout (/home/user/pbt-enterprise-api/src/modules/billing/services/billing.service.ts:95:35)\n    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async BillingController.createMemberCheckout (/home/user/pbt-enterprise-api/src/modules/billing/controllers/billing.controller.ts:19:20)"
+}
+2026-08-01 11:07:22 [error]: Unknown error {
+  "error": {}
+}
+2026-08-01 11:07:22 [info]: Request completed {
+  "correlationId": "1785582442639-0.07090286609642549",
+  "method": "POST",
+  "path": "/api/v1/billing/checkout-session",
+  "statusCode": 500,
+  "duration": "4ms",
+  "ip": "127.0.0.1"
+}
+2026-08-01 11:07:31 [info]: Connecting to MongoDB at mongodb://127.0.0.1:27017/pbtDb
+2026-08-01 11:07:31 [info]: MongoDB connected successfully
+2026-08-01 11:07:32 [info]: MongoDB disconnected
+2026-08-01 11:07:37 [info]: User logged in: test.plus@pbt.test
+2026-08-01 11:07:37 [info]: User logged in: test.plus@pbt.test
+2026-08-01 11:07:37 [info]: Request completed {
+  "correlationId": "1785582456981-0.4526631496464999",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "92ms",
+  "ip": "127.0.0.1"
+}
+2026-08-01 11:07:37 [error]: Error occurred: Route not found: GET /api/v1/referrals/summary {
+  "url": "/api/v1/referrals/summary",
+  "method": "GET",
+  "ip": "127.0.0.1",
+  "stack": "AppError: Route not found: GET /api/v1/referrals/summary\n    at notFoundHandler (/home/user/pbt-enterprise-api/src/core/middleware/errorHandler.ts:48:17)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at trim_prefix (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:328:13)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:286:9\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:646:15\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:265:14)\n    at authenticate (/home/user/pbt-enterprise-api/src/core/middleware/authMiddleware.ts:27:5)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)"
+}
+2026-08-01 11:07:37 [info]: Request completed {
+  "correlationId": "1785582457087-0.5339139594756186",
+  "method": "GET",
+  "path": "/api/v1/referrals/summary",
+  "statusCode": 404,
+  "duration": "2ms",
+  "ip": "127.0.0.1"
+}
+2026-08-01 11:07:44 [info]: Request completed {
+  "correlationId": "1785582464516-0.37827141378004137",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 200,
+  "duration": "3ms",
+  "ip": "127.0.0.1"
+}
+2026-08-01 11:08:29 [info]: Connecting to MongoDB at mongodb://127.0.0.1:27017/pbtDb
+2026-08-01 11:08:29 [info]: MongoDB connected successfully
+2026-08-01 11:08:30 [info]: MongoDB disconnected

@@ -42,6 +42,9 @@ import membershipBenefitsRoutes from '@/modules/membership-benefits/routes/membe
 import referralRoutes from '@/modules/referrals/routes/referral.routes';
 import adminReferralsRoutes from '@/modules/admin-referrals/routes/admin-referrals.routes';
 import adminMembersRoutes from '@/modules/admin-members/routes/admin-members.routes';
+import billingRoutes from '@/modules/billing/routes/billing.routes';
+import { billingController } from '@/modules/billing/controllers/billing.controller';
+import { catchAsync } from '@/core/middleware/asyncHandler';
 
 export function createApp(): Application {
   const app = express();
@@ -63,6 +66,18 @@ export function createApp(): Application {
 
   // ==================== COMPRESSION ====================
   app.use(compression());
+
+  // ==================== STRIPE WEBHOOK (raw body, must precede express.json()) ====================
+  // Stripe's signature is computed over the exact bytes it sent -- parsing
+  // this as JSON first and re-serializing it would almost certainly change
+  // whitespace/key order and break verification. This one route is
+  // registered here, ahead of the global JSON parser below, so Express hands
+  // it the untouched raw body instead.
+  app.post(
+    `/api/${config.API_VERSION}/billing/webhook`,
+    express.raw({ type: 'application/json' }),
+    catchAsync((req, res) => billingController.webhook(req, res))
+  );
 
   // ==================== BODY PARSERS ====================
   app.use(express.json({ limit: '10mb' }));
@@ -125,6 +140,7 @@ export function createApp(): Application {
   app.use(`/api/${config.API_VERSION}/admin/subscriptions`, adminSubscriptionsRoutes);
   app.use(`/api/${config.API_VERSION}/admin/members`, adminMembersRoutes);
   app.use(`/api/${config.API_VERSION}/admin/referrals`, adminReferralsRoutes);
+  app.use(`/api/${config.API_VERSION}/billing`, billingRoutes);
 
   // ==================== SWAGGER DOCUMENTATION ====================
   // Swagger setup will be added here
