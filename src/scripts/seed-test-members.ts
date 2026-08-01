@@ -19,8 +19,8 @@ type Tier = 'pathway' | 'plus' | 'mentorship';
 interface SeedUser {
   email: string;
   fullName: string;
-  /** Omit to leave the member with no subscription at all (falls back to Pathway). */
-  subscription?: {
+  /** Every member needs a real subscription -- Pathway is a paid tier, not a free fallback. */
+  subscription: {
     tier: Tier;
     status: 'active' | 'cancelled' | 'expired';
     daysFromNowToEnd: number;
@@ -28,7 +28,16 @@ interface SeedUser {
 }
 
 const SEED_USERS: SeedUser[] = [
-  { email: 'test.pathway@pbt.test', fullName: 'Paula Pathway' },
+  {
+    email: 'test.pathway@pbt.test',
+    fullName: 'Paula Pathway',
+    subscription: { tier: 'pathway', status: 'active', daysFromNowToEnd: 25 },
+  },
+  {
+    email: 'test.pathway.expired@pbt.test',
+    fullName: 'Xavier Expired-Pathway',
+    subscription: { tier: 'pathway', status: 'expired', daysFromNowToEnd: -10 },
+  },
   {
     email: 'test.plus@pbt.test',
     fullName: 'Peter Plus',
@@ -98,29 +107,25 @@ async function main() {
 
     await Subscription.deleteMany({ userId: user._id });
 
-    if (seed.subscription) {
-      const { tier, status, daysFromNowToEnd } = seed.subscription;
-      const endDate = new Date();
-      endDate.setDate(endDate.getDate() + daysFromNowToEnd);
-      const startDate = new Date(endDate);
-      startDate.setMonth(startDate.getMonth() - 1);
+    const { tier, status, daysFromNowToEnd } = seed.subscription;
+    const endDate = new Date();
+    endDate.setDate(endDate.getDate() + daysFromNowToEnd);
+    const startDate = new Date(endDate);
+    startDate.setMonth(startDate.getMonth() - 1);
 
-      await Subscription.create({
-        userId: user._id,
-        tier,
-        status,
-        startDate,
-        endDate,
-        autoRenew: status === 'active',
-        billingCycle: 'monthly',
-        amount: tier === 'plus' ? 49 : 149,
-        currency: 'GBP',
-      });
-    }
+    await Subscription.create({
+      userId: user._id,
+      tier,
+      status,
+      startDate,
+      endDate,
+      autoRenew: status === 'active',
+      billingCycle: 'monthly',
+      amount: tier === 'pathway' ? 39 : tier === 'plus' ? 49 : 149,
+      currency: 'GBP',
+    });
 
-    console.log(
-      `Seeded ${user.email} (${seed.subscription ? `${seed.subscription.tier}/${seed.subscription.status}` : 'no subscription -> Pathway'})`
-    );
+    console.log(`Seeded ${user.email} (${tier}/${status})`);
   }
 
   console.log(`\nAll seeded accounts share the password: ${password}`);
