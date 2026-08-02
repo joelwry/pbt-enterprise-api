@@ -32,7 +32,19 @@ export class BillingController {
       throw new ValidationError('Missing Stripe-Signature header');
     }
 
-    const event = StripeService.constructWebhookEvent(req.body as Buffer, signature);
+    let event;
+    try {
+      event = StripeService.constructWebhookEvent(req.body as Buffer, signature);
+    } catch (error) {
+      // A bad/forged signature is a client error, not a server fault --
+      // surfacing it as a plain 400 (rather than falling through to the
+      // generic 500 handler) matches what Stripe's own webhook docs expect
+      // and avoids it being retried as if it were a transient failure.
+      logger.warn('Stripe webhook signature verification failed', { error: (error as Error).message });
+      ResponseHandler.badRequest(res, 'Invalid webhook signature');
+      return;
+    }
+
     logger.info('Stripe webhook received', { type: event.type, id: event.id });
 
     await billingService.handleWebhookEvent(event);

@@ -1573,3 +1573,171 @@ Learn more about webhook signing and explore webhook integration examples for va
   "ip": "127.0.0.1",
   "stack": "AppError: Route not found: GET /api/v1/referrals/summary\n    at notFoundHandler (/home/user/pbt-enterprise-api/src/core/middleware/errorHandler.ts:48:17)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at trim_prefix (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:328:13)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:286:9\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:646:15\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:265:14)\n    at authenticate (/home/user/pbt-enterprise-api/src/core/middleware/authMiddleware.ts:27:5)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)"
 }
+2026-08-02 11:04:39 [error]: Error occurred: Missing Stripe-Signature header {
+  "url": "/api/v1/billing/webhook",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "ValidationError: Missing Stripe-Signature header\n    at BillingController.webhook (/home/user/pbt-enterprise-api/src/modules/billing/controllers/billing.controller.ts:32:13)\n    at /home/user/pbt-enterprise-api/src/app.ts:79:48\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at rawParser (/home/user/pbt-enterprise-api/node_modules/body-parser/lib/types/raw.js:71:7)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)"
+}
+2026-08-02 11:11:31 [error]: Error occurred: Missing Stripe-Signature header {
+  "url": "/api/v1/billing/webhook",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "ValidationError: Missing Stripe-Signature header\n    at BillingController.webhook (/home/user/pbt-enterprise-api/src/modules/billing/controllers/billing.controller.ts:32:13)\n    at /home/user/pbt-enterprise-api/src/app.ts:79:48\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at rawParser (/home/user/pbt-enterprise-api/node_modules/body-parser/lib/types/raw.js:71:7)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)"
+}
+2026-08-02 11:14:28 [error]: Error occurred: No such customer: 'cus_test_renew_1785581814772' {
+  "url": "/api/v1/billing/checkout-session",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "Error: No such customer: 'cus_test_renew_1785581814772'\n    at generateV1Error (/home/user/pbt-enterprise-api/node_modules/stripe/src/Error.ts:29:12)\n    at /home/user/pbt-enterprise-api/node_modules/stripe/src/RequestSender.ts:202:38\n    at processTicksAndRejections (node:internal/process/task_queues:103:5)\nOriginating from:\n    at SessionResource._makeRequest (/home/user/pbt-enterprise-api/node_modules/stripe/src/StripeResource.ts:98:27)\n    at SessionResource.create (/home/user/pbt-enterprise-api/node_modules/stripe/src/resources/Checkout/Sessions.ts:139:17)\n    at Function.createCheckoutSession (/home/user/pbt-enterprise-api/src/core/payments/StripeService.ts:58:62)\n    at BillingService.createMemberCheckout (/home/user/pbt-enterprise-api/src/modules/billing/services/billing.service.ts:103:41)\n    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async BillingController.createMemberCheckout (/home/user/pbt-enterprise-api/src/modules/billing/controllers/billing.controller.ts:19:20)"
+}
+2026-08-02 11:14:28 [error]: Unknown error {
+  "error": {
+    "type": "StripeInvalidRequestError",
+    "raw": {
+      "code": "resource_missing",
+      "doc_url": "https://stripe.com/docs/error-codes/resource-missing",
+      "message": "No such customer: 'cus_test_renew_1785581814772'",
+      "param": "customer",
+      "request_log_url": "https://dashboard.stripe.com/acct_1Tzc884yzueItlQS/test/workbench/logs?object=req_sJAoY6050YtRJs",
+      "type": "invalid_request_error",
+      "headers": {
+        "access-control-allow-credentials": "true",
+        "access-control-allow-methods": "GET, HEAD, PUT, PATCH, POST, DELETE",
+        "access-control-allow-origin": "*",
+        "access-control-expose-headers": "Request-Id, Stripe-Manage-Version, Stripe-Should-Retry, X-Stripe-External-Auth-Required, X-Stripe-Privileged-Session-Required",
+        "access-control-max-age": "300",
+        "cache-control": "no-cache, no-store",
+        "connection": "keep-alive",
+        "content-length": "375",
+        "content-security-policy": "base-uri 'none'; default-src 'none'; form-action 'none'; frame-ancestors 'none'; img-src 'self'; script-src 'self' 'report-sample'; style-src 'self'; worker-src 'none'; upgrade-insecure-requests; report-uri https://q.stripe.com/csp-violation?q=ngtDX0C4tQ5-LxCbNhiy8gmDD4gwpjHz_zw3cs69bRjsOLP3DkWSD1fPkVetXZ3bnTOuzVJhbKWRCJ7W; report-to csp",
+        "content-type": "application/json",
+        "date": "Sun, 02 Aug 2026 11:14:28 GMT",
+        "idempotency-key": "stripe-node-retry-6545aa12-0352-4cb2-a64a-7cc6ff98c65b",
+        "original-request": "req_sJAoY6050YtRJs",
+        "report-to": "{\"group\":\"csp\",\"max_age\":8640,\"endpoints\":[{\"url\":\"https://q.stripe.com/csp-report-v2?q=ngtDX0C4tQ5-LxCbNhiy8gmDD4gwpjHz_zw3cs69bRjsOLP3DkWSD1fPkVetXZ3bnTOuzVJhbKWRCJ7W&t=1\"}],\"include_subdomains\":true}",
+        "reporting-endpoints": "csp=\"https://q.stripe.com/csp-report-v2?q=ngtDX0C4tQ5-LxCbNhiy8gmDD4gwpjHz_zw3cs69bRjsOLP3DkWSD1fPkVetXZ3bnTOuzVJhbKWRCJ7W&t=1\"",
+        "request-id": "req_sJAoY6050YtRJs",
+        "server": "nginx",
+        "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+        "stripe-version": "2026-07-29.dahlia",
+        "vary": "Origin",
+        "x-stripe-priority-routing-enabled": "true",
+        "x-stripe-routing-context-priority-tier": "api-testmode",
+        "x-wc": "3c3"
+      },
+      "statusCode": 400,
+      "requestId": "req_sJAoY6050YtRJs"
+    },
+    "rawType": "invalid_request_error",
+    "headers": {
+      "access-control-allow-credentials": "true",
+      "access-control-allow-methods": "GET, HEAD, PUT, PATCH, POST, DELETE",
+      "access-control-allow-origin": "*",
+      "access-control-expose-headers": "Request-Id, Stripe-Manage-Version, Stripe-Should-Retry, X-Stripe-External-Auth-Required, X-Stripe-Privileged-Session-Required",
+      "access-control-max-age": "300",
+      "cache-control": "no-cache, no-store",
+      "connection": "keep-alive",
+      "content-length": "375",
+      "content-security-policy": "base-uri 'none'; default-src 'none'; form-action 'none'; frame-ancestors 'none'; img-src 'self'; script-src 'self' 'report-sample'; style-src 'self'; worker-src 'none'; upgrade-insecure-requests; report-uri https://q.stripe.com/csp-violation?q=ngtDX0C4tQ5-LxCbNhiy8gmDD4gwpjHz_zw3cs69bRjsOLP3DkWSD1fPkVetXZ3bnTOuzVJhbKWRCJ7W; report-to csp",
+      "content-type": "application/json",
+      "date": "Sun, 02 Aug 2026 11:14:28 GMT",
+      "idempotency-key": "stripe-node-retry-6545aa12-0352-4cb2-a64a-7cc6ff98c65b",
+      "original-request": "req_sJAoY6050YtRJs",
+      "report-to": "{\"group\":\"csp\",\"max_age\":8640,\"endpoints\":[{\"url\":\"https://q.stripe.com/csp-report-v2?q=ngtDX0C4tQ5-LxCbNhiy8gmDD4gwpjHz_zw3cs69bRjsOLP3DkWSD1fPkVetXZ3bnTOuzVJhbKWRCJ7W&t=1\"}],\"include_subdomains\":true}",
+      "reporting-endpoints": "csp=\"https://q.stripe.com/csp-report-v2?q=ngtDX0C4tQ5-LxCbNhiy8gmDD4gwpjHz_zw3cs69bRjsOLP3DkWSD1fPkVetXZ3bnTOuzVJhbKWRCJ7W&t=1\"",
+      "request-id": "req_sJAoY6050YtRJs",
+      "server": "nginx",
+      "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+      "stripe-version": "2026-07-29.dahlia",
+      "vary": "Origin",
+      "x-stripe-priority-routing-enabled": "true",
+      "x-stripe-routing-context-priority-tier": "api-testmode",
+      "x-wc": "3c3"
+    },
+    "requestId": "req_sJAoY6050YtRJs",
+    "statusCode": 400,
+    "code": "resource_missing",
+    "doc_url": "https://stripe.com/docs/error-codes/resource-missing",
+    "param": "customer",
+    "request_log_url": "https://dashboard.stripe.com/acct_1Tzc884yzueItlQS/test/workbench/logs?object=req_sJAoY6050YtRJs"
+  }
+}
+2026-08-02 11:14:29 [error]: Error occurred: No such customer: 'cus_test_renew_1785581814772' {
+  "url": "/api/v1/billing/checkout-session",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "Error: No such customer: 'cus_test_renew_1785581814772'\n    at generateV1Error (/home/user/pbt-enterprise-api/node_modules/stripe/src/Error.ts:29:12)\n    at /home/user/pbt-enterprise-api/node_modules/stripe/src/RequestSender.ts:202:38\n    at processTicksAndRejections (node:internal/process/task_queues:103:5)\nOriginating from:\n    at SessionResource._makeRequest (/home/user/pbt-enterprise-api/node_modules/stripe/src/StripeResource.ts:98:27)\n    at SessionResource.create (/home/user/pbt-enterprise-api/node_modules/stripe/src/resources/Checkout/Sessions.ts:139:17)\n    at Function.createCheckoutSession (/home/user/pbt-enterprise-api/src/core/payments/StripeService.ts:58:62)\n    at BillingService.createMemberCheckout (/home/user/pbt-enterprise-api/src/modules/billing/services/billing.service.ts:103:41)\n    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async BillingController.createMemberCheckout (/home/user/pbt-enterprise-api/src/modules/billing/controllers/billing.controller.ts:19:20)"
+}
+2026-08-02 11:14:29 [error]: Unknown error {
+  "error": {
+    "type": "StripeInvalidRequestError",
+    "raw": {
+      "code": "resource_missing",
+      "doc_url": "https://stripe.com/docs/error-codes/resource-missing",
+      "message": "No such customer: 'cus_test_renew_1785581814772'",
+      "param": "customer",
+      "request_log_url": "https://dashboard.stripe.com/acct_1Tzc884yzueItlQS/test/workbench/logs?object=req_6vxy4r4ZGGURIh",
+      "type": "invalid_request_error",
+      "headers": {
+        "access-control-allow-credentials": "true",
+        "access-control-allow-methods": "GET, HEAD, PUT, PATCH, POST, DELETE",
+        "access-control-allow-origin": "*",
+        "access-control-expose-headers": "Request-Id, Stripe-Manage-Version, Stripe-Should-Retry, X-Stripe-External-Auth-Required, X-Stripe-Privileged-Session-Required",
+        "access-control-max-age": "300",
+        "cache-control": "no-cache, no-store",
+        "connection": "keep-alive",
+        "content-length": "375",
+        "content-security-policy": "base-uri 'none'; default-src 'none'; form-action 'none'; frame-ancestors 'none'; img-src 'self'; script-src 'self' 'report-sample'; style-src 'self'; worker-src 'none'; upgrade-insecure-requests; report-uri https://q.stripe.com/csp-violation?q=ngtDX0C4tQ5-LxCbNhiy8gmDD4gwpjHz_zw3cs69bRjsOLP3DkWSD1fPkVetXZ3bnTOuzVJhbKWRCJ7W; report-to csp",
+        "content-type": "application/json",
+        "date": "Sun, 02 Aug 2026 11:14:29 GMT",
+        "idempotency-key": "stripe-node-retry-12998ae7-cd81-4182-99da-0007150ed8c1",
+        "original-request": "req_6vxy4r4ZGGURIh",
+        "report-to": "{\"group\":\"csp\",\"max_age\":8640,\"endpoints\":[{\"url\":\"https://q.stripe.com/csp-report-v2?q=ngtDX0C4tQ5-LxCbNhiy8gmDD4gwpjHz_zw3cs69bRjsOLP3DkWSD1fPkVetXZ3bnTOuzVJhbKWRCJ7W&t=1\"}],\"include_subdomains\":true}",
+        "reporting-endpoints": "csp=\"https://q.stripe.com/csp-report-v2?q=ngtDX0C4tQ5-LxCbNhiy8gmDD4gwpjHz_zw3cs69bRjsOLP3DkWSD1fPkVetXZ3bnTOuzVJhbKWRCJ7W&t=1\"",
+        "request-id": "req_6vxy4r4ZGGURIh",
+        "server": "nginx",
+        "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+        "stripe-version": "2026-07-29.dahlia",
+        "vary": "Origin",
+        "x-stripe-priority-routing-enabled": "true",
+        "x-stripe-routing-context-priority-tier": "api-testmode",
+        "x-wc": "3c3"
+      },
+      "statusCode": 400,
+      "requestId": "req_6vxy4r4ZGGURIh"
+    },
+    "rawType": "invalid_request_error",
+    "headers": {
+      "access-control-allow-credentials": "true",
+      "access-control-allow-methods": "GET, HEAD, PUT, PATCH, POST, DELETE",
+      "access-control-allow-origin": "*",
+      "access-control-expose-headers": "Request-Id, Stripe-Manage-Version, Stripe-Should-Retry, X-Stripe-External-Auth-Required, X-Stripe-Privileged-Session-Required",
+      "access-control-max-age": "300",
+      "cache-control": "no-cache, no-store",
+      "connection": "keep-alive",
+      "content-length": "375",
+      "content-security-policy": "base-uri 'none'; default-src 'none'; form-action 'none'; frame-ancestors 'none'; img-src 'self'; script-src 'self' 'report-sample'; style-src 'self'; worker-src 'none'; upgrade-insecure-requests; report-uri https://q.stripe.com/csp-violation?q=ngtDX0C4tQ5-LxCbNhiy8gmDD4gwpjHz_zw3cs69bRjsOLP3DkWSD1fPkVetXZ3bnTOuzVJhbKWRCJ7W; report-to csp",
+      "content-type": "application/json",
+      "date": "Sun, 02 Aug 2026 11:14:29 GMT",
+      "idempotency-key": "stripe-node-retry-12998ae7-cd81-4182-99da-0007150ed8c1",
+      "original-request": "req_6vxy4r4ZGGURIh",
+      "report-to": "{\"group\":\"csp\",\"max_age\":8640,\"endpoints\":[{\"url\":\"https://q.stripe.com/csp-report-v2?q=ngtDX0C4tQ5-LxCbNhiy8gmDD4gwpjHz_zw3cs69bRjsOLP3DkWSD1fPkVetXZ3bnTOuzVJhbKWRCJ7W&t=1\"}],\"include_subdomains\":true}",
+      "reporting-endpoints": "csp=\"https://q.stripe.com/csp-report-v2?q=ngtDX0C4tQ5-LxCbNhiy8gmDD4gwpjHz_zw3cs69bRjsOLP3DkWSD1fPkVetXZ3bnTOuzVJhbKWRCJ7W&t=1\"",
+      "request-id": "req_6vxy4r4ZGGURIh",
+      "server": "nginx",
+      "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+      "stripe-version": "2026-07-29.dahlia",
+      "vary": "Origin",
+      "x-stripe-priority-routing-enabled": "true",
+      "x-stripe-routing-context-priority-tier": "api-testmode",
+      "x-wc": "3c3"
+    },
+    "requestId": "req_6vxy4r4ZGGURIh",
+    "statusCode": 400,
+    "code": "resource_missing",
+    "doc_url": "https://stripe.com/docs/error-codes/resource-missing",
+    "param": "customer",
+    "request_log_url": "https://dashboard.stripe.com/acct_1Tzc884yzueItlQS/test/workbench/logs?object=req_6vxy4r4ZGGURIh"
+  }
+}

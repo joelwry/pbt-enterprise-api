@@ -69,7 +69,7 @@ async function main() {
     process.exit(1);
   }
 
-  const stripe = new Stripe(config.STRIPE_SECRET_KEY);
+  const stripe = new Stripe(config.STRIPE_SECRET_KEY, { httpClient: Stripe.createFetchHttpClient() });
   const envLines: string[] = [];
 
   for (const tier of TIERS) {

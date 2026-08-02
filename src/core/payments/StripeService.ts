@@ -23,7 +23,12 @@ export class StripeService {
       throw new Error('Stripe is not configured (STRIPE_SECRET_KEY missing)');
     }
     if (this.client == null) {
-      this.client = new Stripe(config.STRIPE_SECRET_KEY);
+      // Explicit fetch-based HTTP client (supported since Node 18) rather
+      // than Stripe's default Node `https`-module client -- the fetch
+      // client is what actually honors HTTPS_PROXY/NODE_USE_ENV_PROXY in
+      // proxied environments; the legacy client silently tries a direct
+      // connection instead.
+      this.client = new Stripe(config.STRIPE_SECRET_KEY, { httpClient: Stripe.createFetchHttpClient() });
     }
     return this.client;
   }
