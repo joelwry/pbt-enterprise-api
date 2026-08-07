@@ -8,6 +8,14 @@ import { errorHandler, notFoundHandler } from '@/core/middleware/errorHandler';
 import logger from '@/core/logger/logger';
 import { setupSecurityMiddleware } from '@/core/middleware/securityMiddleware';
 import healthRoutes from '@/core/health/health.routes';
+import { buildOpenApiSpec } from '@/docs/openapi/build-spec';
+
+// swagger-ui-express has no published types; typing it inline avoids
+// depending on ts-node reliably picking up our own ambient .d.ts (it doesn't).
+const swaggerUi: {
+  serve: express.RequestHandler[];
+  setup: (doc: Record<string, unknown>, opts?: Record<string, unknown>) => express.RequestHandler;
+} = require('swagger-ui-express');
 
 // Routes
 import authRoutes from '@/modules/auth/routes/auth.routes';
@@ -151,8 +159,12 @@ export function createApp(): Application {
   app.use(`/api/${config.API_VERSION}/admin/site-settings`, adminSiteSettingsRoutes);
 
   // ==================== SWAGGER DOCUMENTATION ====================
-  // Swagger setup will be added here
-  // app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+  // Spec is (re)built from the live route files on every server start -- see
+  // src/docs/openapi/build-spec.ts. Nothing here needs updating when a new
+  // route file is added; add it to route-manifest.ts instead.
+  const openApiSpec = buildOpenApiSpec();
+  app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(openApiSpec, { customSiteTitle: 'PBT Enterprise API Docs' }));
+  app.get('/api/docs.json', (req: Request, res: Response) => res.json(openApiSpec));
 
   // ==================== ERROR HANDLING ====================
   app.use(notFoundHandler);
