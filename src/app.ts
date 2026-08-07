@@ -47,6 +47,8 @@ import { billingController } from '@/modules/billing/controllers/billing.control
 import { catchAsync } from '@/core/middleware/asyncHandler';
 import pricingRoutes from '@/modules/pricing/routes/pricing.routes';
 import adminPricingRoutes from '@/modules/pricing/routes/admin-pricing.routes';
+import siteSettingsRoutes from '@/modules/site-settings/routes/site-settings.routes';
+import adminSiteSettingsRoutes from '@/modules/site-settings/routes/admin-site-settings.routes';
 
 export function createApp(): Application {
   const app = express();
@@ -145,6 +147,8 @@ export function createApp(): Application {
   app.use(`/api/${config.API_VERSION}/billing`, billingRoutes);
   app.use(`/api/${config.API_VERSION}/pricing`, pricingRoutes);
   app.use(`/api/${config.API_VERSION}/admin/pricing`, adminPricingRoutes);
+  app.use(`/api/${config.API_VERSION}/site-settings`, siteSettingsRoutes);
+  app.use(`/api/${config.API_VERSION}/admin/site-settings`, adminSiteSettingsRoutes);
 
   // ==================== SWAGGER DOCUMENTATION ====================
   // Swagger setup will be added here
