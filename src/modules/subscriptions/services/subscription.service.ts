@@ -1,4 +1,5 @@
 import { Subscription, SubscriptionDocument } from '@/modules/subscriptions/schemas/Subscription.schema';
+import { pricingService } from '@/modules/pricing/services/pricing.service';
 import { AppError } from '@/core/errors/AppError';
 import logger from '@/core/logger/logger';
 import { Types } from 'mongoose';
@@ -119,7 +120,7 @@ export class SubscriptionService {
         userId,
         newTier,
         currentSubscription.billingCycle,
-        this.getPriceForTier(newTier, currentSubscription.billingCycle)
+        await this.getPriceForTier(newTier, currentSubscription.billingCycle)
       );
     } catch (error) {
       if (error instanceof AppError) throw error;
@@ -165,7 +166,7 @@ export class SubscriptionService {
         userId,
         newTier,
         currentSubscription.billingCycle,
-        this.getPriceForTier(newTier, currentSubscription.billingCycle)
+        await this.getPriceForTier(newTier, currentSubscription.billingCycle)
       );
     } catch (error) {
       if (error instanceof AppError) throw error;
@@ -246,16 +247,14 @@ export class SubscriptionService {
   }
 
   /**
-   * Get price for tier -- matches the frontend's real, consistently-used
-   * MEMBERSHIP_TIERS pricing (features/membership/tiers.ts); these are the
-   * only prices ever actually shown to a member, so the backend (previously
-   * untested/unwired here) is the one reconciled to match. Annual is simply
-   * 10 months' worth (2 months free), a placeholder until real annual
-   * pricing is decided alongside the Stripe integration.
+   * Real, admin-overridable pricing (see modules/pricing/services/pricing.service.ts)
+   * -- this is the one place the rest of the backend asks "what does this
+   * tier/cycle cost right now", so an admin pricing change (e.g. a
+   * promotional offer) takes effect everywhere without a redeploy.
    */
-  getPriceForTier(tier: 'pathway' | 'plus' | 'mentorship', billingCycle: 'monthly' | 'annual'): number {
-    const monthly: Record<string, number> = { pathway: 39, plus: 79, mentorship: 149 };
-    return billingCycle === 'monthly' ? monthly[tier] : monthly[tier] * 10;
+  async getPriceForTier(tier: 'pathway' | 'plus' | 'mentorship', billingCycle: 'monthly' | 'annual'): Promise<number> {
+    const { amount } = await pricingService.getEffectivePrice(tier, billingCycle);
+    return amount;
   }
 
   /**
@@ -332,12 +331,17 @@ export class SubscriptionService {
     }
     const totalMrr = mrrByTier.pathway + mrrByTier.plus + mrrByTier.mentorship;
 
-    const segments = (['pathway', 'plus', 'mentorship'] as const).map((tier) => ({
-      tier: tier.charAt(0).toUpperCase() + tier.slice(1),
-      label: `${tierNames[tier]} — £${this.getPriceForTier(tier, 'monthly')}/mo`,
-      priceLabel: `£${this.getPriceForTier(tier, 'monthly')}/mo`,
-      percent: totalMrr > 0 ? Math.round((mrrByTier[tier] / totalMrr) * 100) : 0,
-    }));
+    const segments = await Promise.all(
+      (['pathway', 'plus', 'mentorship'] as const).map(async (tier) => {
+        const monthlyPrice = await this.getPriceForTier(tier, 'monthly');
+        return {
+          tier: tier.charAt(0).toUpperCase() + tier.slice(1),
+          label: `${tierNames[tier]} — £${monthlyPrice}/mo`,
+          priceLabel: `£${monthlyPrice}/mo`,
+          percent: totalMrr > 0 ? Math.round((mrrByTier[tier] / totalMrr) * 100) : 0,
+        };
+      })
+    );
 
     return {
       mrrLabel: `£${Math.round(totalMrr).toLocaleString('en-GB')}`,

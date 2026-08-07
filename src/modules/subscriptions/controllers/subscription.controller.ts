@@ -54,15 +54,17 @@ export class SubscriptionController {
    */
   getAvailablePlans = asyncHandler(async (req: Request, res: Response) => {
     const hierarchy = subscriptionService.getTierHierarchy();
-    const plans = Object.entries(hierarchy).map(([tier, data]) => ({
-      tier,
-      name: data.name,
-      price: {
-        monthly: subscriptionService.getPriceForTier(tier as any, 'monthly'),
-        annual: subscriptionService.getPriceForTier(tier as any, 'annual'),
-      },
-      features: data.features,
-    }));
+    const plans = await Promise.all(
+      Object.entries(hierarchy).map(async ([tier, data]) => ({
+        tier,
+        name: data.name,
+        price: {
+          monthly: await subscriptionService.getPriceForTier(tier as any, 'monthly'),
+          annual: await subscriptionService.getPriceForTier(tier as any, 'annual'),
+        },
+        features: data.features,
+      }))
+    );
 
     ResponseHandler.ok(res, 'Plans retrieved successfully', plans);
   });

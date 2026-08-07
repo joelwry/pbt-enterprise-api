@@ -1741,3 +1741,9 @@ Learn more about webhook signing and explore webhook integration examples for va
     "request_log_url": "https://dashboard.stripe.com/acct_1Tzc884yzueItlQS/test/workbench/logs?object=req_6vxy4r4ZGGURIh"
   }
 }
+2026-08-07 10:07:52 [error]: Error occurred: Missing Stripe-Signature header {
+  "url": "/api/v1/billing/webhook",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "ValidationError: Missing Stripe-Signature header\n    at BillingController.webhook (/home/user/pbt-enterprise-api/src/modules/billing/controllers/billing.controller.ts:32:13)\n    at /home/user/pbt-enterprise-api/src/app.ts:81:48\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at rawParser (/home/user/pbt-enterprise-api/node_modules/body-parser/lib/types/raw.js:71:7)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)"
+}

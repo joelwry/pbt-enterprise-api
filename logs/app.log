@@ -16358,3 +16358,229 @@ Learn more about webhook signing and explore webhook integration examples for va
 2026-08-02 11:18:03 [info]: Connecting to MongoDB at mongodb://127.0.0.1:27017/pbtDb
 2026-08-02 11:18:03 [info]: MongoDB connected successfully
 2026-08-02 11:18:04 [info]: MongoDB disconnected
+2026-08-07 10:07:51 [info]: Connecting to MongoDB at mongodb://127.0.0.1:27017/pbtDb
+2026-08-07 10:07:51 [info]: MongoDB connected successfully
+2026-08-07 10:07:51 [info]: Security middleware initialized
+2026-08-07 10:07:51 [info]: 🚀 Server running on http://localhost:5000
+2026-08-07 10:07:51 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-08-07 10:07:51 [info]: 🔧 Environment: development
+2026-08-07 10:07:51 [info]: 🛣️  API Version: /api/v1
+2026-08-07 10:07:52 [error]: Error occurred: Missing Stripe-Signature header {
+  "url": "/api/v1/billing/webhook",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "ValidationError: Missing Stripe-Signature header\n    at BillingController.webhook (/home/user/pbt-enterprise-api/src/modules/billing/controllers/billing.controller.ts:32:13)\n    at /home/user/pbt-enterprise-api/src/app.ts:81:48\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at rawParser (/home/user/pbt-enterprise-api/node_modules/body-parser/lib/types/raw.js:71:7)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)"
+}
+2026-08-07 10:07:52 [info]: Stripe Price created {
+  "tier": "pathway",
+  "billingCycle": "monthly",
+  "amountMajorUnits": 99,
+  "priceId": "price_1U1kgu4yzueItlQSWBR25z1k"
+}
+2026-08-07 10:07:52 [info]: Seeded default TierPricing {
+  "tier": "pathway",
+  "billingCycle": "monthly",
+  "amount": 99
+}
+2026-08-07 10:07:53 [info]: Stripe Price created {
+  "tier": "pathway",
+  "billingCycle": "annual",
+  "amountMajorUnits": 990,
+  "priceId": "price_1U1kgv4yzueItlQSsIM5LSeg"
+}
+2026-08-07 10:07:53 [info]: Seeded default TierPricing {
+  "tier": "pathway",
+  "billingCycle": "annual",
+  "amount": 990
+}
+2026-08-07 10:07:53 [info]: Stripe Price created {
+  "tier": "plus",
+  "billingCycle": "monthly",
+  "amountMajorUnits": 249,
+  "priceId": "price_1U1kgv4yzueItlQSp1q6oc6s"
+}
+2026-08-07 10:07:53 [info]: Seeded default TierPricing {
+  "tier": "plus",
+  "billingCycle": "monthly",
+  "amount": 249
+}
+2026-08-07 10:07:54 [info]: Stripe Price created {
+  "tier": "plus",
+  "billingCycle": "annual",
+  "amountMajorUnits": 2490,
+  "priceId": "price_1U1kgw4yzueItlQSe8SqIDOL"
+}
+2026-08-07 10:07:54 [info]: Seeded default TierPricing {
+  "tier": "plus",
+  "billingCycle": "annual",
+  "amount": 2490
+}
+2026-08-07 10:07:54 [info]: Stripe Price created {
+  "tier": "mentorship",
+  "billingCycle": "monthly",
+  "amountMajorUnits": 449,
+  "priceId": "price_1U1kgw4yzueItlQSveIcKIQZ"
+}
+2026-08-07 10:07:54 [info]: Seeded default TierPricing {
+  "tier": "mentorship",
+  "billingCycle": "monthly",
+  "amount": 449
+}
+2026-08-07 10:07:55 [info]: Stripe Price created {
+  "tier": "mentorship",
+  "billingCycle": "annual",
+  "amountMajorUnits": 4490,
+  "priceId": "price_1U1kgx4yzueItlQS3QN2onrE"
+}
+2026-08-07 10:07:55 [info]: Seeded default TierPricing {
+  "tier": "mentorship",
+  "billingCycle": "annual",
+  "amount": 4490
+}
+2026-08-07 10:08:03 [info]: Connecting to MongoDB at mongodb://127.0.0.1:27017/pbtDb
+2026-08-07 10:08:03 [info]: MongoDB connected successfully
+2026-08-07 10:08:03 [info]: MongoDB disconnected
+2026-08-07 10:08:11 [info]: Request completed {
+  "correlationId": "1786097291316-0.6597137938181423",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 200,
+  "duration": "22ms",
+  "ip": "127.0.0.1"
+}
+2026-08-07 10:08:11 [info]: User logged in: super.admin@pbt.test
+2026-08-07 10:08:11 [info]: Admin logged in: super.admin@pbt.test
+2026-08-07 10:08:11 [info]: Request completed {
+  "correlationId": "1786097291415-0.5256068900516433",
+  "method": "POST",
+  "path": "/admin/login",
+  "statusCode": 200,
+  "duration": "316ms",
+  "ip": "127.0.0.1"
+}
+2026-08-07 10:08:11 [info]: Request completed {
+  "correlationId": "1786097291744-0.1594048769401979",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 200,
+  "duration": "10ms",
+  "ip": "127.0.0.1"
+}
+2026-08-07 10:08:18 [info]: User logged in: super.admin@pbt.test
+2026-08-07 10:08:18 [info]: Admin logged in: super.admin@pbt.test
+2026-08-07 10:08:18 [info]: Request completed {
+  "correlationId": "1786097298572-0.8728598883372425",
+  "method": "POST",
+  "path": "/admin/login",
+  "statusCode": 200,
+  "duration": "91ms",
+  "ip": "127.0.0.1"
+}
+2026-08-07 10:08:20 [info]: Stripe Price created {
+  "tier": "plus",
+  "billingCycle": "monthly",
+  "amountMajorUnits": 199,
+  "priceId": "price_1U1khL4yzueItlQS69hTnPNM"
+}
+2026-08-07 10:08:20 [info]: Admin pricing override applied {
+  "tier": "plus",
+  "billingCycle": "monthly",
+  "amount": 199,
+  "adminUserId": "6a690796fbf3dccd7d8eab72"
+}
+2026-08-07 10:08:20 [info]: Request completed {
+  "correlationId": "1786097298679-0.322144466345039",
+  "method": "PUT",
+  "path": "/plus/monthly",
+  "statusCode": 200,
+  "duration": "1609ms",
+  "ip": "127.0.0.1"
+}
+2026-08-07 10:08:20 [info]: Request completed {
+  "correlationId": "1786097300306-0.09844918000453662",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 200,
+  "duration": "7ms",
+  "ip": "127.0.0.1"
+}
+2026-08-07 10:08:20 [info]: Request completed {
+  "correlationId": "1786097300329-0.9859597343820969",
+  "method": "GET",
+  "path": "/plus/monthly/history",
+  "statusCode": 200,
+  "duration": "14ms",
+  "ip": "127.0.0.1"
+}
+2026-08-07 10:08:31 [info]: Stripe Checkout Session created {
+  "sessionId": "cs_test_a1fBf6gkRGvobDtTSEqt7YttpwRR7fQtn9Q6ttMv8pjgqVv2h1o9lgcV5M",
+  "metadata": {
+    "intent": "signup",
+    "fullName": "Promo Price Test",
+    "email": "promo-price-test@example.com",
+    "tier": "plus",
+    "billingCycle": "monthly",
+    "referralCode": ""
+  }
+}
+2026-08-07 10:08:31 [info]: Request completed {
+  "correlationId": "1786097310486-0.02563618298933834",
+  "method": "POST",
+  "path": "/signup-checkout",
+  "statusCode": 200,
+  "duration": "986ms",
+  "ip": "127.0.0.1"
+}
+2026-08-07 10:08:32 [info]: User logged in: super.admin@pbt.test
+2026-08-07 10:08:32 [info]: Admin logged in: super.admin@pbt.test
+2026-08-07 10:08:32 [info]: Request completed {
+  "correlationId": "1786097312091-0.7797284412299181",
+  "method": "POST",
+  "path": "/admin/login",
+  "statusCode": 200,
+  "duration": "94ms",
+  "ip": "127.0.0.1"
+}
+2026-08-07 10:08:32 [warn]: Invalid content-type header {
+  "correlationId": "1786097312198-0.7889788192528264",
+  "method": "POST",
+  "path": "/api/v1/admin/pricing/plus/monthly/reset"
+}
+2026-08-07 10:08:32 [info]: Request completed {
+  "correlationId": "1786097312198-0.7889788192528264",
+  "method": "POST",
+  "path": "/api/v1/admin/pricing/plus/monthly/reset",
+  "statusCode": 415,
+  "duration": "0ms",
+  "ip": "127.0.0.1"
+}
+2026-08-07 10:08:39 [info]: User logged in: super.admin@pbt.test
+2026-08-07 10:08:39 [info]: Admin logged in: super.admin@pbt.test
+2026-08-07 10:08:39 [info]: Request completed {
+  "correlationId": "1786097319175-0.9033548725502152",
+  "method": "POST",
+  "path": "/admin/login",
+  "statusCode": 200,
+  "duration": "90ms",
+  "ip": "127.0.0.1"
+}
+2026-08-07 10:08:40 [info]: Stripe Price created {
+  "tier": "plus",
+  "billingCycle": "monthly",
+  "amountMajorUnits": 249,
+  "priceId": "price_1U1khg4yzueItlQSuGibWPng"
+}
+2026-08-07 10:08:40 [info]: Admin pricing override applied {
+  "tier": "plus",
+  "billingCycle": "monthly",
+  "amount": 249,
+  "adminUserId": "6a690796fbf3dccd7d8eab72"
+}
+2026-08-07 10:08:40 [info]: Request completed {
+  "correlationId": "1786097319278-0.3226243835803355",
+  "method": "POST",
+  "path": "/plus/monthly/reset",
+  "statusCode": 200,
+  "duration": "1439ms",
+  "ip": "127.0.0.1"
+}

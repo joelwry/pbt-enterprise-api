@@ -3,9 +3,9 @@ import type Stripe from 'stripe';
 import { User } from '@/modules/users/schemas/User.schema';
 import { Subscription, SubscriptionDocument } from '@/modules/subscriptions/schemas/Subscription.schema';
 import { StripeService, BillingTier, BillingCycle } from '@/core/payments/StripeService';
+import { pricingService } from '@/modules/pricing/services/pricing.service';
 import { authRepository } from '@/modules/auth/repositories/auth.repository';
 import { referralService } from '@/modules/referrals/services/referral.service';
-import { subscriptionService } from '@/modules/subscriptions/services/subscription.service';
 import { EmailService } from '@/core/email/EmailService';
 import { config } from '@/config/environment';
 import { AppError, ConflictError, NotFoundError } from '@/core/errors/AppError';
@@ -65,10 +65,10 @@ export class BillingService {
     }
 
     const backendTier = toBackendTier(input.tier);
-    const priceId = StripeService.priceIdFor(backendTier, input.billingCycle);
+    const { stripePriceId } = await pricingService.getEffectivePrice(backendTier, input.billingCycle);
 
     const session = await StripeService.createCheckoutSession({
-      priceId,
+      priceId: stripePriceId,
       customerEmail: email,
       successUrl: `${config.FRONTEND_URL}/join/success?session_id={CHECKOUT_SESSION_ID}`,
       cancelUrl: `${config.FRONTEND_URL}/join?cancelled=true`,
@@ -92,7 +92,7 @@ export class BillingService {
     if (!user) throw new NotFoundError('Member not found');
 
     const backendTier = toBackendTier(input.tier);
-    const priceId = StripeService.priceIdFor(backendTier, input.billingCycle);
+    const { stripePriceId } = await pricingService.getEffectivePrice(backendTier, input.billingCycle);
 
     if (!user.stripeCustomerId) {
       const customer = await StripeService.createCustomer(userId, user.email, user.fullName);
@@ -101,7 +101,7 @@ export class BillingService {
     }
 
     const session = await StripeService.createCheckoutSession({
-      priceId,
+      priceId: stripePriceId,
       customerId: user.stripeCustomerId,
       successUrl: `${config.FRONTEND_URL}/my-subscription?checkout=success`,
       cancelUrl: `${config.FRONTEND_URL}/my-subscription?checkout=cancelled`,
@@ -153,7 +153,12 @@ export class BillingService {
 
     const tier = metadata.tier as BillingTier;
     const billingCycle = metadata.billingCycle as BillingCycle;
-    const amount = subscriptionService.getPriceForTier(tier, billingCycle);
+    // session.amount_total is what was actually charged (in pence) -- more
+    // authoritative than re-reading "current" pricing, which could have
+    // changed between checkout-session creation and this webhook firing.
+    const amount = session.amount_total != null
+      ? session.amount_total / 100
+      : (await pricingService.getEffectivePrice(tier, billingCycle)).amount;
 
     if (metadata.intent === 'signup') {
       let user = await User.findOne({ email: metadata.email });

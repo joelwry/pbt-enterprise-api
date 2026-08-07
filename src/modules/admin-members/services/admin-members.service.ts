@@ -234,7 +234,7 @@ export class AdminMembersService {
 
     const backendTier = toBackendTier(data.tier);
     if (backendTier !== 'pathway') {
-      const amount = subscriptionService.getPriceForTier(backendTier, 'monthly');
+      const amount = await subscriptionService.getPriceForTier(backendTier, 'monthly');
       await Subscription.create({
         userId: user._id,
         tier: backendTier,
@@ -278,7 +278,7 @@ export class AdminMembersService {
 
     if (existing) {
       existing.tier = backendTier;
-      existing.amount = subscriptionService.getPriceForTier(backendTier, existing.billingCycle);
+      existing.amount = await subscriptionService.getPriceForTier(backendTier, existing.billingCycle);
       await existing.save();
     } else if (backendTier !== 'pathway') {
       await Subscription.create({
@@ -288,7 +288,7 @@ export class AdminMembersService {
         startDate: new Date(),
         endDate: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000),
         billingCycle: 'monthly',
-        amount: subscriptionService.getPriceForTier(backendTier, 'monthly'),
+        amount: await subscriptionService.getPriceForTier(backendTier, 'monthly'),
         currency: 'GBP',
       });
     }

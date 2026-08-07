@@ -33,15 +33,11 @@ export const config = {
   CLOUDINARY_API_KEY: process.env.CLOUDINARY_API_KEY || '',
   CLOUDINARY_API_SECRET: process.env.CLOUDINARY_API_SECRET || '',
 
-  // Stripe
+  // Stripe -- Price ids are no longer stored here; they live in the
+  // TierPricing collection (see modules/pricing), seeded/managed via
+  // PricingService so admin-set pricing overrides don't require a redeploy.
   STRIPE_SECRET_KEY: process.env.STRIPE_SECRET_KEY || '',
   STRIPE_WEBHOOK_SECRET: process.env.STRIPE_WEBHOOK_SECRET || '',
-  STRIPE_PRICE_PATHWAY_MONTHLY: process.env.STRIPE_PRICE_PATHWAY_MONTHLY || '',
-  STRIPE_PRICE_PATHWAY_ANNUAL: process.env.STRIPE_PRICE_PATHWAY_ANNUAL || '',
-  STRIPE_PRICE_PLUS_MONTHLY: process.env.STRIPE_PRICE_PLUS_MONTHLY || '',
-  STRIPE_PRICE_PLUS_ANNUAL: process.env.STRIPE_PRICE_PLUS_ANNUAL || '',
-  STRIPE_PRICE_MENTORSHIP_MONTHLY: process.env.STRIPE_PRICE_MENTORSHIP_MONTHLY || '',
-  STRIPE_PRICE_MENTORSHIP_ANNUAL: process.env.STRIPE_PRICE_MENTORSHIP_ANNUAL || '',
 
   // CORS
   CORS_ORIGIN: process.env.CORS_ORIGIN || 'http://localhost:3000',

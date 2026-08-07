@@ -33,18 +33,38 @@ export class StripeService {
     return this.client;
   }
 
-  /** Maps a membership tier + billing cycle to the real Stripe Price id created by src/scripts/stripe-setup.ts. */
-  static priceIdFor(tier: BillingTier, billingCycle: BillingCycle): string {
-    const table: Record<BillingTier, Record<BillingCycle, string>> = {
-      pathway: { monthly: config.STRIPE_PRICE_PATHWAY_MONTHLY, annual: config.STRIPE_PRICE_PATHWAY_ANNUAL },
-      plus: { monthly: config.STRIPE_PRICE_PLUS_MONTHLY, annual: config.STRIPE_PRICE_PLUS_ANNUAL },
-      mentorship: { monthly: config.STRIPE_PRICE_MENTORSHIP_MONTHLY, annual: config.STRIPE_PRICE_MENTORSHIP_ANNUAL },
-    };
-    const priceId = table[tier][billingCycle];
-    if (!priceId) {
-      throw new Error(`No Stripe Price id configured for ${tier}/${billingCycle} -- run src/scripts/stripe-setup.ts`);
-    }
-    return priceId;
+  /** Finds the Product for a tier by its metadata tag, creating it if this is the first time this tier has ever been priced. */
+  static async findOrCreateProduct(tier: BillingTier, label: string): Promise<Stripe.Product> {
+    const existing = await this.getClient().products.search({ query: `metadata['tierKey']:'${tier}'` });
+    if (existing.data[0]) return existing.data[0];
+
+    const product = await this.getClient().products.create({ name: label, metadata: { tierKey: tier } });
+    logger.info('Stripe Product created', { tier, productId: product.id });
+    return product;
+  }
+
+  /**
+   * Stripe Prices are immutable once created -- there is no "edit the
+   * amount" operation. Every pricing change (including an admin override)
+   * creates a brand new Price object; the caller is responsible for
+   * deactivating whatever Price it's superseding via deactivatePrice().
+   */
+  static async createPrice(productId: string, tier: BillingTier, billingCycle: BillingCycle, amountMajorUnits: number, currency = 'gbp'): Promise<Stripe.Price> {
+    const price = await this.getClient().prices.create({
+      product: productId,
+      currency,
+      unit_amount: Math.round(amountMajorUnits * 100),
+      recurring: { interval: billingCycle === 'monthly' ? 'month' : 'year' },
+      tax_behavior: 'exclusive',
+      metadata: { tierKey: tier, billingCycle },
+    });
+    logger.info('Stripe Price created', { tier, billingCycle, amountMajorUnits, priceId: price.id });
+    return price;
+  }
+
+  /** Archives a superseded Price so it can no longer be used for new Checkout Sessions -- existing subscriptions on it are unaffected. */
+  static async deactivatePrice(priceId: string): Promise<void> {
+    await this.getClient().prices.update(priceId, { active: false });
   }
 
   static async createCheckoutSession(options: {

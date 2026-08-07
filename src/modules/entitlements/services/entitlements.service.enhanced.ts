@@ -243,14 +243,14 @@ export class EnhancedEntitlementsService {
             },
             {
               tier: 'plus',
-              cost: subscriptionService.getPriceForTier('plus', 'monthly'),
+              cost: await subscriptionService.getPriceForTier('plus', 'monthly'),
               newFeatures: this.getFeaturesByTier('plus')
                 .filter((f) => this.tierHierarchy[f.tier] > this.tierHierarchy['pathway'])
                 .map((f) => f.name),
             },
             {
               tier: 'mentorship',
-              cost: subscriptionService.getPriceForTier('mentorship', 'monthly'),
+              cost: await subscriptionService.getPriceForTier('mentorship', 'monthly'),
               newFeatures: this.getFeaturesByTier('mentorship')
                 .filter((f) => this.tierHierarchy[f.tier] > this.tierHierarchy['plus'])
                 .map((f) => f.name),
@@ -264,7 +264,7 @@ export class EnhancedEntitlementsService {
       if (subscription.tier !== 'plus') {
         upgrades.push({
           tier: 'plus',
-          cost: subscriptionService.getPriceForTier('plus', subscription.billingCycle),
+          cost: await subscriptionService.getPriceForTier('plus', subscription.billingCycle),
           newFeatures: this.getFeaturesByTier('plus')
             .filter((f) => this.tierHierarchy[f.tier] > this.tierHierarchy[subscription.tier])
             .map((f) => f.name),
@@ -274,7 +274,7 @@ export class EnhancedEntitlementsService {
       if (subscription.tier !== 'mentorship') {
         upgrades.push({
           tier: 'mentorship',
-          cost: subscriptionService.getPriceForTier('mentorship', subscription.billingCycle),
+          cost: await subscriptionService.getPriceForTier('mentorship', subscription.billingCycle),
           newFeatures: this.getFeaturesByTier('mentorship')
             .filter((f) => this.tierHierarchy[f.tier] > this.tierHierarchy[subscription.tier])
             .map((f) => f.name),
