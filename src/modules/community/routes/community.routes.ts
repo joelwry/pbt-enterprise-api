@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { CommunityController } from '@/modules/community/controllers/community.controller';
-import { authMiddleware } from '@/core/middleware/authMiddleware';
+import { authenticate } from '@/core/middleware/authMiddleware';
 
 const router = Router();
 
@@ -8,23 +8,18 @@ const router = Router();
  * Community Routes
  * All routes require authentication
  */
+router.use(authenticate);
 
-// Get categories (public)
+// Specific routes before the /:threadId catch-all.
 router.get('/categories', CommunityController.getCategories);
+router.get('/meta', CommunityController.getMeta);
 
-// Get all threads with pagination
 router.get('/', CommunityController.getThreads);
+router.post('/', CommunityController.createThread);
 
-// Get thread details with replies (protected)
-router.get('/:threadId', authMiddleware, CommunityController.getThreadDetail);
-
-// Create new thread (protected)
-router.post('/', authMiddleware, CommunityController.createThread);
-
-// Add reply to thread (protected)
-router.post('/:threadId/replies', authMiddleware, CommunityController.addReply);
-
-// Toggle like on thread (protected)
-router.post('/:threadId/like', authMiddleware, CommunityController.toggleLike);
+router.get('/:threadId', CommunityController.getThreadDetail);
+router.post('/:threadId/replies', CommunityController.addReply);
+router.post('/:threadId/like', CommunityController.toggleLike);
+router.post('/:threadId/report', CommunityController.reportThread);
 
 export default router;

@@ -1,5 +1,7 @@
-import { AuthRepository, authRepository } from '@/modules/auth/repositories/auth.repository';
+import { AuthRepository, authRepository as defaultAuthRepository } from '@/modules/auth/repositories/auth.repository';
 import { JwtHelper } from '@/core/auth/JwtHelper';
+import { EmailService } from '@/core/email/EmailService';
+import { referralService } from '@/modules/referrals/services/referral.service';
 import {
   ConflictError,
   AuthenticationError,
@@ -24,12 +26,12 @@ export interface LoginResponse {
 }
 
 export class AuthService {
-  constructor(private authRepository: AuthRepository = authRepository) {}
+  constructor(private authRepository: AuthRepository = defaultAuthRepository) {}
 
   /**
    * Register new user
    */
-  async register(email: string, password: string, fullName: string): Promise<LoginResponse> {
+  async register(email: string, password: string, fullName: string, referralCode?: string): Promise<LoginResponse> {
     // Check if user already exists
     const existingUser = await this.authRepository.findByEmail(email);
     if (existingUser) {
@@ -46,6 +48,8 @@ export class AuthService {
     });
 
     logger.info(`User registered: ${user.email}`);
+
+    await referralService.recordReferral(referralCode, user._id.toString());
 
     // Generate tokens
     const tokens = this.generateTokens(user._id.toString(), user.email, user.role);
@@ -147,8 +151,7 @@ export class AuthService {
     const resetToken = await this.authRepository.setPasswordResetToken(user._id.toString());
     logger.info(`Password reset requested for user: ${user.email}`);
 
-    // TODO: Send email with reset token
-    // await emailService.sendPasswordResetEmail(user.email, resetToken);
+    await EmailService.sendPasswordResetEmail(user.email, resetToken);
 
     return resetToken;
   }
@@ -184,10 +187,65 @@ export class AuthService {
       fullName: user.fullName,
       phone: user.phone,
       avatarUrl: user.avatarUrl,
+      location: user.location,
+      investmentFocus: user.investmentFocus,
+      assignedLeader: user.assignedLeader,
+      notificationPreferences: user.notificationPreferences,
       role: user.role,
       emailVerified: user.emailVerified,
       isActive: user.isActive,
     };
+  }
+
+  /**
+   * Update the current member's editable profile details.
+   */
+  async updateProfile(
+    userId: string,
+    updates: { fullName: string; email: string; phone: string; location: string; investmentFocus: string }
+  ) {
+    const existing = await this.authRepository.findById(userId);
+    if (!existing) {
+      throw new NotFoundError('User not found');
+    }
+
+    const emailChanged = updates.email.toLowerCase() !== existing.email;
+    const updated = await this.authRepository.update(userId, {
+      ...updates,
+      email: updates.email.toLowerCase(),
+      // Changing the email address means the new one hasn't been verified yet.
+      ...(emailChanged ? { emailVerified: false } : {}),
+    });
+
+    logger.info(`Profile updated: ${updated.email}`);
+
+    return {
+      fullName: updated.fullName,
+      email: updated.email,
+      phone: updated.phone,
+      location: updated.location,
+      investmentFocus: updated.investmentFocus,
+      assignedLeader: updated.assignedLeader,
+    };
+  }
+
+  /**
+   * Update a single notification preference for the current member.
+   */
+  async updateNotificationPreference(
+    userId: string,
+    key: keyof import('@/modules/users/schemas/User.schema').INotificationPreferences,
+    value: boolean
+  ) {
+    const user = await this.authRepository.findById(userId);
+    if (!user) {
+      throw new NotFoundError('User not found');
+    }
+
+    user.notificationPreferences[key] = value;
+    await user.save();
+
+    return user.notificationPreferences;
   }
 
   /**

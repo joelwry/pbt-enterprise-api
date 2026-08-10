@@ -6,13 +6,13 @@ export class InsightController {
   async getTrendingInsights(req: Request, res: Response) {
     const limit = parseInt(req.query.limit as string) || 10;
     const insights = await insightService.getTrendingInsights(limit);
-    ResponseHandler.success(res, insights, 'Trending insights retrieved');
+    ResponseHandler.ok(res, 'Trending insights retrieved', insights);
   }
 
   async getByCategory(req: Request, res: Response) {
     const { category } = req.params;
     const insights = await insightService.getByCategory(category);
-    ResponseHandler.success(res, insights, 'Insights retrieved');
+    ResponseHandler.ok(res, 'Insights retrieved', insights);
   }
 }
 

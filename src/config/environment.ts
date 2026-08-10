@@ -23,14 +23,27 @@ export const config = {
   SMTP_USER: process.env.SMTP_USER || '',
   SMTP_PASS: process.env.SMTP_PASS || '',
   SMTP_FROM: process.env.SMTP_FROM || 'noreply@pbt.com',
+  SMTP_FROM_NAME: process.env.SMTP_FROM_NAME || 'PBT',
+
+  // Frontend (used to build links inside emails, e.g. password/account setup)
+  FRONTEND_URL: process.env.FRONTEND_URL || 'http://localhost:3000',
 
   // Cloudinary
   CLOUDINARY_CLOUD_NAME: process.env.CLOUDINARY_CLOUD_NAME || '',
   CLOUDINARY_API_KEY: process.env.CLOUDINARY_API_KEY || '',
   CLOUDINARY_API_SECRET: process.env.CLOUDINARY_API_SECRET || '',
 
+  // Stripe -- Price ids are no longer stored here; they live in the
+  // TierPricing collection (see modules/pricing), seeded/managed via
+  // PricingService so admin-set pricing overrides don't require a redeploy.
+  STRIPE_SECRET_KEY: process.env.STRIPE_SECRET_KEY || '',
+  STRIPE_WEBHOOK_SECRET: process.env.STRIPE_WEBHOOK_SECRET || '',
+
   // CORS
   CORS_ORIGIN: process.env.CORS_ORIGIN || 'http://localhost:3000',
+
+  // Security
+  ENABLE_HELMET: process.env.ENABLE_HELMET || 'true',
 
   // Rate Limiting
   RATE_LIMIT_WINDOW: parseInt(process.env.RATE_LIMIT_WINDOW || '900000', 10), // 15 minutes

@@ -1,12 +1,26 @@
 import { Schema, model, Document } from 'mongoose';
 import bcrypt from 'bcryptjs';
 
+export interface INotificationPreferences {
+  communityReplies: boolean;
+  eventReminders: boolean;
+  newModuleReleases: boolean;
+  marketingUpdates: boolean;
+}
+
 export interface IUser extends Document {
   email: string;
   password: string;
   fullName: string;
   phone?: string;
   avatarUrl?: string;
+  location?: string;
+  investmentFocus?: string;
+  /** Set by admin/mentor-matching tooling, not editable by the member. */
+  assignedLeader?: string;
+  /** Stripe Customer id, set the first time this member ever completes a Checkout Session. */
+  stripeCustomerId?: string;
+  notificationPreferences: INotificationPreferences;
   role: 'member' | 'admin' | 'super_admin' | 'visitor';
   emailVerified: boolean;
   emailVerificationToken?: string;
@@ -29,7 +43,7 @@ const userSchema = new Schema<IUser>(
       unique: true,
       lowercase: true,
       trim: true,
-      match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please provide a valid email'],
+      match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,})+$/, 'Please provide a valid email'],
       index: true,
     },
     password: {
@@ -49,6 +63,28 @@ const userSchema = new Schema<IUser>(
     },
     avatarUrl: {
       type: String,
+    },
+    location: {
+      type: String,
+      trim: true,
+    },
+    investmentFocus: {
+      type: String,
+      trim: true,
+    },
+    assignedLeader: {
+      type: String,
+      trim: true,
+    },
+    stripeCustomerId: {
+      type: String,
+      index: true,
+    },
+    notificationPreferences: {
+      communityReplies: { type: Boolean, default: true },
+      eventReminders: { type: Boolean, default: true },
+      newModuleReleases: { type: Boolean, default: true },
+      marketingUpdates: { type: Boolean, default: false },
     },
     role: {
       type: String,
@@ -96,16 +132,11 @@ const userSchema = new Schema<IUser>(
 );
 
 // Hash password before saving
-userSchema.pre('save', async function (next: Function) {
-  if (!this.isModified('password')) return next();
+userSchema.pre('save', async function (this: any) {
+  if (!this.isModified('password')) return;
 
-  try {
-    const salt = await bcrypt.genSalt(10);
-    this.password = await bcrypt.hash(this.password, salt);
-    next();
-  } catch (error) {
-    next(error as Error);
-  }
+  const salt = await bcrypt.genSalt(10);
+  this.password = await bcrypt.hash(this.password, salt);
 });
 
 // Compare password method
@@ -114,12 +145,10 @@ userSchema.methods.comparePassword = async function (password: string): Promise<
 };
 
 // Soft delete query middleware
-userSchema.pre(/^find/, function (next: Function) {
-  // @ts-ignore
+userSchema.pre(/^find|^countDocuments|^distinct/, function (this: any) {
   if (this.where) {
     this.where({ deletedAt: { $exists: false } });
   }
-  next();
 });
 
 // Create indexes

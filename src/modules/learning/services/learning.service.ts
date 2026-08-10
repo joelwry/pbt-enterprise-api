@@ -6,99 +6,73 @@ import {
   IModule,
   IUserLessonProgress,
   LessonStatus,
-  LessonType,
+  MembershipTier,
 } from '@/modules/learning/schemas/Learning.schema';
-import { membershipService } from '@/modules/memberships/services/membership.service';
+import { Roadmap } from '@/modules/learning/schemas/Roadmap.schema';
+import { RoadmapWeek } from '@/modules/learning/schemas/RoadmapWeek.schema';
+import { learningProgressService } from '@/modules/learning/services/learning-progress.service';
+import { UserProgress } from '@/modules/progress/schemas/UserProgress.schema';
+import activityService from '@/modules/activity/services/activity.service';
 import { NotFoundError, AuthorizationError } from '@/core/errors/AppError';
 import logger from '@/core/logger/logger';
 
+// How many years back from the current year members can browse in My
+// Learning (inclusive of the current year). Per product direction: never
+// show a future-dated roadmap to members, even if the admin has already
+// created one ahead of time for planning purposes.
+const VISIBLE_YEARS_BACK = 2;
+
 export class LearningService {
   /**
-   * Get all modules for a program year
+   * Available roadmap years for the member-facing My Learning year picker.
+   * Only the current year and up to VISIBLE_YEARS_BACK years before it are
+   * shown — never a future year, regardless of what roadmaps already exist
+   * in the database (admins may pre-create next year's roadmap in advance).
    */
-  async getModulesByYear(year: string, userId: string): Promise<IModule[]> {
-    const modules = await Module.find({ programYear: year })
-      .populate({
-        path: 'lessons',
-        select: 'title type month category',
-      })
-      .sort({ moduleNumber: 1 });
+  async getRoadmapYears() {
+    const currentYear = new Date().getFullYear();
+    const oldestVisibleYear = currentYear - VISIBLE_YEARS_BACK;
 
-    return modules;
+    const roadmaps = await Roadmap.find().sort({ year: -1 }).select('year title isCurrent');
+    return roadmaps.filter((r) => {
+      const year = parseInt(r.year, 10);
+      return !Number.isNaN(year) && year <= currentYear && year >= oldestVisibleYear;
+    });
   }
 
   /**
-   * Get lesson with access control
-   */
-  async getLesson(lessonId: string, userId: string): Promise<ILesson> {
-    const lesson = await Lesson.findById(lessonId).populate('moduleId');
-
-    if (!lesson) {
-      throw new NotFoundError('Lesson not found');
-    }
-
-    // Check access
-    const canAccess = await this.canAccessLesson(userId, lesson);
-    if (!canAccess) {
-      throw new AuthorizationError('You do not have access to this lesson');
-    }
-
-    return lesson;
-  }
-
-  /**
-   * Check if lesson is unlocked (based on time schedule)
+   * Lesson access in My Learning is governed by a single gate: the Release
+   * Gate (unlocksAt). Product decision (see docs/ui_adjustment.md): My
+   * Learning content is available to every subscription tier — mixing a
+   * higher-tier-only lesson into a shared roadmap module was identified as
+   * wrong. Tier-restricted content lives in its own dedicated areas (PBT
+   * Plus / PBT Mentorship), not in the general Roadmap. `requiredTier` is
+   * still stored on the lesson (and settable by admins) for that purpose,
+   * it just isn't enforced here anymore.
    */
   isLessonUnlocked(lesson: ILesson): boolean {
     return new Date() >= lesson.access.unlocksAt;
   }
 
-  /**
-   * Check if user can access lesson
-   */
   async canAccessLesson(userId: string, lesson: ILesson): Promise<boolean> {
-    // Check if unlocked
-    if (!this.isLessonUnlocked(lesson)) {
-      return false;
-    }
-
-    // Check tier access
-    const canAccessTier = await membershipService.canAccessTier(userId, lesson.access.requiredTier);
-    if (!canAccessTier) {
-      return false;
-    }
-
-    return true;
+    return this.isLessonUnlocked(lesson);
   }
 
-  /**
-   * Get user's lesson progress
-   */
-  async getUserLessonProgress(
-    userId: string,
-    lessonId: string
-  ): Promise<IUserLessonProgress | null> {
-    return UserLessonProgress.findOne({
-      userId,
-      lessonId,
-    });
+  async getUserLessonProgress(userId: string, lessonId: string): Promise<IUserLessonProgress | null> {
+    return UserLessonProgress.findOne({ userId, lessonId });
   }
 
-  /**
-   * Update lesson progress
-   */
   async updateLessonProgress(
     userId: string,
     lessonId: string,
     moduleId: string,
     status: LessonStatus,
     progressPercent: number = 0,
-    quizScore?: number
+    quizScore?: number,
+    timeSpentMinutes: number = 0
   ): Promise<IUserLessonProgress> {
-    let progress = await UserLessonProgress.findOne({
-      userId,
-      lessonId,
-    });
+    let progress = await UserLessonProgress.findOne({ userId, lessonId });
+    const wasAlreadyCompleted = progress?.status === 'completed';
 
     if (!progress) {
       progress = new UserLessonProgress({
@@ -108,12 +82,18 @@ export class LearningService {
         status,
         progressPercent,
         quizScore,
+        timeSpentMinutes: Math.max(0, timeSpentMinutes),
         lastAccessedAt: new Date(),
       });
     } else {
       progress.status = status;
       progress.progressPercent = progressPercent;
       if (quizScore !== undefined) progress.quizScore = quizScore;
+      // Accumulated, not overwritten — a member typically reaches "completed"
+      // across more than one visit to the lesson.
+      if (timeSpentMinutes > 0) {
+        progress.timeSpentMinutes = (progress.timeSpentMinutes || 0) + timeSpentMinutes;
+      }
       progress.lastAccessedAt = new Date();
 
       if (status === 'completed' && !progress.completedAt) {
@@ -124,44 +104,110 @@ export class LearningService {
     const saved = await progress.save();
     logger.info(`Lesson progress updated: ${userId} - ${lessonId} - ${status}`);
 
+    // UserLessonProgress is the write; UserProgress is always a
+    // recalculation of it, never written directly.
+    await learningProgressService.recalculate(userId);
+
+    // Real activity feed entry (powers the admin member detail Activity Log)
+    // -- only on the transition into "completed", not every progress tick.
+    if (status === 'completed' && !wasAlreadyCompleted) {
+      const lesson = await Lesson.findById(lessonId).select('title');
+      await activityService.logActivity(userId, 'lesson_completed', {
+        itemId: lessonId,
+        itemType: 'lesson',
+        description: `Completed lesson "${lesson?.title ?? 'Untitled lesson'}"`,
+      });
+    }
+
     return saved;
   }
 
-  /**
-   * Get module progress for user
-   */
-  async getModuleProgress(userId: string, moduleId: string) {
-    const progresses = await UserLessonProgress.find({
-      userId,
-      moduleId,
-    });
+  async getModuleProgress(userId: string, moduleId: string, tier?: MembershipTier) {
+    // Denominator must be the module's actual lesson count, not the count of
+    // progress records that happen to exist — most lessons have no record
+    // until a member first opens them, which would otherwise inflate the %.
+    // When scoped to a tier (the Pathway page, or a dedicated Plus/Masterplan
+    // page), both the denominator and the completed count must be scoped to
+    // that same set of lessons -- otherwise a lesson from a different tier
+    // could inflate "completed" without being part of "total".
+    const lessonFilter: Record<string, unknown> = { moduleId, isDraft: { $ne: true } };
+    if (tier) lessonFilter['access.requiredTier'] = tier;
+
+    const tierLessons = tier ? await Lesson.find(lessonFilter).select('_id') : null;
+    const total = tier ? tierLessons!.length : await Lesson.countDocuments(lessonFilter);
+
+    const progressFilter: Record<string, unknown> = { userId, moduleId };
+    if (tier) progressFilter.lessonId = { $in: tierLessons!.map((l) => l._id) };
+    const progresses = await UserLessonProgress.find(progressFilter);
 
     const completed = progresses.filter((p) => p.status === 'completed').length;
-    const total = progresses.length;
     const percent = total > 0 ? Math.round((completed / total) * 100) : 0;
 
     return {
       completed,
       total,
       progressPercent: percent,
-      badge: completed === total ? { kind: 'complete' } : 
-             completed > 0 ? { kind: 'progress', label: `${percent}%` } : null,
+      badge:
+        completed === total && total > 0
+          ? { kind: 'complete' }
+          : completed > 0
+            ? { kind: 'progress', label: `${percent}%` }
+            : null,
+    };
+  }
+
+  async getLesson(lessonId: string, userId: string) {
+    const lesson = await Lesson.findById(lessonId).populate<{ moduleId: IModule }>('moduleId');
+    if (!lesson || lesson.isDraft) throw new NotFoundError('Lesson not found');
+
+    const canAccess = await this.canAccessLesson(userId, lesson as unknown as ILesson);
+    if (!canAccess) throw new AuthorizationError('You do not have access to this lesson');
+
+    const progress = await this.getUserLessonProgress(userId, lesson._id.toString());
+
+    return {
+      id: lesson._id,
+      moduleId: { _id: lesson.moduleId._id, title: lesson.moduleId.title },
+      month: lesson.month,
+      category: lesson.category,
+      title: lesson.title,
+      type: lesson.type,
+      author: lesson.author,
+      metaLabel: lesson.metaLabel,
+      progressPercent: progress?.progressPercent ?? 0,
+      status: progress?.status ?? 'not-started',
+      access: lesson.access,
+      body: lesson.body,
     };
   }
 
   /**
-   * Get all lessons in module with user progress
+   * Paginated at the database level (not fetch-all-then-slice) -- a module
+   * can genuinely hold many lessons over a roadmap's lifetime, and every
+   * lesson here still costs a canAccessLesson + getUserLessonProgress
+   * lookup, so loading all of them up front on every page visit doesn't
+   * scale. `tier` restricts to lessons written for exactly that tier (see
+   * getModuleProgress) -- omit it for the general/backward-compatible view.
    */
-  async getModuleLessons(userId: string, moduleId: string): Promise<any[]> {
-    const lessons = await Lesson.find({ moduleId });
+  async getModuleLessons(userId: string, moduleId: string, tier?: MembershipTier, page = 1, limit = 4): Promise<{ items: any[]; totalItems: number }> {
+    const filter: Record<string, unknown> = { moduleId, isDraft: { $ne: true } };
+    if (tier) filter['access.requiredTier'] = tier;
 
-    const lessonsWithStatus = await Promise.all(
+    const [lessons, totalItems] = await Promise.all([
+      Lesson.find(filter)
+        .sort({ month: 1 })
+        .skip((page - 1) * limit)
+        .limit(limit),
+      Lesson.countDocuments(filter),
+    ]);
+
+    const items = await Promise.all(
       lessons.map(async (lesson) => {
         const canAccess = await this.canAccessLesson(userId, lesson);
         const progress = await this.getUserLessonProgress(userId, lesson._id.toString());
 
         let status: LessonStatus;
-        if (!canAccess && !this.isLessonUnlocked(lesson)) {
+        if (!canAccess) {
           status = 'locked';
         } else if (progress?.status) {
           status = progress.status;
@@ -169,7 +215,7 @@ export class LearningService {
           status = 'not-started';
         }
 
-        const lockReason = !canAccess && !this.isLessonUnlocked(lesson)
+        const lockReason = !canAccess
           ? `Unlocks ${new Date(lesson.access.unlocksAt).toLocaleDateString()}`
           : undefined;
 
@@ -191,63 +237,150 @@ export class LearningService {
       })
     );
 
-    return lessonsWithStatus;
+    return { items, totalItems };
   }
 
-  /**
-   * Get year programme overview
-   */
-  async getYearProgramme(userId: string, year: string) {
-    const modules = await this.getModulesByYear(year, userId);
+  /** A Roadmap Week's modules, each with the member's per-module progress badge. */
+  async getWeekModules(weekId: string, userId: string, tier?: MembershipTier) {
+    const week = await RoadmapWeek.findById(weekId);
+    if (!week) throw new NotFoundError('Roadmap week not found');
+
+    const modules = await Module.find({ roadmapWeekId: weekId }).sort({ moduleNumber: 1 });
 
     const moduleSummaries = await Promise.all(
-      modules.map(async (module) => {
-        const progress = await this.getModuleProgress(userId, module._id.toString());
+      modules.map(async (learningModule) => {
+        // lessonCount comes from getModuleProgress's draft-excluded count, not
+        // the module's raw lessons[] length — a draft lesson still lives in
+        // that array but must never be visible to members.
+        const progress = await this.getModuleProgress(userId, learningModule._id.toString(), tier);
         return {
-          id: module._id,
-          moduleNumber: module.moduleNumber,
-          title: module.title,
+          id: learningModule._id,
+          moduleNumber: learningModule.moduleNumber,
+          title: learningModule.title,
           badge: progress.badge,
-          lessonCount: module.lessons?.length || 0,
+          lessonCount: progress.total,
         };
       })
     );
 
-    // Get overall progress
-    const allProgress = await Promise.all(
-      modules.map((m) => this.getModuleProgress(userId, m._id.toString()))
+    return {
+      id: week._id,
+      weekNumber: week.weekNumber,
+      title: week.title,
+      description: week.description,
+      isCheckpoint: week.isCheckpoint,
+      // A module with no lessons in scope for this tier is just noise on
+      // the page (real product feedback: it "just creates more void") --
+      // never true for the unscoped/no-tier call, since every module has
+      // at least one lesson of *some* tier by construction.
+      modules: tier ? moduleSummaries.filter((m) => m.lessonCount > 0) : moduleSummaries,
+    };
+  }
+
+  /** Roadmap overview for a year: its weeks, plus the member's overall progress against it. */
+  async getRoadmapForYear(userId: string, year: string, tier?: MembershipTier) {
+    const roadmap = await Roadmap.findOne({ year });
+    if (!roadmap) throw new NotFoundError('Roadmap not found for this year');
+
+    const weeks = await RoadmapWeek.find({ roadmapId: roadmap._id }).sort({ weekNumber: 1 });
+
+    // Embed each week's modules directly so the whole roadmap page renders
+    // from this one request — matches the existing frontend pattern of one
+    // overview call per page, module lesson bodies still fetched separately.
+    const weekSummaries = await Promise.all(
+      weeks.map(async (week) => {
+        const allModulesInWeek = await Module.find({ roadmapWeekId: week._id }).sort({ moduleNumber: 1 });
+        const allSummaries = await Promise.all(
+          allModulesInWeek.map(async (learningModule) => {
+            const progress = await this.getModuleProgress(userId, learningModule._id.toString(), tier);
+            return {
+              id: learningModule._id,
+              moduleNumber: learningModule.moduleNumber,
+              title: learningModule.title,
+              badge: progress.badge,
+              lessonCount: progress.total,
+              progressPercent: progress.progressPercent,
+              completed: progress.completed,
+            };
+          })
+        );
+
+        // Same reasoning as getWeekModules -- an empty module (no lessons
+        // for this tier) is dropped from what's returned, not just hidden
+        // client-side, so it never counts toward the week's own percentage.
+        const moduleSummaries = tier ? allSummaries.filter((m) => m.lessonCount > 0) : allSummaries;
+
+        const totalLessons = moduleSummaries.reduce((sum, m) => sum + m.lessonCount, 0);
+        const completedLessons = moduleSummaries.reduce((sum, m) => sum + m.completed, 0);
+
+        return {
+          id: week._id,
+          weekNumber: week.weekNumber,
+          title: week.title,
+          description: week.description,
+          isCheckpoint: week.isCheckpoint,
+          progressPercent: totalLessons > 0 ? Math.round((completedLessons / totalLessons) * 100) : 0,
+          modules: moduleSummaries,
+        };
+      })
     );
 
-    const totalLessons = allProgress.reduce((sum, p) => sum + p.total, 0);
-    const completedLessons = allProgress.reduce((sum, p) => sum + p.completed, 0);
-    const overallPercent = totalLessons > 0 ? Math.round((completedLessons / totalLessons) * 100) : 0;
+    const allModules = await Module.find({ roadmapWeekId: { $in: weeks.map((w) => w._id) } });
+    const allModuleProgress = await Promise.all(
+      allModules.map((m) => this.getModuleProgress(userId, m._id.toString(), tier))
+    );
+    const grandTotalLessons = allModuleProgress.reduce((sum, p) => sum + p.total, 0);
+    const grandCompletedLessons = allModuleProgress.reduce((sum, p) => sum + p.completed, 0);
+    const overallPercent =
+      grandTotalLessons > 0 ? Math.round((grandCompletedLessons / grandTotalLessons) * 100) : 0;
 
     return {
-      year,
+      year: roadmap.year,
+      title: roadmap.title,
+      description: roadmap.description,
       overallPercent,
-      modules: moduleSummaries,
+      weeks: weekSummaries,
     };
   }
 
   /**
-   * Get continue where left off - recent lessons
+   * Continue Learning reads UserProgress only — it must never scan
+   * UserLessonProgress at request time (that scan already happened, once,
+   * when the Learning Progress Service last recalculated).
    */
-  async getContinueWhereLeftOff(userId: string, limit: number = 3) {
-    const recentProgress = await UserLessonProgress.find({
-      userId,
-      status: { $in: ['in-progress', 'not-started'] },
-    })
-      .sort({ lastAccessedAt: -1 })
-      .limit(limit)
-      .populate('lessonId');
+  async getContinueWhereLeftOff(userId: string) {
+    const progress = await UserProgress.findOne({ userId }).populate('currentLessonId');
+    if (!progress?.currentLessonId) return [];
 
-    return recentProgress.map((p: any) => ({
-      id: p.lessonId._id,
-      title: p.lessonId.title,
-      type: p.lessonId.type,
-      progressPercent: p.progressPercent,
-      status: p.status,
-    }));
+    const lesson = progress.currentLessonId as unknown as ILesson;
+    // Single indexed lookup by (userId, lessonId) — not the full-table scan
+    // the guide warns against; that's what recalculate() already avoided.
+    const lessonProgress = await this.getUserLessonProgress(userId, lesson._id.toString());
+
+    // Full lesson shape (not a stub) — the frontend's LessonCard resolves
+    // access client-side too, as a defense-in-depth UI check, and needs the
+    // same fields getModuleLessons returns.
+    const canAccess = await this.canAccessLesson(userId, lesson);
+
+    return [
+      {
+        id: lesson._id,
+        moduleId: lesson.moduleId,
+        month: lesson.month,
+        category: lesson.category,
+        title: lesson.title,
+        type: lesson.type,
+        author: lesson.author,
+        metaLabel: lesson.metaLabel,
+        progressPercent: lessonProgress?.progressPercent ?? 0,
+        status: lessonProgress?.status ?? 'not-started',
+        access: lesson.access,
+        lockReason: !canAccess
+          ? `Unlocks ${new Date(lesson.access.unlocksAt).toLocaleDateString()}`
+          : undefined,
+        body: canAccess ? lesson.body : undefined,
+      },
+    ];
   }
 }
 

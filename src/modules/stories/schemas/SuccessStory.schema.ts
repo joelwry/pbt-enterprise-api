@@ -1,7 +1,7 @@
-import { Schema, model } from 'mongoose';
+import { Schema, model, Types } from 'mongoose';
 
 interface ISuccessStory {
-  memberId: Schema.Types.ObjectId;
+  memberId: Types.ObjectId;
   title: string;
   description: string;
   category: string;

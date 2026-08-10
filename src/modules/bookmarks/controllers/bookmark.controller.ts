@@ -14,7 +14,7 @@ export class BookmarkController {
       category: category as string,
     });
 
-    return ResponseHandler.success(res, bookmarks, 'Bookmarks retrieved');
+    return ResponseHandler.ok(res, 'Bookmarks retrieved', bookmarks);
   });
 
   createBookmark = asyncHandler(async (req: Request, res: Response) => {
@@ -31,7 +31,7 @@ export class BookmarkController {
       priority,
     });
 
-    return ResponseHandler.success(res, bookmark, 'Bookmark created', 201);
+    return ResponseHandler.created(res, 'Bookmark created', bookmark);
   });
 
   removeBookmark = asyncHandler(async (req: Request, res: Response) => {
@@ -39,7 +39,7 @@ export class BookmarkController {
     const { contentId } = req.params;
 
     await BookmarkService.removeBookmark(userId, contentId);
-    return ResponseHandler.success(res, { success: true }, 'Bookmark removed');
+    return ResponseHandler.ok(res, 'Bookmark removed', { success: true });
   });
 
   updateBookmark = asyncHandler(async (req: Request, res: Response) => {
@@ -48,7 +48,7 @@ export class BookmarkController {
     const updates = req.body;
 
     const bookmark = await BookmarkService.updateBookmark(userId, contentId, updates);
-    return ResponseHandler.success(res, bookmark, 'Bookmark updated');
+    return ResponseHandler.ok(res, 'Bookmark updated', bookmark);
   });
 
   getByCategory = asyncHandler(async (req: Request, res: Response) => {
@@ -56,7 +56,7 @@ export class BookmarkController {
     const { category } = req.params;
 
     const bookmarks = await BookmarkService.getBookmarksByCategory(userId, category);
-    return ResponseHandler.success(res, bookmarks, 'Bookmarks retrieved');
+    return ResponseHandler.ok(res, 'Bookmarks retrieved', bookmarks);
   });
 
   getHighPriority = asyncHandler(async (req: Request, res: Response) => {
@@ -64,7 +64,7 @@ export class BookmarkController {
     const { limit } = req.query;
 
     const bookmarks = await BookmarkService.getHighPriorityBookmarks(userId, parseInt(limit as string) || 10);
-    return ResponseHandler.success(res, bookmarks, 'High priority bookmarks retrieved');
+    return ResponseHandler.ok(res, 'High priority bookmarks retrieved', bookmarks);
   });
 }
 

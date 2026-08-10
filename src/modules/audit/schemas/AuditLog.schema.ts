@@ -1,7 +1,7 @@
-import { Schema, model, Document } from 'mongoose';
+import { Schema, model, Document, Types } from 'mongoose';
 
 export interface AuditLogDocument extends Document {
-  userId: Schema.Types.ObjectId;
+  userId: Types.ObjectId;
   action: string;
   resource: string;
   resourceId?: string;

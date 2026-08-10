@@ -1,6 +1,8 @@
 import { createApp } from '@/app';
 import { config, validateConfig } from '@/config/environment';
 import { connectDB, disconnectDB } from '@/database/connection';
+import { StripeService } from '@/core/payments/StripeService';
+import { pricingService } from '@/modules/pricing/services/pricing.service';
 import logger from '@/core/logger/logger';
 
 async function startServer(): Promise<void> {
@@ -10,6 +12,16 @@ async function startServer(): Promise<void> {
 
     // Connect to database
     await connectDB();
+
+    // Best-effort: seed default tier pricing so it's visible immediately on
+    // a fresh install. Never blocks startup -- if Stripe isn't configured
+    // yet (e.g. local dev without a key), pricing seeds lazily on first
+    // real request instead (see PricingService#ensureSeeded).
+    if (StripeService.isConfigured()) {
+      pricingService.ensureAllSeeded().catch((error) => {
+        logger.warn('Failed to seed default tier pricing at startup', { error });
+      });
+    }
 
     // Create Express app
     const app = createApp();

@@ -53,7 +53,7 @@ export class ContentRelationshipService {
       });
 
       if (existing) {
-        throw new AppError('Relationship already exists', 409, 'ERR_6001');
+        throw new AppError(409, 'Relationship already exists', ['ERR_6001']);
       }
 
       const relationship = new ContentRelationship(relationshipData);
@@ -79,7 +79,7 @@ export class ContentRelationshipService {
       );
 
       if (!relationship) {
-        throw new AppError('Relationship not found', 404, 'ERR_6002');
+        throw new AppError(404, 'Relationship not found', ['ERR_6002']);
       }
 
       logger.info('Relationship strength updated', { sourceId, relatedId, strength });
@@ -149,7 +149,7 @@ export class ContentRelationshipService {
       });
 
       if (result.deletedCount === 0) {
-        throw new AppError('Relationship not found', 404, 'ERR_6002');
+        throw new AppError(404, 'Relationship not found', ['ERR_6002']);
       }
 
       logger.info('Content relationship deleted', { sourceId, relatedId });

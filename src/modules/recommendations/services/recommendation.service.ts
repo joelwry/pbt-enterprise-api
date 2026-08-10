@@ -3,7 +3,7 @@ import { Recommendation } from '../schemas/Recommendation.schema';
 export class RecommendationService {
   async generateRecommendations(memberId: string, itemType: string) {
     // This would be replaced with actual ML/scoring logic
-    return Recommendation.find({ memberId, itemType, engaged: false })
+    return Recommendation.find({ memberId, itemType: itemType as any, engaged: false })
       .sort({ relevanceScore: -1 })
       .limit(10);
   }

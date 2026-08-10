@@ -40,13 +40,15 @@ export interface ILesson extends Document {
   metaLabel: string;
   access: ILessonAccess;
   body: ILessonBody;
+  /** Admin "Save as Draft" — hidden from every member-facing query regardless of unlocksAt. */
+  isDraft: boolean;
   createdAt: Date;
   updatedAt: Date;
   deletedAt?: Date;
 }
 
 export interface IModule extends Document {
-  programYear: string;
+  roadmapWeekId: Types.ObjectId;
   moduleNumber: number;
   title: string;
   description?: string;
@@ -62,6 +64,7 @@ export interface IUserLessonProgress extends Document {
   moduleId: Types.ObjectId;
   status: LessonStatus;
   progressPercent: number;
+  timeSpentMinutes: number;
   completedAt?: Date;
   lastAccessedAt: Date;
   quizScore?: number;
@@ -98,11 +101,16 @@ const lessonSchema = new Schema<ILesson>(
     },
     author: {
       type: String,
-      required: true,
+      default: 'PBT Team',
     },
     metaLabel: {
       type: String,
       required: true,
+    },
+    isDraft: {
+      type: Boolean,
+      default: false,
+      index: true,
     },
     access: {
       unlocksAt: {
@@ -153,8 +161,9 @@ const lessonSchema = new Schema<ILesson>(
 // Module Schema
 const moduleSchema = new Schema<IModule>(
   {
-    programYear: {
-      type: String,
+    roadmapWeekId: {
+      type: Schema.Types.ObjectId,
+      ref: 'RoadmapWeek',
       required: true,
       index: true,
     },
@@ -218,6 +227,11 @@ const userLessonProgressSchema = new Schema<IUserLessonProgress>(
       min: 0,
       max: 100,
     },
+    timeSpentMinutes: {
+      type: Number,
+      default: 0,
+      min: 0,
+    },
     completedAt: {
       type: Date,
     },
@@ -241,28 +255,30 @@ const userLessonProgressSchema = new Schema<IUserLessonProgress>(
   }
 );
 
-// Soft delete middleware
-lessonSchema.pre(/^find/, function (next) {
-  // @ts-ignore
+// Soft delete middleware.
+// /^find/ alone does not match countDocuments or distinct (their Mongoose op
+// names are exactly "countDocuments" / "distinct", neither starts with
+// "find") — every count used for progress percentages and admin stats was
+// silently including soft-deleted documents until this was caught testing
+// against seeded data with an actual deleted lesson, and distinct() had the
+// same gap (caught later testing a Leader region list after a delete).
+const EXCLUDE_SOFT_DELETED = /^find|^countDocuments|^distinct/;
+
+lessonSchema.pre(EXCLUDE_SOFT_DELETED, function (this: any) {
   this.where({ deletedAt: { $exists: false } });
-  next();
 });
 
-moduleSchema.pre(/^find/, function (next) {
-  // @ts-ignore
+moduleSchema.pre(EXCLUDE_SOFT_DELETED, function (this: any) {
   this.where({ deletedAt: { $exists: false } });
-  next();
 });
 
-userLessonProgressSchema.pre(/^find/, function (next) {
-  // @ts-ignore
+userLessonProgressSchema.pre(EXCLUDE_SOFT_DELETED, function (this: any) {
   this.where({ deletedAt: { $exists: false } });
-  next();
 });
 
 // Create indexes
 lessonSchema.index({ moduleId: 1, type: 1 });
-moduleSchema.index({ programYear: 1, moduleNumber: 1 });
+moduleSchema.index({ roadmapWeekId: 1, moduleNumber: 1 });
 userLessonProgressSchema.index({ userId: 1, lessonId: 1 });
 userLessonProgressSchema.index({ userId: 1, moduleId: 1 });
 

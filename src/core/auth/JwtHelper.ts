@@ -12,13 +12,13 @@ export interface JwtPayload {
 export class JwtHelper {
   static generateAccessToken(payload: Omit<JwtPayload, 'iat' | 'exp'>): string {
     return jwt.sign(payload, config.JWT_SECRET, {
-      expiresIn: config.JWT_EXPIRY,
+      expiresIn: config.JWT_EXPIRY as jwt.SignOptions['expiresIn'],
     });
   }
 
   static generateRefreshToken(payload: Omit<JwtPayload, 'iat' | 'exp'>): string {
     return jwt.sign(payload, config.JWT_REFRESH_SECRET, {
-      expiresIn: config.JWT_REFRESH_EXPIRY,
+      expiresIn: config.JWT_REFRESH_EXPIRY as jwt.SignOptions['expiresIn'],
     });
   }
 

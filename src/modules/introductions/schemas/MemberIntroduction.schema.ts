@@ -1,11 +1,12 @@
-import { Schema, model } from 'mongoose';
+import { Schema, model, Types } from 'mongoose';
 
 interface IMemberIntroduction {
-  fromMemberId: Schema.Types.ObjectId;
-  toMemberId: Schema.Types.ObjectId;
+  fromMemberId: Types.ObjectId;
+  toMemberId: Types.ObjectId;
   message: string;
   status: 'pending' | 'accepted' | 'declined';
   connectionStrength: number;
+  connectedAt?: Date;
   createdAt: Date;
   updatedAt: Date;
   deletedAt?: Date;
@@ -17,6 +18,7 @@ const memberIntroductionSchema = new Schema<IMemberIntroduction>({
   message: { type: String, required: true, maxlength: 500 },
   status: { type: String, enum: ['pending', 'accepted', 'declined'], default: 'pending' },
   connectionStrength: { type: Number, min: 0, max: 100, default: 0 },
+  connectedAt: { type: Date },
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now },
   deletedAt: Date,

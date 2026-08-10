@@ -1,24 +1,52 @@
 import { Request, Response } from 'express';
 import { subscriptionService } from '@/modules/subscriptions/services/subscription.service';
+import { SubscriptionDocument } from '@/modules/subscriptions/schemas/Subscription.schema';
 import { enhancedEntitlementsService } from '@/modules/entitlements/services/entitlements.service.enhanced';
 import { ResponseHandler } from '@/core/response/ResponseHandler';
 import { asyncHandler } from '@/core/middleware/asyncHandler';
 import { auditService } from '@/modules/audit/services/audit.service';
+import { PaginationHelper } from '@/core/pagination/PaginationHelper';
+
+/** Adds the computed `cancelled` flag the frontend gates its Cancel button on. */
+function toSubscriptionDto(subscription: SubscriptionDocument) {
+  return { ...subscription.toObject(), cancelled: Boolean(subscription.cancelledAt) };
+}
 
 export class SubscriptionController {
   /**
    * Get current subscription
    */
   getCurrentSubscription = asyncHandler(async (req: Request, res: Response) => {
-    const userId = (req as any).user?.id;
+    const userId = (req as any).user?.userId;
 
     const subscription = await subscriptionService.getCurrentSubscription(userId);
 
     if (!subscription) {
-      return ResponseHandler.success(res, null, 'No active subscription');
+      ResponseHandler.ok(res, 'No active subscription', null);
+      return;
     }
 
-    ResponseHandler.success(res, subscription, 'Subscription retrieved successfully');
+    ResponseHandler.ok(res, 'Subscription retrieved successfully', toSubscriptionDto(subscription));
+  });
+
+  /**
+   * Member's own billing history, paginated, projected into invoice rows.
+   */
+  getInvoices = asyncHandler(async (req: Request, res: Response) => {
+    const userId = (req as any).user?.userId;
+    const { page, limit } = PaginationHelper.parse({ page: req.query.page as string, limit: req.query.limit as string });
+
+    const { items, totalItems } = await subscriptionService.getBillingHistory(userId, page, limit);
+
+    const invoices = items.map((sub) => ({
+      id: sub._id.toString(),
+      invoiceNumber: `INV-${sub.createdAt.getFullYear()}-${sub._id.toString().slice(-6).toUpperCase()}`,
+      dateLabel: sub.createdAt.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }),
+      amountLabel: `£${sub.amount.toFixed(2)}`,
+      status: 'Paid' as const,
+    }));
+
+    ResponseHandler.paginated(res, 200, 'Billing history retrieved successfully', invoices, PaginationHelper.createMeta(page, limit, totalItems));
   });
 
   /**
@@ -26,24 +54,26 @@ export class SubscriptionController {
    */
   getAvailablePlans = asyncHandler(async (req: Request, res: Response) => {
     const hierarchy = subscriptionService.getTierHierarchy();
-    const plans = Object.entries(hierarchy).map(([tier, data]) => ({
-      tier,
-      name: data.name,
-      price: {
-        monthly: subscriptionService.getPriceForTier(tier as any, 'monthly'),
-        annual: subscriptionService.getPriceForTier(tier as any, 'annual'),
-      },
-      features: data.features,
-    }));
+    const plans = await Promise.all(
+      Object.entries(hierarchy).map(async ([tier, data]) => ({
+        tier,
+        name: data.name,
+        price: {
+          monthly: await subscriptionService.getPriceForTier(tier as any, 'monthly'),
+          annual: await subscriptionService.getPriceForTier(tier as any, 'annual'),
+        },
+        features: data.features,
+      }))
+    );
 
-    ResponseHandler.success(res, plans, 'Plans retrieved successfully');
+    ResponseHandler.ok(res, 'Plans retrieved successfully', plans);
   });
 
   /**
    * Upgrade subscription
    */
   upgradeSubscription = asyncHandler(async (req: Request, res: Response) => {
-    const userId = (req as any).user?.id;
+    const userId = (req as any).user?.userId;
     const { newTier } = req.body;
     const ipAddress = req.ip || '';
     const userAgent = req.get('user-agent') || '';
@@ -61,14 +91,14 @@ export class SubscriptionController {
       correlationId
     );
 
-    ResponseHandler.success(res, updated, 'Subscription upgraded successfully', 201);
+    ResponseHandler.created(res, 'Subscription upgraded successfully', updated);
   });
 
   /**
    * Downgrade subscription
    */
   downgradeSubscription = asyncHandler(async (req: Request, res: Response) => {
-    const userId = (req as any).user?.id;
+    const userId = (req as any).user?.userId;
     const { newTier } = req.body;
     const ipAddress = req.ip || '';
     const userAgent = req.get('user-agent') || '';
@@ -86,14 +116,14 @@ export class SubscriptionController {
       correlationId
     );
 
-    ResponseHandler.success(res, updated, 'Subscription downgraded successfully');
+    ResponseHandler.ok(res, 'Subscription downgraded successfully', updated);
   });
 
   /**
    * Cancel subscription
    */
   cancelSubscription = asyncHandler(async (req: Request, res: Response) => {
-    const userId = (req as any).user?.id;
+    const userId = (req as any).user?.userId;
     const ipAddress = req.ip || '';
     const userAgent = req.get('user-agent') || '';
     const correlationId = (req as any).correlationId;
@@ -110,7 +140,7 @@ export class SubscriptionController {
       correlationId
     );
 
-    ResponseHandler.success(res, subscription, 'Subscription cancelled successfully');
+    ResponseHandler.ok(res, 'Subscription cancelled successfully', { cancelled: Boolean(subscription?.cancelledAt) });
   });
 
   /**
@@ -127,18 +157,18 @@ export class SubscriptionController {
 
     const comparison = enhancedEntitlementsService.compareFeatures(tierArray);
 
-    ResponseHandler.success(res, comparison, 'Features compared successfully');
+    ResponseHandler.ok(res, 'Features compared successfully', comparison);
   });
 
   /**
    * Get upgrade suggestions
    */
   getUpgradeSuggestions = asyncHandler(async (req: Request, res: Response) => {
-    const userId = (req as any).user?.id;
+    const userId = (req as any).user?.userId;
 
     const suggestions = await enhancedEntitlementsService.getUpgradeSuggestions(userId);
 
-    ResponseHandler.success(res, suggestions, 'Upgrade suggestions retrieved successfully');
+    ResponseHandler.ok(res, 'Upgrade suggestions retrieved successfully', suggestions);
   });
 }
 
