@@ -9,5 +9,7 @@ router.use(authenticate, authorize('admin', 'super_admin'));
 
 router.get('/stats', catchAsync((req, res) => c.getStats(req, res)));
 router.get('/', catchAsync((req, res) => c.getReferrals(req, res)));
+router.patch('/:referralId/payment-pending', catchAsync((req, res) => c.markPaymentPending(req, res)));
+router.patch('/:referralId/mark-paid', catchAsync((req, res) => c.markPaid(req, res)));
 
 export default router;

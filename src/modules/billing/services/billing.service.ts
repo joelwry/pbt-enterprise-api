@@ -178,9 +178,7 @@ export class BillingService {
       user.stripeCustomerId = stripeCustomerId;
       await user.save();
 
-      await referralService.recordReferral(metadata.referralCode || undefined, user._id.toString());
-
-      await Subscription.create({
+      const newSubscription = await Subscription.create({
         userId: user._id,
         tier,
         status: 'active',
@@ -191,6 +189,17 @@ export class BillingService {
         currency: 'GBP',
         transactionId: session.id,
         stripeSubscriptionId,
+      });
+
+      // This is the referred member's qualifying first payment -- the only
+      // moment a referral reward is ever calculated. `amount` here is what
+      // Stripe actually charged (see above), never a tier's list price.
+      await referralService.recordReferralWithFirstPayment(metadata.referralCode || undefined, user._id.toString(), {
+        tier,
+        billingCycle,
+        amount,
+        paidAt: newSubscription.startDate,
+        subscriptionId: newSubscription._id,
       });
 
       if (isNewUser) {
