@@ -13,8 +13,11 @@ import { RoadmapWeek } from '@/modules/learning/schemas/RoadmapWeek.schema';
 import { learningProgressService } from '@/modules/learning/services/learning-progress.service';
 import { UserProgress } from '@/modules/progress/schemas/UserProgress.schema';
 import activityService from '@/modules/activity/services/activity.service';
+import { subscriptionService } from '@/modules/subscriptions/services/subscription.service';
 import { NotFoundError, AuthorizationError } from '@/core/errors/AppError';
 import logger from '@/core/logger/logger';
+
+const TIER_RANK: Record<MembershipTier, number> = { Pathway: 1, Plus: 2, Mentorship: 3 };
 
 // How many years back from the current year members can browse in My
 // Learning (inclusive of the current year). Per product direction: never
@@ -41,21 +44,34 @@ export class LearningService {
   }
 
   /**
-   * Lesson access in My Learning is governed by a single gate: the Release
-   * Gate (unlocksAt). Product decision (see docs/ui_adjustment.md): My
-   * Learning content is available to every subscription tier — mixing a
-   * higher-tier-only lesson into a shared roadmap module was identified as
-   * wrong. Tier-restricted content lives in its own dedicated areas (PBT
-   * Plus / PBT Mentorship), not in the general Roadmap. `requiredTier` is
-   * still stored on the lesson (and settable by admins) for that purpose,
-   * it just isn't enforced here anymore.
+   * Lesson access has two independent gates: the Release Gate (unlocksAt)
+   * and the Tier Gate (requiredTier). Per docs/ui_adjustment.md, every
+   * lesson genuinely built for the general Roadmap/My Learning is tagged
+   * requiredTier: 'Pathway' — the lowest tier, so every real subscriber
+   * passes the tier check there for free; that's what makes My Learning
+   * "available to every subscription tier" in practice. The dedicated PBT
+   * Plus / PBT Masterplan learning areas reuse these same endpoints with
+   * higher-tier lessons, so the tier check must still run for those, or a
+   * Pathway member who obtains a Plus/Masterplan lesson's id (e.g. from a
+   * network request) can fetch its full body directly, bypassing the
+   * paywall entirely -- list endpoints filtered by tier, but this one
+   * didn't, until now.
    */
   isLessonUnlocked(lesson: ILesson): boolean {
     return new Date() >= lesson.access.unlocksAt;
   }
 
   async canAccessLesson(userId: string, lesson: ILesson): Promise<boolean> {
-    return this.isLessonUnlocked(lesson);
+    if (!this.isLessonUnlocked(lesson)) return false;
+
+    const requiredTier = lesson.access.requiredTier;
+    if (!requiredTier || requiredTier === 'Pathway') return true;
+
+    const subscription = await subscriptionService.getCurrentSubscription(userId);
+    if (!subscription || !subscriptionService.isSubscriptionValid(subscription)) return false;
+
+    const memberTier = (subscription.tier.charAt(0).toUpperCase() + subscription.tier.slice(1)) as MembershipTier;
+    return (TIER_RANK[memberTier] ?? 0) >= TIER_RANK[requiredTier];
   }
 
   async getUserLessonProgress(userId: string, lessonId: string): Promise<IUserLessonProgress | null> {
@@ -71,6 +87,12 @@ export class LearningService {
     quizScore?: number,
     timeSpentMinutes: number = 0
   ): Promise<IUserLessonProgress> {
+    const lesson = await Lesson.findById(lessonId);
+    if (!lesson || lesson.isDraft) throw new NotFoundError('Lesson not found');
+    if (!(await this.canAccessLesson(userId, lesson))) {
+      throw new AuthorizationError('You do not have access to this lesson');
+    }
+
     let progress = await UserLessonProgress.findOne({ userId, lessonId });
     const wasAlreadyCompleted = progress?.status === 'completed';
 

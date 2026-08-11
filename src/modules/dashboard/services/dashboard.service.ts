@@ -52,28 +52,48 @@ export class DashboardService {
       category: { $in: ['Masterclass', 'Mentorship'] as const },
     };
 
-    const [user, progressRecords, allLessons, upcomingEvents, recentThreads, nextWorkshop, upcomingWorkshopsCount] =
+    const [user, allProgressRecords, allLessons, upcomingEvents, recentThreads, nextWorkshop, upcomingWorkshopsCount] =
       await Promise.all([
         User.findById(userId),
         UserLessonProgress.find({ userId }),
-        Lesson.find({ isDraft: { $ne: true } }).sort({ 'access.unlocksAt': 1 }),
+        // Scoped to Pathway-tier lessons only -- every subscribed member,
+        // regardless of their own tier, can access the shared PBT Pathway
+        // roadmap (see canAccessLesson), and that's the "X% Roadmap"
+        // progress this dashboard widget mirrors. Previously fetched every
+        // lesson of every tier here, so a Pathway member's progress % was
+        // computed against a denominator that included Plus/Mentorship
+        // lessons they could never complete -- silently deflating their
+        // percentage and disagreeing with the PBT Pathway page's own
+        // (correctly tier-scoped) number for the exact same roadmap.
+        Lesson.find({ isDraft: { $ne: true }, 'access.requiredTier': 'Pathway' }).sort({ 'access.unlocksAt': 1 }),
         Event.find({ date: { $gte: now }, isActive: true }).sort({ date: 1 }).limit(3),
         CommunityThread.find({}).sort({ createdAt: -1 }).limit(3),
         Event.findOne(workshopFilter).sort({ date: 1 }),
         Event.countDocuments(workshopFilter),
       ]);
 
-    // ---- Stats ----
-    const completedRecords = progressRecords.filter((p) => p.status === 'completed');
+    // ---- Stats: total learning effort across every tier the member has
+    // touched (Pathway + any dedicated Plus/Masterplan lessons) -- unlike
+    // roadmapProgress below, this is a whole-platform summary, not scoped
+    // to one roadmap, so it intentionally still uses every progress record.
+    const completedRecords = allProgressRecords.filter((p) => p.status === 'completed');
     const lessonsCompleted = completedRecords.length;
     const lessonsCompletedThisWeek = completedRecords.filter(
       (p) => p.completedAt && p.completedAt >= weekAgo
     ).length;
 
-    const totalMinutes = progressRecords.reduce((sum, p) => sum + (p.timeSpentMinutes || 0), 0);
-    const minutesThisWeek = progressRecords
+    const totalMinutes = allProgressRecords.reduce((sum, p) => sum + (p.timeSpentMinutes || 0), 0);
+    const minutesThisWeek = allProgressRecords
       .filter((p) => p.lastAccessedAt && p.lastAccessedAt >= weekAgo)
       .reduce((sum, p) => sum + (p.timeSpentMinutes || 0), 0);
+
+    // ---- Roadmap progress -- scoped to the Pathway-tier lessons fetched
+    // above, matching exactly what the PBT Pathway page itself computes for
+    // the same roadmap (see learning.service.ts getModuleProgress/tier).
+    const pathwayLessonIds = new Set(allLessons.map((l) => l._id.toString()));
+    const progressRecords = allProgressRecords.filter((p) => pathwayLessonIds.has(p.lessonId.toString()));
+    const lessonsCompletedInRoadmap = progressRecords.filter((p) => p.status === 'completed').length;
+    const inProgressRecords = progressRecords.filter((p) => p.status === 'in-progress');
 
     const contentUnlocked = allLessons.filter((l) => l.access.unlocksAt <= now).length;
     const contentUnlockedTotal = allLessons.length;
@@ -95,15 +115,13 @@ export class DashboardService {
       nextUnlockLabel: nextLesson ? nextLesson.title : 'No upcoming unlocks',
     };
 
-    // ---- Roadmap progress ----
-    const inProgressRecords = progressRecords.filter((p) => p.status === 'in-progress');
-    const overallPercent = contentUnlockedTotal > 0 ? Math.round((lessonsCompleted / contentUnlockedTotal) * 100) : 0;
+    const overallPercent = contentUnlockedTotal > 0 ? Math.round((lessonsCompletedInRoadmap / contentUnlockedTotal) * 100) : 0;
     const roadmapProgress = {
       overallPercent,
       encouragement: encouragementFor(overallPercent),
-      completed: lessonsCompleted,
+      completed: lessonsCompletedInRoadmap,
       unlockedInProgress: inProgressRecords.length,
-      upcoming: Math.max(contentUnlockedTotal - lessonsCompleted - inProgressRecords.length, 0),
+      upcoming: Math.max(contentUnlockedTotal - lessonsCompletedInRoadmap - inProgressRecords.length, 0),
       totalThisYear: contentUnlockedTotal,
       roadmapLabel: `${now.getFullYear()} Roadmap`,
     };
