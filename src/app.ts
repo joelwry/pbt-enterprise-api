@@ -57,6 +57,8 @@ import pricingRoutes from '@/modules/pricing/routes/pricing.routes';
 import adminPricingRoutes from '@/modules/pricing/routes/admin-pricing.routes';
 import siteSettingsRoutes from '@/modules/site-settings/routes/site-settings.routes';
 import adminSiteSettingsRoutes from '@/modules/site-settings/routes/admin-site-settings.routes';
+import adminDashboardRoutes from '@/modules/admin-dashboard/routes/admin-dashboard.routes';
+import adminUsersRoutes from '@/modules/admin-users/routes/admin-users.routes';
 
 export function createApp(): Application {
   const app = express();
@@ -157,6 +159,8 @@ export function createApp(): Application {
   app.use(`/api/${config.API_VERSION}/admin/pricing`, adminPricingRoutes);
   app.use(`/api/${config.API_VERSION}/site-settings`, siteSettingsRoutes);
   app.use(`/api/${config.API_VERSION}/admin/site-settings`, adminSiteSettingsRoutes);
+  app.use(`/api/${config.API_VERSION}/admin/dashboard`, adminDashboardRoutes);
+  app.use(`/api/${config.API_VERSION}/admin/admin-users`, adminUsersRoutes);
 
   // ==================== SWAGGER DOCUMENTATION ====================
   // Spec is (re)built from the live route files on every server start -- see

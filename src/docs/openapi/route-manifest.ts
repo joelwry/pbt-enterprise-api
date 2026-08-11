@@ -53,4 +53,6 @@ export const ROUTE_MANIFEST: RouteManifestEntry[] = [
   { mountPath: '/admin/pricing', file: 'modules/pricing/routes/admin-pricing.routes.ts', tag: 'Admin / Pricing', tagDescription: 'Override the default price per tier/billing cycle. Writes a new Stripe Price and archives the old one -- prices are never edited in place.' },
   { mountPath: '/site-settings', file: 'modules/site-settings/routes/site-settings.routes.ts', tag: 'Site Settings', tagDescription: 'Public read of site-wide wording overrides (e.g. the "Workshop" -> "Deal Clinic" label).' },
   { mountPath: '/admin/site-settings', file: 'modules/site-settings/routes/admin-site-settings.routes.ts', tag: 'Admin / Site Settings' },
+  { mountPath: '/admin/dashboard', file: 'modules/admin-dashboard/routes/admin-dashboard.routes.ts', tag: 'Admin / Dashboard', tagDescription: 'Aggregate stats for the admin landing page, composed from the same real data the dedicated admin screens use.' },
+  { mountPath: '/admin/admin-users', file: 'modules/admin-users/routes/admin-users.routes.ts', tag: 'Admin / Admin Users', tagDescription: 'Manage staff accounts with access to the admin portal itself. Super Admin only.' },
 ];
