@@ -55,4 +55,5 @@ export const ROUTE_MANIFEST: RouteManifestEntry[] = [
   { mountPath: '/admin/site-settings', file: 'modules/site-settings/routes/admin-site-settings.routes.ts', tag: 'Admin / Site Settings' },
   { mountPath: '/admin/dashboard', file: 'modules/admin-dashboard/routes/admin-dashboard.routes.ts', tag: 'Admin / Dashboard', tagDescription: 'Aggregate stats for the admin landing page, composed from the same real data the dedicated admin screens use.' },
   { mountPath: '/admin/admin-users', file: 'modules/admin-users/routes/admin-users.routes.ts', tag: 'Admin / Admin Users', tagDescription: 'Manage staff accounts with access to the admin portal itself. Super Admin only.' },
+  { mountPath: '/admin/analytics', file: 'modules/admin-analytics/routes/admin-analytics.routes.ts', tag: 'Admin / Analytics', tagDescription: 'Platform-wide reporting, composed from real member/subscription/learning/event data.' },
 ];
