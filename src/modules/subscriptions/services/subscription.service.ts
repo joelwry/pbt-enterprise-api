@@ -303,7 +303,12 @@ export class SubscriptionService {
     const [activeSubs, payingMembers, cancelledCount, totalCount] = await Promise.all([
       Subscription.find({ status: 'active', endDate: { $gt: now } }),
       Subscription.countDocuments({ status: 'active', endDate: { $gt: now }, tier: { $ne: 'pathway' } }),
-      Subscription.countDocuments({ cancelledAt: { $exists: true } }),
+      // cancelledAt defaults to null (not absent) on every subscription --
+      // see Subscription.schema.ts -- so { $exists: true } matched nearly
+      // every document regardless of whether it was ever actually
+      // cancelled, wildly inflating the churn rate. { $ne: null } is the
+      // real "was this ever cancelled" check.
+      Subscription.countDocuments({ cancelledAt: { $ne: null } }),
       Subscription.countDocuments({}),
     ]);
 
