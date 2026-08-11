@@ -4,13 +4,13 @@ import { ResponseHandler } from '../../../core/response/ResponseHandler';
 
 export class DashboardController {
   async getDashboard(req: Request, res: Response) {
-    const dashboard = await dashboardService.buildDashboard(req.user!.id);
-    ResponseHandler.success(res, dashboard, 'Dashboard built');
+    const dashboard = await dashboardService.buildDashboard(req.user!.userId);
+    ResponseHandler.ok(res, 'Dashboard built', dashboard);
   }
 
   async getDashboardSummary(req: Request, res: Response) {
-    const summary = await dashboardService.getSummary(req.user!.id);
-    ResponseHandler.success(res, summary, 'Dashboard summary retrieved');
+    const summary = await dashboardService.getSummary(req.user!.userId);
+    ResponseHandler.ok(res, 'Dashboard summary retrieved', summary);
   }
 }
 

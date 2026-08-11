@@ -28,7 +28,7 @@ export const MEMBERSHIP_TIER_DETAILS = {
     ],
   },
   [MEMBERSHIP_TIERS.MENTORSHIP]: {
-    name: 'PBT Mentorship',
+    name: 'PBT Masterplan Programme',
     price: 9999, // $99.99 in cents
     description: 'Premium training with personal mentor',
     features: [

@@ -1,6 +1,6 @@
 import { Session, SessionDocument } from '@/modules/sessions/schemas/Session.schema';
 import { AppError } from '@/core/errors/AppError';
-import { logger } from '@/core/logger/logger';
+import logger from '@/core/logger/logger';
 import { Types } from 'mongoose';
 import crypto from 'crypto';
 
@@ -44,7 +44,7 @@ export class SessionService {
       return saved;
     } catch (error) {
       logger.error('Failed to create session', { userId, error });
-      throw new AppError('ERR_5006', 500, 'Failed to create session');
+      throw new AppError(500, 'Failed to create session', ['ERR_5006']);
     }
   }
 
@@ -63,7 +63,7 @@ export class SessionService {
       });
 
       if (!session) {
-        throw new AppError('ERR_2011', 401, 'Invalid or expired refresh token');
+        throw new AppError(401, 'Invalid or expired refresh token', ['ERR_2011']);
       }
 
       // Update last activity
@@ -74,7 +74,7 @@ export class SessionService {
     } catch (error) {
       if (error instanceof AppError) throw error;
       logger.error('Failed to verify refresh token', { userId, error });
-      throw new AppError('ERR_5007', 500, 'Failed to verify refresh token');
+      throw new AppError(500, 'Failed to verify refresh token', ['ERR_5007']);
     }
   }
 
@@ -107,7 +107,7 @@ export class SessionService {
     } catch (error) {
       if (error instanceof AppError) throw error;
       logger.error('Failed to rotate refresh token', { userId, error });
-      throw new AppError('ERR_5008', 500, 'Failed to rotate refresh token');
+      throw new AppError(500, 'Failed to rotate refresh token', ['ERR_5008']);
     }
   }
 
@@ -122,7 +122,7 @@ export class SessionService {
       }).sort({ lastActivityAt: -1 });
     } catch (error) {
       logger.error('Failed to get user sessions', { userId, error });
-      throw new AppError('ERR_5009', 500, 'Failed to retrieve sessions');
+      throw new AppError(500, 'Failed to retrieve sessions', ['ERR_5009']);
     }
   }
 
@@ -140,14 +140,14 @@ export class SessionService {
       );
 
       if (result.matchedCount === 0) {
-        throw new AppError('ERR_4010', 404, 'Session not found');
+        throw new AppError(404, 'Session not found', ['ERR_4010']);
       }
 
       logger.info('Session terminated', { userId, sessionId });
     } catch (error) {
       if (error instanceof AppError) throw error;
       logger.error('Failed to terminate session', { userId, sessionId, error });
-      throw new AppError('ERR_5010', 500, 'Failed to terminate session');
+      throw new AppError(500, 'Failed to terminate session', ['ERR_5010']);
     }
   }
 
@@ -165,7 +165,7 @@ export class SessionService {
       return result.modifiedCount;
     } catch (error) {
       logger.error('Failed to terminate all sessions', { userId, error });
-      throw new AppError('ERR_5011', 500, 'Failed to terminate all sessions');
+      throw new AppError(500, 'Failed to terminate all sessions', ['ERR_5011']);
     }
   }
 

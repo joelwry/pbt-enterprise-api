@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { logger } from '@/core/logger/logger';
+import logger from '@/core/logger/logger';
 
 // Define environment schema with Zod
 const envSchema = z.object({

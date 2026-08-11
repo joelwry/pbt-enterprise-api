@@ -9,24 +9,24 @@ export class MentorController {
     const filter: any = {};
     if (expertise) filter.expertise = expertise;
     const mentors = await mentorService.getMentors(filter);
-    ResponseHandler.success(res, mentors, 'Mentors retrieved');
+    ResponseHandler.ok(res, 'Mentors retrieved', mentors);
   }
 
   async getMentorById(req: Request, res: Response) {
     const { mentorId } = req.params;
     const mentor = await mentorService.getMentorById(mentorId);
-    ResponseHandler.success(res, mentor, 'Mentor retrieved');
+    ResponseHandler.ok(res, 'Mentor retrieved', mentor);
   }
 
   async bookSession(req: Request, res: Response) {
     const { mentorId } = req.params;
-    const session = await sessionService.bookSession(mentorId, req.user!.id, req.body);
-    ResponseHandler.success(res, session, 'Session booked', 201);
+    const session = await sessionService.bookSession(mentorId, req.user!.userId, req.body);
+    ResponseHandler.created(res, 'Session booked', session);
   }
 
   async getSessionHistory(req: Request, res: Response) {
-    const sessions = await sessionService.getSessionHistory(req.user!.id);
-    ResponseHandler.success(res, sessions, 'Session history retrieved');
+    const sessions = await sessionService.getSessionHistory(req.user!.userId);
+    ResponseHandler.ok(res, 'Session history retrieved', sessions);
   }
 }
 

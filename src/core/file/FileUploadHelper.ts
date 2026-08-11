@@ -20,7 +20,7 @@ export class FileUploadHelper {
     const fileFilter = (req: any, file: Express.Multer.File, cb: multer.FileFilterCallback) => {
       if (!this.ALLOWED_IMAGE_TYPES.includes(file.mimetype)) {
         return cb(
-          new AppError('Invalid file type. Only JPEG, PNG, and WebP are allowed', 400)
+          new AppError(400, 'Invalid file type. Only JPEG, PNG, and WebP are allowed')
         );
       }
       cb(null, true);
@@ -42,7 +42,7 @@ export class FileUploadHelper {
     const fileFilter = (req: any, file: Express.Multer.File, cb: multer.FileFilterCallback) => {
       if (!this.ALLOWED_DOCUMENT_TYPES.includes(file.mimetype)) {
         return cb(
-          new AppError('Invalid file type. Only PDF and DOC are allowed', 400)
+          new AppError(400, 'Invalid file type. Only PDF and DOC are allowed')
         );
       }
       cb(null, true);

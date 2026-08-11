@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 import { AppError } from '@/core/errors/AppError';
 import { ErrorCode } from '@/shared/errorCodes';
 import { EntitlementsService } from '@/modules/entitlements/services/entitlements.service';
-import { logger } from '@/core/logger/logger';
+import logger from '@/core/logger/logger';
 
 /**
  * Extend Express Request to include subscription tier

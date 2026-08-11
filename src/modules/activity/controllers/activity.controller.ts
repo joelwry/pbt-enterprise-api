@@ -5,14 +5,14 @@ import { ResponseHandler } from '../../../core/response/ResponseHandler';
 export class ActivityController {
   async getActivityFeed(req: Request, res: Response) {
     const limit = parseInt(req.query.limit as string) || 50;
-    const feed = await activityService.getActivityFeed(req.user!.id, limit);
-    ResponseHandler.success(res, feed, 'Activity feed retrieved');
+    const feed = await activityService.getActivityFeed(req.user!.userId, limit);
+    ResponseHandler.ok(res, 'Activity feed retrieved', feed);
   }
 
   async getPublicFeed(req: Request, res: Response) {
     const limit = parseInt(req.query.limit as string) || 100;
     const feed = await activityService.getPublicFeed(limit);
-    ResponseHandler.success(res, feed, 'Public feed retrieved');
+    ResponseHandler.ok(res, 'Public feed retrieved', feed);
   }
 }
 

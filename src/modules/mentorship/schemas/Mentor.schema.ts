@@ -1,7 +1,7 @@
-import { Schema, model } from 'mongoose';
+import { Schema, model, Types } from 'mongoose';
 
 interface IMentor {
-  memberId: Schema.Types.ObjectId;
+  memberId: Types.ObjectId;
   bio: string;
   expertise: string[];
   availability: string;

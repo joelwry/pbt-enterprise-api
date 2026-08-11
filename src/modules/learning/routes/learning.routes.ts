@@ -9,14 +9,18 @@ const router = Router();
 router.use(authenticate);
 
 /**
- * Learning Routes
+ * Learning Routes — Business Learning Journey hierarchy:
+ * Roadmap → Roadmap Week → Module → Lesson
  */
 
-// Year options
+// Available roadmap years
 router.get('/years', catchAsync((req, res) => learningController.getYearOptions(req, res)));
 
-// Programme overview
-router.get('/programmes/:year', catchAsync((req, res) => learningController.getProgrammeByYear(req, res)));
+// Roadmap overview for a year
+router.get('/roadmap/:year', catchAsync((req, res) => learningController.getRoadmap(req, res)));
+
+// Roadmap week's modules
+router.get('/weeks/:weekId', catchAsync((req, res) => learningController.getWeek(req, res)));
 
 // Module with lessons
 router.get('/modules/:moduleId', catchAsync((req, res) => learningController.getModule(req, res)));

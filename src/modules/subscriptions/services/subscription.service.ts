@@ -1,6 +1,7 @@
 import { Subscription, SubscriptionDocument } from '@/modules/subscriptions/schemas/Subscription.schema';
+import { pricingService } from '@/modules/pricing/services/pricing.service';
 import { AppError } from '@/core/errors/AppError';
-import { logger } from '@/core/logger/logger';
+import logger from '@/core/logger/logger';
 import { Types } from 'mongoose';
 
 export class SubscriptionService {
@@ -18,7 +19,7 @@ export class SubscriptionService {
       return subscription;
     } catch (error) {
       logger.error('Failed to get current subscription', { userId, error });
-      throw new AppError('ERR_5001', 500, 'Failed to retrieve subscription');
+      throw new AppError(500, 'Failed to retrieve subscription', ['ERR_5001']);
     }
   }
 
@@ -30,7 +31,7 @@ export class SubscriptionService {
       return await Subscription.findById(subscriptionId);
     } catch (error) {
       logger.error('Failed to get subscription by ID', { subscriptionId, error });
-      throw new AppError('ERR_5001', 500, 'Failed to retrieve subscription');
+      throw new AppError(500, 'Failed to retrieve subscription', ['ERR_5001']);
     }
   }
 
@@ -77,7 +78,7 @@ export class SubscriptionService {
       return saved;
     } catch (error) {
       logger.error('Failed to create subscription', { userId, tier, error });
-      throw new AppError('ERR_5002', 500, 'Failed to create subscription');
+      throw new AppError(500, 'Failed to create subscription', ['ERR_5002']);
     }
   }
 
@@ -92,7 +93,7 @@ export class SubscriptionService {
       const currentSubscription = await this.getCurrentSubscription(userId);
 
       if (!currentSubscription) {
-        throw new AppError('ERR_4010', 404, 'No active subscription found');
+        throw new AppError(404, 'No active subscription found', ['ERR_4010']);
       }
 
       // Get tier hierarchy
@@ -106,7 +107,7 @@ export class SubscriptionService {
       const newTierLevel = tierHierarchy[newTier];
 
       if (newTierLevel <= currentTierLevel) {
-        throw new AppError('ERR_3001', 400, 'Can only upgrade to a higher tier');
+        throw new AppError(400, 'Can only upgrade to a higher tier', ['ERR_3001']);
       }
 
       // Cancel old subscription
@@ -119,12 +120,12 @@ export class SubscriptionService {
         userId,
         newTier,
         currentSubscription.billingCycle,
-        this.getPriceForTier(newTier, currentSubscription.billingCycle)
+        await this.getPriceForTier(newTier, currentSubscription.billingCycle)
       );
     } catch (error) {
       if (error instanceof AppError) throw error;
       logger.error('Failed to upgrade subscription', { userId, newTier, error });
-      throw new AppError('ERR_5003', 500, 'Failed to upgrade subscription');
+      throw new AppError(500, 'Failed to upgrade subscription', ['ERR_5003']);
     }
   }
 
@@ -139,7 +140,7 @@ export class SubscriptionService {
       const currentSubscription = await this.getCurrentSubscription(userId);
 
       if (!currentSubscription) {
-        throw new AppError('ERR_4010', 404, 'No active subscription found');
+        throw new AppError(404, 'No active subscription found', ['ERR_4010']);
       }
 
       const tierHierarchy: Record<string, number> = {
@@ -152,7 +153,7 @@ export class SubscriptionService {
       const newTierLevel = tierHierarchy[newTier];
 
       if (newTierLevel >= currentTierLevel) {
-        throw new AppError('ERR_3001', 400, 'Can only downgrade to a lower tier');
+        throw new AppError(400, 'Can only downgrade to a lower tier', ['ERR_3001']);
       }
 
       // Cancel old subscription
@@ -165,37 +166,61 @@ export class SubscriptionService {
         userId,
         newTier,
         currentSubscription.billingCycle,
-        this.getPriceForTier(newTier, currentSubscription.billingCycle)
+        await this.getPriceForTier(newTier, currentSubscription.billingCycle)
       );
     } catch (error) {
       if (error instanceof AppError) throw error;
       logger.error('Failed to downgrade subscription', { userId, newTier, error });
-      throw new AppError('ERR_5004', 500, 'Failed to downgrade subscription');
+      throw new AppError(500, 'Failed to downgrade subscription', ['ERR_5004']);
     }
   }
 
   /**
-   * Cancel subscription
+   * Cancel subscription -- a voluntary cancellation stops auto-renewal but
+   * does not revoke access immediately: the member keeps full access until
+   * `endDate`, matching the member portal's own "you'll keep access until
+   * {date}" messaging. `status` stays 'active' so getCurrentSubscription
+   * (and every tier-gate built on it) keeps working normally until the
+   * subscription naturally lapses at endDate.
    */
   async cancelSubscription(userId: string): Promise<SubscriptionDocument | null> {
     try {
       const subscription = await this.getCurrentSubscription(userId);
 
       if (!subscription) {
-        throw new AppError('ERR_4010', 404, 'No active subscription found');
+        throw new AppError(404, 'No active subscription found', ['ERR_4010']);
       }
 
-      subscription.status = 'cancelled';
+      subscription.autoRenew = false;
       subscription.cancelledAt = new Date();
       const updated = await subscription.save();
 
-      logger.info('Subscription cancelled', { userId, tier: subscription.tier });
+      logger.info('Subscription cancelled (will not renew)', { userId, tier: subscription.tier });
       return updated;
     } catch (error) {
       if (error instanceof AppError) throw error;
       logger.error('Failed to cancel subscription', { userId, error });
-      throw new AppError('ERR_5005', 500, 'Failed to cancel subscription');
+      throw new AppError(500, 'Failed to cancel subscription', ['ERR_5005']);
     }
+  }
+
+  /**
+   * A member's own billing history -- every subscription record they've ever
+   * had (active, cancelled, expired), most recent first. Each one doubles as
+   * an "invoice" row since there's no separate payment-gateway invoice
+   * record yet (see docs/pbt_integration_progress_log.md for the Stripe
+   * follow-up this is deferred to).
+   */
+  async getBillingHistory(userId: string, page: number, limit: number) {
+    const filter = { userId: new Types.ObjectId(userId) };
+    const [items, totalItems] = await Promise.all([
+      Subscription.find(filter)
+        .sort({ createdAt: -1 })
+        .skip((page - 1) * limit)
+        .limit(limit),
+      Subscription.countDocuments(filter),
+    ]);
+    return { items, totalItems };
   }
 
   /**
@@ -215,23 +240,38 @@ export class SubscriptionService {
       },
       mentorship: {
         level: 3,
-        name: 'PBT Mentorship',
+        name: 'PBT Masterplan Programme',
         features: ['basic-learning', 'community-access', 'resource-library', 'premium-resources', 'event-access', 'mentorship-access', 'power-team-access'],
       },
     };
   }
 
   /**
-   * Get price for tier
+   * Real, admin-overridable pricing (see modules/pricing/services/pricing.service.ts)
+   * -- this is the one place the rest of the backend asks "what does this
+   * tier/cycle cost right now", so an admin pricing change (e.g. a
+   * promotional offer) takes effect everywhere without a redeploy.
    */
-  getPriceForTier(tier: 'pathway' | 'plus' | 'mentorship', billingCycle: 'monthly' | 'annual'): number {
-    const prices: Record<string, Record<string, number>> = {
-      pathway: { monthly: 0, annual: 0 },
-      plus: { monthly: 29.99, annual: 299.99 },
-      mentorship: { monthly: 99.99, annual: 999.99 },
-    };
+  async getPriceForTier(tier: 'pathway' | 'plus' | 'mentorship', billingCycle: 'monthly' | 'annual'): Promise<number> {
+    const { amount } = await pricingService.getEffectivePrice(tier, billingCycle);
+    return amount;
+  }
 
-    return prices[tier][billingCycle];
+  /**
+   * Membership gate for content access — does this member's subscription
+   * tier meet or exceed the tier a piece of content requires? Only the tier
+   * hierarchy is checked here; time-based release (unlocksAt) is a separate,
+   * independent gate enforced by the caller (see learning.service.ts).
+   */
+  async canAccessTier(userId: string, requiredTier: 'Pathway' | 'Plus' | 'Mentorship'): Promise<boolean> {
+    const subscription = await this.getCurrentSubscription(userId);
+    if (!subscription) return false;
+
+    const tierHierarchy: Record<string, number> = { pathway: 1, plus: 2, mentorship: 3 };
+    const memberLevel = tierHierarchy[subscription.tier];
+    const requiredLevel = tierHierarchy[requiredTier.toLowerCase()];
+
+    return memberLevel >= requiredLevel;
   }
 
   /**
@@ -250,6 +290,91 @@ export class SubscriptionService {
     if (subscription.status === 'cancelled') return 'cancelled';
     if (subscription.endDate < new Date()) return 'expired';
     return subscription.status;
+  }
+
+  /**
+   * Admin billing dashboard stats -- all real aggregates over actual
+   * Subscription documents. failedPaymentsCount is honestly 0: without a
+   * real payment gateway there's no way for a payment to actually fail yet
+   * (deferred to the Stripe integration, see the progress log).
+   */
+  async getAdminStats() {
+    const now = new Date();
+    const [activeSubs, payingMembers, cancelledCount, totalCount] = await Promise.all([
+      Subscription.find({ status: 'active', endDate: { $gt: now } }),
+      Subscription.countDocuments({ status: 'active', endDate: { $gt: now }, tier: { $ne: 'pathway' } }),
+      Subscription.countDocuments({ cancelledAt: { $exists: true } }),
+      Subscription.countDocuments({}),
+    ]);
+
+    const mrr = activeSubs.reduce((sum, s) => sum + (s.billingCycle === 'monthly' ? s.amount : s.amount / 12), 0);
+    const churnRatePercent = totalCount > 0 ? Math.round((cancelledCount / totalCount) * 1000) / 10 : 0;
+
+    return {
+      mrr: Math.round(mrr * 100) / 100,
+      mrrDeltaLabel: 'vs. last month',
+      payingMembers,
+      failedPaymentsCount: 0,
+      churnRatePercent,
+    };
+  }
+
+  /** Real MRR contribution per tier, for the admin revenue breakdown. */
+  async getRevenueByTier() {
+    const now = new Date();
+    const activeSubs = await Subscription.find({ status: 'active', endDate: { $gt: now } });
+    const tierNames: Record<string, string> = { pathway: 'PBT Pathway', plus: 'PBT Plus', mentorship: 'PBT Masterplan Programme' };
+
+    const mrrByTier: Record<string, number> = { pathway: 0, plus: 0, mentorship: 0 };
+    for (const sub of activeSubs) {
+      mrrByTier[sub.tier] += sub.billingCycle === 'monthly' ? sub.amount : sub.amount / 12;
+    }
+    const totalMrr = mrrByTier.pathway + mrrByTier.plus + mrrByTier.mentorship;
+
+    const segments = await Promise.all(
+      (['pathway', 'plus', 'mentorship'] as const).map(async (tier) => {
+        const monthlyPrice = await this.getPriceForTier(tier, 'monthly');
+        return {
+          tier: tier.charAt(0).toUpperCase() + tier.slice(1),
+          label: `${tierNames[tier]} — £${monthlyPrice}/mo`,
+          priceLabel: `£${monthlyPrice}/mo`,
+          percent: totalMrr > 0 ? Math.round((mrrByTier[tier] / totalMrr) * 100) : 0,
+        };
+      })
+    );
+
+    return {
+      mrrLabel: `£${Math.round(totalMrr).toLocaleString('en-GB')}`,
+      segments,
+    };
+  }
+
+  /**
+   * Admin-facing billing history across every member -- each row is a real
+   * Subscription document projected into an invoice shape. Status is always
+   * "Paid": there's no real payment-failure or refund tracking without a
+   * payment gateway (deferred to the Stripe integration).
+   */
+  async getAdminInvoices(query: { search?: string; page: number; limit: number }) {
+    const { search, page, limit } = query;
+    const filter: Record<string, unknown> = {};
+
+    const [items, totalItems] = await Promise.all([
+      Subscription.find(filter)
+        .populate('userId', 'fullName')
+        .sort({ createdAt: -1 })
+        .skip((page - 1) * limit)
+        .limit(limit),
+      Subscription.countDocuments(filter),
+    ]);
+
+    // Search is applied post-query against the populated member name --
+    // subscriptions don't carry a searchable invoice number of their own.
+    const filtered = search?.trim()
+      ? items.filter((s: any) => (s.userId?.fullName ?? '').toLowerCase().includes(search.trim().toLowerCase()))
+      : items;
+
+    return { items: filtered, totalItems: search?.trim() ? filtered.length : totalItems };
   }
 }
 

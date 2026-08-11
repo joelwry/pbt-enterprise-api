@@ -48,7 +48,7 @@ export class JourneyService {
       );
 
       if (!journey) {
-        throw new AppError('Journey not found', 404, 'ERR_7001');
+        throw new AppError(404, 'Journey not found', ['ERR_7001']);
       }
 
       logger.info('Journey progress updated', { journeyId, progress });
@@ -72,7 +72,7 @@ export class JourneyService {
       );
 
       if (!journey) {
-        throw new AppError('Journey not found', 404, 'ERR_7001');
+        throw new AppError(404, 'Journey not found', ['ERR_7001']);
       }
 
       logger.info('Journey completed', { journeyId });
@@ -88,7 +88,7 @@ export class JourneyService {
       const journey = await LearningJourney.findByIdAndUpdate(journeyId, { status: 'paused' }, { new: true });
 
       if (!journey) {
-        throw new AppError('Journey not found', 404, 'ERR_7001');
+        throw new AppError(404, 'Journey not found', ['ERR_7001']);
       }
 
       logger.info('Journey paused', { journeyId });
@@ -104,7 +104,7 @@ export class JourneyService {
       const journey = await LearningJourney.findByIdAndUpdate(journeyId, { status: 'active' }, { new: true });
 
       if (!journey) {
-        throw new AppError('Journey not found', 404, 'ERR_7001');
+        throw new AppError(404, 'Journey not found', ['ERR_7001']);
       }
 
       logger.info('Journey resumed', { journeyId });
@@ -120,7 +120,7 @@ export class JourneyService {
       const journey = await LearningJourney.findById(journeyId);
 
       if (!journey) {
-        throw new AppError('Journey not found', 404, 'ERR_7001');
+        throw new AppError(404, 'Journey not found', ['ERR_7001']);
       }
 
       const existingMilestone = journey.milestones.find((m) => m.milestoneId === milestoneId);
@@ -150,7 +150,7 @@ export class JourneyService {
       const journey = await LearningJourney.findById(journeyId);
 
       if (!journey) {
-        throw new AppError('Journey not found', 404, 'ERR_7001');
+        throw new AppError(404, 'Journey not found', ['ERR_7001']);
       }
 
       const completedMilestones = journey.milestones.filter((m) => m.completed).length;

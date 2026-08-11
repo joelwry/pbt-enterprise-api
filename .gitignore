@@ -26,5 +26,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+<<<<<<< HEAD
 # local uploads
+=======
+# local storage provider (dev/test only — see src/core/storage)
+>>>>>>> 53db1bc899120df4cbb7f9ad5804ae9cef91ca61
 /uploads

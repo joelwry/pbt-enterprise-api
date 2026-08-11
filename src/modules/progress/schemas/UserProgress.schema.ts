@@ -1,26 +1,28 @@
-import { Schema, model } from 'mongoose';
+import { Schema, model, Document, Types } from 'mongoose';
 
-interface IUserProgress {
-  userId: string;
-  programmeId: string;
-  currentModuleId?: string;
-  currentLessonId?: string;
-  completedModules: string[];
-  completedLessons: string[];
-  lessonsProgress: Array<{
-    lessonId: string;
-    completionPercentage: number;
-    lastAccessedAt: Date;
-    completedAt?: Date;
-    timeSpentMinutes: number;
-  }>;
+/**
+ * UserProgress is NOT a lesson tracker — UserLessonProgress owns that. This
+ * is the aggregate member projection (one document per member) that powers
+ * the dashboard, Continue Learning, and future recommendations/analytics.
+ * It is only ever written by the Learning Progress Service, recalculated
+ * whenever a UserLessonProgress record changes — never mutated directly by
+ * a controller. See pbt_phase3_intgration_guide.md, "Progress Architecture".
+ */
+export interface IUserProgress extends Document {
+  userId: Types.ObjectId;
+  currentRoadmapId?: Types.ObjectId;
+  currentRoadmapWeekId?: Types.ObjectId;
+  currentModuleId?: Types.ObjectId;
+  currentLessonId?: Types.ObjectId;
+  completedLessonsCount: number;
+  completedModulesCount: number;
   overallProgress: number;
-  estimatedCompletionDate?: Date;
   streakDays: number;
   totalLearningMinutes: number;
-  bookmarkedItems: string[];
+  estimatedCompletionDate?: Date;
+  bookmarkedItems: Types.ObjectId[];
   notes: Array<{
-    contentId: string;
+    contentId: Types.ObjectId;
     note: string;
     createdAt: Date;
   }>;
@@ -31,35 +33,29 @@ interface IUserProgress {
 const userProgressSchema = new Schema<IUserProgress>(
   {
     userId: {
-      type: String,
+      type: Schema.Types.ObjectId,
+      ref: 'User',
       required: true,
-      index: true,
+      unique: true,
     },
-    programmeId: {
-      type: String,
-      required: true,
-      index: true,
+    currentRoadmapId: { type: Schema.Types.ObjectId, ref: 'Roadmap' },
+    currentRoadmapWeekId: { type: Schema.Types.ObjectId, ref: 'RoadmapWeek' },
+    currentModuleId: { type: Schema.Types.ObjectId, ref: 'Module' },
+    currentLessonId: { type: Schema.Types.ObjectId, ref: 'Lesson' },
+    completedLessonsCount: {
+      type: Number,
+      default: 0,
     },
-    currentModuleId: String,
-    currentLessonId: String,
-    completedModules: [{ type: String }],
-    completedLessons: [{ type: String }],
-    lessonsProgress: [
-      {
-        lessonId: { type: String, required: true },
-        completionPercentage: { type: Number, default: 0, min: 0, max: 100 },
-        lastAccessedAt: { type: Date, default: Date.now },
-        completedAt: Date,
-        timeSpentMinutes: { type: Number, default: 0 },
-      },
-    ],
+    completedModulesCount: {
+      type: Number,
+      default: 0,
+    },
     overallProgress: {
       type: Number,
       default: 0,
       min: 0,
       max: 100,
     },
-    estimatedCompletionDate: Date,
     streakDays: {
       type: Number,
       default: 0,
@@ -68,10 +64,11 @@ const userProgressSchema = new Schema<IUserProgress>(
       type: Number,
       default: 0,
     },
-    bookmarkedItems: [{ type: String }],
+    estimatedCompletionDate: Date,
+    bookmarkedItems: [{ type: Schema.Types.ObjectId, ref: 'Lesson' }],
     notes: [
       {
-        contentId: String,
+        contentId: { type: Schema.Types.ObjectId, ref: 'Lesson' },
         note: String,
         createdAt: { type: Date, default: Date.now },
       },
@@ -82,9 +79,5 @@ const userProgressSchema = new Schema<IUserProgress>(
     collection: 'user_progress',
   }
 );
-
-// Indexes for performance
-userProgressSchema.index({ userId: 1, programmeId: 1 });
-userProgressSchema.index({ userId: 1, 'lessonsProgress.completedAt': 1 });
 
 export const UserProgress = model<IUserProgress>('UserProgress', userProgressSchema);

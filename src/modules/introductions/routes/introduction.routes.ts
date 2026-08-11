@@ -1,10 +1,10 @@
 import { Router } from 'express';
-import { authMiddleware } from '../../../core/middleware/authMiddleware';
+import { authenticate } from '../../../core/middleware/authMiddleware';
 import introductionController from '../controllers/introduction.controller';
 
 const router = Router();
 
-router.use(authMiddleware);
+router.use(authenticate);
 
 router.post('/', introductionController.sendIntroduction.bind(introductionController));
 router.get('/received', introductionController.getReceivedIntroductions.bind(introductionController));

@@ -1,5 +1,5 @@
 import { AuditLog, AuditLogDocument } from '@/modules/audit/schemas/AuditLog.schema';
-import { logger } from '@/core/logger/logger';
+import logger from '@/core/logger/logger';
 import { Types } from 'mongoose';
 import { PaginationHelper } from '@/core/pagination/PaginationHelper';
 
@@ -160,7 +160,7 @@ export class AuditService {
         AuditLog.countDocuments({ userId: new Types.ObjectId(userId) }),
       ]);
 
-      const pagination = PaginationHelper.getPaginationMetadata(page, limit, total);
+      const pagination = PaginationHelper.createMeta(page, limit, total);
 
       return { logs, pagination };
     } catch (error) {
@@ -202,7 +202,7 @@ export class AuditService {
         }),
       ]);
 
-      const pagination = PaginationHelper.getPaginationMetadata(page, limit, total);
+      const pagination = PaginationHelper.createMeta(page, limit, total);
 
       return { events, pagination };
     } catch (error) {

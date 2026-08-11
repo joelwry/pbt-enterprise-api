@@ -1,5 +1,5 @@
 import { Router, Request, Response } from 'express';
-import { logger } from '@/core/logger/logger';
+import logger from '@/core/logger/logger';
 import { ResponseHandler } from '@/core/response/ResponseHandler';
 import { asyncHandler } from '@/core/middleware/asyncHandler';
 import mongoose from 'mongoose';
@@ -69,10 +69,10 @@ router.get(
 router.get(
   '/ready',
   asyncHandler(async (req: Request, res: Response) => {
-    const checks = {
-      database: { status: 'ok' as const, message: '' },
-      storage: { status: 'ok' as const, message: '' },
-      email: { status: 'ok' as const, message: '' },
+    const checks: ReadinessCheckResponse['checks'] = {
+      database: { status: 'ok', message: '' },
+      storage: { status: 'ok', message: '' },
+      email: { status: 'ok', message: '' },
     };
 
     // Check MongoDB connection
@@ -123,7 +123,8 @@ router.get(
   '/health/details',
   asyncHandler(async (req: Request, res: Response) => {
     if (process.env.NODE_ENV === 'production') {
-      return ResponseHandler.sendError(res, 'Not available in production', 404);
+      ResponseHandler.notFound(res, 'Not available in production');
+      return;
     }
 
     const diagnostics = {
@@ -152,7 +153,7 @@ router.get(
       },
     };
 
-    ResponseHandler.sendSuccess(res, diagnostics, 'Diagnostics retrieved');
+    ResponseHandler.ok(res, 'Diagnostics retrieved', diagnostics);
   })
 );
 

@@ -12,7 +12,7 @@ export class IntroductionService {
     return introduction.save();
   }
 
-  async getReceived Introduction(memberId: string) {
+  async getReceivedIntroduction(memberId: string) {
     return MemberIntroduction.find({ toMemberId: memberId, status: 'pending' })
       .populate('fromMemberId', 'name email')
       .sort({ createdAt: -1 });
@@ -21,7 +21,7 @@ export class IntroductionService {
   async acceptIntroduction(introductionId: string, memberId: string) {
     const intro = await MemberIntroduction.findById(introductionId);
     if (!intro || intro.toMemberId.toString() !== memberId) {
-      throw new AppError('ERR_2003', 'Unauthorized', 403);
+      throw new AppError(403, 'Unauthorized', ['ERR_2003']);
     }
     intro.status = 'accepted';
     intro.connectedAt = new Date();

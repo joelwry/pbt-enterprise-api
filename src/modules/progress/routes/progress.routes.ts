@@ -1,20 +1,17 @@
 import { Router } from 'express';
-import { protect } from '@/core/middleware/authMiddleware';
+import { authenticate } from '@/core/middleware/authMiddleware';
 import ProgressController from '../controllers/progress.controller';
 
 const router = Router();
 
-router.use(protect);
+router.use(authenticate);
 
-router.get('/:programmeId', ProgressController.getProgress);
-router.patch('/:programmeId/lessons/:lessonId', ProgressController.updateLessonProgress);
-router.post('/:programmeId/lessons/:lessonId/complete', ProgressController.markLessonComplete);
-router.get('/:programmeId/continue', ProgressController.getContinueWhere);
-router.post('/:programmeId/notes/:contentId', ProgressController.addNote);
-router.get('/stats/user', ProgressController.getStats);
+// Aggregate member progress projection (one per member — see UserProgress.schema.ts)
+router.get('/', ProgressController.getProgress);
+router.get('/stats', ProgressController.getStats);
 
-router.get('/:programmeId/milestones', ProgressController.getMilestones);
-router.get('/:programmeId/milestones/unlocked', ProgressController.getUnlockedMilestones);
-router.get('/:programmeId/rewards', ProgressController.getRewards);
+router.get('/:roadmapId/milestones', ProgressController.getMilestones);
+router.get('/:roadmapId/milestones/unlocked', ProgressController.getUnlockedMilestones);
+router.get('/:roadmapId/rewards', ProgressController.getRewards);
 
 export default router;

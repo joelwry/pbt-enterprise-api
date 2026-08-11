@@ -23,7 +23,7 @@ export const errorHandler = (
 
   // Handle Zod validation errors
   if (error instanceof ZodError) {
-    const errors = error.errors.map(
+    const errors = error.issues.map(
       (err) => `${err.path.join('.')}: ${err.message}`
     );
     ResponseHandler.badRequest(res, 'Validation failed', errors);
