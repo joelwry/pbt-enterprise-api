@@ -99,6 +99,11 @@ export class ResourcesController {
    * GET /api/v1/resources/:resourceId
    */
   async getResourceById(req: Request, res: Response): Promise<void> {
+    if (!req.user) {
+      ResponseHandler.unauthorized(res);
+      return;
+    }
+
     const { resourceId } = req.params;
     const resource = await Resource.findById(resourceId).populate('createdBy', 'fullName email');
 
@@ -107,6 +112,7 @@ export class ResourcesController {
       return;
     }
 
+    await resourcesService.assertCanAccess(req.user.userId, resource);
     ResponseHandler.ok(res, 'Resource retrieved', resource);
   }
 
@@ -115,8 +121,13 @@ export class ResourcesController {
    * POST /api/v1/resources/:resourceId/download
    */
   async downloadResource(req: Request, res: Response): Promise<void> {
+    if (!req.user) {
+      ResponseHandler.unauthorized(res);
+      return;
+    }
+
     const { resourceId } = req.params;
-    const fileUrl = await resourcesService.trackDownload(resourceId);
+    const fileUrl = await resourcesService.trackDownload(req.user.userId, resourceId);
     ResponseHandler.ok(res, 'Download recorded', { fileUrl });
   }
 }

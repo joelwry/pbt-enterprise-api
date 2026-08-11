@@ -1,6 +1,6 @@
 import { Resource, ResourceTier } from '@/modules/resources/schemas/Resource.schema';
 import { subscriptionService } from '@/modules/subscriptions/services/subscription.service';
-import { NotFoundError } from '@/core/errors/AppError';
+import { NotFoundError, AuthorizationError } from '@/core/errors/AppError';
 
 const TIER_RANK: Record<ResourceTier, number> = { Pathway: 1, Plus: 2, Mentorship: 3 };
 const ALL_TIERS: ResourceTier[] = ['Pathway', 'Plus', 'Mentorship'];
@@ -22,11 +22,28 @@ export class ResourcesService {
     return ALL_TIERS.filter((t) => TIER_RANK[t] <= memberRank);
   }
 
+  /**
+   * List endpoints (getResources/getFeatured/getPopularResources) already
+   * filter by requiredTier, but a resource fetched directly by id bypassed
+   * that filter entirely -- a Pathway member who obtained a Plus/Mentorship
+   * resource's id (e.g. from a network request) could view or download it
+   * outright. Both getResourceById and trackDownload below call this first.
+   */
+  async assertCanAccess(userId: string, resource: { requiredTier: ResourceTier }): Promise<void> {
+    const allowedTiers = await this.allowedTiersFor(userId);
+    if (!allowedTiers.includes(resource.requiredTier)) {
+      throw new AuthorizationError('You do not have access to this resource');
+    }
+  }
+
   /** Records a download and returns the file URL — the member-facing "view" (getResourceById) has no side effects, only this does. */
-  async trackDownload(resourceId: string): Promise<string> {
-    const resource = await Resource.findByIdAndUpdate(resourceId, { $inc: { downloads: 1 } }, { new: true });
+  async trackDownload(userId: string, resourceId: string): Promise<string> {
+    const resource = await Resource.findById(resourceId);
     if (!resource) throw new NotFoundError('Resource not found');
-    return resource.fileUrl;
+    await this.assertCanAccess(userId, resource);
+
+    const updated = await Resource.findByIdAndUpdate(resourceId, { $inc: { downloads: 1 } }, { new: true });
+    return updated!.fileUrl;
   }
 
   /** The single "Featured Toolkit" banner: no dedicated admin flag exists for this (deliberately, to avoid adding editor UI for a one-off) — the most-downloaded Toolkit if one exists, else the most-downloaded resource of any type. */
