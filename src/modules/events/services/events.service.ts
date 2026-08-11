@@ -25,6 +25,7 @@ export class EventsService {
    */
   toMemberEventItem(event: IEvent, userId: string) {
     const details = event.rsvpDetails?.get(userId);
+    const rsvped = event.rsvps.some((id) => id.toString() === userId);
     return {
       id: event._id,
       date: event.date,
@@ -33,7 +34,14 @@ export class EventsService {
       location: event.location,
       category: event.category,
       requiredTier: event.requiredTier,
-      rsvped: event.rsvps.some((id) => id.toString() === userId),
+      rsvped,
+      // Real capacity check, not just "is the RSVP list non-empty" -- a
+      // member who already has a spot never sees "Full" for their own
+      // event, since the capacity check itself (see rsvp() below) also
+      // exempts an existing RSVP. Previously nothing here told the member
+      // an event was full until they opened the RSVP form and got a
+      // rejection on submit.
+      isFull: !rsvped && event.rsvps.length >= event.capacity,
       rsvpDetails: details ? { guestCount: details.guestCount, notes: details.notes } : undefined,
       photoGalleryUrl: event.photoGalleryUrl,
       recordingUrl: event.recordingUrl,
