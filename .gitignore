@@ -28,3 +28,4 @@ next-env.d.ts
 
 # local storage provider (dev/test only — see src/core/storage)
 /uploads
+/logs
