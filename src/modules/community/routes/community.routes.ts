@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { CommunityController } from '@/modules/community/controllers/community.controller';
-import { authMiddleware } from '@/core/middleware/authMiddleware';
+import { authenticate  } from '@/core/middleware/authMiddleware';
 
 const router = Router();
 
@@ -16,15 +16,15 @@ router.get('/categories', CommunityController.getCategories);
 router.get('/', CommunityController.getThreads);
 
 // Get thread details with replies (protected)
-router.get('/:threadId', authMiddleware, CommunityController.getThreadDetail);
+router.get('/:threadId', authenticate, CommunityController.getThreadDetail);
 
 // Create new thread (protected)
-router.post('/', authMiddleware, CommunityController.createThread);
+router.post('/', authenticate, CommunityController.createThread);
 
 // Add reply to thread (protected)
-router.post('/:threadId/replies', authMiddleware, CommunityController.addReply);
+router.post('/:threadId/replies', authenticate, CommunityController.addReply);
 
 // Toggle like on thread (protected)
-router.post('/:threadId/like', authMiddleware, CommunityController.toggleLike);
+router.post('/:threadId/like', authenticate, CommunityController.toggleLike);
 
 export default router;
