@@ -1,4 +1,5 @@
 import crypto from 'crypto';
+import { Types } from 'mongoose';
 import { User, IUser } from '@/modules/users/schemas/User.schema';
 import { Subscription, SubscriptionDocument } from '@/modules/subscriptions/schemas/Subscription.schema';
 import { UserProgress } from '@/modules/progress/schemas/UserProgress.schema';
@@ -41,6 +42,42 @@ function joinedLabelOf(date: Date): string {
   return date.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
 }
 
+export function isEntitled(sub: SubscriptionDocument | null): boolean {
+  return sub !== null && sub.status === 'active' && sub.endDate > new Date();
+}
+
+/**
+ * A member with no subscription record at all is a real, permanent Pathway
+ * (Pathway never gets one -- see createMember). A member whose most recent
+ * subscription has lapsed (expired/cancelled and past its endDate) is NOT
+ * "Pathway" just because they're not currently entitled -- that erased their
+ * real Plus/Masterplan history and showed them as fully "Active" (both
+ * flagged by QA). Their last real tier is shown, with status reflecting the
+ * lapse -- "Payment Failed" is the closest existing bucket to "not currently
+ * paying," reusing the type instead of inventing a 4th status value.
+ *
+ * Exported (along with mostRecentSubscriptionsFor below) so admin-dashboard's
+ * "Recently Joined" widget can apply this exact same real logic instead of
+ * re-deriving tier/status a second, inconsistent way.
+ */
+export function resolveTierAndStatus(user: IUser, mostRecentSub: SubscriptionDocument | null): { tier: FrontendTier; status: 'Active' | 'Payment Failed' | 'Paused' } {
+  const tier: FrontendTier = mostRecentSub ? toFrontendTier(mostRecentSub.tier) : 'Pathway';
+  if (!user.isActive) return { tier, status: 'Paused' };
+  if (mostRecentSub && !isEntitled(mostRecentSub)) return { tier, status: 'Payment Failed' };
+  return { tier, status: 'Active' };
+}
+
+/** Latest Subscription per user (any status) -- module-level so it can be shared without instantiating AdminMembersService. */
+export async function mostRecentSubscriptionsFor(userIds: (string | Types.ObjectId)[]): Promise<Map<string, SubscriptionDocument>> {
+  const subs = await Subscription.find({ userId: { $in: userIds } }).sort({ endDate: -1 });
+  const byUser = new Map<string, SubscriptionDocument>();
+  for (const sub of subs) {
+    const key = sub.userId.toString();
+    if (!byUser.has(key)) byUser.set(key, sub);
+  }
+  return byUser;
+}
+
 interface ListParams {
   tier: FrontendTier | 'All';
   search?: string;
@@ -51,33 +88,44 @@ interface ListParams {
 export class AdminMembersService {
   /**
    * Real tally over the actual User/Subscription collections -- no fabricated
-   * numbers. "Failed Payments" is honestly 0: there's no real payment
-   * gateway yet (see Premium paths / Stripe follow-up in the progress log),
-   * so nothing can genuinely fail a payment until that's wired up.
+   * numbers. "Failed Payments" counts members whose most recent subscription
+   * has lapsed (expired/cancelled, past its endDate) while their account is
+   * still active -- the same real signal the member list's "Payment Failed"
+   * status now uses, rather than a hardcoded 0 that never moved regardless
+   * of real lapsed accounts in the DB.
    */
   async getStats() {
     const now = new Date();
     const weekAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
     const monthAgo = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000);
 
-    const [totalMembers, newMembersThisWeek, newMembersLastMonth, pausedAccounts] = await Promise.all([
+    const [totalMembers, newMembersThisWeek, newMembersLastMonth, pausedAccounts, lapsedUserIds] = await Promise.all([
       User.countDocuments({ role: 'member' }),
       User.countDocuments({ role: 'member', createdAt: { $gte: weekAgo } }),
       User.countDocuments({ role: 'member', createdAt: { $gte: monthAgo } }),
       User.countDocuments({ role: 'member', isActive: false }),
+      this.lapsedActiveMemberIds(),
     ]);
 
     return {
       totalMembers,
       totalMembersDeltaLabel: `${newMembersLastMonth} this month`,
       newMembersThisWeek,
-      failedPayments: 0,
+      failedPayments: lapsedUserIds.length,
       pausedAccounts,
     };
   }
 
+  /** Member userIds whose most recent subscription has lapsed but whose account is still active (isActive: true). */
+  private async lapsedActiveMemberIds(): Promise<string[]> {
+    const activeUsers = await User.find({ role: 'member', isActive: true }).select('_id');
+    const recentSubs = await mostRecentSubscriptionsFor(activeUsers.map((u) => u._id));
+    return activeUsers.filter((u) => { const sub = recentSubs.get(u._id.toString()); return sub && !isEntitled(sub); }).map((u) => u._id.toString());
+  }
+
   private async currentTierAndContract(userId: string): Promise<{ tier: FrontendTier; subscription: SubscriptionDocument | null }> {
-    const subscription = await subscriptionService.getCurrentSubscription(userId);
+    const recentSubs = await mostRecentSubscriptionsFor([userId]);
+    const subscription = recentSubs.get(userId) ?? null;
     const tier = subscription ? toFrontendTier(subscription.tier) : 'Pathway';
     return { tier, subscription };
   }
@@ -104,17 +152,12 @@ export class AdminMembersService {
       User.countDocuments(filter),
     ]);
 
-    const subs = await Subscription.find({
-      userId: { $in: allMatching.map((u) => u._id) },
-      status: 'active',
-      endDate: { $gt: new Date() },
-    });
-    const subByUser = new Map(subs.map((s) => [s.userId.toString(), s]));
+    const mostRecentSubs = await mostRecentSubscriptionsFor(allMatching.map((u) => u._id));
 
     const withTier = allMatching.map((user) => {
-      const sub = subByUser.get(user._id.toString());
-      const memberTier: FrontendTier = sub ? toFrontendTier(sub.tier) : 'Pathway';
-      return { user, sub: sub ?? null, tier: memberTier };
+      const sub = mostRecentSubs.get(user._id.toString()) ?? null;
+      const { tier: memberTier, status } = resolveTierAndStatus(user, sub);
+      return { user, tier: memberTier, status };
     });
 
     const filtered = tier === 'All' ? withTier : withTier.filter((m) => m.tier === tier);
@@ -122,7 +165,7 @@ export class AdminMembersService {
     const start = (page - 1) * limit;
     const pageItems = filtered.slice(start, start + limit);
 
-    const items = pageItems.map(({ user, tier: memberTier }) => ({
+    const items = pageItems.map(({ user, tier: memberTier, status }) => ({
       id: user._id.toString(),
       clientId: user._id.toString(),
       fullName: user.fullName,
@@ -130,7 +173,7 @@ export class AdminMembersService {
       email: user.email,
       tier: memberTier,
       joinedLabel: joinedLabelOf(user.createdAt),
-      status: (user.isActive ? 'Active' : 'Paused') as 'Active' | 'Payment Failed' | 'Paused',
+      status,
       contractLabel: CONTRACT_LABEL[memberTier],
     }));
 
@@ -142,6 +185,7 @@ export class AdminMembersService {
     if (!user) throw new NotFoundError('Member not found');
 
     const { tier, subscription } = await this.currentTierAndContract(id);
+    const { status } = resolveTierAndStatus(user, subscription);
 
     const [progress, leader, recentActivity] = await Promise.all([
       UserProgress.findOne({ userId: id }),
@@ -162,10 +206,14 @@ export class AdminMembersService {
       tier,
       joinedLabel: joinedLabelOf(user.createdAt),
       memberSinceLabel: joinedLabelOf(user.createdAt),
-      status: (user.isActive ? 'Active' : 'Paused') as 'Active' | 'Payment Failed' | 'Paused',
+      status,
       contractLabel: CONTRACT_LABEL[tier],
       contractTypeLabel: CONTRACT_LABEL[tier],
-      renewalDateLabel: subscription ? joinedLabelOf(subscription.endDate) : 'No active subscription',
+      renewalDateLabel: !subscription
+        ? 'No active subscription'
+        : isEntitled(subscription)
+          ? joinedLabelOf(subscription.endDate)
+          : `Lapsed ${joinedLabelOf(subscription.endDate)}`,
       paymentMethodLabel: subscription ? `${subscription.billingCycle === 'monthly' ? 'Monthly' : 'Annual'} card payment` : 'None on file',
       lessonsCompleted: progress?.completedLessonsCount ?? 0,
       studyHours: progress ? Math.round((progress.totalLearningMinutes / 60) * 10) / 10 : 0,

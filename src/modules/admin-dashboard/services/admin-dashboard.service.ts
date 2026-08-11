@@ -4,7 +4,7 @@ import { Lesson, Module } from '@/modules/learning/schemas/Learning.schema';
 import { CommunityThread } from '@/modules/community/schemas/Community.schema';
 import { Event } from '@/modules/events/schemas/Event.schema';
 import { subscriptionService } from '@/modules/subscriptions/services/subscription.service';
-import { adminMembersService } from '@/modules/admin-members/services/admin-members.service';
+import { adminMembersService, resolveTierAndStatus, mostRecentSubscriptionsFor } from '@/modules/admin-members/services/admin-members.service';
 import { adminLearningService } from '@/modules/admin-learning/services/admin-learning.service';
 import { adminCommunityService } from '@/modules/admin-community/services/admin-community.service';
 
@@ -85,20 +85,21 @@ export class AdminDashboardService {
       })),
     };
 
-    // --- Recently joined: last 3 members with their current tier/status.
-    const recentUserIds = recentUsers.map((u) => u._id);
-    const recentSubs = await Subscription.find({ userId: { $in: recentUserIds }, status: 'active', endDate: { $gt: now } });
-    const subByUserId = new Map(recentSubs.map((s) => [s.userId.toString(), s]));
+    // --- Recently joined: last 3 members with their real tier/status --
+    // reuses the exact same lapsed-subscription-aware logic as the Members
+    // list (mostRecentSubscriptionsFor + resolveTierAndStatus) so a member
+    // whose subscription already expired doesn't silently show as Pathway/Active here.
+    const recentSubs = await mostRecentSubscriptionsFor(recentUsers.map((u) => u._id));
     const recentlyJoined = recentUsers.map((u) => {
-      const sub = subByUserId.get(u._id.toString());
+      const { tier, status } = resolveTierAndStatus(u, recentSubs.get(u._id.toString()) ?? null);
       return {
         id: u._id.toString(),
         fullName: u.fullName,
         initials: initialsOf(u.fullName),
         email: u.email,
-        tier: sub ? TIER_FRONTEND[sub.tier] : 'Pathway',
+        tier,
         joinedLabel: u.createdAt.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }),
-        status: u.isActive ? 'Active' : 'Paused',
+        status,
       };
     });
 
