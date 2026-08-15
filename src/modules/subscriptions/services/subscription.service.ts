@@ -224,6 +224,16 @@ export class SubscriptionService {
   }
 
   /**
+   * A single billing-history record, scoped to its owner -- used for the
+   * receipt download. Returns null (not just any record) if it exists but
+   * belongs to someone else, so the controller can 404 either way without
+   * leaking whether the id exists at all.
+   */
+  async getOwnedBillingRecord(userId: string, subscriptionId: string): Promise<SubscriptionDocument | null> {
+    return Subscription.findOne({ _id: subscriptionId, userId: new Types.ObjectId(userId) });
+  }
+
+  /**
    * Get all subscription tiers with features
    */
   getTierHierarchy() {
