@@ -19,8 +19,13 @@ export class EventsController {
     const { page = 1, limit = 20 } = req.query;
     const query = PaginationHelper.parse({ page: page as string, limit: limit as string });
 
-    const now = new Date();
-    const filter = { date: { $gte: now }, isActive: true };
+    // `date` is stored at midnight UTC (calendar day, no time-of-day), so
+    // comparing against the exact current instant excludes an event
+    // scheduled for later today the moment it's past midnight. Compare
+    // against the start of today instead, matching how dates are stored.
+    const startOfToday = new Date();
+    startOfToday.setUTCHours(0, 0, 0, 0);
+    const filter = { date: { $gte: startOfToday }, isActive: true };
     const [events, total] = await Promise.all([
       Event.find(filter).skip(query.skip).limit(query.limit).sort({ date: 1 }),
       Event.countDocuments(filter),
@@ -44,8 +49,11 @@ export class EventsController {
     const { page = 1, limit = 20 } = req.query;
     const query = PaginationHelper.parse({ page: page as string, limit: limit as string });
 
-    const now = new Date();
-    const filter = { date: { $lt: now }, isActive: true };
+    // See getUpcomingEvents: use start-of-day so an event scheduled for
+    // later today isn't already counted as "past".
+    const startOfToday = new Date();
+    startOfToday.setUTCHours(0, 0, 0, 0);
+    const filter = { date: { $lt: startOfToday }, isActive: true };
     const [events, total] = await Promise.all([
       Event.find(filter).skip(query.skip).limit(query.limit).sort({ date: -1 }),
       Event.countDocuments(filter),
