@@ -3669,3 +3669,956 @@ Learn more about webhook signing and explore webhook integration examples for va
   "ip": "127.0.0.1",
   "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
 }
+2026-08-11 03:26:44 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:27:44 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:27:51 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:27:55 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/admin/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.adminRefreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:128:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:25:83\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:27:55 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:28:27 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/admin/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.adminRefreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:128:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:25:83\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:28:27 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:29:06 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/admin/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.adminRefreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:128:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:25:83\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:29:06 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:29:19 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/admin/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.adminRefreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:128:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:25:83\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:29:19 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:29:50 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:29:58 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:30:01 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/admin/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.adminRefreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:128:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:25:83\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:30:01 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:30:09 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/admin/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.adminRefreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:128:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:25:83\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:30:09 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:30:35 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/admin/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.adminRefreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:128:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:25:83\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:30:35 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:30:40 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:31:01 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/admin/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.adminRefreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:128:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:25:83\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:31:01 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:31:06 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:31:37 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/admin/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.adminRefreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:128:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:25:83\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:31:37 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:31:40 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:32:01 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:32:03 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:32:06 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:32:23 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/admin/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.adminRefreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:128:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:25:83\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:32:23 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:32:26 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:32:51 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/admin/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.adminRefreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:128:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:25:83\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:32:51 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:32:54 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:33:18 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/admin/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.adminRefreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:128:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:25:83\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:33:18 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:33:21 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:34:02 [error]: Error occurred: You do not have access to this lesson {
+  "url": "/api/v1/learning/lessons/6a660d1b53bc1fc14485f64c",
+  "method": "GET",
+  "ip": "127.0.0.1",
+  "stack": "AuthorizationError: You do not have access to this lesson\n    at LearningService.getLesson (/home/user/pbt-enterprise-api/src/modules/learning/services/learning.service.ts:186:27)\n    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async LearningController.getLesson (/home/user/pbt-enterprise-api/src/modules/learning/controllers/learning.controller.ts:99:20)"
+}
+2026-08-11 03:34:02 [error]: Error occurred: You do not have access to this lesson {
+  "url": "/api/v1/learning/lessons/6a660d1b53bc1fc14485f64c",
+  "method": "GET",
+  "ip": "127.0.0.1",
+  "stack": "AuthorizationError: You do not have access to this lesson\n    at LearningService.getLesson (/home/user/pbt-enterprise-api/src/modules/learning/services/learning.service.ts:186:27)\n    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async LearningController.getLesson (/home/user/pbt-enterprise-api/src/modules/learning/controllers/learning.controller.ts:99:20)"
+}
+2026-08-11 03:34:02 [error]: Error occurred: You do not have access to this resource {
+  "url": "/api/v1/resources/6a6674976e045a6accdc6b2a",
+  "method": "GET",
+  "ip": "127.0.0.1",
+  "stack": "AuthorizationError: You do not have access to this resource\n    at ResourcesService.assertCanAccess (/home/user/pbt-enterprise-api/src/modules/resources/services/resources.service.ts:35:13)\n    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async ResourcesController.getResourceById (/home/user/pbt-enterprise-api/src/modules/resources/controllers/resources.controller.ts:115:5)"
+}
+2026-08-11 03:34:02 [error]: Error occurred: You do not have access to this resource {
+  "url": "/api/v1/resources/6a6674976e045a6accdc6b2a",
+  "method": "GET",
+  "ip": "127.0.0.1",
+  "stack": "AuthorizationError: You do not have access to this resource\n    at ResourcesService.assertCanAccess (/home/user/pbt-enterprise-api/src/modules/resources/services/resources.service.ts:35:13)\n    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async ResourcesController.getResourceById (/home/user/pbt-enterprise-api/src/modules/resources/controllers/resources.controller.ts:115:5)"
+}
+2026-08-11 03:34:09 [error]: Error occurred: You do not have access to this resource {
+  "url": "/api/v1/resources/6a6674976e045a6accdc6b2a/download",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthorizationError: You do not have access to this resource\n    at ResourcesService.assertCanAccess (/home/user/pbt-enterprise-api/src/modules/resources/services/resources.service.ts:35:13)\n    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async ResourcesService.trackDownload (/home/user/pbt-enterprise-api/src/modules/resources/services/resources.service.ts:43:5)\n    at async ResourcesController.downloadResource (/home/user/pbt-enterprise-api/src/modules/resources/controllers/resources.controller.ts:130:21)"
+}
+2026-08-11 03:34:09 [error]: Error occurred: You do not have access to this resource {
+  "url": "/api/v1/resources/6a6674976e045a6accdc6b2a/download",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthorizationError: You do not have access to this resource\n    at ResourcesService.assertCanAccess (/home/user/pbt-enterprise-api/src/modules/resources/services/resources.service.ts:35:13)\n    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async ResourcesService.trackDownload (/home/user/pbt-enterprise-api/src/modules/resources/services/resources.service.ts:43:5)\n    at async ResourcesController.downloadResource (/home/user/pbt-enterprise-api/src/modules/resources/controllers/resources.controller.ts:130:21)"
+}
+2026-08-11 03:34:30 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:34:50 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:35:40 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:36:13 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:37:03 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/admin/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.adminRefreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:128:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:25:83\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:37:03 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:37:06 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:37:52 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/admin/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.adminRefreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:128:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:25:83\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:37:52 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:37:55 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:38:40 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/admin/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.adminRefreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:128:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:25:83\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:38:40 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:38:42 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:39:06 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/admin/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.adminRefreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:128:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:25:83\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:39:06 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:39:09 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:40:00 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/admin/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.adminRefreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:128:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:25:83\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:40:00 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:40:02 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:40:20 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/admin/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.adminRefreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:128:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:25:83\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:40:20 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:40:22 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:40:47 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:42:26 [error]: Error occurred: Route not found: GET /api/v1/events?status=upcoming {
+  "url": "/api/v1/events?status=upcoming",
+  "method": "GET",
+  "ip": "127.0.0.1",
+  "stack": "AppError: Route not found: GET /api/v1/events?status=upcoming\n    at notFoundHandler (/home/user/pbt-enterprise-api/src/core/middleware/errorHandler.ts:48:17)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at trim_prefix (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:328:13)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:286:9\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:646:15\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:265:14)\n    at authenticate (/home/user/pbt-enterprise-api/src/core/middleware/authMiddleware.ts:27:5)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)"
+}
+2026-08-11 03:43:15 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/admin/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.adminRefreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:128:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:25:83\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:43:15 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:43:17 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:43:38 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:44:20 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:44:49 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:45:15 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/admin/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.adminRefreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:128:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:25:83\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:45:15 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:45:17 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:45:43 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/admin/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.adminRefreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:128:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:25:83\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:45:43 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:45:45 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:46:03 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/admin/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.adminRefreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:128:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:25:83\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:46:03 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:46:05 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:46:39 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:47:22 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/admin/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.adminRefreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:128:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:25:83\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:47:22 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:47:24 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:47:26 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:47:30 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:47:33 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:47:35 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:47:38 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:47:41 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:47:44 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:47:46 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:47:48 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:47:53 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:47:56 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:47:58 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:48:01 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:49:26 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:51:09 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:51:28 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:52:34 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:52:52 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:52:58 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-11 03:53:28 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-15 04:39:32 [error]: MongoDB connection failed {
+  "error": {
+    "message": "connect ECONNREFUSED 127.0.0.1:27017",
+    "errorLabelSet": {},
+    "reason": {
+      "type": "Unknown",
+      "servers": {
+        "127.0.0.1:27017": {
+          "address": "127.0.0.1:27017",
+          "type": "Unknown",
+          "hosts": [],
+          "passives": [],
+          "arbiters": [],
+          "tags": {},
+          "minWireVersion": 0,
+          "maxWireVersion": 0,
+          "roundTripTime": -1,
+          "minRoundTripTime": 0,
+          "lastUpdateTime": 40703,
+          "lastWriteDate": 0,
+          "error": {
+            "errorLabelSet": {},
+            "beforeHandshake": false
+          },
+          "topologyVersion": null,
+          "setName": null,
+          "setVersion": null,
+          "electionId": null,
+          "logicalSessionTimeoutMinutes": null,
+          "maxMessageSizeBytes": null,
+          "maxWriteBatchSize": null,
+          "maxBsonObjectSize": null,
+          "primary": null,
+          "me": null,
+          "$clusterTime": null,
+          "iscryptd": false
+        }
+      },
+      "stale": false,
+      "compatible": true,
+      "heartbeatFrequencyMS": 10000,
+      "localThresholdMS": 15,
+      "setName": null,
+      "maxElectionId": null,
+      "maxSetVersion": null,
+      "commonWireVersion": 0,
+      "logicalSessionTimeoutMinutes": null
+    },
+    "cause": {
+      "type": "Unknown",
+      "servers": {
+        "127.0.0.1:27017": {
+          "address": "127.0.0.1:27017",
+          "type": "Unknown",
+          "hosts": [],
+          "passives": [],
+          "arbiters": [],
+          "tags": {},
+          "minWireVersion": 0,
+          "maxWireVersion": 0,
+          "roundTripTime": -1,
+          "minRoundTripTime": 0,
+          "lastUpdateTime": 40703,
+          "lastWriteDate": 0,
+          "error": {
+            "errorLabelSet": {},
+            "beforeHandshake": false
+          },
+          "topologyVersion": null,
+          "setName": null,
+          "setVersion": null,
+          "electionId": null,
+          "logicalSessionTimeoutMinutes": null,
+          "maxMessageSizeBytes": null,
+          "maxWriteBatchSize": null,
+          "maxBsonObjectSize": null,
+          "primary": null,
+          "me": null,
+          "$clusterTime": null,
+          "iscryptd": false
+        }
+      },
+      "stale": false,
+      "compatible": true,
+      "heartbeatFrequencyMS": 10000,
+      "localThresholdMS": 15,
+      "setName": null,
+      "maxElectionId": null,
+      "maxSetVersion": null,
+      "commonWireVersion": 0,
+      "logicalSessionTimeoutMinutes": null
+    }
+  }
+}
+2026-08-15 04:42:28 [error]: Error occurred: No token provided {
+  "url": "/api/v1/admin/events",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No token provided\n    at authenticate (/home/user/pbt-enterprise-api/src/core/middleware/authMiddleware.ts:22:13)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at trim_prefix (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:328:13)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:286:9\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)\n    at Function.handle (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:175:3)\n    at router (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:47:12)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at trim_prefix (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:328:13)"
+}
+2026-08-15 04:42:36 [error]: Error occurred: Cannot read properties of undefined (reading 'split') {
+  "url": "/api/v1/admin/events",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "TypeError: Cannot read properties of undefined (reading 'split')\n    at to12Hour (/home/user/pbt-enterprise-api/src/modules/events/services/events.service.ts:9:23)\n    at buildTimeLabel (/home/user/pbt-enterprise-api/src/modules/events/services/events.service.ts:16:13)\n    at AdminEventsService.createEvent (/home/user/pbt-enterprise-api/src/modules/admin-events/services/admin-events.service.ts:116:32)\n    at AdminEventsController.createEvent (/home/user/pbt-enterprise-api/src/modules/admin-events/controllers/admin-events.controller.ts:40:44)\n    at /home/user/pbt-enterprise-api/src/modules/admin-events/routes/admin-events.routes.ts:13:45\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)"
+}
+2026-08-15 04:42:36 [error]: Unknown error {
+  "error": {}
+}
+2026-08-15 04:42:49 [error]: Error occurred: Event validation failed: category: `Webinar` is not a valid enum value for path `category`. {
+  "url": "/api/v1/admin/events",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "ValidationError: Event validation failed: category: `Webinar` is not a valid enum value for path `category`.\n    at model.validate (/home/user/pbt-enterprise-api/node_modules/mongoose/lib/document.js:2880:36)\n    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async model.$__save (/home/user/pbt-enterprise-api/node_modules/mongoose/lib/model.js:399:7)\n    at async maybeTracedSave (/home/user/pbt-enterprise-api/node_modules/mongoose/lib/model.js:675:7)\n    at async Function.create (/home/user/pbt-enterprise-api/node_modules/mongoose/lib/model.js:2763:5)\n    at async AdminEventsService.createEvent (/home/user/pbt-enterprise-api/src/modules/admin-events/services/admin-events.service.ts:110:19)\n    at async AdminEventsController.createEvent (/home/user/pbt-enterprise-api/src/modules/admin-events/controllers/admin-events.controller.ts:40:19)"
+}
+2026-08-15 04:42:49 [error]: Unknown error {
+  "error": {
+    "errors": {
+      "category": {
+        "name": "ValidatorError",
+        "message": "`Webinar` is not a valid enum value for path `category`.",
+        "properties": {
+          "message": "`Webinar` is not a valid enum value for path `category`.",
+          "type": "enum",
+          "enumValues": [
+            "Mentorship",
+            "In-Person",
+            "Community",
+            "Masterclass",
+            "Onboarding"
+          ],
+          "path": "category",
+          "value": "Webinar",
+          "length": 7
+        },
+        "kind": "enum",
+        "path": "category",
+        "value": "Webinar"
+      }
+    },
+    "_message": "Event validation failed",
+    "name": "ValidationError",
+    "message": "Event validation failed: category: `Webinar` is not a valid enum value for path `category`."
+  }
+}
+2026-08-15 04:43:05 [error]: Error occurred: Invalid JSON received from the Stripe API {
+  "url": "/api/v1/admin/dashboard",
+  "method": "GET",
+  "ip": "127.0.0.1",
+  "stack": "Error: Invalid JSON received from the Stripe API\n    at /home/user/pbt-enterprise-api/node_modules/stripe/src/RequestSender.ts:217:19\n    at processTicksAndRejections (node:internal/process/task_queues:103:5)\nOriginating from:\n    at ProductResource._makeRequest (/home/user/pbt-enterprise-api/node_modules/stripe/src/StripeResource.ts:98:27)\n    at ProductResource.search (/home/user/pbt-enterprise-api/node_modules/stripe/src/resources/Products.ts:129:17)\n    at Function.findOrCreateProduct (/home/user/pbt-enterprise-api/src/core/payments/StripeService.ts:38:54)\n    at PricingService.ensureSeeded (/home/user/pbt-enterprise-api/src/modules/pricing/services/pricing.service.ts:62:41)\n    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async PricingService.getEffectivePrice (/home/user/pbt-enterprise-api/src/modules/pricing/services/pricing.service.ts:89:17)\n    at async SubscriptionService.getPriceForTier (/home/user/pbt-enterprise-api/src/modules/subscriptions/services/subscription.service.ts:256:24)\n    at async /home/user/pbt-enterprise-api/src/modules/subscriptions/services/subscription.service.ts:341:30\n    at async Promise.all (index 0)\n    at async SubscriptionService.getRevenueByTier (/home/user/pbt-enterprise-api/src/modules/subscriptions/services/subscription.service.ts:339:22)"
+}
+2026-08-15 04:43:05 [error]: Unknown error {
+  "error": {
+    "type": "StripeAPIError",
+    "raw": {
+      "message": "Invalid JSON received from the Stripe API",
+      "exception": {
+        "rawBody": "Host not in allowlist: api.stripe.com. Add this host to your network egress settings to allow access."
+      }
+    }
+  }
+}
+2026-08-15 04:43:08 [error]: Error occurred: Invalid JSON received from the Stripe API {
+  "url": "/api/v1/admin/dashboard",
+  "method": "GET",
+  "ip": "127.0.0.1",
+  "stack": "Error: Invalid JSON received from the Stripe API\n    at /home/user/pbt-enterprise-api/node_modules/stripe/src/RequestSender.ts:217:19\n    at processTicksAndRejections (node:internal/process/task_queues:103:5)\nOriginating from:\n    at ProductResource._makeRequest (/home/user/pbt-enterprise-api/node_modules/stripe/src/StripeResource.ts:98:27)\n    at ProductResource.search (/home/user/pbt-enterprise-api/node_modules/stripe/src/resources/Products.ts:129:17)\n    at Function.findOrCreateProduct (/home/user/pbt-enterprise-api/src/core/payments/StripeService.ts:38:54)\n    at PricingService.ensureSeeded (/home/user/pbt-enterprise-api/src/modules/pricing/services/pricing.service.ts:62:41)\n    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async PricingService.getEffectivePrice (/home/user/pbt-enterprise-api/src/modules/pricing/services/pricing.service.ts:89:17)\n    at async SubscriptionService.getPriceForTier (/home/user/pbt-enterprise-api/src/modules/subscriptions/services/subscription.service.ts:256:24)\n    at async /home/user/pbt-enterprise-api/src/modules/subscriptions/services/subscription.service.ts:341:30\n    at async Promise.all (index 1)\n    at async SubscriptionService.getRevenueByTier (/home/user/pbt-enterprise-api/src/modules/subscriptions/services/subscription.service.ts:339:22)"
+}
+2026-08-15 04:43:08 [error]: Unknown error {
+  "error": {
+    "type": "StripeAPIError",
+    "raw": {
+      "message": "Invalid JSON received from the Stripe API",
+      "exception": {
+        "rawBody": "Host not in allowlist: api.stripe.com. Add this host to your network egress settings to allow access."
+      }
+    }
+  }
+}
+2026-08-15 04:45:24 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/admin/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.adminRefreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:128:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:25:83\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-15 04:45:24 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-15 04:45:27 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-15 04:45:30 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-15 04:45:40 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/admin/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.adminRefreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:128:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:25:83\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-15 04:45:40 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-15 04:45:41 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-15 04:46:22 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/admin/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.adminRefreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:128:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:25:83\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-15 04:46:22 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-15 04:46:23 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-15 04:47:03 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/admin/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.adminRefreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:128:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:25:83\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-15 04:47:03 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-15 04:47:04 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:103:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-15 04:50:06 [error]: Error occurred: Your current password is incorrect {
+  "url": "/api/v1/auth/me/change-password",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: Your current password is incorrect\n    at AuthService.changePassword (/home/user/pbt-enterprise-api/src/modules/auth/services/auth.service.ts:244:13)\n    at async AuthController.changePassword (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:222:5)"
+}
+2026-08-15 04:50:06 [error]: Error occurred: Invalid email or password {
+  "url": "/api/v1/auth/login",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: Invalid email or password\n    at AuthService.login (/home/user/pbt-enterprise-api/src/modules/auth/services/auth.service.ts:87:13)\n    at async AuthController.login (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:58:20)"
+}
+2026-08-15 04:51:54 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:104:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-15 04:51:57 [error]: Error occurred: Your current password is incorrect {
+  "url": "/api/v1/auth/me/change-password",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: Your current password is incorrect\n    at AuthService.changePassword (/home/user/pbt-enterprise-api/src/modules/auth/services/auth.service.ts:244:13)\n    at async AuthController.changePassword (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:222:5)"
+}
+2026-08-15 04:52:14 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/admin/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.adminRefreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:129:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:25:83\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-15 04:52:14 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:104:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-15 04:52:15 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:104:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-15 05:00:49 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:104:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
+2026-08-15 05:01:18 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "127.0.0.1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (/home/user/pbt-enterprise-api/src/modules/auth/controllers/auth.controller.ts:104:13)\n    at /home/user/pbt-enterprise-api/src/modules/auth/routes/auth.routes.ts:15:77\n    at /home/user/pbt-enterprise-api/src/core/middleware/asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/user/pbt-enterprise-api/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/user/pbt-enterprise-api/node_modules/express/lib/router/layer.js:95:5)\n    at /home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:346:12)\n    at next (/home/user/pbt-enterprise-api/node_modules/express/lib/router/index.js:280:10)"
+}
