@@ -47,6 +47,11 @@ export const updateProfileSchema = z.object({
   investmentFocus: z.string().min(1, 'Select an investment focus'),
 });
 
+export const changePasswordSchema = z.object({
+  currentPassword: z.string().min(1, 'Enter your current password'),
+  newPassword: z.string().min(6, 'New password must be at least 6 characters'),
+});
+
 export const updateNotificationPreferenceSchema = z.object({
   key: z.enum(['communityReplies', 'eventReminders', 'newModuleReleases', 'marketingUpdates']),
   value: z.boolean(),
@@ -59,4 +64,5 @@ export type ForgotPasswordInput = z.infer<typeof forgotPasswordSchema>;
 export type ResetPasswordInput = z.infer<typeof resetPasswordSchema>;
 export type EmailVerificationInput = z.infer<typeof emailVerificationSchema>;
 export type UpdateProfileInput = z.infer<typeof updateProfileSchema>;
+export type ChangePasswordInput = z.infer<typeof changePasswordSchema>;
 export type UpdateNotificationPreferenceInput = z.infer<typeof updateNotificationPreferenceSchema>;

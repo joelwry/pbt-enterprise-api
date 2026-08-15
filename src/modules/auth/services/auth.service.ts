@@ -230,6 +230,27 @@ export class AuthService {
   }
 
   /**
+   * Change the current user's password (member or admin -- same User model).
+   * Requires the correct current password, same as login.
+   */
+  async changePassword(userId: string, currentPassword: string, newPassword: string): Promise<void> {
+    const user = await User.findById(userId).select('+password');
+    if (!user) {
+      throw new NotFoundError('User not found');
+    }
+
+    const isCurrentPasswordValid = await user.comparePassword(currentPassword);
+    if (!isCurrentPasswordValid) {
+      throw new AuthenticationError('Your current password is incorrect');
+    }
+
+    user.password = newPassword;
+    await user.save();
+
+    logger.info(`Password changed: ${user.email}`);
+  }
+
+  /**
    * Update a single notification preference for the current member.
    */
   async updateNotificationPreference(
