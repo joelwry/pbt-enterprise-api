@@ -64,11 +64,23 @@ export class LearningService {
   async canAccessLesson(userId: string, lesson: ILesson): Promise<boolean> {
     if (!this.isLessonUnlocked(lesson)) return false;
 
-    const requiredTier = lesson.access.requiredTier;
-    if (!requiredTier || requiredTier === 'Pathway') return true;
-
+    // Every membership tier here is a real paid subscription (Pathway is
+    // the entry PAID tier, not a free one) -- there's no such thing as a
+    // logged-in member who legitimately never subscribed. So access to
+    // Pathway-level content still requires a currently valid subscription,
+    // same as every other tier; only the *rank* comparison differs.
+    // Previously this returned true for Pathway-tier lessons before ever
+    // checking the subscription at all, so an expired member kept full
+    // access to every entry-tier lesson at the API layer even though the
+    // frontend correctly redirected them to renew -- a real gap between
+    // the UI gate and the actual security boundary, closed here to match
+    // resources.service.ts's allowedTiersFor and subscription.service.ts's
+    // canAccessTier, which both already required this.
     const subscription = await subscriptionService.getCurrentSubscription(userId);
     if (!subscription || !subscriptionService.isSubscriptionValid(subscription)) return false;
+
+    const requiredTier = lesson.access.requiredTier;
+    if (!requiredTier || requiredTier === 'Pathway') return true;
 
     const memberTier = (subscription.tier.charAt(0).toUpperCase() + subscription.tier.slice(1)) as MembershipTier;
     return (TIER_RANK[memberTier] ?? 0) >= TIER_RANK[requiredTier];
