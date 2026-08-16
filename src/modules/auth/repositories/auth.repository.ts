@@ -72,9 +72,13 @@ export class AuthRepository {
    * Clear password reset token
    */
   async clearPasswordResetToken(userId: string): Promise<void> {
+    // Mongoose silently drops undefined-valued keys when building the
+    // update document -- `{ passwordResetToken: undefined }` here was a
+    // complete no-op, so a used reset token stayed valid (and replayable)
+    // until its 1-hour expiry instead of being invalidated after first use.
+    // $unset is the only way to actually remove the fields.
     await User.findByIdAndUpdate(userId, {
-      passwordResetToken: undefined,
-      passwordResetExpiry: undefined,
+      $unset: { passwordResetToken: '', passwordResetExpiry: '' },
     });
   }
 
@@ -109,10 +113,11 @@ export class AuthRepository {
    * Verify email
    */
   async verifyEmail(userId: string): Promise<void> {
+    // Same undefined-vs-$unset issue as clearPasswordResetToken above --
+    // fixed here too so a used verification token doesn't stay replayable.
     await User.findByIdAndUpdate(userId, {
-      emailVerified: true,
-      emailVerificationToken: undefined,
-      emailVerificationExpiry: undefined,
+      $set: { emailVerified: true },
+      $unset: { emailVerificationToken: '', emailVerificationExpiry: '' },
     });
   }
 
