@@ -1,12 +1,11 @@
 import crypto from 'crypto';
-import { Types } from 'mongoose';
 import { User, IUser } from '@/modules/users/schemas/User.schema';
 import { Subscription, SubscriptionDocument } from '@/modules/subscriptions/schemas/Subscription.schema';
 import { UserProgress } from '@/modules/progress/schemas/UserProgress.schema';
 import { Activity } from '@/modules/activity/schemas/Activity.schema';
 import { Leader } from '@/modules/leaders/schemas/Leader.schema';
 import { authRepository } from '@/modules/auth/repositories/auth.repository';
-import { subscriptionService } from '@/modules/subscriptions/services/subscription.service';
+import { subscriptionService, isEntitled, mostRecentSubscriptionsFor } from '@/modules/subscriptions/services/subscription.service';
 import { EmailService } from '@/core/email/EmailService';
 import { NotFoundError, ValidationError } from '@/core/errors/AppError';
 import logger from '@/core/logger/logger';
@@ -42,10 +41,6 @@ function joinedLabelOf(date: Date): string {
   return date.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
 }
 
-export function isEntitled(sub: SubscriptionDocument | null): boolean {
-  return sub !== null && sub.status === 'active' && sub.endDate > new Date();
-}
-
 /**
  * A member with no subscription record at all is a real, permanent Pathway
  * (Pathway never gets one -- see createMember). A member whose most recent
@@ -56,26 +51,18 @@ export function isEntitled(sub: SubscriptionDocument | null): boolean {
  * lapse -- "Payment Failed" is the closest existing bucket to "not currently
  * paying," reusing the type instead of inventing a 4th status value.
  *
- * Exported (along with mostRecentSubscriptionsFor below) so admin-dashboard's
- * "Recently Joined" widget can apply this exact same real logic instead of
- * re-deriving tier/status a second, inconsistent way.
+ * Exported so admin-dashboard's "Recently Joined" widget can apply this
+ * exact same real logic instead of re-deriving tier/status a second,
+ * inconsistent way. isEntitled and mostRecentSubscriptionsFor now live in
+ * subscription.service.ts (re-exported via the import above) -- moved
+ * there so subscription.service.ts's own admin stats (failed-payments
+ * count) could reuse them too without a circular import back to this file.
  */
 export function resolveTierAndStatus(user: IUser, mostRecentSub: SubscriptionDocument | null): { tier: FrontendTier; status: 'Active' | 'Payment Failed' | 'Paused' } {
   const tier: FrontendTier = mostRecentSub ? toFrontendTier(mostRecentSub.tier) : 'Pathway';
   if (!user.isActive) return { tier, status: 'Paused' };
   if (mostRecentSub && !isEntitled(mostRecentSub)) return { tier, status: 'Payment Failed' };
   return { tier, status: 'Active' };
-}
-
-/** Latest Subscription per user (any status) -- module-level so it can be shared without instantiating AdminMembersService. */
-export async function mostRecentSubscriptionsFor(userIds: (string | Types.ObjectId)[]): Promise<Map<string, SubscriptionDocument>> {
-  const subs = await Subscription.find({ userId: { $in: userIds } }).sort({ endDate: -1 });
-  const byUser = new Map<string, SubscriptionDocument>();
-  for (const sub of subs) {
-    const key = sub.userId.toString();
-    if (!byUser.has(key)) byUser.set(key, sub);
-  }
-  return byUser;
 }
 
 interface ListParams {
