@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import { authenticate, authorize } from '@/core/middleware/authMiddleware';
+import { requireSection } from '@/core/middleware/sectionMiddleware';
 import { catchAsync } from '@/core/middleware/asyncHandler';
 import { FileUploadHelper } from '@/core/file/FileUploadHelper';
 import { adminLearningController as c } from '@/modules/admin-learning/controllers/admin-learning.controller';
@@ -9,7 +10,7 @@ const upload = FileUploadHelper.configureAnyUpload(200 * 1024 * 1024); // lesson
 
 // Admin-only: manage the Business Learning Journey hierarchy
 // (Roadmap → Roadmap Week → Module → Lesson).
-router.use(authenticate, authorize('admin', 'super_admin'));
+router.use(authenticate, authorize('admin', 'super_admin'), requireSection('content'));
 
 router.get('/roadmaps', catchAsync((req, res) => c.listRoadmaps(req, res)));
 router.post('/roadmaps', catchAsync((req, res) => c.createRoadmap(req, res)));

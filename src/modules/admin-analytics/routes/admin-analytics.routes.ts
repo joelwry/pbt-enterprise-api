@@ -1,11 +1,12 @@
 import { Router } from 'express';
 import { authenticate, authorize } from '@/core/middleware/authMiddleware';
+import { requireSection } from '@/core/middleware/sectionMiddleware';
 import { catchAsync } from '@/core/middleware/asyncHandler';
 import { adminAnalyticsController as c } from '@/modules/admin-analytics/controllers/admin-analytics.controller';
 
 const router = Router();
 
-router.use(authenticate, authorize('admin', 'super_admin'));
+router.use(authenticate, authorize('admin', 'super_admin'), requireSection('analytics'));
 
 router.get('/stats', catchAsync((req, res) => c.getStats(req, res)));
 router.get('/member-growth', catchAsync((req, res) => c.getMemberGrowth(req, res)));

@@ -1,11 +1,12 @@
 import { Router } from 'express';
 import { authenticate, authorize } from '@/core/middleware/authMiddleware';
+import { requireSection } from '@/core/middleware/sectionMiddleware';
 import { catchAsync } from '@/core/middleware/asyncHandler';
 import { adminCommunityController as c } from '@/modules/admin-community/controllers/admin-community.controller';
 
 const router = Router();
 
-router.use(authenticate, authorize('admin', 'super_admin'));
+router.use(authenticate, authorize('admin', 'super_admin'), requireSection('community'));
 
 router.get('/stats', catchAsync((req, res) => c.getStats(req, res)));
 router.get('/posts', catchAsync((req, res) => c.listPosts(req, res)));

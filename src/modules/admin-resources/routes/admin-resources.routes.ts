@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import { authenticate, authorize } from '@/core/middleware/authMiddleware';
+import { requireSection } from '@/core/middleware/sectionMiddleware';
 import { catchAsync } from '@/core/middleware/asyncHandler';
 import { FileUploadHelper } from '@/core/file/FileUploadHelper';
 import { adminResourcesController as c } from '@/modules/admin-resources/controllers/admin-resources.controller';
@@ -7,7 +8,7 @@ import { adminResourcesController as c } from '@/modules/admin-resources/control
 const router = Router();
 const upload = FileUploadHelper.configureAnyUpload(200 * 1024 * 1024);
 
-router.use(authenticate, authorize('admin', 'super_admin'));
+router.use(authenticate, authorize('admin', 'super_admin'), requireSection('resources'));
 
 router.get('/stats', catchAsync((req, res) => c.getStats(req, res)));
 router.get('/', catchAsync((req, res) => c.listResources(req, res)));
