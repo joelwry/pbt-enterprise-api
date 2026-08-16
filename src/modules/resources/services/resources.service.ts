@@ -42,13 +42,22 @@ export class ResourcesService {
     if (!resource) throw new NotFoundError('Resource not found');
     await this.assertCanAccess(userId, resource);
 
+    // A resource can be published without a file attached yet (admin saved
+    // it before uploading). Without this check, the download counter still
+    // incremented and the endpoint returned 200 with fileUrl: "" -- a
+    // "successful download of nothing" the member-facing redirect would
+    // then follow to a blank/broken destination.
+    if (!resource.fileUrl) {
+      throw new NotFoundError('This resource has no file attached yet');
+    }
+
     const updated = await Resource.findByIdAndUpdate(resourceId, { $inc: { downloads: 1 } }, { new: true });
     return updated!.fileUrl;
   }
 
-  /** The single "Featured Toolkit" banner: no dedicated admin flag exists for this (deliberately, to avoid adding editor UI for a one-off) — the most-downloaded Toolkit if one exists, else the most-downloaded resource of any type. */
+  /** The single "Featured Toolkit" banner: no dedicated admin flag exists for this (deliberately, to avoid adding editor UI for a one-off) — the most-downloaded Toolkit if one exists, else the most-downloaded resource of any type. Excludes resources with no file attached yet -- featuring one would put a broken download front and center. */
   async getFeatured(allowedTiers: ResourceTier[]) {
-    const baseFilter = { isActive: true, isDraft: false, requiredTier: { $in: allowedTiers } };
+    const baseFilter = { isActive: true, isDraft: false, requiredTier: { $in: allowedTiers }, fileUrl: { $ne: '' } };
     const topToolkit = await Resource.findOne({ ...baseFilter, type: 'Toolkit' }).sort({ downloads: -1 });
     if (topToolkit) return topToolkit;
     return Resource.findOne(baseFilter).sort({ downloads: -1 });
