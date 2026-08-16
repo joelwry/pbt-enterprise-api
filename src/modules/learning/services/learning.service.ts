@@ -314,7 +314,16 @@ export class LearningService {
   /** Roadmap overview for a year: its weeks, plus the member's overall progress against it. */
   async getRoadmapForYear(userId: string, year: string, tier?: MembershipTier) {
     const roadmap = await Roadmap.findOne({ year });
-    if (!roadmap) throw new NotFoundError('Roadmap not found for this year');
+    // No roadmap created yet for this year is a real, valid first-run state
+    // (an admin hasn't built one out yet) -- not an error. Every other list
+    // screen in this product (Events, Resources, ...) returns 200 with an
+    // empty result for "nothing here yet" and lets the frontend render its
+    // own empty state; this 404'd instead, which tripped the frontend's
+    // generic error boundary ("Something went wrong") on a brand new
+    // install with no content, rather than a proper empty state.
+    if (!roadmap) {
+      return { year, title: 'Roadmap', description: '', overallPercent: 0, weeks: [] };
+    }
 
     const weeks = await RoadmapWeek.find({ roadmapId: roadmap._id }).sort({ weekNumber: 1 });
 
