@@ -164,13 +164,20 @@ export class AdminDashboardService {
       };
     });
 
+    // The shared dashboard landing page is visible to every admin type,
+    // but MRR is the single most sensitive figure on the platform -- a
+    // staff admin without the 'subscriptions' section granted shouldn't
+    // see it here just because this endpoint isn't itself section-gated
+    // (unlike /admin/subscriptions, which correctly 403s them).
+    const canSeeRevenue = admin?.role === 'super_admin' || (admin?.adminSections ?? []).includes('subscriptions');
+
     return {
       adminFirstName: admin ? firstNameOf(admin.fullName) : 'Admin',
       stats: {
         activeMembers: memberStats.totalMembers,
         activeMembersDeltaLabel: memberStats.totalMembersDeltaLabel,
-        mrrLabel: revenueByTier.mrrLabel,
-        mrrDeltaLabel: subStats.mrrDeltaLabel,
+        mrrLabel: canSeeRevenue ? revenueByTier.mrrLabel : '—',
+        mrrDeltaLabel: canSeeRevenue ? subStats.mrrDeltaLabel : 'Restricted',
         lessonsPublished: learningStats.publishedCount,
         lessonsPublishedYearLabel: `Lessons Published (${yearStart.getFullYear()})`,
         lessonsUnlockThisWeekLabel: `${lessonsUnlockingThisWeek} unlock${lessonsUnlockingThisWeek === 1 ? 's' : ''} this week`,
