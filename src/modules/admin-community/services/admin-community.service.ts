@@ -1,13 +1,15 @@
+import { Types } from 'mongoose';
 import {
   CommunityThread,
   CommunityAnnouncement,
   ICommunityThread,
 } from '@/modules/community/schemas/Community.schema';
-import { timeAgoLabel } from '@/modules/community/services/community.service';
+import { timeAgoLabel, toReplyDto } from '@/modules/community/services/community.service';
 import { NotFoundError } from '@/core/errors/AppError';
 import logger from '@/core/logger/logger';
 
 interface PopulatedAuthor {
+  _id: Types.ObjectId;
   fullName: string;
 }
 
@@ -80,6 +82,38 @@ export class AdminCommunityService {
     return threads.map(toFlaggedPost);
   }
 
+  /**
+   * Full post body + every reply -- listPosts/getFlaggedPosts only ever
+   * return a title/quote-length summary, so a moderator had no way to
+   * actually read what was reported (or what any reply said) before
+   * pinning or removing it. Reuses the member-facing reply DTO so replies
+   * render identically to how the author sees them.
+   */
+  async getPostDetail(threadId: string) {
+    const thread = await CommunityThread.findById(threadId)
+      .populate('authorId', 'fullName')
+      .populate('replies.authorId', 'fullName');
+    if (!thread) throw new NotFoundError('Post not found');
+
+    const author = thread.authorId as unknown as PopulatedAuthor | null;
+    const replies = await Promise.all(
+      thread.replies.map((reply) => toReplyDto(reply, reply.authorId as unknown as PopulatedAuthor | null))
+    );
+
+    return {
+      id: thread._id.toString(),
+      title: thread.title,
+      content: thread.content,
+      authorName: author?.fullName ?? 'Deleted Member',
+      postedAtLabel: timeAgoLabel(thread.createdAt),
+      pinned: thread.isPinned,
+      likeCount: thread.likedBy.length,
+      reportCount: thread.reportCount,
+      reportReason: thread.reportReason || '',
+      replies,
+    };
+  }
+
   async togglePin(threadId: string) {
     const thread = await CommunityThread.findById(threadId);
     if (!thread) throw new NotFoundError('Post not found');
@@ -92,7 +126,7 @@ export class AdminCommunityService {
   async approvePost(threadId: string) {
     const thread = await CommunityThread.findByIdAndUpdate(
       threadId,
-      { reportCount: 0, reportReason: '' },
+      { reportCount: 0, reportReason: '', reportedBy: [] },
       { new: true }
     );
     if (!thread) throw new NotFoundError('Post not found');

@@ -10,6 +10,7 @@ router.use(authenticate, authorize('admin', 'super_admin'), requireSection('comm
 
 router.get('/stats', catchAsync((req, res) => c.getStats(req, res)));
 router.get('/posts', catchAsync((req, res) => c.listPosts(req, res)));
+router.get('/posts/:threadId', catchAsync((req, res) => c.getPostDetail(req, res)));
 router.post('/posts/:threadId/pin', catchAsync((req, res) => c.togglePin(req, res)));
 router.get('/flagged', catchAsync((req, res) => c.getFlaggedPosts(req, res)));
 router.post('/flagged/:threadId/approve', catchAsync((req, res) => c.approvePost(req, res)));

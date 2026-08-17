@@ -31,6 +31,11 @@ export class AdminCommunityController {
     ResponseHandler.ok(res, 'Flagged posts retrieved successfully', posts);
   }
 
+  async getPostDetail(req: Request, res: Response): Promise<void> {
+    const post = await adminCommunityService.getPostDetail(req.params.threadId);
+    ResponseHandler.ok(res, 'Post retrieved successfully', post);
+  }
+
   async togglePin(req: Request, res: Response): Promise<void> {
     const result = await adminCommunityService.togglePin(req.params.threadId);
     ResponseHandler.ok(res, result.pinned ? 'Post pinned' : 'Post unpinned', result);

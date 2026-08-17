@@ -138,19 +138,27 @@ export class CommunityController {
   });
 
   static reportThread = catchAsync(async (req: Request, res: Response) => {
+    const userId = req.user!.userId;
     const { threadId } = req.params;
     const { reason } = req.body;
 
-    const thread = await CommunityThread.findByIdAndUpdate(
-      threadId,
-      { $inc: { reportCount: 1 }, reportReason: reason || 'No reason given' },
-      { new: true }
-    );
+    const thread = await CommunityThread.findById(threadId);
     if (!thread) {
       throw new NotFoundError('Thread not found');
     }
 
-    logger.info('Community thread reported', { threadId, reason });
+    // Same dedup rule as likes -- without it, one member repeatedly
+    // reporting the same post inflates reportCount and makes a post look
+    // more widely reported than it is.
+    const alreadyReported = thread.reportedBy.some((id) => id.toString() === userId);
+    if (!alreadyReported) {
+      thread.reportedBy.push(userId as any);
+      thread.reportCount += 1;
+      thread.reportReason = reason || 'No reason given';
+      await thread.save();
+    }
+
+    logger.info('Community thread reported', { threadId, reason, deduped: alreadyReported });
     ResponseHandler.ok(res, 'Thread reported for review', { reported: true });
   });
 
