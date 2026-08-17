@@ -143,9 +143,11 @@ export class AuthService {
    * reach the HTTP response (it's the credential that resets the
    * password; anyone who can read it can take over the account with only
    * the target's email address, no mailbox access required). It only ever
-   * goes into the emailed reset link. When SMTP isn't configured (dev),
-   * it's logged server-side instead -- server logs aren't publicly
-   * reachable the way an API response is.
+   * goes into the emailed reset link -- never logged anywhere, including
+   * at debug level: this codebase's log files are git-tracked, so a
+   * "server logs aren't publicly reachable" assumption doesn't hold here.
+   * The token is also stored hashed (see setPasswordResetToken), so there
+   * is deliberately no way to recover it without a working email send.
    */
   async requestPasswordReset(email: string): Promise<string> {
     const GENERIC_MESSAGE = 'If an account exists for this email, a password reset link has been sent.';
@@ -159,14 +161,14 @@ export class AuthService {
     const resetToken = await this.authRepository.setPasswordResetToken(user._id.toString());
     logger.info(`Password reset requested for user: ${user.email}`);
 
-    // Server logs aren't publicly reachable the way an API response is --
-    // safe to log here as a dev fallback for when SMTP isn't configured
-    // and the email never actually sends. EmailService no-ops safely in
-    // that case rather than throwing, so this is the only way to recover
-    // the token without database access in that scenario.
-    logger.debug(`Password reset token generated for ${user.email} (only ever goes into the emailed link, never the API response): ${resetToken}`);
-
-    await EmailService.sendPasswordResetEmail(user.email, resetToken);
+    // Not awaited: an unreachable/slow SMTP server otherwise blocks this
+    // unauthenticated endpoint's response for as long as the send takes
+    // (up to the transporter's connection timeout) -- a cheap DoS lever
+    // and a needless wait for the member either way, since the emailed
+    // link is the only thing that changes, not this response.
+    EmailService.sendPasswordResetEmail(user.email, resetToken).catch((error) => {
+      logger.error(`Failed to send password reset email to ${user.email}`, error);
+    });
 
     return GENERIC_MESSAGE;
   }

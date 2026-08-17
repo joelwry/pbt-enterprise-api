@@ -23,6 +23,14 @@ export class EmailService {
         port: config.SMTP_PORT,
         secure: config.SMTP_PORT === 465,
         auth: { user: config.SMTP_USER, pass: config.SMTP_PASS },
+        // Without these, a stuck TCP handshake to an unreachable SMTP host
+        // falls back to the OS-level default (~120s) before nodemailer
+        // gives up -- on an unauthenticated endpoint like forgot-password
+        // that's a cheap way to tie up server connections. 10s is generous
+        // for a real mail server and still fails fast for a dead one.
+        connectionTimeout: 10_000,
+        greetingTimeout: 10_000,
+        socketTimeout: 10_000,
       });
     }
     return this.transporter;
@@ -35,7 +43,7 @@ export class EmailService {
    * mechanism as "forgot password": the recipient lands on the same
    * set-password page either way, just with different framing copy.
    */
-  static async sendAccountSetupEmail(email: string, fullName: string, setupToken: string): Promise<void> {
+  static async sendAccountSetupEmail(email: string, fullName: string, setupToken: string): Promise<boolean> {
     const setupUrl = `${config.FRONTEND_URL}/set-password?token=${setupToken}&mode=setup`;
     const subject = 'Set up your Property Business Training account';
     const htmlContent = `
@@ -48,8 +56,9 @@ export class EmailService {
       <p>This link expires in 24 hours.</p>
     `;
 
-    await this.sendEmail(email, subject, htmlContent);
-    logger.info(`[EmailService] Account setup email sent to ${email}`);
+    const sent = await this.sendEmail(email, subject, htmlContent);
+    if (sent) logger.info(`[EmailService] Account setup email sent to ${email}`);
+    return sent;
   }
 
   /**
@@ -68,8 +77,8 @@ export class EmailService {
       <p>This link expires in 24 hours.</p>
     `;
 
-    await this.sendEmail(email, subject, htmlContent);
-    logger.info(`[EmailService] Verification email sent to ${email}`);
+    const sent = await this.sendEmail(email, subject, htmlContent);
+    if (sent) logger.info(`[EmailService] Verification email sent to ${email}`);
   }
 
   /**
@@ -89,8 +98,8 @@ export class EmailService {
       <p>If you didn't request this, please ignore this email.</p>
     `;
 
-    await this.sendEmail(email, subject, htmlContent);
-    logger.info(`[EmailService] Password reset email sent to ${email}`);
+    const sent = await this.sendEmail(email, subject, htmlContent);
+    if (sent) logger.info(`[EmailService] Password reset email sent to ${email}`);
   }
 
   /**
@@ -115,8 +124,8 @@ export class EmailService {
       <p>Start your learning journey: <a href="${config.FRONTEND_URL}/dashboard">Go to Dashboard</a></p>
     `;
 
-    await this.sendEmail(email, subject, htmlContent);
-    logger.info(`[EmailService] Welcome email sent to ${email}`);
+    const sent = await this.sendEmail(email, subject, htmlContent);
+    if (sent) logger.info(`[EmailService] Welcome email sent to ${email}`);
   }
 
   /**
@@ -139,8 +148,8 @@ export class EmailService {
       </a>
     `;
 
-    await this.sendEmail(email, subject, htmlContent);
-    logger.info(`[EmailService] Event reminder sent to ${email}`);
+    const sent = await this.sendEmail(email, subject, htmlContent);
+    if (sent) logger.info(`[EmailService] Event reminder sent to ${email}`);
   }
 
   /**
@@ -162,28 +171,31 @@ export class EmailService {
       <p>You can manage your subscription: <a href="${config.FRONTEND_URL}/subscription">Manage Subscription</a></p>
     `;
 
-    await this.sendEmail(email, subject, htmlContent);
-    logger.info(`[EmailService] Subscription confirmation sent to ${email}`);
+    const sent = await this.sendEmail(email, subject, htmlContent);
+    if (sent) logger.info(`[EmailService] Subscription confirmation sent to ${email}`);
   }
 
   /**
-   * Generic email sender
-   * Replace with actual implementation (nodemailer, SendGrid, etc.)
+   * Generic email sender. Returns whether the email was actually sent --
+   * callers use this to decide what to log, rather than this method
+   * throwing, so a downstream SMTP failure (bad creds, network blip)
+   * never fails the action that triggered the email (member creation,
+   * password reset, etc). Returning false instead of just swallowing the
+   * error is what lets callers avoid logging a false "sent" -- previously
+   * every wrapper below logged success unconditionally after awaiting
+   * this, even when it had just logged its own failure.
    */
   private static async sendEmail(
     to: string,
     subject: string,
     htmlContent: string
-  ): Promise<void> {
+  ): Promise<boolean> {
     const transporter = this.getTransporter();
 
     if (!transporter) {
-      // No SMTP_USER/SMTP_PASS configured -- log instead of sending and
-      // return normally rather than throwing, so nothing that triggers an
-      // email (member creation, password reset, etc.) ever fails just
-      // because email credentials haven't been set up yet.
+      // No SMTP_USER/SMTP_PASS configured -- log instead of sending.
       logger.warn(`[EmailService] SMTP not configured -- would send email to ${to}: "${subject}"`);
-      return;
+      return false;
     }
 
     try {
@@ -193,11 +205,10 @@ export class EmailService {
         subject,
         html: htmlContent,
       });
-      logger.info(`[EmailService] Sent email to ${to}: "${subject}"`);
+      return true;
     } catch (error) {
-      // Same reasoning as above -- a downstream SMTP failure (bad creds,
-      // network blip) shouldn't fail the action that triggered the email.
       logger.error(`[EmailService] Failed to send email to ${to}`, error);
+      return false;
     }
   }
 
@@ -209,8 +220,8 @@ export class EmailService {
     subject: string,
     htmlContent: string
   ): Promise<void> {
-    const promises = recipients.map((email) => this.sendEmail(email, subject, htmlContent));
-    await Promise.all(promises);
-    logger.info(`[EmailService] Bulk email sent to ${recipients.length} recipients`);
+    const results = await Promise.all(recipients.map((email) => this.sendEmail(email, subject, htmlContent)));
+    const sentCount = results.filter(Boolean).length;
+    logger.info(`[EmailService] Bulk email sent to ${sentCount}/${recipients.length} recipients`);
   }
 }

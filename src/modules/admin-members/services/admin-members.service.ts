@@ -283,7 +283,10 @@ export class AdminMembersService {
     }
 
     const setupToken = await authRepository.setPasswordResetToken(user._id.toString());
-    await EmailService.sendAccountSetupEmail(user.email, user.fullName, setupToken);
+    // Not awaited -- the admin doesn't need to wait out an SMTP round-trip
+    // to get confirmation the member record was created; use "Resend
+    // welcome email" if the send needs to be confirmed synchronously.
+    EmailService.sendAccountSetupEmail(user.email, user.fullName, setupToken).catch(() => {});
 
     logger.info(`Admin created member: ${user.email}`);
     return this.getMemberById(user._id.toString());
@@ -345,8 +348,8 @@ export class AdminMembersService {
     if (!user) throw new NotFoundError('Member not found');
 
     const setupToken = await authRepository.setPasswordResetToken(user._id.toString());
-    await EmailService.sendAccountSetupEmail(user.email, user.fullName, setupToken);
-    return { sent: true };
+    const sent = await EmailService.sendAccountSetupEmail(user.email, user.fullName, setupToken);
+    return { sent };
   }
 
   async deleteMember(id: string) {

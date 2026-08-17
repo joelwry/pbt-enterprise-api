@@ -28,3 +28,8 @@ next-env.d.ts
 
 # local storage provider (dev/test only — see src/core/storage)
 /uploads
+
+# runtime logs — winston writes here on every request; committing them
+# dirties the working tree on every run and, worse, has previously leaked
+# password-reset tokens logged at debug level into git history
+/logs
