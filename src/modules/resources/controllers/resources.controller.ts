@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { Resource } from '@/modules/resources/schemas/Resource.schema';
-import { resourcesService } from '@/modules/resources/services/resources.service';
+import { resourcesService, toSignedResource } from '@/modules/resources/services/resources.service';
 import { ResponseHandler } from '@/core/response/ResponseHandler';
 import { PaginationHelper } from '@/core/pagination/PaginationHelper';
 
@@ -41,7 +41,7 @@ export class ResourcesController {
     ]);
 
     const pagination = PaginationHelper.createMeta(query.page, query.limit, total);
-    ResponseHandler.paginated(res, 200, 'Resources retrieved', resources, pagination);
+    ResponseHandler.paginated(res, 200, 'Resources retrieved', resources.map(toSignedResource), pagination);
   }
 
   /**
@@ -62,7 +62,7 @@ export class ResourcesController {
       return;
     }
 
-    ResponseHandler.ok(res, 'Featured resource retrieved', resource);
+    ResponseHandler.ok(res, 'Featured resource retrieved', toSignedResource(resource));
   }
 
   /**
@@ -91,7 +91,7 @@ export class ResourcesController {
       .sort({ downloads: -1 })
       .limit(Number(limit));
 
-    ResponseHandler.ok(res, 'Popular resources retrieved', resources);
+    ResponseHandler.ok(res, 'Popular resources retrieved', resources.map(toSignedResource));
   }
 
   /**
@@ -113,7 +113,7 @@ export class ResourcesController {
     }
 
     await resourcesService.assertCanAccess(req.user.userId, resource);
-    ResponseHandler.ok(res, 'Resource retrieved', resource);
+    ResponseHandler.ok(res, 'Resource retrieved', toSignedResource(resource));
   }
 
   /**

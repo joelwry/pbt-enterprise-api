@@ -9,6 +9,8 @@ import logger from '@/core/logger/logger';
 import { setupSecurityMiddleware } from '@/core/middleware/securityMiddleware';
 import healthRoutes from '@/core/health/health.routes';
 import { buildOpenApiSpec } from '@/docs/openapi/build-spec';
+import { ResponseHandler } from '@/core/response/ResponseHandler';
+import { isProtectedStorageKey, verifyStorageSignature } from '@/core/storage/signedUrl';
 
 // swagger-ui-express has no published types; typing it inline avoids
 // depending on ts-node reliably picking up our own ambient .d.ts (it doesn't).
@@ -113,6 +115,25 @@ export function createApp(): Application {
   app.use('/uploads', (req: Request, res: Response, next: NextFunction) => {
     res.setHeader('Cross-Origin-Resource-Policy', 'cross-origin');
     next();
+  });
+  // Paid content (member resources, lesson media) is only served with a
+  // valid, unexpired signature minted by code that already ran the tier
+  // check -- see core/storage/signedUrl.ts for why, and for which prefixes
+  // stay public. Directory photos fall straight through to express.static.
+  app.use('/uploads', (req: Request, res: Response, next: NextFunction) => {
+    const storageKey = decodeURIComponent(req.path.replace(/^\/+/, ''));
+    if (!isProtectedStorageKey(storageKey)) return next();
+
+    const result = verifyStorageSignature(storageKey, req.query.exp, req.query.sig);
+    if (result === 'ok') return next();
+
+    logger.warn('Rejected unsigned request for protected upload', { storageKey, result, ip: req.ip });
+    ResponseHandler.forbidden(
+      res,
+      result === 'expired'
+        ? 'This download link has expired -- reopen the page to get a fresh one.'
+        : 'This file can only be downloaded through the portal.'
+    );
   });
   app.use('/uploads', express.static('uploads'));
 

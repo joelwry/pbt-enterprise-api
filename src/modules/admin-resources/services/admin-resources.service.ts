@@ -2,6 +2,7 @@ import { Resource, IResource, ResourceType, ResourceTier } from '@/modules/resou
 import { storageProvider, UploadedFile } from '@/core/storage';
 import { NotFoundError } from '@/core/errors/AppError';
 import logger from '@/core/logger/logger';
+import { signStorageUrl } from '@/core/storage/signedUrl';
 
 export type AdminResourceStatus = 'Published' | 'Draft';
 
@@ -26,7 +27,9 @@ function toAdminResource(resource: IResource) {
     description: resource.description,
     visibility: resource.requiredTier,
     metaLabel: resource.metaLabel,
-    fileUrl: resource.fileUrl,
+    // Signed, like every other route out of the app -- /uploads no longer
+    // serves paid content to an unsigned request, admin or not.
+    fileUrl: signStorageUrl(resource.fileUrl),
   };
 }
 

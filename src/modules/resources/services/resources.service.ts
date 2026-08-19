@@ -1,9 +1,31 @@
 import { Resource, ResourceTier } from '@/modules/resources/schemas/Resource.schema';
 import { subscriptionService } from '@/modules/subscriptions/services/subscription.service';
+import { signStorageUrl } from '@/core/storage/signedUrl';
 import { NotFoundError, AuthorizationError } from '@/core/errors/AppError';
 
 const TIER_RANK: Record<ResourceTier, number> = { Pathway: 1, Plus: 2, Mentorship: 3 };
 const ALL_TIERS: ResourceTier[] = ['Pathway', 'Plus', 'Mentorship'];
+
+/**
+ * The only shape a resource's file URL may leave this module in.
+ *
+ * The stored `fileUrl` points straight at local disk and used to be served
+ * by an unauthenticated `express.static` -- so every list response was
+ * handing out a permanent, shareable, tier-proof link to paid content.
+ * Signing at the moment of issue means the link carries the tier check
+ * that was just performed and stops working an hour later. Call this on
+ * anything member- or admin-facing that includes a fileUrl; a resource
+ * with no file attached, or one stored in Cloudinary, passes through
+ * untouched.
+ */
+export function toSignedResource<T extends { fileUrl?: string }>(resource: T): Record<string, unknown> {
+  const source = resource as unknown as { toObject?: () => Record<string, unknown> };
+  const plain = typeof source.toObject === 'function' ? source.toObject() : { ...(resource as object) };
+  if (typeof plain.fileUrl === 'string' && plain.fileUrl) {
+    plain.fileUrl = signStorageUrl(plain.fileUrl);
+  }
+  return plain;
+}
 
 export class ResourcesService {
   /**
@@ -52,7 +74,7 @@ export class ResourcesService {
     }
 
     const updated = await Resource.findByIdAndUpdate(resourceId, { $inc: { downloads: 1 } }, { new: true });
-    return updated!.fileUrl;
+    return signStorageUrl(updated!.fileUrl);
   }
 
   /** The single "Featured Toolkit" banner: no dedicated admin flag exists for this (deliberately, to avoid adding editor UI for a one-off) — the most-downloaded Toolkit if one exists, else the most-downloaded resource of any type. Excludes resources with no file attached yet -- featuring one would put a broken download front and center. */

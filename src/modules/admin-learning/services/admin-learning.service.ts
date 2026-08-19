@@ -5,6 +5,7 @@ import { Module, Lesson, MembershipTier } from '@/modules/learning/schemas/Learn
 import { storageProvider, UploadedFile } from '@/core/storage';
 import { NotFoundError } from '@/core/errors/AppError';
 import logger from '@/core/logger/logger';
+import { signMediaFields, signStorageUrl } from '@/core/storage/signedUrl';
 
 /**
  * Admin management of the Business Learning Journey hierarchy:
@@ -105,8 +106,14 @@ export class AdminLearningService {
     const week = learningModule ? await RoadmapWeek.findById(learningModule.roadmapWeekId) : null;
     const roadmap = week ? await Roadmap.findById(week.roadmapId) : null;
 
+    // Lesson media lives behind a signed URL now (see core/storage/signedUrl.ts)
+    // -- the admin editor renders a real link to the uploaded file, so it
+    // needs one minted for it too. Signed onto a plain copy so the expiring
+    // URL is never written back to the lesson document.
+    const plainLesson = { ...lesson.toObject(), body: signMediaFields(lesson.body) };
+
     return {
-      lesson,
+      lesson: plainLesson,
       moduleTitle: learningModule?.title ?? '',
       weekNumber: week?.weekNumber,
       roadmapYear: roadmap?.year,
@@ -310,7 +317,9 @@ export class AdminLearningService {
     await lesson.save();
 
     logger.info('Lesson asset uploaded', { lessonId, url, type: lesson.type });
-    return { url };
+    // The unsigned URL is what's persisted above; the caller gets a signed
+    // one so the editor can open the file it just uploaded.
+    return { url: signStorageUrl(url) };
   }
 }
 

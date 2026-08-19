@@ -16,6 +16,7 @@ import activityService from '@/modules/activity/services/activity.service';
 import { subscriptionService } from '@/modules/subscriptions/services/subscription.service';
 import { NotFoundError, AuthorizationError } from '@/core/errors/AppError';
 import logger from '@/core/logger/logger';
+import { signMediaFields } from '@/core/storage/signedUrl';
 
 const TIER_RANK: Record<MembershipTier, number> = { Pathway: 1, Plus: 2, Mentorship: 3 };
 
@@ -211,7 +212,7 @@ export class LearningService {
       progressPercent: progress?.progressPercent ?? 0,
       status: progress?.status ?? 'not-started',
       access: lesson.access,
-      body: lesson.body,
+      body: signMediaFields(lesson.body),
     };
   }
 
@@ -266,7 +267,7 @@ export class LearningService {
           status,
           access: lesson.access,
           lockReason,
-          body: canAccess ? lesson.body : undefined,
+          body: canAccess ? signMediaFields(lesson.body) : undefined,
         };
       })
     );
@@ -421,7 +422,7 @@ export class LearningService {
         lockReason: !canAccess
           ? `Unlocks ${new Date(lesson.access.unlocksAt).toLocaleDateString()}`
           : undefined,
-        body: canAccess ? lesson.body : undefined,
+        body: canAccess ? signMediaFields(lesson.body) : undefined,
       },
     ];
   }
