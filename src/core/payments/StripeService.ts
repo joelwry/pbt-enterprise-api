@@ -94,6 +94,41 @@ export class StripeService {
   }
 
   /**
+   * Ends a live Stripe subscription so the member stops being charged.
+   *
+   * `atPeriodEnd: true` is the voluntary-cancellation case -- Stripe stops
+   * the renewal but the member stays paid up until the current period
+   * ends, which is exactly the business rule the member portal already
+   * promises ("you'll keep access until {date}").
+   *
+   * `atPeriodEnd: false` ends it there and then, for the case where one
+   * subscription supersedes another (a member checking out twice, or
+   * changing tier): leaving the old Stripe subscription live would charge
+   * them for both.
+   *
+   * Already-cancelled and no-longer-existing subscriptions are treated as
+   * success rather than an error -- the caller's goal is "this must not
+   * bill again", and both of those states already satisfy it. That makes
+   * this safe to call from a webhook Stripe may redeliver.
+   */
+  static async cancelSubscription(stripeSubscriptionId: string, options: { atPeriodEnd: boolean }): Promise<void> {
+    try {
+      if (options.atPeriodEnd) {
+        await this.getClient().subscriptions.update(stripeSubscriptionId, { cancel_at_period_end: true });
+      } else {
+        await this.getClient().subscriptions.cancel(stripeSubscriptionId);
+      }
+      logger.info('Stripe subscription cancelled', { stripeSubscriptionId, atPeriodEnd: options.atPeriodEnd });
+    } catch (error) {
+      if (isAlreadyGone(error)) {
+        logger.info('Stripe subscription already cancelled or gone, nothing to do', { stripeSubscriptionId });
+        return;
+      }
+      throw error;
+    }
+  }
+
+  /**
    * Verifies the webhook signature -- throws if the payload was tampered
    * with or the secret doesn't match. `Stripe.webhooks` is a static helper
    * (pure HMAC verification, no network call), so this works even without a
@@ -116,4 +151,16 @@ export class StripeService {
       metadata: { userId },
     });
   }
+}
+
+/**
+ * A Stripe error meaning "there is nothing here to cancel": either the
+ * subscription id doesn't exist at all (`resource_missing`), or it exists
+ * but has already been cancelled, which Stripe rejects as an invalid
+ * request rather than a no-op.
+ */
+function isAlreadyGone(error: unknown): boolean {
+  const err = error as { code?: string; message?: string; type?: string };
+  if (err?.code === 'resource_missing') return true;
+  return err?.type === 'StripeInvalidRequestError' && Boolean(err.message?.includes('canceled'));
 }

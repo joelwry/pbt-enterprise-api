@@ -1,6 +1,7 @@
 import { Subscription, SubscriptionDocument } from '@/modules/subscriptions/schemas/Subscription.schema';
 import { User } from '@/modules/users/schemas/User.schema';
 import { pricingService } from '@/modules/pricing/services/pricing.service';
+import { StripeService } from '@/core/payments/StripeService';
 import { AppError } from '@/core/errors/AppError';
 import logger from '@/core/logger/logger';
 import { Types } from 'mongoose';
@@ -25,6 +26,92 @@ export async function mostRecentSubscriptionsFor(userIds: (string | Types.Object
     if (!byUser.has(key)) byUser.set(key, sub);
   }
   return byUser;
+}
+
+/**
+ * Tells Stripe to stop billing for a local subscription record.
+ *
+ * Every local "this subscription is over" write must go through here.
+ * Flipping `status`/`cancelledAt` in Mongo does nothing to Stripe, and a
+ * Stripe subscription nobody cancelled keeps taking the member's money
+ * every month forever -- that was a real, live defect in this codebase
+ * (three separate call sites closed subscriptions locally and none of them
+ * touched Stripe).
+ *
+ * Returns false, without throwing, only when there is genuinely nothing to
+ * cancel: a record with no `stripeSubscriptionId` predates the Stripe
+ * integration (or was seeded by a test script), so no money is moving and
+ * the local write alone is the whole job. Anything else -- a record that
+ * *is* backed by Stripe but can't be cancelled -- throws, because silently
+ * reporting a successful cancellation while the charges continue is the
+ * exact failure mode being fixed here.
+ */
+async function endStripeBilling(subscription: SubscriptionDocument, atPeriodEnd: boolean): Promise<boolean> {
+  if (!subscription.stripeSubscriptionId) {
+    logger.warn('Subscription is not backed by Stripe -- cancelling locally only', {
+      subscriptionId: subscription._id?.toString(),
+      userId: subscription.userId?.toString(),
+    });
+    return false;
+  }
+
+  if (!StripeService.isConfigured()) {
+    throw new AppError(
+      503,
+      'Cannot cancel this subscription right now -- billing is not configured. No charges have been stopped.',
+      ['ERR_6002']
+    );
+  }
+
+  await StripeService.cancelSubscription(subscription.stripeSubscriptionId, { atPeriodEnd });
+  return true;
+}
+
+/**
+ * Closes out whatever active subscriptions a member already has because a
+ * new one is replacing them -- a second checkout, a tier change, an admin
+ * -created subscription.
+ *
+ * Superseded subscriptions are cancelled in Stripe *immediately* rather
+ * than at period end: the member is already paying for the replacement, so
+ * leaving the old one running bills them twice. That is the other half of
+ * the same defect endStripeBilling() exists for, and it is centralized here
+ * so a new "create a subscription" path can't reintroduce it by copying the
+ * bare updateMany() this replaced.
+ *
+ * A Stripe failure here is logged, not thrown: this runs inside the Stripe
+ * webhook handler, and refusing to record a payment we have already taken
+ * (Stripe would retry the whole event) is worse than one subscription
+ * needing manual attention. The log line is the signal to go fix it.
+ */
+export async function supersedeActiveSubscriptions(
+  userId: string | Types.ObjectId,
+  options: { exceptStripeSubscriptionId?: string } = {}
+): Promise<number> {
+  const active = await Subscription.find({ userId: new Types.ObjectId(userId.toString()), status: 'active' });
+  const superseded = active.filter(
+    (sub) => !options.exceptStripeSubscriptionId || sub.stripeSubscriptionId !== options.exceptStripeSubscriptionId
+  );
+  if (superseded.length === 0) return 0;
+
+  for (const sub of superseded) {
+    try {
+      await endStripeBilling(sub, false);
+    } catch (error) {
+      logger.error('Superseded subscription could not be cancelled in Stripe -- member may be double-billed until this is resolved manually', {
+        subscriptionId: sub._id?.toString(),
+        stripeSubscriptionId: sub.stripeSubscriptionId,
+        userId: userId.toString(),
+        error,
+      });
+    }
+  }
+
+  await Subscription.updateMany(
+    { _id: { $in: superseded.map((sub) => sub._id) } },
+    { status: 'cancelled', cancelledAt: new Date() }
+  );
+  return superseded.length;
 }
 
 export class SubscriptionService {
@@ -70,11 +157,9 @@ export class SubscriptionService {
     transactionId?: string
   ): Promise<SubscriptionDocument> {
     try {
-      // Cancel existing active subscription
-      await Subscription.updateMany(
-        { userId: new Types.ObjectId(userId), status: 'active' },
-        { status: 'cancelled', cancelledAt: new Date() }
-      );
+      // Ends any subscription this one replaces, in Stripe as well as
+      // locally -- see supersedeActiveSubscriptions().
+      await supersedeActiveSubscriptions(userId);
 
       const endDate = new Date();
       if (billingCycle === 'monthly') {
@@ -133,10 +218,11 @@ export class SubscriptionService {
         throw new AppError(400, 'Can only upgrade to a higher tier', ['ERR_3001']);
       }
 
-      // Cancel old subscription
-      currentSubscription.cancelledAt = new Date();
-      currentSubscription.status = 'cancelled';
-      await currentSubscription.save();
+      // The old subscription is closed out by createSubscription() below,
+      // which cancels it in Stripe as well as locally. It is deliberately
+      // not marked cancelled here first: doing so used to hide it from the
+      // supersede query, so the member's old Stripe subscription was left
+      // running and kept billing alongside the new one.
 
       // Create new subscription with same billing cycle and prorated cost
       return await this.createSubscription(
@@ -179,10 +265,7 @@ export class SubscriptionService {
         throw new AppError(400, 'Can only downgrade to a lower tier', ['ERR_3001']);
       }
 
-      // Cancel old subscription
-      currentSubscription.cancelledAt = new Date();
-      currentSubscription.status = 'cancelled';
-      await currentSubscription.save();
+      // Closed out by createSubscription() below -- see upgradeSubscription().
 
       // Create new subscription
       return await this.createSubscription(
@@ -214,11 +297,18 @@ export class SubscriptionService {
         throw new AppError(404, 'No active subscription found', ['ERR_4010']);
       }
 
+      // Stripe first, database second. If Stripe can't be told to stop
+      // billing, this throws and the member is *not* told their
+      // subscription is cancelled -- far better than a portal that says
+      // "cancelled" while the card keeps being charged every month, which
+      // is what this code did before.
+      const stoppedInStripe = await endStripeBilling(subscription, true);
+
       subscription.autoRenew = false;
       subscription.cancelledAt = new Date();
       const updated = await subscription.save();
 
-      logger.info('Subscription cancelled (will not renew)', { userId, tier: subscription.tier });
+      logger.info('Subscription cancelled (will not renew)', { userId, tier: subscription.tier, stoppedInStripe });
       return updated;
     } catch (error) {
       if (error instanceof AppError) throw error;

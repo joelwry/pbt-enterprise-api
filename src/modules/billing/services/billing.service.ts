@@ -4,6 +4,7 @@ import { User } from '@/modules/users/schemas/User.schema';
 import { Subscription, SubscriptionDocument } from '@/modules/subscriptions/schemas/Subscription.schema';
 import { StripeService, BillingTier, BillingCycle } from '@/core/payments/StripeService';
 import { pricingService } from '@/modules/pricing/services/pricing.service';
+import { supersedeActiveSubscriptions } from '@/modules/subscriptions/services/subscription.service';
 import { authRepository } from '@/modules/auth/repositories/auth.repository';
 import { referralService } from '@/modules/referrals/services/referral.service';
 import { EmailService } from '@/core/email/EmailService';
@@ -185,10 +186,13 @@ export class BillingService {
       // catches this -- without it, the member ends up with two active
       // subscriptions and is billed twice. Same rule the 'renew' branch
       // below already applies.
-      await Subscription.updateMany(
-        { userId: user._id, status: 'active' },
-        { status: 'cancelled', cancelledAt: new Date() }
-      );
+      //
+      // Marking the old record cancelled locally was never enough on its
+      // own: the superseded *Stripe* subscription carried on charging the
+      // card every month while the admin UI showed a single active
+      // subscription. supersedeActiveSubscriptions() cancels it in Stripe
+      // too.
+      await supersedeActiveSubscriptions(user._id, { exceptStripeSubscriptionId: stripeSubscriptionId });
 
       const newSubscription = await Subscription.create({
         userId: user._id,
@@ -239,11 +243,10 @@ export class BillingService {
       }
 
       // Superseding whatever active subscription this member already has,
-      // same rule createSubscription() already applies for every other path.
-      await Subscription.updateMany(
-        { userId: user._id, status: 'active' },
-        { status: 'cancelled', cancelledAt: new Date() }
-      );
+      // same rule createSubscription() already applies for every other
+      // path -- including cancelling it in Stripe, so a member who renews
+      // or changes tier isn't left paying for both.
+      await supersedeActiveSubscriptions(user._id, { exceptStripeSubscriptionId: stripeSubscriptionId });
 
       await Subscription.create({
         userId: user._id,
@@ -274,6 +277,14 @@ export class BillingService {
     local.status = toLocalStatus(subscription.status);
     local.autoRenew = !subscription.cancel_at_period_end;
     local.endDate = periodEndOf(subscription);
+    // A cancellation can originate in Stripe rather than here (the Stripe
+    // dashboard, a failed-payment rule, or our own cancelSubscription()
+    // whose webhook then echoes back). The member portal's "cancelled"
+    // badge is computed from cancelledAt alone, so stamp it here too or a
+    // Stripe-side cancellation shows up as a still-renewing subscription.
+    if (subscription.cancel_at_period_end && !local.cancelledAt) {
+      local.cancelledAt = subscription.canceled_at ? new Date(subscription.canceled_at * 1000) : new Date();
+    }
     await local.save();
   }
 
