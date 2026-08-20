@@ -38,6 +38,20 @@ function toLocalStatus(stripeStatus: Stripe.Subscription.Status): SubscriptionDo
   }
 }
 
+/**
+ * A tier can have a displayable price with no Stripe Price behind it --
+ * pricingService falls back to the default amount when it can't reach
+ * Stripe, so the portal shows real numbers instead of "£0". Checkout is the
+ * one operation that actually needs the Stripe Price, so it refuses here
+ * with a clear message rather than handing Stripe an empty price id and
+ * surfacing whatever error that produces.
+ */
+function assertPayable(stripePriceId: string, tier: BillingTier, billingCycle: BillingCycle): void {
+  if (stripePriceId) return;
+  logger.error('Checkout attempted for a tier with no Stripe Price', { tier, billingCycle });
+  throw new AppError(503, 'Payments are temporarily unavailable -- please try again shortly.', ['ERR_6003']);
+}
+
 function periodEndOf(subscription: Stripe.Subscription): Date {
   // `current_period_end` lives on the subscription item, not the subscription
   // itself, as of this SDK's pinned API version.
@@ -67,6 +81,7 @@ export class BillingService {
 
     const backendTier = toBackendTier(input.tier);
     const { stripePriceId } = await pricingService.getEffectivePrice(backendTier, input.billingCycle);
+    assertPayable(stripePriceId, backendTier, input.billingCycle);
 
     const session = await StripeService.createCheckoutSession({
       priceId: stripePriceId,
@@ -94,6 +109,7 @@ export class BillingService {
 
     const backendTier = toBackendTier(input.tier);
     const { stripePriceId } = await pricingService.getEffectivePrice(backendTier, input.billingCycle);
+    assertPayable(stripePriceId, backendTier, input.billingCycle);
 
     if (!user.stripeCustomerId) {
       const customer = await StripeService.createCustomer(userId, user.email, user.fullName);

@@ -85,9 +85,47 @@ export class PricingService {
     }
   }
 
+  /**
+   * What this tier/cycle costs right now -- the read every price display in
+   * both portals ultimately hits.
+   *
+   * Seeding needs Stripe; *displaying a price* does not. This used to call
+   * ensureSeeded() unconditionally, so on a fresh database with no Stripe
+   * key (or with Stripe unreachable) the whole public GET /pricing endpoint
+   * 500'd -- and the frontend, having no data, rendered every tier as
+   * "£0 + VAT/month" on Join, Renew and My Subscription. A price of zero is
+   * the one thing a pricing UI must never show.
+   *
+   * So: an existing priced row wins, seeding is attempted when there isn't
+   * one, and if that fails we still answer with the known default amount
+   * and no `stripePriceId`. The empty price id is the honest signal that no
+   * Stripe Price backs this yet -- checkout refuses on it (see
+   * billing.service.ts), which is the only operation that genuinely needs
+   * one. Nothing is written to the database in that state, so the next
+   * request retries the seed for real.
+   */
   async getEffectivePrice(tier: BillingTier, billingCycle: BillingCycle): Promise<EffectivePrice> {
-    const doc = await this.ensureSeeded(tier, billingCycle);
-    return toEffectivePrice(doc);
+    const existing = await TierPricing.findOne({ tier, billingCycle, isActive: true });
+    if (existing) return toEffectivePrice(existing);
+
+    try {
+      return toEffectivePrice(await this.ensureSeeded(tier, billingCycle));
+    } catch (error) {
+      logger.error('Could not create a Stripe Price for this tier -- serving the default amount for display only', {
+        tier,
+        billingCycle,
+        stripeConfigured: StripeService.isConfigured(),
+        error,
+      });
+      return {
+        tier,
+        billingCycle,
+        amount: defaultAmountFor(tier, billingCycle),
+        currency: 'GBP',
+        stripePriceId: '',
+        isDefault: true,
+      };
+    }
   }
 
   async getAllEffectivePrices(): Promise<EffectivePrice[]> {
