@@ -21,8 +21,23 @@ export interface LoginResponse {
     fullName: string;
     role: string;
     clientId: string;
+    /**
+     * Which admin sections this account holds, for admin/super_admin
+     * accounts. The admin portal builds its nav and route guard from this;
+     * without it, it had nothing to go on and showed every admin every
+     * section, so a restricted staff account saw pages whose every API call
+     * then 403'd. Absent for members, and empty for super_admin, who
+     * bypasses section checks entirely (DOMAIN_BIBLE.md #2).
+     */
+    adminSections?: string[];
   };
   tokens: AuthTokens;
+}
+
+/** Only admin accounts carry sections; a member has none and shouldn't be sent an empty array implying otherwise. */
+function adminSectionsFor(user: { role: string; adminSections?: string[] }): string[] | undefined {
+  if (user.role !== 'admin' && user.role !== 'super_admin') return undefined;
+  return user.role === 'super_admin' ? [] : (user.adminSections ?? []);
 }
 
 export class AuthService {
@@ -102,6 +117,7 @@ export class AuthService {
         fullName: user.fullName,
         role: user.role,
         clientId: user._id.toString(),
+        adminSections: adminSectionsFor(user),
       },
       tokens,
     };
@@ -209,6 +225,7 @@ export class AuthService {
       assignedLeader: user.assignedLeader,
       notificationPreferences: user.notificationPreferences,
       role: user.role,
+      adminSections: adminSectionsFor(user),
       emailVerified: user.emailVerified,
       isActive: user.isActive,
     };
