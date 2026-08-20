@@ -1,35 +1,36 @@
 import { Request, Response, NextFunction } from 'express';
 import { User } from '@/modules/users/schemas/User.schema';
+import { AdminSection, canAccessSection } from '@/core/auth/adminAccess';
 import { AuthenticationError, AuthorizationError } from '@/core/errors/AppError';
 
-/** Mirrors the frontend's AdminSection union (features/admin-auth/types.ts) -- keep in sync. */
-export type AdminSection =
-  | 'members'
-  | 'content'
-  | 'resources'
-  | 'events'
-  | 'community'
-  | 'pbtLeaders'
-  | 'powerTeam'
-  | 'subscriptions'
-  | 'analytics'
-  | 'referrals';
+/**
+ * The section vocabulary lives in core/auth/adminAccess.ts alongside the
+ * roles that grant it. Re-exported here because every admin route file
+ * already imports `requireSection` from this module, and the type reads
+ * naturally next to it.
+ */
+export type { AdminSection };
 
 /**
- * Gates an admin route to a specific section. A super_admin always passes
- * (matches the frontend's "Super Admins have full access to every section
- * automatically" copy); any other admin needs this section explicitly
- * granted via adminSections.
+ * Gates an admin route to a specific section -- the authoritative check,
+ * and the only thing that actually stops a request. Hiding a nav item in
+ * the portal is a courtesy to the person using it, not a control: a
+ * Content Manager calling the subscriptions API directly still lands here
+ * and still gets a 403.
  *
- * The invite/edit form persisted adminSections correctly, but nothing ever
- * actually checked it server-side -- authorize('admin','super_admin') let
- * every admin/super_admin through regardless, so the section checkboxes
- * were UI-only. A staff account granted only "Members" could reach every
- * other admin module's API directly. This closes that gap.
+ * What counts as "holding" a section is resolveAdminSections(): a super
+ * admin holds everything, an account whose sections have never been
+ * customised inherits its adminRole's defaults, and an explicit list --
+ * including a deliberately empty one -- is honoured exactly as stored.
  *
- * Looks the user up fresh (not a JWT claim) so a permission change takes
- * effect immediately, without the affected admin needing to log back in.
- * Must run after `authenticate`.
+ * The invite/edit form persisted these grants correctly long before
+ * anything checked them server-side, so a staff account granted only
+ * "Members" could reach every other admin module's API directly. This
+ * closes that gap.
+ *
+ * Looks the user up fresh (not a JWT claim) so a permission or role change
+ * takes effect on the very next request, without the affected admin
+ * needing to log back in. Must run after `authenticate`.
  */
 export const requireSection = (section: AdminSection) => {
   // Errors thrown from an async Express middleware never reach the error
@@ -48,8 +49,8 @@ export const requireSection = (section: AdminSection) => {
           return;
         }
 
-        const user = await User.findById(req.user.userId).select('adminSections');
-        if (!user || !(user.adminSections ?? []).includes(section)) {
+        const user = await User.findById(req.user.userId).select('role adminRole adminSections');
+        if (!user || !canAccessSection(user, section)) {
           throw new AuthorizationError(`Your account doesn't have access to this section`);
         }
         next();

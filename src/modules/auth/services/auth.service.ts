@@ -22,22 +22,40 @@ export interface LoginResponse {
     role: string;
     clientId: string;
     /**
-     * Which admin sections this account holds, for admin/super_admin
-     * accounts. The admin portal builds its nav and route guard from this;
-     * without it, it had nothing to go on and showed every admin every
-     * section, so a restricted staff account saw pages whose every API call
-     * then 403'd. Absent for members, and empty for super_admin, who
-     * bypasses section checks entirely (DOMAIN_BIBLE.md #2).
+     * The account's staff role, one of the five in ADMIN_ROLES. The portal
+     * shows a friendly label for it but stores and compares this value, so
+     * both repos speak one role vocabulary. Absent for members.
+     */
+    adminRole?: string;
+    /**
+     * The sections this account can actually reach -- role defaults where
+     * nothing has been customised, the explicit grants where it has, and
+     * everything for a super admin.
+     *
+     * The admin portal builds its nav and route guard from this; without
+     * it, it had nothing to go on and showed every admin every section, so
+     * a restricted staff account saw pages whose every API call then 403'd.
+     * Absent for members.
      */
     adminSections?: string[];
   };
   tokens: AuthTokens;
 }
 
-/** Only admin accounts carry sections; a member has none and shouldn't be sent an empty array implying otherwise. */
-function adminSectionsFor(user: { role: string; adminSections?: string[] }): string[] | undefined {
+/** Only admin accounts carry a staff role; a member has none. */
+function adminRoleFor(user: { role: string; adminRole?: string }): string | undefined {
+  return resolveAdminRole(user) ?? undefined;
+}
+
+/**
+ * Effective sections, resolved the same way the gates resolve them
+ * (core/auth/adminAccess.ts) -- so what the portal renders and what the API
+ * allows can't disagree. A member gets undefined rather than an empty
+ * array, which would imply they're staff with nothing granted.
+ */
+function adminSectionsFor(user: { role: string; adminRole?: string; adminSections?: string[] }): string[] | undefined {
   if (user.role !== 'admin' && user.role !== 'super_admin') return undefined;
-  return user.role === 'super_admin' ? [] : (user.adminSections ?? []);
+  return resolveAdminSections(user);
 }
 
 export class AuthService {
@@ -117,6 +135,7 @@ export class AuthService {
         fullName: user.fullName,
         role: user.role,
         clientId: user._id.toString(),
+        adminRole: adminRoleFor(user),
         adminSections: adminSectionsFor(user),
       },
       tokens,
@@ -225,6 +244,7 @@ export class AuthService {
       assignedLeader: user.assignedLeader,
       notificationPreferences: user.notificationPreferences,
       role: user.role,
+      adminRole: adminRoleFor(user),
       adminSections: adminSectionsFor(user),
       emailVerified: user.emailVerified,
       isActive: user.isActive,
@@ -318,5 +338,6 @@ export class AuthService {
 
 // Import User model here to avoid circular imports
 import { User } from '@/modules/users/schemas/User.schema';
+import { resolveAdminRole, resolveAdminSections } from '@/core/auth/adminAccess';
 
 export const authService = new AuthService();

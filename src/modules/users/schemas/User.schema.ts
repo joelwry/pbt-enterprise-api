@@ -1,5 +1,6 @@
 import { Schema, model, Document } from 'mongoose';
 import bcrypt from 'bcryptjs';
+import { ADMIN_ROLE_SCHEMA_VALUES, AdminSection } from '@/core/auth/adminAccess';
 
 export interface INotificationPreferences {
   communityReplies: boolean;
@@ -23,14 +24,26 @@ export interface IUser extends Document {
   notificationPreferences: INotificationPreferences;
   role: 'member' | 'admin' | 'super_admin' | 'visitor';
   /**
-   * Fine-grained admin role label shown in the admin portal (Admin Users &
-   * Roles). Only meaningful when `role` is 'admin' or 'super_admin' --
-   * `authorize()` middleware still checks the coarse `role` field, this is
-   * purely a display/permissions-hint field for the frontend's section-gating.
+   * The account's real staff role, one of the five in `ADMIN_ROLES`. Only
+   * meaningful when `role` is 'admin' or 'super_admin'.
+   *
+   * `authorize()` still checks the coarse `role` field -- this one decides
+   * which sections the account holds by default, resolved through
+   * resolveAdminSections(). Typed as string because the column also still
+   * accepts the display strings it used to be written as; read it via
+   * resolveAdminRole(), never directly.
    */
-  adminRole?: 'Super Admin' | 'Admin' | 'Content Manager' | 'Community Moderator' | 'Support Staff';
-  /** Per-account section access for admin portal staff, editable after the role's suggested defaults are applied. Ignored for Super Admin, who always has full access. */
-  adminSections?: string[];
+  adminRole?: string;
+  /**
+   * Explicit per-account section access, overriding the role's defaults.
+   *
+   * Three states, all meaningful: absent means never customised (the role's
+   * defaults apply), a populated array is exactly what this account can
+   * reach, and an empty array is a deliberate lockout that must not fall
+   * back to defaults. `default: undefined` keeps that first state real --
+   * Mongoose would otherwise store `[]` and erase the distinction.
+   */
+  adminSections?: AdminSection[] | string[];
   emailVerified: boolean;
   emailVerificationToken?: string;
   emailVerificationExpiry?: Date;
@@ -103,7 +116,11 @@ const userSchema = new Schema<IUser>(
     },
     adminRole: {
       type: String,
-      enum: ['Super Admin', 'Admin', 'Content Manager', 'Community Moderator', 'Support Staff'],
+      // Canonical constants plus the legacy display strings they replaced,
+      // so a database that hasn't run scripts/migrate-admin-roles.ts yet
+      // still saves cleanly instead of failing enum validation on an
+      // untouched field.
+      enum: ADMIN_ROLE_SCHEMA_VALUES,
     },
     adminSections: {
       type: [String],

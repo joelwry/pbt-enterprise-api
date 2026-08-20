@@ -1,9 +1,12 @@
 import { Request, Response } from 'express';
 import { adminUsersService } from '@/modules/admin-users/services/admin-users.service';
+import {
+  createAdminAccountSchema,
+  updateAdminAccountSchema,
+  listAdminAccountsQuerySchema,
+} from '@/modules/admin-users/validators/admin-users.validators';
 import { ResponseHandler } from '@/core/response/ResponseHandler';
 import { PaginationHelper } from '@/core/pagination/PaginationHelper';
-
-type AdminRole = 'Super Admin' | 'Admin' | 'Content Manager' | 'Community Moderator' | 'Support Staff';
 
 export class AdminUsersController {
   async getStats(req: Request, res: Response): Promise<void> {
@@ -12,12 +15,16 @@ export class AdminUsersController {
   }
 
   async listAccounts(req: Request, res: Response): Promise<void> {
-    const { page, limit } = PaginationHelper.parse({ page: req.query.page as string, limit: req.query.limit as string });
-    const role = (req.query.role as AdminRole | 'All') || 'All';
-    const search = typeof req.query.search === 'string' ? req.query.search : undefined;
+    const query = listAdminAccountsQuerySchema.parse(req.query);
 
-    const { items, totalItems } = await adminUsersService.listAccounts({ role, search, page, limit });
-    ResponseHandler.paginated(res, 200, 'Admin accounts retrieved successfully', items, PaginationHelper.createMeta(page, limit, totalItems));
+    const { items, totalItems } = await adminUsersService.listAccounts(query);
+    ResponseHandler.paginated(
+      res,
+      200,
+      'Admin accounts retrieved successfully',
+      items,
+      PaginationHelper.createMeta(query.page, query.limit, totalItems)
+    );
   }
 
   async getAccountById(req: Request, res: Response): Promise<void> {
@@ -26,14 +33,17 @@ export class AdminUsersController {
   }
 
   async createAccount(req: Request, res: Response): Promise<void> {
-    const { fullName, email, role, sections } = req.body as { fullName: string; email: string; role: AdminRole; sections: string[] };
-    const account = await adminUsersService.createAccount({ fullName, email, role, sections: sections ?? [] });
+    // `sections` is passed through exactly as given, undefined included:
+    // omitting it means the account inherits its role's defaults, and
+    // coercing it to `[]` here (as this did) turned that into a lockout.
+    const input = createAdminAccountSchema.parse(req.body);
+    const account = await adminUsersService.createAccount(input);
     ResponseHandler.created(res, 'Admin account invited successfully', account);
   }
 
   async updateAccount(req: Request, res: Response): Promise<void> {
-    const { fullName, role, sections } = req.body as { fullName?: string; role?: AdminRole; sections?: string[] };
-    const account = await adminUsersService.updateAccount(req.params.accountId, { fullName, role, sections });
+    const input = updateAdminAccountSchema.parse(req.body);
+    const account = await adminUsersService.updateAccount(req.params.accountId, input);
     ResponseHandler.ok(res, 'Admin account updated successfully', account);
   }
 

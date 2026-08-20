@@ -2,22 +2,17 @@ import crypto from 'crypto';
 import { User, IUser } from '@/modules/users/schemas/User.schema';
 import { authRepository } from '@/modules/auth/repositories/auth.repository';
 import { EmailService } from '@/core/email/EmailService';
+import {
+  AdminRole,
+  AdminSection,
+  ADMIN_ROLE_LABELS,
+  hasCustomSections,
+  resolveAdminRole,
+  resolveAdminSections,
+  toBackendRole,
+} from '@/core/auth/adminAccess';
 import { NotFoundError, ValidationError } from '@/core/errors/AppError';
 import logger from '@/core/logger/logger';
-
-type AdminRole = 'Super Admin' | 'Admin' | 'Content Manager' | 'Community Moderator' | 'Support Staff';
-type BackendAdminRole = 'admin' | 'super_admin';
-
-/** `authorize()` only ever checks this coarse value -- the fine-grained
- * label above is a display/section-gating hint stored on the same user. */
-function toBackendRole(role: AdminRole): BackendAdminRole {
-  return role === 'Super Admin' ? 'super_admin' : 'admin';
-}
-
-function displayRole(user: IUser): AdminRole {
-  if (user.role === 'super_admin') return 'Super Admin';
-  return user.adminRole ?? 'Admin';
-}
 
 function initialsOf(fullName: string): string {
   return fullName
@@ -41,8 +36,18 @@ function toAdminAccount(user: IUser) {
     fullName: user.fullName,
     initials: initialsOf(user.fullName),
     email: user.email,
-    role: displayRole(user),
-    sections: user.role === 'super_admin' ? [] : (user.adminSections ?? []),
+    // Canonical constant, never the label -- the portal maps it to display
+    // text itself, so the two repos share one role vocabulary rather than
+    // the frontend inventing a parallel one. roleLabel rides along so the
+    // mapping is defined next to the value it describes.
+    role: resolveAdminRole(user) ?? 'ADMIN',
+    roleLabel: ADMIN_ROLE_LABELS[resolveAdminRole(user) ?? 'ADMIN'],
+    // Effective access, not the raw column: an account that has never been
+    // customised shows its role's defaults, which is what it can actually
+    // reach. sectionsCustomised is how the editor tells "inheriting the
+    // defaults" apart from "explicitly set to exactly this".
+    sections: resolveAdminSections(user),
+    sectionsCustomised: hasCustomSections(user),
     // No real invite flow exists yet -- emailVerified is the closest real
     // signal for "has this person ever actually signed in and set a
     // password", so it stands in for Active vs Invited rather than a
@@ -108,7 +113,7 @@ export class AdminUsersService {
    * throws on missing SMTP config), so the account is always created even
    * when no email credentials are configured in this environment.
    */
-  async createAccount(data: { fullName: string; email: string; role: AdminRole; sections: string[] }) {
+  async createAccount(data: { fullName: string; email: string; role: AdminRole; sections?: AdminSection[] }) {
     const existing = await User.findOne({ email: data.email.toLowerCase() });
     if (existing) {
       throw new ValidationError('An account with this email already exists', ['Email is already in use']);
@@ -121,7 +126,12 @@ export class AdminUsersService {
       fullName: data.fullName,
       role: toBackendRole(data.role),
       adminRole: data.role,
-      adminSections: data.role === 'Super Admin' ? undefined : data.sections,
+      // Left absent unless the caller genuinely chose a set, so the account
+      // inherits its role's defaults. The controller used to coerce a
+      // missing `sections` to `[]` here, which reads as a deliberate
+      // lockout and left anything created without the invite form -- a
+      // script, a seed, a direct API call -- with an empty portal.
+      adminSections: data.role === 'SUPER_ADMIN' ? undefined : data.sections,
       emailVerified: false,
     });
 
@@ -132,7 +142,16 @@ export class AdminUsersService {
     return this.getAccountById(user._id.toString());
   }
 
-  async updateAccount(id: string, data: { fullName?: string; role?: AdminRole; sections?: string[] }) {
+  /**
+   * `sections: []` is a real instruction here -- a super admin taking every
+   * section away -- and is stored as such. `resetSectionsToRoleDefaults`
+   * is how they undo that: it clears the column back to absent so the role's
+   * defaults apply again, which no value of `sections` could express.
+   */
+  async updateAccount(
+    id: string,
+    data: { fullName?: string; role?: AdminRole; sections?: AdminSection[]; resetSectionsToRoleDefaults?: boolean }
+  ) {
     const user = await User.findOne({ _id: id, role: { $in: ['admin', 'super_admin'] } });
     if (!user) throw new NotFoundError('Admin account not found');
 
@@ -140,9 +159,13 @@ export class AdminUsersService {
     if (data.role !== undefined) {
       user.role = toBackendRole(data.role);
       user.adminRole = data.role;
-      if (data.role === 'Super Admin') user.adminSections = undefined;
+      // A Super Admin holds everything regardless, so a stored section list
+      // would be dead data that reappears misleadingly if they're demoted.
+      if (data.role === 'SUPER_ADMIN') user.adminSections = undefined;
     }
-    if (data.sections !== undefined && user.role !== 'super_admin') {
+    if (data.resetSectionsToRoleDefaults) {
+      user.adminSections = undefined;
+    } else if (data.sections !== undefined && user.role !== 'super_admin') {
       user.adminSections = data.sections;
     }
 

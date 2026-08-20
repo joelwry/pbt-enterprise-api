@@ -6,6 +6,7 @@ import { subscriptionService, mostRecentSubscriptionsFor } from '@/modules/subsc
 import { adminMembersService, resolveTierAndStatus } from '@/modules/admin-members/services/admin-members.service';
 import { adminLearningService } from '@/modules/admin-learning/services/admin-learning.service';
 import { adminCommunityService } from '@/modules/admin-community/services/admin-community.service';
+import { canAccessSection } from '@/core/auth/adminAccess';
 
 const TIER_LABEL: Record<string, string> = { pathway: 'PBT Pathway', plus: 'PBT Plus', mentorship: 'PBT Masterplan Programme' };
 const TIER_FRONTEND: Record<string, 'Pathway' | 'Plus' | 'Mentorship'> = { pathway: 'Pathway', plus: 'Plus', mentorship: 'Mentorship' };
@@ -169,7 +170,7 @@ export class AdminDashboardService {
     // staff admin without the 'subscriptions' section granted shouldn't
     // see it here just because this endpoint isn't itself section-gated
     // (unlike /admin/subscriptions, which correctly 403s them).
-    const canSeeRevenue = admin?.role === 'super_admin' || (admin?.adminSections ?? []).includes('subscriptions');
+    const canSeeRevenue = admin != null && canAccessSection(admin, 'subscriptions');
 
     return {
       adminFirstName: admin ? firstNameOf(admin.fullName) : 'Admin',
