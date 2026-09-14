@@ -32611,3 +32611,1604 @@ Learn more about webhook signing and explore webhook integration examples for va
   "duration": "1ms",
   "ip": "127.0.0.1"
 }
+2026-08-11 10:52:40 [info]: SIGINT received, starting graceful shutdown...
+2026-08-11 10:53:05 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-08-11 10:53:05 [info]: MongoDB connected successfully
+2026-08-11 10:53:05 [info]: Security middleware initialized
+2026-08-11 10:53:05 [info]: 🚀 Server running on http://localhost:5000
+2026-08-11 10:53:05 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-08-11 10:53:05 [info]: 🔧 Environment: development
+2026-08-11 10:53:05 [info]: 🛣️  API Version: /api/v1
+2026-08-11 10:53:13 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "::1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\controllers\\auth.controller.ts:103:13)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\routes\\auth.routes.ts:15:77\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\core\\middleware\\asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at Route.dispatch (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:119:3)\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:284:15\n    at router.process_params (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:280:10)"
+}
+2026-08-11 10:53:13 [info]: Request completed {
+  "correlationId": "1786470793106-0.09417683333399418",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "18ms",
+  "ip": "::1"
+}
+2026-08-11 10:53:13 [debug]: Access token refreshed for user: admintest1@example.com
+2026-08-11 10:53:13 [info]: Request completed {
+  "correlationId": "1786470793081-0.24066234905295902",
+  "method": "POST",
+  "path": "/admin/refresh-token",
+  "statusCode": 200,
+  "duration": "64ms",
+  "ip": "::1"
+}
+2026-08-11 10:53:13 [info]: Request completed {
+  "correlationId": "1786470793166-0.25692765612965585",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 304,
+  "duration": "15ms",
+  "ip": "::1"
+}
+2026-08-11 10:53:13 [info]: Request completed {
+  "correlationId": "1786470793362-0.5012869655793152",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 200,
+  "duration": "273ms",
+  "ip": "::1"
+}
+2026-08-11 10:53:27 [info]: Admin logged out
+2026-08-11 10:53:27 [info]: Request completed {
+  "correlationId": "1786470807189-0.9979209000694874",
+  "method": "POST",
+  "path": "/admin/logout",
+  "statusCode": 200,
+  "duration": "20ms",
+  "ip": "::1"
+}
+2026-08-11 10:53:33 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/admin/refresh-token",
+  "method": "POST",
+  "ip": "::1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.adminRefreshToken (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\controllers\\auth.controller.ts:128:13)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\routes\\auth.routes.ts:25:83\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\core\\middleware\\asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at Route.dispatch (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:119:3)\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:284:15\n    at router.process_params (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:280:10)"
+}
+2026-08-11 10:53:33 [info]: Request completed {
+  "correlationId": "1786470813005-0.03864591884374524",
+  "method": "POST",
+  "path": "/api/v1/auth/admin/refresh-token",
+  "statusCode": 401,
+  "duration": "17ms",
+  "ip": "::1"
+}
+2026-08-11 10:53:33 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "::1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\controllers\\auth.controller.ts:103:13)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\routes\\auth.routes.ts:15:77\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\core\\middleware\\asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at Route.dispatch (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:119:3)\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:284:15\n    at router.process_params (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:280:10)"
+}
+2026-08-11 10:53:33 [info]: Request completed {
+  "correlationId": "1786470813024-0.9548640264594032",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "2ms",
+  "ip": "::1"
+}
+2026-08-11 10:53:41 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/admin/refresh-token",
+  "method": "POST",
+  "ip": "::1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.adminRefreshToken (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\controllers\\auth.controller.ts:128:13)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\routes\\auth.routes.ts:25:83\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\core\\middleware\\asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at Route.dispatch (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:119:3)\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:284:15\n    at router.process_params (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:280:10)"
+}
+2026-08-11 10:53:41 [info]: Request completed {
+  "correlationId": "1786470820999-0.13297127169667267",
+  "method": "POST",
+  "path": "/api/v1/auth/admin/refresh-token",
+  "statusCode": 401,
+  "duration": "7ms",
+  "ip": "::1"
+}
+2026-08-11 10:53:41 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "::1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\controllers\\auth.controller.ts:103:13)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\routes\\auth.routes.ts:15:77\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\core\\middleware\\asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at Route.dispatch (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:119:3)\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:284:15\n    at router.process_params (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:280:10)"
+}
+2026-08-11 10:53:41 [info]: Request completed {
+  "correlationId": "1786470821008-0.14645051351945004",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "10ms",
+  "ip": "::1"
+}
+2026-08-11 10:53:48 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/admin/refresh-token",
+  "method": "POST",
+  "ip": "::1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.adminRefreshToken (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\controllers\\auth.controller.ts:128:13)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\routes\\auth.routes.ts:25:83\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\core\\middleware\\asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at Route.dispatch (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:119:3)\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:284:15\n    at router.process_params (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:280:10)"
+}
+2026-08-11 10:53:48 [info]: Request completed {
+  "correlationId": "1786470828710-0.6249962563313349",
+  "method": "POST",
+  "path": "/api/v1/auth/admin/refresh-token",
+  "statusCode": 401,
+  "duration": "2ms",
+  "ip": "::1"
+}
+2026-08-11 10:53:48 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "::1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\controllers\\auth.controller.ts:103:13)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\routes\\auth.routes.ts:15:77\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\core\\middleware\\asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at Route.dispatch (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:119:3)\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:284:15\n    at router.process_params (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:280:10)"
+}
+2026-08-11 10:53:48 [info]: Request completed {
+  "correlationId": "1786470828716-0.567209144921022",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "3ms",
+  "ip": "::1"
+}
+2026-08-11 10:53:59 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "::1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\controllers\\auth.controller.ts:103:13)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\routes\\auth.routes.ts:15:77\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\core\\middleware\\asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at Route.dispatch (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:119:3)\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:284:15\n    at router.process_params (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:280:10)"
+}
+2026-08-11 10:53:59 [info]: Request completed {
+  "correlationId": "1786470839228-0.5858634240875991",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "3ms",
+  "ip": "::1"
+}
+2026-08-11 10:54:09 [info]: Request completed {
+  "correlationId": "1786470849564-0.7820576191794879",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 200,
+  "duration": "23ms",
+  "ip": "::1"
+}
+2026-08-11 10:55:35 [info]: User logged in: julius@example.com
+2026-08-11 10:55:35 [info]: User logged in: julius@example.com
+2026-08-11 10:55:35 [info]: Request completed {
+  "correlationId": "1786470935610-0.1317833049459587",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "313ms",
+  "ip": "::1"
+}
+2026-08-11 10:55:35 [info]: Request completed {
+  "correlationId": "1786470935931-0.2593699302197263",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 200,
+  "duration": "3ms",
+  "ip": "::1"
+}
+2026-08-11 10:55:36 [info]: Request completed {
+  "correlationId": "1786470936396-0.23975114465242287",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "33ms",
+  "ip": "::1"
+}
+2026-08-11 10:55:47 [debug]: Access token refreshed for user: julius@example.com
+2026-08-11 10:55:47 [info]: Request completed {
+  "correlationId": "1786470947914-0.8309338892548737",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "6ms",
+  "ip": "::1"
+}
+2026-08-11 10:55:47 [info]: Request completed {
+  "correlationId": "1786470947931-0.6782100518596061",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 200,
+  "duration": "5ms",
+  "ip": "::1"
+}
+2026-08-11 10:55:47 [info]: Request completed {
+  "correlationId": "1786470947950-0.6478166416933026",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 304,
+  "duration": "4ms",
+  "ip": "::1"
+}
+2026-08-11 10:55:48 [info]: Request completed {
+  "correlationId": "1786470948205-0.353470959797886",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "24ms",
+  "ip": "::1"
+}
+2026-08-11 10:55:56 [debug]: Access token refreshed for user: julius@example.com
+2026-08-11 10:55:56 [info]: Request completed {
+  "correlationId": "1786470956234-0.8486104191191157",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "12ms",
+  "ip": "::1"
+}
+2026-08-11 10:55:56 [info]: Request completed {
+  "correlationId": "1786470956264-0.8804060677677066",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 304,
+  "duration": "5ms",
+  "ip": "::1"
+}
+2026-08-11 10:55:56 [info]: Request completed {
+  "correlationId": "1786470956278-0.6436240210174847",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 304,
+  "duration": "3ms",
+  "ip": "::1"
+}
+2026-08-11 10:55:56 [info]: Request completed {
+  "correlationId": "1786470956332-0.615947227940216",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "19ms",
+  "ip": "::1"
+}
+2026-08-11 10:57:24 [debug]: Access token refreshed for user: julius@example.com
+2026-08-11 10:57:24 [info]: Request completed {
+  "correlationId": "1786471044270-0.6722098093010884",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "7ms",
+  "ip": "::1"
+}
+2026-08-11 10:57:24 [info]: Request completed {
+  "correlationId": "1786471044286-0.370574883837667",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 304,
+  "duration": "6ms",
+  "ip": "::1"
+}
+2026-08-11 10:57:24 [info]: Request completed {
+  "correlationId": "1786471044300-0.41684110113135164",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 304,
+  "duration": "5ms",
+  "ip": "::1"
+}
+2026-08-11 10:57:24 [info]: Request completed {
+  "correlationId": "1786471044402-0.9118538932029627",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "15ms",
+  "ip": "::1"
+}
+2026-08-11 10:59:02 [info]: Stripe Checkout Session created {
+  "sessionId": "cs_test_a1vMPiLcmDQfRiVi9QXVEELPQTXbMyEvFlh2hZyWD58QYvke6Pip15vJWW",
+  "metadata": {
+    "intent": "signup",
+    "fullName": "jumbo john",
+    "email": "jumbojohn@gmail.com",
+    "tier": "plus",
+    "billingCycle": "monthly",
+    "referralCode": ""
+  }
+}
+2026-08-11 10:59:02 [info]: Request completed {
+  "correlationId": "1786471141010-0.3287232927944852",
+  "method": "POST",
+  "path": "/signup-checkout",
+  "statusCode": 200,
+  "duration": "1572ms",
+  "ip": "::1"
+}
+2026-08-11 11:01:01 [debug]: Access token refreshed for user: julius@example.com
+2026-08-11 11:01:01 [info]: Request completed {
+  "correlationId": "1786471261417-0.4245370411779207",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "4ms",
+  "ip": "::1"
+}
+2026-08-11 11:01:01 [info]: Request completed {
+  "correlationId": "1786471261432-0.7801622148579787",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 304,
+  "duration": "3ms",
+  "ip": "::1"
+}
+2026-08-11 11:01:01 [info]: Request completed {
+  "correlationId": "1786471261444-0.7010924929861192",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 304,
+  "duration": "5ms",
+  "ip": "::1"
+}
+2026-08-11 11:08:06 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/admin/refresh-token",
+  "method": "POST",
+  "ip": "::1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.adminRefreshToken (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\controllers\\auth.controller.ts:128:13)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\routes\\auth.routes.ts:25:83\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\core\\middleware\\asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at Route.dispatch (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:119:3)\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:284:15\n    at router.process_params (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:280:10)"
+}
+2026-08-11 11:08:06 [info]: Request completed {
+  "correlationId": "1786471686439-0.14033953434961555",
+  "method": "POST",
+  "path": "/api/v1/auth/admin/refresh-token",
+  "statusCode": 401,
+  "duration": "2ms",
+  "ip": "::1"
+}
+2026-08-11 11:08:06 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "::1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\controllers\\auth.controller.ts:103:13)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\routes\\auth.routes.ts:15:77\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\core\\middleware\\asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at Route.dispatch (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:119:3)\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:284:15\n    at router.process_params (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:280:10)"
+}
+2026-08-11 11:08:06 [info]: Request completed {
+  "correlationId": "1786471686444-0.6036415147237817",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "2ms",
+  "ip": "::1"
+}
+2026-08-11 11:08:17 [error]: Error occurred: Invalid email or password {
+  "url": "/api/v1/auth/admin/login",
+  "method": "POST",
+  "ip": "::1",
+  "stack": "AuthenticationError: Invalid email or password\n    at AuthService.login (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\services\\auth.service.ts:76:13)\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async AuthController.adminLogin (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\controllers\\auth.controller.ts:80:20)"
+}
+2026-08-11 11:08:17 [info]: Request completed {
+  "correlationId": "1786471697447-0.5636645747163448",
+  "method": "POST",
+  "path": "/api/v1/auth/admin/login",
+  "statusCode": 401,
+  "duration": "9ms",
+  "ip": "::1"
+}
+2026-08-11 11:08:39 [info]: User logged in: admintest1@example.com
+2026-08-11 11:08:39 [info]: Admin logged in: admintest1@example.com
+2026-08-11 11:08:39 [info]: Request completed {
+  "correlationId": "1786471719723-0.9829726151074345",
+  "method": "POST",
+  "path": "/admin/login",
+  "statusCode": 200,
+  "duration": "256ms",
+  "ip": "::1"
+}
+2026-08-11 11:08:40 [info]: Request completed {
+  "correlationId": "1786471720241-0.18658688858767603",
+  "method": "GET",
+  "path": "/stats",
+  "statusCode": 304,
+  "duration": "32ms",
+  "ip": "::1"
+}
+2026-08-11 11:08:40 [info]: Request completed {
+  "correlationId": "1786471720256-0.82985091212556",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "25ms",
+  "ip": "::1"
+}
+2026-08-11 11:08:45 [info]: Request completed {
+  "correlationId": "1786471725457-0.6316205682317944",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "66ms",
+  "ip": "::1"
+}
+2026-08-11 11:08:51 [info]: Request completed {
+  "correlationId": "1786471731258-0.6463588255992495",
+  "method": "GET",
+  "path": "/stats",
+  "statusCode": 304,
+  "duration": "12ms",
+  "ip": "::1"
+}
+2026-08-11 11:08:51 [info]: Request completed {
+  "correlationId": "1786471731261-0.07430459175433723",
+  "method": "GET",
+  "path": "/flagged",
+  "statusCode": 304,
+  "duration": "10ms",
+  "ip": "::1"
+}
+2026-08-11 11:08:51 [info]: Request completed {
+  "correlationId": "1786471731265-0.8633519911502133",
+  "method": "GET",
+  "path": "/pinned",
+  "statusCode": 304,
+  "duration": "8ms",
+  "ip": "::1"
+}
+2026-08-11 11:08:57 [info]: Request completed {
+  "correlationId": "1786471737398-0.3658196421588322",
+  "method": "GET",
+  "path": "/posts",
+  "statusCode": 200,
+  "duration": "32ms",
+  "ip": "::1"
+}
+2026-08-11 11:09:15 [info]: Request completed {
+  "correlationId": "1786471755328-0.36661897481829475",
+  "method": "GET",
+  "path": "/groups",
+  "statusCode": 200,
+  "duration": "1ms",
+  "ip": "::1"
+}
+2026-08-11 11:11:20 [info]: Request completed {
+  "correlationId": "1786471880237-0.3931717150153452",
+  "method": "GET",
+  "path": "/pinned",
+  "statusCode": 304,
+  "duration": "4ms",
+  "ip": "::1"
+}
+2026-08-11 11:11:21 [info]: Request completed {
+  "correlationId": "1786471881819-0.0556589622354815",
+  "method": "GET",
+  "path": "/flagged",
+  "statusCode": 304,
+  "duration": "3ms",
+  "ip": "::1"
+}
+2026-08-11 11:11:22 [info]: Request completed {
+  "correlationId": "1786471882612-0.8575875391609495",
+  "method": "GET",
+  "path": "/groups",
+  "statusCode": 304,
+  "duration": "0ms",
+  "ip": "::1"
+}
+2026-08-11 11:11:34 [info]: Request completed {
+  "correlationId": "1786471894347-0.0722155309225373",
+  "method": "GET",
+  "path": "/posts",
+  "statusCode": 304,
+  "duration": "10ms",
+  "ip": "::1"
+}
+2026-08-11 11:11:37 [info]: Request completed {
+  "correlationId": "1786471896972-0.7243108918530506",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "207ms",
+  "ip": "::1"
+}
+2026-08-11 11:11:37 [info]: Request completed {
+  "correlationId": "1786471896961-0.559602055094932",
+  "method": "GET",
+  "path": "/stats",
+  "statusCode": 304,
+  "duration": "237ms",
+  "ip": "::1"
+}
+2026-08-11 11:11:40 [info]: Request completed {
+  "correlationId": "1786471900949-0.8053502563061187",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "9ms",
+  "ip": "::1"
+}
+2026-08-11 11:11:40 [info]: Request completed {
+  "correlationId": "1786471900944-0.9260759182456033",
+  "method": "GET",
+  "path": "/stats",
+  "statusCode": 304,
+  "duration": "20ms",
+  "ip": "::1"
+}
+2026-08-11 11:11:44 [info]: Request completed {
+  "correlationId": "1786471904438-0.6757333948133648",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 200,
+  "duration": "10ms",
+  "ip": "::1"
+}
+2026-08-11 11:11:45 [info]: Request completed {
+  "correlationId": "1786471905307-0.011922166615190521",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 200,
+  "duration": "4ms",
+  "ip": "::1"
+}
+2026-08-11 11:11:46 [info]: Request completed {
+  "correlationId": "1786471906067-0.7444614252978569",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 200,
+  "duration": "6ms",
+  "ip": "::1"
+}
+2026-08-11 11:11:46 [info]: Request completed {
+  "correlationId": "1786471906948-0.32191681114124904",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 200,
+  "duration": "3ms",
+  "ip": "::1"
+}
+2026-08-11 11:11:48 [info]: Request completed {
+  "correlationId": "1786471908397-0.01638256423386697",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 200,
+  "duration": "9ms",
+  "ip": "::1"
+}
+2026-08-11 11:11:51 [info]: Request completed {
+  "correlationId": "1786471911911-0.19980673747731648",
+  "method": "GET",
+  "path": "/stats",
+  "statusCode": 304,
+  "duration": "10ms",
+  "ip": "::1"
+}
+2026-08-11 11:11:51 [info]: Request completed {
+  "correlationId": "1786471911915-0.6441242191693115",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "8ms",
+  "ip": "::1"
+}
+2026-08-11 11:12:00 [info]: Request completed {
+  "correlationId": "1786471920298-0.9890375708386292",
+  "method": "GET",
+  "path": "/event-attendance",
+  "statusCode": 200,
+  "duration": "31ms",
+  "ip": "::1"
+}
+2026-08-11 11:12:00 [info]: Request completed {
+  "correlationId": "1786471920308-0.33334894930557657",
+  "method": "GET",
+  "path": "/members-by-tier",
+  "statusCode": 200,
+  "duration": "36ms",
+  "ip": "::1"
+}
+2026-08-11 11:12:00 [info]: Request completed {
+  "correlationId": "1786471920311-0.5054997290795086",
+  "method": "GET",
+  "path": "/member-growth",
+  "statusCode": 200,
+  "duration": "41ms",
+  "ip": "::1"
+}
+2026-08-11 11:12:00 [info]: Request completed {
+  "correlationId": "1786471920301-0.5735329746171522",
+  "method": "GET",
+  "path": "/content-engagement",
+  "statusCode": 200,
+  "duration": "95ms",
+  "ip": "::1"
+}
+2026-08-11 11:12:00 [info]: Request completed {
+  "correlationId": "1786471920287-0.13852998088466462",
+  "method": "GET",
+  "path": "/stats",
+  "statusCode": 200,
+  "duration": "176ms",
+  "ip": "::1"
+}
+2026-08-11 11:15:38 [info]: Request completed {
+  "correlationId": "1786472138084-0.825213793431269",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "29ms",
+  "ip": "::1"
+}
+2026-08-11 11:15:43 [info]: Request completed {
+  "correlationId": "1786472143382-0.18800692354905235",
+  "method": "GET",
+  "path": "/member-growth",
+  "statusCode": 304,
+  "duration": "22ms",
+  "ip": "::1"
+}
+2026-08-11 11:15:43 [info]: Request completed {
+  "correlationId": "1786472143391-0.29412682734910434",
+  "method": "GET",
+  "path": "/members-by-tier",
+  "statusCode": 304,
+  "duration": "18ms",
+  "ip": "::1"
+}
+2026-08-11 11:15:43 [info]: Request completed {
+  "correlationId": "1786472143395-0.3792561987228549",
+  "method": "GET",
+  "path": "/event-attendance",
+  "statusCode": 304,
+  "duration": "23ms",
+  "ip": "::1"
+}
+2026-08-11 11:15:43 [info]: Request completed {
+  "correlationId": "1786472143394-0.7478868682508428",
+  "method": "GET",
+  "path": "/content-engagement",
+  "statusCode": 304,
+  "duration": "43ms",
+  "ip": "::1"
+}
+2026-08-11 11:15:43 [info]: Request completed {
+  "correlationId": "1786472143397-0.6284206502663171",
+  "method": "GET",
+  "path": "/stats",
+  "statusCode": 304,
+  "duration": "54ms",
+  "ip": "::1"
+}
+2026-08-11 11:15:44 [info]: Request completed {
+  "correlationId": "1786472144720-0.31977815188719305",
+  "method": "GET",
+  "path": "/mentorship-members",
+  "statusCode": 304,
+  "duration": "42ms",
+  "ip": "::1"
+}
+2026-08-11 11:15:44 [info]: Request completed {
+  "correlationId": "1786472144737-0.669553438709131",
+  "method": "GET",
+  "path": "/revenue-by-tier",
+  "statusCode": 304,
+  "duration": "77ms",
+  "ip": "::1"
+}
+2026-08-11 11:15:44 [info]: Request completed {
+  "correlationId": "1786472144746-0.4033750759119571",
+  "method": "GET",
+  "path": "/invoices",
+  "statusCode": 304,
+  "duration": "78ms",
+  "ip": "::1"
+}
+2026-08-11 11:15:44 [info]: Request completed {
+  "correlationId": "1786472144751-0.06924544163891155",
+  "method": "GET",
+  "path": "/stats",
+  "statusCode": 200,
+  "duration": "97ms",
+  "ip": "::1"
+}
+2026-08-11 11:15:44 [info]: Request completed {
+  "correlationId": "1786472144733-0.6862231933355212",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "126ms",
+  "ip": "::1"
+}
+2026-08-11 11:15:44 [info]: Request completed {
+  "correlationId": "1786472144863-0.3671775064556493",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "15ms",
+  "ip": "::1"
+}
+2026-08-11 11:15:55 [debug]: Access token refreshed for user: julius@example.com
+2026-08-11 11:15:55 [info]: Request completed {
+  "correlationId": "1786472155576-0.9912517897460214",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "5ms",
+  "ip": "::1"
+}
+2026-08-11 11:16:25 [info]: Request completed {
+  "correlationId": "1786472185696-0.11284372064794768",
+  "method": "GET",
+  "path": "/invoices",
+  "statusCode": 200,
+  "duration": "2ms",
+  "ip": "::1"
+}
+2026-08-11 11:16:26 [info]: Request completed {
+  "correlationId": "1786472186800-0.32358094489562395",
+  "method": "GET",
+  "path": "/invoices",
+  "statusCode": 304,
+  "duration": "1ms",
+  "ip": "::1"
+}
+2026-08-11 11:16:27 [info]: Request completed {
+  "correlationId": "1786472187563-0.23101895538509587",
+  "method": "GET",
+  "path": "/invoices",
+  "statusCode": 304,
+  "duration": "11ms",
+  "ip": "::1"
+}
+2026-08-11 11:17:54 [info]: Request completed {
+  "correlationId": "1786472274903-0.12493271583046495",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "26ms",
+  "ip": "::1"
+}
+2026-08-11 11:17:54 [info]: Request completed {
+  "correlationId": "1786472274917-0.9461024864057718",
+  "method": "GET",
+  "path": "/stats",
+  "statusCode": 304,
+  "duration": "29ms",
+  "ip": "::1"
+}
+2026-08-11 11:17:54 [info]: Request completed {
+  "correlationId": "1786472274898-0.44617666108146137",
+  "method": "GET",
+  "path": "/revenue-by-tier",
+  "statusCode": 304,
+  "duration": "52ms",
+  "ip": "::1"
+}
+2026-08-11 11:17:54 [info]: Request completed {
+  "correlationId": "1786472274913-0.6736015152045809",
+  "method": "GET",
+  "path": "/invoices",
+  "statusCode": 304,
+  "duration": "57ms",
+  "ip": "::1"
+}
+2026-08-11 11:17:54 [info]: Request completed {
+  "correlationId": "1786472274907-0.7368410056252925",
+  "method": "GET",
+  "path": "/mentorship-members",
+  "statusCode": 304,
+  "duration": "77ms",
+  "ip": "::1"
+}
+2026-08-11 11:17:54 [info]: Request completed {
+  "correlationId": "1786472274901-0.9750355112035235",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "91ms",
+  "ip": "::1"
+}
+2026-08-11 11:18:05 [info]: Request completed {
+  "correlationId": "1786472285952-0.22034542549637615",
+  "method": "GET",
+  "path": "/stats",
+  "statusCode": 304,
+  "duration": "14ms",
+  "ip": "::1"
+}
+2026-08-11 11:18:05 [info]: Request completed {
+  "correlationId": "1786472285958-0.8897438243101197",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "13ms",
+  "ip": "::1"
+}
+2026-08-11 11:18:10 [info]: Request completed {
+  "correlationId": "1786472290507-0.27615137264268896",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "49ms",
+  "ip": "::1"
+}
+2026-08-11 11:18:36 [info]: SIGINT received, starting graceful shutdown...
+2026-09-03 16:16:32 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-09-03 16:16:32 [info]: MongoDB connected successfully
+2026-09-03 16:16:32 [info]: Security middleware initialized
+2026-09-03 16:16:32 [info]: 🚀 Server running on http://localhost:5000
+2026-09-03 16:16:32 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-09-03 16:16:32 [info]: 🔧 Environment: development
+2026-09-03 16:16:32 [info]: 🛣️  API Version: /api/v1
+2026-09-03 16:17:51 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "::1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\controllers\\auth.controller.ts:103:13)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\routes\\auth.routes.ts:15:77\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\core\\middleware\\asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at Route.dispatch (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:119:3)\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:284:15\n    at router.process_params (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:280:10)"
+}
+2026-09-03 16:17:51 [info]: Request completed {
+  "correlationId": "1788477471287-0.1068482754533262",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "21ms",
+  "ip": "::1"
+}
+2026-09-03 16:22:47 [error]: Error occurred: Invalid email or password {
+  "url": "/api/v1/auth/login",
+  "method": "POST",
+  "ip": "::1",
+  "stack": "AuthenticationError: Invalid email or password\n    at AuthService.login (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\services\\auth.service.ts:87:13)\n    at async AuthController.login (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\controllers\\auth.controller.ts:57:20)"
+}
+2026-09-03 16:22:47 [info]: Request completed {
+  "correlationId": "1788477766997-0.6362373771910056",
+  "method": "POST",
+  "path": "/api/v1/auth/login",
+  "statusCode": 401,
+  "duration": "142ms",
+  "ip": "::1"
+}
+2026-09-03 16:22:58 [error]: Error occurred: Invalid email or password {
+  "url": "/api/v1/auth/login",
+  "method": "POST",
+  "ip": "::1",
+  "stack": "AuthenticationError: Invalid email or password\n    at AuthService.login (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\services\\auth.service.ts:87:13)\n    at async AuthController.login (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\controllers\\auth.controller.ts:57:20)"
+}
+2026-09-03 16:22:58 [info]: Request completed {
+  "correlationId": "1788477778182-0.42426584155856606",
+  "method": "POST",
+  "path": "/api/v1/auth/login",
+  "statusCode": 401,
+  "duration": "212ms",
+  "ip": "::1"
+}
+2026-09-03 16:23:04 [info]: User logged in: admintest1@example.com
+2026-09-03 16:23:04 [info]: User logged in: admintest1@example.com
+2026-09-03 16:23:04 [info]: Request completed {
+  "correlationId": "1788477784189-0.3025555028743584",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "285ms",
+  "ip": "::1"
+}
+2026-09-03 16:23:04 [info]: Request completed {
+  "correlationId": "1788477784490-0.23716677602725467",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 200,
+  "duration": "11ms",
+  "ip": "::1"
+}
+2026-09-03 16:23:05 [info]: Request completed {
+  "correlationId": "1788477785151-0.6725665172268152",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 200,
+  "duration": "30ms",
+  "ip": "::1"
+}
+2026-09-03 16:23:12 [info]: User logged out
+2026-09-03 16:23:12 [info]: Request completed {
+  "correlationId": "1788477792875-0.5288988463544639",
+  "method": "POST",
+  "path": "/logout",
+  "statusCode": 200,
+  "duration": "6ms",
+  "ip": "::1"
+}
+2026-09-03 16:23:41 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/admin/refresh-token",
+  "method": "POST",
+  "ip": "::1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.adminRefreshToken (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\controllers\\auth.controller.ts:128:13)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\routes\\auth.routes.ts:25:83\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\core\\middleware\\asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at Route.dispatch (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:119:3)\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:284:15\n    at router.process_params (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:280:10)"
+}
+2026-09-03 16:23:41 [info]: Request completed {
+  "correlationId": "1788477821191-0.3921591412147659",
+  "method": "POST",
+  "path": "/api/v1/auth/admin/refresh-token",
+  "statusCode": 401,
+  "duration": "2ms",
+  "ip": "::1"
+}
+2026-09-03 16:23:41 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "::1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\controllers\\auth.controller.ts:103:13)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\routes\\auth.routes.ts:15:77\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\core\\middleware\\asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at Route.dispatch (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:119:3)\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:284:15\n    at router.process_params (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:280:10)"
+}
+2026-09-03 16:23:41 [info]: Request completed {
+  "correlationId": "1788477821194-0.4825999255021578",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "3ms",
+  "ip": "::1"
+}
+2026-09-03 16:23:51 [error]: Error occurred: Invalid email or password {
+  "url": "/api/v1/auth/admin/login",
+  "method": "POST",
+  "ip": "::1",
+  "stack": "AuthenticationError: Invalid email or password\n    at AuthService.login (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\services\\auth.service.ts:87:13)\n    at async AuthController.adminLogin (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\controllers\\auth.controller.ts:80:20)"
+}
+2026-09-03 16:23:51 [info]: Request completed {
+  "correlationId": "1788477831293-0.014008773711299827",
+  "method": "POST",
+  "path": "/api/v1/auth/admin/login",
+  "statusCode": 401,
+  "duration": "224ms",
+  "ip": "::1"
+}
+2026-09-03 16:23:59 [info]: User logged in: admintest1@example.com
+2026-09-03 16:23:59 [info]: Admin logged in: admintest1@example.com
+2026-09-03 16:23:59 [info]: Request completed {
+  "correlationId": "1788477839665-0.4527397211554889",
+  "method": "POST",
+  "path": "/admin/login",
+  "statusCode": 200,
+  "duration": "193ms",
+  "ip": "::1"
+}
+2026-09-03 16:24:00 [info]: Request completed {
+  "correlationId": "1788477840094-0.698689432199242",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 200,
+  "duration": "379ms",
+  "ip": "::1"
+}
+2026-09-03 16:24:10 [info]: Request completed {
+  "correlationId": "1788477850395-0.602698249483194",
+  "method": "GET",
+  "path": "/stats",
+  "statusCode": 200,
+  "duration": "28ms",
+  "ip": "::1"
+}
+2026-09-03 16:24:10 [info]: Request completed {
+  "correlationId": "1788477850405-0.7158211021873653",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 200,
+  "duration": "26ms",
+  "ip": "::1"
+}
+2026-09-03 16:24:14 [info]: Request completed {
+  "correlationId": "1788477854304-0.628284758824863",
+  "method": "GET",
+  "path": "/roadmaps",
+  "statusCode": 304,
+  "duration": "22ms",
+  "ip": "::1"
+}
+2026-09-03 16:24:14 [info]: Request completed {
+  "correlationId": "1788477854310-0.47035711258298174",
+  "method": "GET",
+  "path": "/lessons/stats",
+  "statusCode": 304,
+  "duration": "19ms",
+  "ip": "::1"
+}
+2026-09-03 16:24:14 [info]: Request completed {
+  "correlationId": "1788477854317-0.04289350764413857",
+  "method": "GET",
+  "path": "/lessons",
+  "statusCode": 304,
+  "duration": "44ms",
+  "ip": "::1"
+}
+2026-09-03 16:24:18 [info]: Request completed {
+  "correlationId": "1788477858826-0.9484662415285725",
+  "method": "GET",
+  "path": "/stats",
+  "statusCode": 304,
+  "duration": "20ms",
+  "ip": "::1"
+}
+2026-09-03 16:24:18 [info]: Request completed {
+  "correlationId": "1788477858838-0.5544400763938768",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "11ms",
+  "ip": "::1"
+}
+2026-09-03 16:24:21 [info]: Request completed {
+  "correlationId": "1788477861159-0.4158883194157883",
+  "method": "GET",
+  "path": "/stats",
+  "statusCode": 304,
+  "duration": "14ms",
+  "ip": "::1"
+}
+2026-09-03 16:24:21 [info]: Request completed {
+  "correlationId": "1788477861166-0.07262575116973113",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "12ms",
+  "ip": "::1"
+}
+2026-09-03 16:24:26 [info]: Request completed {
+  "correlationId": "1788477866222-0.9746499664081846",
+  "method": "GET",
+  "path": "/stats",
+  "statusCode": 304,
+  "duration": "22ms",
+  "ip": "::1"
+}
+2026-09-03 16:24:26 [info]: Request completed {
+  "correlationId": "1788477866228-0.45161683509727213",
+  "method": "GET",
+  "path": "/flagged",
+  "statusCode": 304,
+  "duration": "19ms",
+  "ip": "::1"
+}
+2026-09-03 16:24:26 [info]: Request completed {
+  "correlationId": "1788477866238-0.9941654748370594",
+  "method": "GET",
+  "path": "/pinned",
+  "statusCode": 304,
+  "duration": "12ms",
+  "ip": "::1"
+}
+2026-09-03 16:25:36 [error]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST",
+  "ip": "::1",
+  "stack": "AuthenticationError: No refresh token provided\n    at AuthController.refreshToken (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\controllers\\auth.controller.ts:103:13)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\routes\\auth.routes.ts:15:77\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\core\\middleware\\asyncHandler.ts:17:5\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at Route.dispatch (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\route.js:119:3)\n    at Layer.handle [as handle_request] (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:284:15\n    at router.process_params (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\express\\lib\\router\\index.js:280:10)"
+}
+2026-09-03 16:25:36 [info]: Request completed {
+  "correlationId": "1788477936563-0.8454766671309795",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "2ms",
+  "ip": "::1"
+}
+2026-09-03 16:26:30 [error]: Error occurred: Invalid email or password {
+  "url": "/api/v1/auth/login",
+  "method": "POST",
+  "ip": "::1",
+  "stack": "AuthenticationError: Invalid email or password\n    at AuthService.login (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\services\\auth.service.ts:87:13)\n    at async AuthController.login (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\auth\\controllers\\auth.controller.ts:57:20)"
+}
+2026-09-03 16:26:30 [info]: Request completed {
+  "correlationId": "1788477989810-0.5984077154455778",
+  "method": "POST",
+  "path": "/api/v1/auth/login",
+  "statusCode": 401,
+  "duration": "221ms",
+  "ip": "::1"
+}
+2026-09-03 16:27:41 [info]: Admin logged out
+2026-09-03 16:27:41 [info]: Request completed {
+  "correlationId": "1788478061929-0.6496777418386771",
+  "method": "POST",
+  "path": "/admin/logout",
+  "statusCode": 200,
+  "duration": "2ms",
+  "ip": "::1"
+}
+2026-09-03 16:30:00 [info]: User logged in: admintest1@example.com
+2026-09-03 16:30:00 [info]: Admin logged in: admintest1@example.com
+2026-09-03 16:30:00 [info]: Request completed {
+  "correlationId": "1788478200589-0.62794215959859",
+  "method": "POST",
+  "path": "/admin/login",
+  "statusCode": 200,
+  "duration": "179ms",
+  "ip": "::1"
+}
+2026-09-03 16:30:01 [info]: Request completed {
+  "correlationId": "1788478201020-0.6706913323795958",
+  "method": "GET",
+  "path": "/flagged",
+  "statusCode": 304,
+  "duration": "13ms",
+  "ip": "::1"
+}
+2026-09-03 16:30:01 [info]: Request completed {
+  "correlationId": "1788478201024-0.6137508854380858",
+  "method": "GET",
+  "path": "/pinned",
+  "statusCode": 304,
+  "duration": "11ms",
+  "ip": "::1"
+}
+2026-09-03 16:30:01 [info]: Request completed {
+  "correlationId": "1788478201027-0.2480267332032261",
+  "method": "GET",
+  "path": "/stats",
+  "statusCode": 304,
+  "duration": "11ms",
+  "ip": "::1"
+}
+2026-09-03 16:32:10 [info]: Request completed {
+  "correlationId": "1788478330372-0.7023589693380083",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "88ms",
+  "ip": "::1"
+}
+2026-09-03 16:34:53 [info]: Request completed {
+  "correlationId": "1788478493054-0.26747748665050486",
+  "method": "GET",
+  "path": "/stats",
+  "statusCode": 304,
+  "duration": "23ms",
+  "ip": "::1"
+}
+2026-09-03 16:34:53 [info]: Request completed {
+  "correlationId": "1788478493062-0.4947369736978928",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "43ms",
+  "ip": "::1"
+}
+2026-09-03 16:35:04 [info]: Request completed {
+  "correlationId": "1788478504142-0.6563562838575253",
+  "method": "GET",
+  "path": "/6a7aee8db2eccd8758b8e7c6",
+  "statusCode": 200,
+  "duration": "118ms",
+  "ip": "::1"
+}
+2026-09-03 16:35:04 [info]: Request completed {
+  "correlationId": "1788478504358-0.463471964015412",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "10ms",
+  "ip": "::1"
+}
+2026-09-03 16:35:32 [info]: Request completed {
+  "correlationId": "1788478532838-0.7247887138132817",
+  "method": "GET",
+  "path": "/roadmaps",
+  "statusCode": 304,
+  "duration": "16ms",
+  "ip": "::1"
+}
+2026-09-03 16:35:32 [info]: Request completed {
+  "correlationId": "1788478532841-0.9438072734936063",
+  "method": "GET",
+  "path": "/lessons/stats",
+  "statusCode": 304,
+  "duration": "16ms",
+  "ip": "::1"
+}
+2026-09-03 16:35:32 [info]: Request completed {
+  "correlationId": "1788478532847-0.9802065729026017",
+  "method": "GET",
+  "path": "/lessons",
+  "statusCode": 304,
+  "duration": "52ms",
+  "ip": "::1"
+}
+2026-09-03 16:35:40 [info]: Request completed {
+  "correlationId": "1788478540007-0.4779506256626752",
+  "method": "GET",
+  "path": "/roadmaps",
+  "statusCode": 304,
+  "duration": "4ms",
+  "ip": "::1"
+}
+2026-09-03 16:36:02 [info]: Request completed {
+  "correlationId": "1788478562265-0.25483128499938523",
+  "method": "GET",
+  "path": "/roadmaps/6a6509b110c9e70d6c2e8c7c/weeks",
+  "statusCode": 200,
+  "duration": "31ms",
+  "ip": "::1"
+}
+2026-09-03 16:36:08 [info]: Request completed {
+  "correlationId": "1788478568318-0.9792533823458829",
+  "method": "GET",
+  "path": "/weeks/6a6509b110c9e70d6c2e8c81/modules",
+  "statusCode": 200,
+  "duration": "36ms",
+  "ip": "::1"
+}
+2026-09-03 16:36:36 [info]: Request completed {
+  "correlationId": "1788478596523-0.33139394938666655",
+  "method": "GET",
+  "path": "/roadmaps",
+  "statusCode": 304,
+  "duration": "5ms",
+  "ip": "::1"
+}
+2026-09-03 16:36:36 [info]: Request completed {
+  "correlationId": "1788478596603-0.48210046675531837",
+  "method": "GET",
+  "path": "/roadmaps/6a693ca183d5f0e60ac35850/weeks",
+  "statusCode": 200,
+  "duration": "15ms",
+  "ip": "::1"
+}
+2026-09-03 16:36:36 [info]: Request completed {
+  "correlationId": "1788478596609-0.9610487044474924",
+  "method": "GET",
+  "path": "/roadmaps/6a6516a593912b475d51b216/weeks",
+  "statusCode": 200,
+  "duration": "22ms",
+  "ip": "::1"
+}
+2026-09-03 16:36:36 [info]: Request completed {
+  "correlationId": "1788478596611-0.46713244680743593",
+  "method": "GET",
+  "path": "/roadmaps/6a6942efd259968646511208/weeks",
+  "statusCode": 200,
+  "duration": "25ms",
+  "ip": "::1"
+}
+2026-09-03 16:36:36 [info]: Request completed {
+  "correlationId": "1788478596641-0.8926578038804986",
+  "method": "GET",
+  "path": "/roadmaps/6a6509b110c9e70d6c2e8c7c/weeks",
+  "statusCode": 304,
+  "duration": "4ms",
+  "ip": "::1"
+}
+2026-09-03 16:36:36 [info]: Request completed {
+  "correlationId": "1788478596666-0.06285244367533616",
+  "method": "GET",
+  "path": "/weeks/6a6516c793912b475d51b217/modules",
+  "statusCode": 200,
+  "duration": "18ms",
+  "ip": "::1"
+}
+2026-09-03 16:36:36 [info]: Request completed {
+  "correlationId": "1788478596671-0.4262734175174123",
+  "method": "GET",
+  "path": "/weeks/6a694332d259968646511209/modules",
+  "statusCode": 200,
+  "duration": "18ms",
+  "ip": "::1"
+}
+2026-09-03 16:36:36 [info]: Request completed {
+  "correlationId": "1788478596675-0.1081245423291255",
+  "method": "GET",
+  "path": "/weeks/6a6509b110c9e70d6c2e8c81/modules",
+  "statusCode": 304,
+  "duration": "23ms",
+  "ip": "::1"
+}
+2026-09-03 16:36:36 [info]: Request completed {
+  "correlationId": "1788478596679-0.4384598763147003",
+  "method": "GET",
+  "path": "/weeks/6a6509b110c9e70d6c2e8c88/modules",
+  "statusCode": 200,
+  "duration": "23ms",
+  "ip": "::1"
+}
+2026-09-03 16:37:06 [info]: Request completed {
+  "correlationId": "1788478626686-0.01620232639511332",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "76ms",
+  "ip": "::1"
+}
+2026-09-03 16:37:06 [info]: Request completed {
+  "correlationId": "1788478626676-0.5113142623843939",
+  "method": "GET",
+  "path": "/stats",
+  "statusCode": 304,
+  "duration": "88ms",
+  "ip": "::1"
+}
+2026-09-03 16:37:14 [info]: Request completed {
+  "correlationId": "1788478634538-0.40099452454791595",
+  "method": "GET",
+  "path": "/lessons/stats",
+  "statusCode": 304,
+  "duration": "10ms",
+  "ip": "::1"
+}
+2026-09-03 16:37:14 [info]: Request completed {
+  "correlationId": "1788478634544-0.6271263072434219",
+  "method": "GET",
+  "path": "/lessons",
+  "statusCode": 304,
+  "duration": "24ms",
+  "ip": "::1"
+}
+2026-09-03 16:37:23 [info]: Request completed {
+  "correlationId": "1788478643579-0.5075041389925726",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 200,
+  "duration": "20ms",
+  "ip": "::1"
+}
+2026-09-03 16:37:25 [info]: Request completed {
+  "correlationId": "1788478645031-0.699040481625749",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 200,
+  "duration": "12ms",
+  "ip": "::1"
+}
+2026-09-03 16:37:28 [info]: Request completed {
+  "correlationId": "1788478648903-0.9813840129144864",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 200,
+  "duration": "9ms",
+  "ip": "::1"
+}
+2026-09-03 16:37:29 [info]: Request completed {
+  "correlationId": "1788478649732-0.5991555231991",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 200,
+  "duration": "5ms",
+  "ip": "::1"
+}
+2026-09-03 16:37:30 [info]: Request completed {
+  "correlationId": "1788478650586-0.7425458265041733",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 200,
+  "duration": "13ms",
+  "ip": "::1"
+}
+2026-09-03 16:37:51 [info]: Request completed {
+  "correlationId": "1788478671176-0.40008321456652884",
+  "method": "GET",
+  "path": "/stats",
+  "statusCode": 304,
+  "duration": "20ms",
+  "ip": "::1"
+}
+2026-09-03 16:37:51 [info]: Request completed {
+  "correlationId": "1788478671187-0.5762092228956102",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "18ms",
+  "ip": "::1"
+}
+2026-09-03 16:37:54 [info]: Request completed {
+  "correlationId": "1788478674298-0.32776473630254366",
+  "method": "GET",
+  "path": "/revenue-by-tier",
+  "statusCode": 200,
+  "duration": "53ms",
+  "ip": "::1"
+}
+2026-09-03 16:37:54 [info]: Request completed {
+  "correlationId": "1788478674310-0.7341267590471992",
+  "method": "GET",
+  "path": "/mentorship-members",
+  "statusCode": 304,
+  "duration": "58ms",
+  "ip": "::1"
+}
+2026-09-03 16:37:54 [info]: Request completed {
+  "correlationId": "1788478674328-0.8767162350419917",
+  "method": "GET",
+  "path": "/invoices",
+  "statusCode": 304,
+  "duration": "62ms",
+  "ip": "::1"
+}
+2026-09-03 16:37:54 [info]: Request completed {
+  "correlationId": "1788478674324-0.5358819069141033",
+  "method": "GET",
+  "path": "/stats",
+  "statusCode": 200,
+  "duration": "85ms",
+  "ip": "::1"
+}
+2026-09-03 16:37:54 [info]: Request completed {
+  "correlationId": "1788478674305-0.4476811714865494",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "115ms",
+  "ip": "::1"
+}
+2026-09-03 16:37:54 [info]: Request completed {
+  "correlationId": "1788478674411-0.5545902124838198",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "15ms",
+  "ip": "::1"
+}
+2026-09-03 16:39:01 [info]: Request completed {
+  "correlationId": "1788478741520-0.21649984777713083",
+  "method": "GET",
+  "path": "/stats",
+  "statusCode": 304,
+  "duration": "8ms",
+  "ip": "::1"
+}
+2026-09-03 16:39:01 [info]: Request completed {
+  "correlationId": "1788478741524-0.44422635956581524",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "6ms",
+  "ip": "::1"
+}
+2026-09-03 16:39:11 [info]: Request completed {
+  "correlationId": "1788478751094-0.01920262083522184",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "13ms",
+  "ip": "::1"
+}
+2026-09-03 16:39:12 [info]: Request completed {
+  "correlationId": "1788478752211-0.20458856274029258",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "9ms",
+  "ip": "::1"
+}
+2026-09-03 16:39:33 [info]: Request completed {
+  "correlationId": "1788478773353-0.44852581732097596",
+  "method": "GET",
+  "path": "/stats",
+  "statusCode": 200,
+  "duration": "13ms",
+  "ip": "::1"
+}
+2026-09-03 16:39:33 [info]: Request completed {
+  "correlationId": "1788478773360-0.9365882469744523",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 200,
+  "duration": "17ms",
+  "ip": "::1"
+}
+2026-09-03 16:39:37 [info]: Request completed {
+  "correlationId": "1788478777887-0.4259612486297081",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 200,
+  "duration": "5ms",
+  "ip": "::1"
+}
+2026-09-03 16:39:38 [info]: Request completed {
+  "correlationId": "1788478778700-0.3499977417937321",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 200,
+  "duration": "5ms",
+  "ip": "::1"
+}
+2026-09-03 16:39:39 [info]: Request completed {
+  "correlationId": "1788478779480-0.2500784940048595",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 200,
+  "duration": "5ms",
+  "ip": "::1"
+}
+2026-09-03 16:40:02 [info]: Request completed {
+  "correlationId": "1788478802194-0.929960246920959",
+  "method": "GET",
+  "path": "/stats",
+  "statusCode": 304,
+  "duration": "9ms",
+  "ip": "::1"
+}
+2026-09-03 16:40:02 [info]: Request completed {
+  "correlationId": "1788478802199-0.9405265295990015",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "15ms",
+  "ip": "::1"
+}
+2026-09-03 16:40:10 [info]: Request completed {
+  "correlationId": "1788478810455-0.2997695591370375",
+  "method": "GET",
+  "path": "/flagged",
+  "statusCode": 304,
+  "duration": "8ms",
+  "ip": "::1"
+}
+2026-09-03 16:40:10 [info]: Request completed {
+  "correlationId": "1788478810459-0.4083176650969279",
+  "method": "GET",
+  "path": "/pinned",
+  "statusCode": 304,
+  "duration": "5ms",
+  "ip": "::1"
+}
+2026-09-03 16:40:10 [info]: Request completed {
+  "correlationId": "1788478810461-0.40609148322208133",
+  "method": "GET",
+  "path": "/stats",
+  "statusCode": 304,
+  "duration": "8ms",
+  "ip": "::1"
+}
+2026-09-03 16:40:14 [info]: Request completed {
+  "correlationId": "1788478814791-0.35682694062978826",
+  "method": "GET",
+  "path": "/posts",
+  "statusCode": 200,
+  "duration": "13ms",
+  "ip": "::1"
+}
+2026-09-03 16:40:23 [info]: Request completed {
+  "correlationId": "1788478823763-0.12402905683278331",
+  "method": "GET",
+  "path": "/stats",
+  "statusCode": 304,
+  "duration": "18ms",
+  "ip": "::1"
+}
+2026-09-03 16:40:23 [info]: Request completed {
+  "correlationId": "1788478823770-0.3034416480061616",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "16ms",
+  "ip": "::1"
+}
+2026-09-03 16:40:36 [info]: Request completed {
+  "correlationId": "1788478836147-0.11478809223068198",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 200,
+  "duration": "5ms",
+  "ip": "::1"
+}
+2026-09-03 16:40:38 [info]: Request completed {
+  "correlationId": "1788478838164-0.17923503982986289",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 200,
+  "duration": "8ms",
+  "ip": "::1"
+}
+2026-09-03 16:40:38 [info]: Request completed {
+  "correlationId": "1788478838918-0.7342304640733859",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 200,
+  "duration": "13ms",
+  "ip": "::1"
+}
+2026-09-03 16:40:39 [info]: Request completed {
+  "correlationId": "1788478839815-0.08165139097320517",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 200,
+  "duration": "5ms",
+  "ip": "::1"
+}
+2026-09-03 16:42:02 [info]: Request completed {
+  "correlationId": "1788478922043-0.44140289720607573",
+  "method": "GET",
+  "path": "/stats",
+  "statusCode": 304,
+  "duration": "14ms",
+  "ip": "::1"
+}
+2026-09-03 16:42:02 [info]: Request completed {
+  "correlationId": "1788478922050-0.948696087473433",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "22ms",
+  "ip": "::1"
+}
+2026-09-03 16:42:43 [info]: SIGINT received, starting graceful shutdown...
