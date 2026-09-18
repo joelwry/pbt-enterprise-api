@@ -1,14 +1,16 @@
 import { Router } from 'express';
 import { authenticate, authorize } from '@/core/middleware/authMiddleware';
+import { requireSection } from '@/core/middleware/sectionMiddleware';
 import { catchAsync } from '@/core/middleware/asyncHandler';
 import { adminCommunityController as c } from '@/modules/admin-community/controllers/admin-community.controller';
 
 const router = Router();
 
-router.use(authenticate, authorize('admin', 'super_admin'));
+router.use(authenticate, authorize('admin', 'super_admin'), requireSection('community'));
 
 router.get('/stats', catchAsync((req, res) => c.getStats(req, res)));
 router.get('/posts', catchAsync((req, res) => c.listPosts(req, res)));
+router.get('/posts/:threadId', catchAsync((req, res) => c.getPostDetail(req, res)));
 router.post('/posts/:threadId/pin', catchAsync((req, res) => c.togglePin(req, res)));
 router.get('/flagged', catchAsync((req, res) => c.getFlaggedPosts(req, res)));
 router.post('/flagged/:threadId/approve', catchAsync((req, res) => c.approvePost(req, res)));

@@ -1,10 +1,9 @@
 import { User } from '@/modules/users/schemas/User.schema';
-import { Subscription } from '@/modules/subscriptions/schemas/Subscription.schema';
 import { Lesson, Module } from '@/modules/learning/schemas/Learning.schema';
 import { CommunityThread } from '@/modules/community/schemas/Community.schema';
 import { Event } from '@/modules/events/schemas/Event.schema';
-import { subscriptionService } from '@/modules/subscriptions/services/subscription.service';
-import { adminMembersService, resolveTierAndStatus, mostRecentSubscriptionsFor } from '@/modules/admin-members/services/admin-members.service';
+import { subscriptionService, mostRecentSubscriptionsFor } from '@/modules/subscriptions/services/subscription.service';
+import { adminMembersService, resolveTierAndStatus } from '@/modules/admin-members/services/admin-members.service';
 import { adminLearningService } from '@/modules/admin-learning/services/admin-learning.service';
 import { adminCommunityService } from '@/modules/admin-community/services/admin-community.service';
 
@@ -48,7 +47,7 @@ export class AdminDashboardService {
       communityStats,
       communityPostsToday,
       recentUsers,
-      allActiveSubs,
+      allMembers,
       flaggedThreads,
       lessonsUnlockingThisWeek,
       upcomingLessons,
@@ -62,7 +61,7 @@ export class AdminDashboardService {
       adminCommunityService.getStats(),
       CommunityThread.countDocuments({ createdAt: { $gte: todayStart } }),
       User.find({ role: 'member' }).sort({ createdAt: -1 }).limit(3),
-      Subscription.find({ status: 'active', endDate: { $gt: now } }).select('userId tier'),
+      User.find({ role: 'member' }).select('_id isActive'),
       CommunityThread.find({ reportCount: { $gt: 0 } }).sort({ reportCount: -1 }).limit(1),
       Lesson.countDocuments({ isDraft: { $ne: true }, 'access.unlocksAt': { $gte: now, $lte: weekFromNow } }),
       Lesson.find({ isDraft: { $ne: true }, 'access.unlocksAt': { $gt: now } })
@@ -71,17 +70,29 @@ export class AdminDashboardService {
       Event.find({ date: { $gte: now }, isActive: true }).select('title rsvps capacity date').lean(),
     ]);
 
-    // --- Membership breakdown: real tier distribution over active subscriptions.
+    // --- Membership breakdown: tier distribution over every member account,
+    // not just those with a currently-active subscription -- the dashboard's
+    // own "Total Members" tile above already counts every member-role
+    // account (memberStats.totalMembers), and this panel disagreeing with
+    // that number on the same page was a real QA-flagged inconsistency.
+    // Each member is classified by their real most-recent tier (same
+    // resolveTierAndStatus logic as the Members list and Recently Joined
+    // below), so a lapsed member still counts under their last real tier
+    // instead of silently vanishing from the breakdown.
+    const allMemberSubs = await mostRecentSubscriptionsFor(allMembers.map((u) => u._id));
     const tierCounts = { pathway: 0, plus: 0, mentorship: 0 };
-    for (const sub of allActiveSubs) tierCounts[sub.tier as keyof typeof tierCounts]++;
-    const totalActive = allActiveSubs.length || 1; // avoid div-by-zero when the DB is empty
+    for (const u of allMembers) {
+      const { tier } = resolveTierAndStatus(u, allMemberSubs.get(u._id.toString()) ?? null);
+      tierCounts[tier.toLowerCase() as keyof typeof tierCounts]++;
+    }
+    const totalMembersForBreakdown = allMembers.length || 1; // avoid div-by-zero when the DB is empty
     const membershipBreakdown = {
-      totalMembers: allActiveSubs.length,
+      totalMembers: allMembers.length,
       yearLabel: String(now.getFullYear()),
       segments: (['pathway', 'plus', 'mentorship'] as const).map((tier) => ({
         tier: TIER_FRONTEND[tier],
         label: TIER_LABEL[tier],
-        percent: Math.round((tierCounts[tier] / totalActive) * 100),
+        percent: Math.round((tierCounts[tier] / totalMembersForBreakdown) * 100),
       })),
     };
 
@@ -153,13 +164,20 @@ export class AdminDashboardService {
       };
     });
 
+    // The shared dashboard landing page is visible to every admin type,
+    // but MRR is the single most sensitive figure on the platform -- a
+    // staff admin without the 'subscriptions' section granted shouldn't
+    // see it here just because this endpoint isn't itself section-gated
+    // (unlike /admin/subscriptions, which correctly 403s them).
+    const canSeeRevenue = admin?.role === 'super_admin' || (admin?.adminSections ?? []).includes('subscriptions');
+
     return {
       adminFirstName: admin ? firstNameOf(admin.fullName) : 'Admin',
       stats: {
         activeMembers: memberStats.totalMembers,
         activeMembersDeltaLabel: memberStats.totalMembersDeltaLabel,
-        mrrLabel: revenueByTier.mrrLabel,
-        mrrDeltaLabel: subStats.mrrDeltaLabel,
+        mrrLabel: canSeeRevenue ? revenueByTier.mrrLabel : '—',
+        mrrDeltaLabel: canSeeRevenue ? subStats.mrrDeltaLabel : 'Restricted',
         lessonsPublished: learningStats.publishedCount,
         lessonsPublishedYearLabel: `Lessons Published (${yearStart.getFullYear()})`,
         lessonsUnlockThisWeekLabel: `${lessonsUnlockingThisWeek} unlock${lessonsUnlockingThisWeek === 1 ? 's' : ''} this week`,

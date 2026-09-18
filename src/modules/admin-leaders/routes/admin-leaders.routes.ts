@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import { authenticate, authorize } from '@/core/middleware/authMiddleware';
+import { requireSection } from '@/core/middleware/sectionMiddleware';
 import { catchAsync } from '@/core/middleware/asyncHandler';
 import { FileUploadHelper } from '@/core/file/FileUploadHelper';
 import { adminLeadersController as c } from '@/modules/admin-leaders/controllers/admin-leaders.controller';
@@ -7,7 +8,7 @@ import { adminLeadersController as c } from '@/modules/admin-leaders/controllers
 const router = Router();
 const upload = FileUploadHelper.configureAnyUpload(10 * 1024 * 1024);
 
-router.use(authenticate, authorize('admin', 'super_admin'));
+router.use(authenticate, authorize('admin', 'super_admin'), requireSection('pbtLeaders'));
 
 router.get('/stats', catchAsync((req, res) => c.getStats(req, res)));
 router.get('/', catchAsync((req, res) => c.listLeaders(req, res)));

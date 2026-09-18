@@ -126,7 +126,7 @@ export class AdminUsersService {
     });
 
     const setupToken = await authRepository.setPasswordResetToken(user._id.toString());
-    await EmailService.sendAccountSetupEmail(user.email, user.fullName, setupToken);
+    EmailService.sendAccountSetupEmail(user.email, user.fullName, setupToken).catch(() => {});
 
     logger.info(`Admin invited new admin-portal account: ${user.email} (${data.role})`);
     return this.getAccountById(user._id.toString());

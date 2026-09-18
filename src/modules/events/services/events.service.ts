@@ -6,7 +6,10 @@ import logger from '@/core/logger/logger';
 
 /** "18:00" -> "6:00 PM" */
 function to12Hour(time: string): string {
-  const [h, m] = time.split(':').map(Number);
+  const [h, m] = typeof time === 'string' ? time.split(':').map(Number) : [NaN, NaN];
+  if (Number.isNaN(h) || Number.isNaN(m)) {
+    throw new ValidationError(`Invalid time "${time}" -- expected HH:mm`);
+  }
   const period = h >= 12 ? 'PM' : 'AM';
   const hour12 = h % 12 === 0 ? 12 : h % 12;
   return `${hour12}:${String(m).padStart(2, '0')} ${period}`;

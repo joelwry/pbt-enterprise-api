@@ -64,11 +64,23 @@ export class LearningService {
   async canAccessLesson(userId: string, lesson: ILesson): Promise<boolean> {
     if (!this.isLessonUnlocked(lesson)) return false;
 
-    const requiredTier = lesson.access.requiredTier;
-    if (!requiredTier || requiredTier === 'Pathway') return true;
-
+    // Every membership tier here is a real paid subscription (Pathway is
+    // the entry PAID tier, not a free one) -- there's no such thing as a
+    // logged-in member who legitimately never subscribed. So access to
+    // Pathway-level content still requires a currently valid subscription,
+    // same as every other tier; only the *rank* comparison differs.
+    // Previously this returned true for Pathway-tier lessons before ever
+    // checking the subscription at all, so an expired member kept full
+    // access to every entry-tier lesson at the API layer even though the
+    // frontend correctly redirected them to renew -- a real gap between
+    // the UI gate and the actual security boundary, closed here to match
+    // resources.service.ts's allowedTiersFor and subscription.service.ts's
+    // canAccessTier, which both already required this.
     const subscription = await subscriptionService.getCurrentSubscription(userId);
     if (!subscription || !subscriptionService.isSubscriptionValid(subscription)) return false;
+
+    const requiredTier = lesson.access.requiredTier;
+    if (!requiredTier || requiredTier === 'Pathway') return true;
 
     const memberTier = (subscription.tier.charAt(0).toUpperCase() + subscription.tier.slice(1)) as MembershipTier;
     return (TIER_RANK[memberTier] ?? 0) >= TIER_RANK[requiredTier];
@@ -302,7 +314,16 @@ export class LearningService {
   /** Roadmap overview for a year: its weeks, plus the member's overall progress against it. */
   async getRoadmapForYear(userId: string, year: string, tier?: MembershipTier) {
     const roadmap = await Roadmap.findOne({ year });
-    if (!roadmap) throw new NotFoundError('Roadmap not found for this year');
+    // No roadmap created yet for this year is a real, valid first-run state
+    // (an admin hasn't built one out yet) -- not an error. Every other list
+    // screen in this product (Events, Resources, ...) returns 200 with an
+    // empty result for "nothing here yet" and lets the frontend render its
+    // own empty state; this 404'd instead, which tripped the frontend's
+    // generic error boundary ("Something went wrong") on a brand new
+    // install with no content, rather than a proper empty state.
+    if (!roadmap) {
+      return { year, title: 'Roadmap', description: '', overallPercent: 0, weeks: [] };
+    }
 
     const weeks = await RoadmapWeek.find({ roadmapId: roadmap._id }).sort({ weekNumber: 1 });
 

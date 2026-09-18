@@ -12,7 +12,12 @@ export class CloudinaryStorageProvider implements StorageProvider {
   async upload(file: UploadedFile, folder: string): Promise<StorageUploadResult> {
     return new Promise((resolve, reject) => {
       const uploadStream = cloudinary.uploader.upload_stream(
-        { folder: `pbt/${folder}`, resource_type: 'auto' },
+        // Without an explicit timeout, an unreachable Cloudinary host hangs
+        // on the underlying HTTP client's default -- same class of bug as
+        // the SMTP one. 10s is generous for a real upload API and still
+        // fails fast enough for FallbackStorageProvider to hand off to
+        // local storage instead of leaving the request hanging.
+        { folder: `pbt/${folder}`, resource_type: 'auto', timeout: 10_000 },
         (error, result) => {
           if (error || !result) {
             reject(error ?? new Error('Cloudinary upload returned no result'));

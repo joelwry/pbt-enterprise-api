@@ -1,7 +1,9 @@
 import { Request, Response } from 'express';
 import { subscriptionService } from '@/modules/subscriptions/services/subscription.service';
+import { generateReceiptPdf } from '@/modules/subscriptions/services/receipt.service';
 import { SubscriptionDocument } from '@/modules/subscriptions/schemas/Subscription.schema';
 import { enhancedEntitlementsService } from '@/modules/entitlements/services/entitlements.service.enhanced';
+import { authRepository } from '@/modules/auth/repositories/auth.repository';
 import { ResponseHandler } from '@/core/response/ResponseHandler';
 import { asyncHandler } from '@/core/middleware/asyncHandler';
 import { auditService } from '@/modules/audit/services/audit.service';
@@ -47,6 +49,32 @@ export class SubscriptionController {
     }));
 
     ResponseHandler.paginated(res, 200, 'Billing history retrieved successfully', invoices, PaginationHelper.createMeta(page, limit, totalItems));
+  });
+
+  /**
+   * Branded PDF receipt for one billing-history record. Scoped to the
+   * requesting member -- getOwnedBillingRecord returns null for a record
+   * that exists but belongs to someone else, same as "doesn't exist".
+   */
+  downloadReceipt = asyncHandler(async (req: Request, res: Response) => {
+    const userId = (req as any).user?.userId;
+    const { invoiceId } = req.params;
+
+    const [subscription, user] = await Promise.all([
+      subscriptionService.getOwnedBillingRecord(userId, invoiceId),
+      authRepository.findById(userId),
+    ]);
+
+    if (!subscription || !user) {
+      ResponseHandler.notFound(res, 'Receipt not found');
+      return;
+    }
+
+    const pdf = await generateReceiptPdf(subscription, user);
+
+    res.setHeader('Content-Type', 'application/pdf');
+    res.setHeader('Content-Disposition', `attachment; filename="PBT-Receipt-${subscription._id.toString().slice(-6).toUpperCase()}.pdf"`);
+    res.send(pdf);
   });
 
   /**
