@@ -34212,3 +34212,330 @@ Learn more about webhook signing and explore webhook integration examples for va
   "ip": "::1"
 }
 2026-09-03 16:42:43 [info]: SIGINT received, starting graceful shutdown...
+2026-09-18 02:56:51 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-09-18 02:56:51 [info]: MongoDB connected successfully
+2026-09-18 02:56:51 [info]: Security middleware initialized
+2026-09-18 02:56:51 [info]: 🚀 Server running on http://localhost:5000
+2026-09-18 02:56:51 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-09-18 02:56:51 [info]: 🔧 Environment: development
+2026-09-18 02:56:51 [info]: 🛣️  API Version: /api/v1
+2026-09-18 03:02:50 [info]: SIGINT received, starting graceful shutdown...
+2026-09-18 13:48:36 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-09-18 13:48:36 [info]: MongoDB connected successfully
+2026-09-18 13:48:36 [info]: Security middleware initialized
+2026-09-18 13:48:36 [info]: 🚀 Server running on http://localhost:5000
+2026-09-18 13:48:36 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-09-18 13:48:36 [info]: 🔧 Environment: development
+2026-09-18 13:48:36 [info]: 🛣️  API Version: /api/v1
+2026-09-18 13:48:36 [debug]: Error occurred: Route not found: GET / {
+  "url": "/",
+  "method": "GET"
+}
+2026-09-18 13:48:36 [info]: Request completed {
+  "correlationId": "1789764516559-0.690412042674398",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 404,
+  "duration": "10ms",
+  "ip": "::1"
+}
+2026-09-18 13:48:37 [debug]: Error occurred: Route not found: GET /favicon.ico {
+  "url": "/favicon.ico",
+  "method": "GET"
+}
+2026-09-18 13:48:37 [info]: Request completed {
+  "correlationId": "1789764517819-0.40633460035766744",
+  "method": "GET",
+  "path": "/favicon.ico",
+  "statusCode": 404,
+  "duration": "4ms",
+  "ip": "::1"
+}
+2026-09-18 13:48:56 [debug]: Error occurred: Route not found: GET /api {
+  "url": "/api",
+  "method": "GET"
+}
+2026-09-18 13:48:56 [info]: Request completed {
+  "correlationId": "1789764536134-0.7119073190346954",
+  "method": "GET",
+  "path": "/api",
+  "statusCode": 404,
+  "duration": "3ms",
+  "ip": "::1"
+}
+2026-09-18 13:53:59 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-09-18 13:53:59 [info]: MongoDB connected successfully
+2026-09-18 13:53:59 [info]: Security middleware initialized
+2026-09-18 13:53:59 [info]: 🚀 Server running on http://localhost:5000
+2026-09-18 13:53:59 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-09-18 13:53:59 [info]: 🔧 Environment: development
+2026-09-18 13:53:59 [info]: 🛣️  API Version: /api/v1
+2026-09-18 14:01:00 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-09-18 14:01:00 [info]: MongoDB connected successfully
+2026-09-18 14:01:00 [info]: Security middleware initialized
+2026-09-18 14:01:00 [info]: 🚀 Server running on http://localhost:5000
+2026-09-18 14:01:00 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-09-18 14:01:00 [info]: 🔧 Environment: development
+2026-09-18 14:01:00 [info]: 🛣️  API Version: /api/v1
+2026-09-18 14:07:42 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-09-18 14:07:42 [info]: MongoDB connected successfully
+2026-09-18 14:07:42 [info]: Security middleware initialized
+2026-09-18 14:07:43 [info]: 🚀 Server running on http://localhost:5000
+2026-09-18 14:07:43 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-09-18 14:07:43 [info]: 🔧 Environment: development
+2026-09-18 14:07:43 [info]: 🛣️  API Version: /api/v1
+2026-09-18 14:08:05 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-09-18 14:08:05 [info]: MongoDB connected successfully
+2026-09-18 14:08:05 [info]: Security middleware initialized
+2026-09-18 14:08:05 [info]: 🚀 Server running on http://localhost:5000
+2026-09-18 14:08:05 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-09-18 14:08:05 [info]: 🔧 Environment: development
+2026-09-18 14:08:05 [info]: 🛣️  API Version: /api/v1
+2026-09-18 14:14:33 [info]: Request completed {
+  "correlationId": "1789766073655-0.8435742832885765",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "13ms",
+  "ip": "::1"
+}
+2026-09-18 14:14:33 [info]: Request completed {
+  "correlationId": "1789766073735-0.8001865744458058",
+  "method": "GET",
+  "path": "/swagger-ui-init.js",
+  "statusCode": 200,
+  "duration": "3ms",
+  "ip": "::1"
+}
+2026-09-18 14:14:33 [info]: Request completed {
+  "correlationId": "1789766073728-0.15071512491888228",
+  "method": "GET",
+  "path": "/swagger-ui.css",
+  "statusCode": 304,
+  "duration": "17ms",
+  "ip": "::1"
+}
+2026-09-18 14:14:33 [info]: Request completed {
+  "correlationId": "1789766073731-0.9199675446793186",
+  "method": "GET",
+  "path": "/swagger-ui-bundle.js",
+  "statusCode": 304,
+  "duration": "16ms",
+  "ip": "::1"
+}
+2026-09-18 14:14:33 [info]: Request completed {
+  "correlationId": "1789766073734-0.3462384444224653",
+  "method": "GET",
+  "path": "/swagger-ui-standalone-preset.js",
+  "statusCode": 304,
+  "duration": "18ms",
+  "ip": "::1"
+}
+2026-09-18 14:14:34 [info]: Request completed {
+  "correlationId": "1789766074760-0.7218734234173461",
+  "method": "GET",
+  "path": "/favicon-32x32.png",
+  "statusCode": 304,
+  "duration": "3ms",
+  "ip": "::1"
+}
+2026-09-18 14:14:35 [info]: Request completed {
+  "correlationId": "1789766075621-0.6857552358854463",
+  "method": "GET",
+  "path": "/favicon-32x32.png",
+  "statusCode": 304,
+  "duration": "0ms",
+  "ip": "::1"
+}
+2026-09-18 14:15:01 [info]: Request completed {
+  "correlationId": "1789766101899-0.6398115998812205",
+  "method": "GET",
+  "path": "/health",
+  "statusCode": 200,
+  "duration": "1ms",
+  "ip": "::1"
+}
+2026-09-18 14:15:22 [warn]: Cloudinary not configured - storage may be unavailable
+2026-09-18 14:15:22 [warn]: SMTP not configured - email features unavailable
+2026-09-18 14:15:22 [info]: Request completed {
+  "correlationId": "1789766122799-0.7792809955897528",
+  "method": "GET",
+  "path": "/ready",
+  "statusCode": 503,
+  "duration": "1ms",
+  "ip": "::1"
+}
+2026-09-18 14:15:22 [warn]: Readiness check failed - some dependencies not ready {
+  "database": {
+    "status": "ok",
+    "message": ""
+  },
+  "storage": {
+    "status": "error",
+    "message": "Cloudinary not configured"
+  },
+  "email": {
+    "status": "error",
+    "message": "SMTP not configured"
+  }
+}
+2026-09-18 14:21:54 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-09-18 14:21:54 [info]: MongoDB connected successfully
+2026-09-18 14:21:54 [info]: Security middleware initialized
+2026-09-18 14:21:54 [info]: 🚀 Server running on http://localhost:5000
+2026-09-18 14:21:54 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-09-18 14:21:54 [info]: 🔧 Environment: development
+2026-09-18 14:21:54 [info]: 🛣️  API Version: /api/v1
+2026-09-18 14:22:47 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-09-18 14:22:47 [info]: MongoDB connected successfully
+2026-09-18 14:22:47 [info]: Security middleware initialized
+2026-09-18 14:22:47 [info]: 🚀 Server running on http://localhost:5000
+2026-09-18 14:22:47 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-09-18 14:22:47 [info]: 🔧 Environment: development
+2026-09-18 14:22:47 [info]: 🛣️  API Version: /api/v1
+2026-09-18 14:24:12 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-09-18 14:24:12 [info]: MongoDB connected successfully
+2026-09-18 14:24:12 [info]: Security middleware initialized
+2026-09-18 14:24:12 [info]: 🚀 Server running on http://localhost:5000
+2026-09-18 14:24:12 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-09-18 14:24:12 [info]: 🔧 Environment: development
+2026-09-18 14:24:12 [info]: 🛣️  API Version: /api/v1
+2026-09-18 14:25:47 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-09-18 14:25:47 [info]: MongoDB connected successfully
+2026-09-18 14:25:47 [info]: Security middleware initialized
+2026-09-18 14:25:47 [info]: 🚀 Server running on http://localhost:5000
+2026-09-18 14:25:47 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-09-18 14:25:47 [info]: 🔧 Environment: development
+2026-09-18 14:25:47 [info]: 🛣️  API Version: /api/v1
+2026-09-18 14:25:52 [warn]: Cloudinary not configured - storage may be unavailable
+2026-09-18 14:25:52 [warn]: SMTP not configured - email features unavailable
+2026-09-18 14:25:52 [warn]: Payment Webhook not configured -
+2026-09-18 14:25:52 [info]: Request completed {
+  "correlationId": "1789766752860-0.24779555847684265",
+  "method": "GET",
+  "path": "/ready",
+  "statusCode": 503,
+  "duration": "8ms",
+  "ip": "::1"
+}
+2026-09-18 14:25:52 [warn]: Readiness check failed - some dependencies not ready {
+  "database": {
+    "status": "ok",
+    "message": ""
+  },
+  "storage": {
+    "status": "error",
+    "message": "Cloudinary not configured"
+  },
+  "email": {
+    "status": "error",
+    "message": "SMTP not configured"
+  },
+  "payment": {
+    "status": "error",
+    "message": "payment Webhook not configured"
+  }
+}
+2026-09-18 14:26:52 [warn]: Cloudinary not configured - storage may be unavailable
+2026-09-18 14:26:52 [warn]: SMTP not configured - email features unavailable
+2026-09-18 14:26:52 [warn]: Payment Webhook not configured -
+2026-09-18 14:26:52 [info]: Request completed {
+  "correlationId": "1789766812665-0.42310150514480793",
+  "method": "GET",
+  "path": "/ready",
+  "statusCode": 503,
+  "duration": "4ms",
+  "ip": "::1"
+}
+2026-09-18 14:26:52 [warn]: Readiness check failed - some dependencies not ready {
+  "database": {
+    "status": "ok",
+    "message": ""
+  },
+  "storage": {
+    "status": "error",
+    "message": "Cloudinary not configured"
+  },
+  "email": {
+    "status": "error",
+    "message": "SMTP not configured"
+  },
+  "payment": {
+    "status": "error",
+    "message": "payment Webhook not configured"
+  }
+}
+2026-09-18 14:27:00 [warn]: Cloudinary not configured - storage may be unavailable
+2026-09-18 14:27:00 [warn]: SMTP not configured - email features unavailable
+2026-09-18 14:27:00 [warn]: Payment Webhook not configured -
+2026-09-18 14:27:00 [info]: Request completed {
+  "correlationId": "1789766820284-0.1792265767544855",
+  "method": "GET",
+  "path": "/ready",
+  "statusCode": 503,
+  "duration": "1ms",
+  "ip": "::1"
+}
+2026-09-18 14:27:00 [warn]: Readiness check failed - some dependencies not ready {
+  "database": {
+    "status": "ok",
+    "message": ""
+  },
+  "storage": {
+    "status": "error",
+    "message": "Cloudinary not configured"
+  },
+  "email": {
+    "status": "error",
+    "message": "SMTP not configured"
+  },
+  "payment": {
+    "status": "error",
+    "message": "payment Webhook not configured"
+  }
+}
+2026-09-18 14:27:27 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-09-18 14:27:27 [info]: MongoDB connected successfully
+2026-09-18 14:27:27 [info]: Security middleware initialized
+2026-09-18 14:27:27 [info]: 🚀 Server running on http://localhost:5000
+2026-09-18 14:27:27 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-09-18 14:27:27 [info]: 🔧 Environment: development
+2026-09-18 14:27:27 [info]: 🛣️  API Version: /api/v1
+2026-09-18 14:27:50 [warn]: Cloudinary not configured - storage may be unavailable
+2026-09-18 14:27:50 [warn]: SMTP not configured - email features unavailable
+2026-09-18 14:27:50 [warn]: Payment not configured - in app payment features unavailable
+2026-09-18 14:27:50 [warn]: Payment Webhook not configured -
+2026-09-18 14:27:50 [info]: Request completed {
+  "correlationId": "1789766870672-0.3403229770352023",
+  "method": "GET",
+  "path": "/ready",
+  "statusCode": 503,
+  "duration": "6ms",
+  "ip": "::1"
+}
+2026-09-18 14:27:50 [warn]: Readiness check failed - some dependencies not ready {
+  "database": {
+    "status": "ok",
+    "message": ""
+  },
+  "storage": {
+    "status": "error",
+    "message": "Cloudinary not configured"
+  },
+  "email": {
+    "status": "error",
+    "message": "SMTP not configured"
+  },
+  "payment": {
+    "status": "error",
+    "message": "Secret key not configured... payment Webhook not configured"
+  }
+}
+2026-09-18 14:28:36 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-09-18 14:28:36 [info]: MongoDB connected successfully
+2026-09-18 14:28:36 [info]: Security middleware initialized
+2026-09-18 14:28:37 [info]: 🚀 Server running on http://localhost:5000
+2026-09-18 14:28:37 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-09-18 14:28:37 [info]: 🔧 Environment: development
+2026-09-18 14:28:37 [info]: 🛣️  API Version: /api/v1
+2026-09-18 14:28:40 [info]: SIGINT received, starting graceful shutdown...

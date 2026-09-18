@@ -30,7 +30,6 @@ const subscriptionSchema = new Schema<SubscriptionDocument>(
       type: String,
       enum: ['pathway', 'plus', 'mentorship'],
       required: true,
-      index: true,
     },
     status: {
       type: String,
