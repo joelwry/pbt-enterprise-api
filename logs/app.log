@@ -34539,3 +34539,4160 @@ Learn more about webhook signing and explore webhook integration examples for va
 2026-09-18 14:28:37 [info]: 🔧 Environment: development
 2026-09-18 14:28:37 [info]: 🛣️  API Version: /api/v1
 2026-09-18 14:28:40 [info]: SIGINT received, starting graceful shutdown...
+2026-09-18 16:29:54 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-09-18 16:29:54 [info]: MongoDB connected successfully
+2026-09-18 16:29:54 [info]: Security middleware initialized
+2026-09-18 16:29:54 [info]: 🚀 Server running on http://localhost:5000
+2026-09-18 16:29:54 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-09-18 16:29:54 [info]: 🔧 Environment: development
+2026-09-18 16:29:54 [info]: 🛣️  API Version: /api/v1
+2026-09-18 16:31:18 [info]: Request completed {
+  "correlationId": "1789774278601-0.5123825136465934",
+  "method": "GET",
+  "path": "/health/details",
+  "statusCode": 200,
+  "duration": "6ms",
+  "ip": "::1"
+}
+2026-09-18 16:31:50 [debug]: Error occurred: No token provided {
+  "url": "/api/v1/auth/me",
+  "method": "GET"
+}
+2026-09-18 16:31:50 [info]: Request completed {
+  "correlationId": "1789774310688-0.0970636981463816",
+  "method": "GET",
+  "path": "/api/v1/auth/me",
+  "statusCode": 401,
+  "duration": "2ms",
+  "ip": "::1"
+}
+2026-09-18 16:33:00 [debug]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/admin/refresh-token",
+  "method": "POST"
+}
+2026-09-18 16:33:00 [info]: Request completed {
+  "correlationId": "1789774380633-0.06551558301593952",
+  "method": "POST",
+  "path": "/api/v1/auth/admin/refresh-token",
+  "statusCode": 401,
+  "duration": "4ms",
+  "ip": "::1"
+}
+2026-09-18 16:34:57 [info]: User logged in: admintest1@example.com
+2026-09-18 16:34:57 [info]: Admin logged in: admintest1@example.com
+2026-09-18 16:34:57 [info]: Request completed {
+  "correlationId": "1789774497339-0.949739692381032",
+  "method": "POST",
+  "path": "/admin/login",
+  "statusCode": 200,
+  "duration": "125ms",
+  "ip": "::1"
+}
+2026-09-18 16:34:57 [info]: Request completed {
+  "correlationId": "1789774497737-0.6386236253222654",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 200,
+  "duration": "246ms",
+  "ip": "::1"
+}
+2026-09-18 16:35:20 [info]: Request completed {
+  "correlationId": "1789774520556-0.42893329149284676",
+  "method": "GET",
+  "path": "/stats",
+  "statusCode": 200,
+  "duration": "23ms",
+  "ip": "::1"
+}
+2026-09-18 16:35:20 [info]: Request completed {
+  "correlationId": "1789774520565-0.4112656898698145",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "22ms",
+  "ip": "::1"
+}
+2026-09-18 16:35:37 [info]: Request completed {
+  "correlationId": "1789774537094-0.6649657109466331",
+  "method": "GET",
+  "path": "/revenue-by-tier",
+  "statusCode": 304,
+  "duration": "27ms",
+  "ip": "::1"
+}
+2026-09-18 16:35:37 [info]: Request completed {
+  "correlationId": "1789774537104-0.2950993222043832",
+  "method": "GET",
+  "path": "/mentorship-members",
+  "statusCode": 304,
+  "duration": "36ms",
+  "ip": "::1"
+}
+2026-09-18 16:35:37 [info]: Request completed {
+  "correlationId": "1789774537132-0.09068545793530525",
+  "method": "GET",
+  "path": "/invoices",
+  "statusCode": 304,
+  "duration": "25ms",
+  "ip": "::1"
+}
+2026-09-18 16:35:37 [info]: Request completed {
+  "correlationId": "1789774537117-0.9605198645655266",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "67ms",
+  "ip": "::1"
+}
+2026-09-18 16:35:37 [info]: Request completed {
+  "correlationId": "1789774537109-0.12824854319482182",
+  "method": "GET",
+  "path": "/stats",
+  "statusCode": 200,
+  "duration": "80ms",
+  "ip": "::1"
+}
+2026-09-18 16:35:37 [info]: Request completed {
+  "correlationId": "1789774537185-0.9478796797262131",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "11ms",
+  "ip": "::1"
+}
+2026-09-18 16:35:55 [info]: Request completed {
+  "correlationId": "1789774555355-0.39826148767874037",
+  "method": "GET",
+  "path": "/lessons/stats",
+  "statusCode": 304,
+  "duration": "16ms",
+  "ip": "::1"
+}
+2026-09-18 16:35:55 [info]: Request completed {
+  "correlationId": "1789774555383-0.759985827605055",
+  "method": "GET",
+  "path": "/roadmaps",
+  "statusCode": 304,
+  "duration": "6ms",
+  "ip": "::1"
+}
+2026-09-18 16:35:55 [info]: Request completed {
+  "correlationId": "1789774555362-0.5860021120611135",
+  "method": "GET",
+  "path": "/lessons",
+  "statusCode": 304,
+  "duration": "35ms",
+  "ip": "::1"
+}
+2026-09-18 16:36:07 [info]: Request completed {
+  "correlationId": "1789774567370-0.024179556843074268",
+  "method": "GET",
+  "path": "/roadmaps",
+  "statusCode": 304,
+  "duration": "4ms",
+  "ip": "::1"
+}
+2026-09-18 16:36:07 [info]: Request completed {
+  "correlationId": "1789774567364-0.08717456593042927",
+  "method": "GET",
+  "path": "/lessons/6a694368d25996864651120b",
+  "statusCode": 200,
+  "duration": "49ms",
+  "ip": "::1"
+}
+2026-09-18 16:36:07 [info]: Request completed {
+  "correlationId": "1789774567392-0.47590582524808944",
+  "method": "GET",
+  "path": "/roadmaps/6a6516a593912b475d51b216/weeks",
+  "statusCode": 304,
+  "duration": "28ms",
+  "ip": "::1"
+}
+2026-09-18 16:36:07 [info]: Request completed {
+  "correlationId": "1789774567403-0.5861171259063916",
+  "method": "GET",
+  "path": "/roadmaps/6a6942efd259968646511208/weeks",
+  "statusCode": 304,
+  "duration": "18ms",
+  "ip": "::1"
+}
+2026-09-18 16:36:07 [info]: Request completed {
+  "correlationId": "1789774567396-0.4544130618160306",
+  "method": "GET",
+  "path": "/roadmaps/6a693ca183d5f0e60ac35850/weeks",
+  "statusCode": 304,
+  "duration": "27ms",
+  "ip": "::1"
+}
+2026-09-18 16:36:07 [info]: Request completed {
+  "correlationId": "1789774567402-0.1794108303388693",
+  "method": "GET",
+  "path": "/roadmaps/6a6509b110c9e70d6c2e8c7c/weeks",
+  "statusCode": 304,
+  "duration": "24ms",
+  "ip": "::1"
+}
+2026-09-18 16:36:07 [info]: Request completed {
+  "correlationId": "1789774567456-0.5204829523032035",
+  "method": "GET",
+  "path": "/weeks/6a694332d259968646511209/modules",
+  "statusCode": 304,
+  "duration": "18ms",
+  "ip": "::1"
+}
+2026-09-18 16:36:07 [info]: Request completed {
+  "correlationId": "1789774567454-0.3987983306613194",
+  "method": "GET",
+  "path": "/weeks/6a6516c793912b475d51b217/modules",
+  "statusCode": 304,
+  "duration": "24ms",
+  "ip": "::1"
+}
+2026-09-18 16:36:07 [info]: Request completed {
+  "correlationId": "1789774567470-0.44336303849533243",
+  "method": "GET",
+  "path": "/weeks/6a6509b110c9e70d6c2e8c88/modules",
+  "statusCode": 304,
+  "duration": "12ms",
+  "ip": "::1"
+}
+2026-09-18 16:36:07 [info]: Request completed {
+  "correlationId": "1789774567467-0.31234534683670556",
+  "method": "GET",
+  "path": "/weeks/6a6509b110c9e70d6c2e8c81/modules",
+  "statusCode": 304,
+  "duration": "18ms",
+  "ip": "::1"
+}
+2026-09-18 16:36:22 [info]: Request completed {
+  "correlationId": "1789774582789-0.5464838327761788",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "35ms",
+  "ip": "::1"
+}
+2026-09-18 16:36:22 [info]: Request completed {
+  "correlationId": "1789774582785-0.3620447380727242",
+  "method": "GET",
+  "path": "/stats",
+  "statusCode": 304,
+  "duration": "40ms",
+  "ip": "::1"
+}
+2026-09-18 16:36:27 [info]: Request completed {
+  "correlationId": "1789774587406-0.04063807296826172",
+  "method": "GET",
+  "path": "/6a68dac697adab9fc02b81dd",
+  "statusCode": 200,
+  "duration": "26ms",
+  "ip": "::1"
+}
+2026-09-18 16:36:35 [info]: Request completed {
+  "correlationId": "1789774595414-0.8551555105553099",
+  "method": "GET",
+  "path": "/stats",
+  "statusCode": 304,
+  "duration": "8ms",
+  "ip": "::1"
+}
+2026-09-18 16:36:35 [info]: Request completed {
+  "correlationId": "1789774595419-0.9889948580577449",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "8ms",
+  "ip": "::1"
+}
+2026-09-18 16:36:38 [info]: Request completed {
+  "correlationId": "1789774598852-0.16367781820626115",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "19ms",
+  "ip": "::1"
+}
+2026-09-18 16:36:39 [info]: Request completed {
+  "correlationId": "1789774599809-0.3014378072173478",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "7ms",
+  "ip": "::1"
+}
+2026-09-18 16:36:41 [info]: Request completed {
+  "correlationId": "1789774601939-0.9029168504793031",
+  "method": "GET",
+  "path": "/pinned",
+  "statusCode": 304,
+  "duration": "17ms",
+  "ip": "::1"
+}
+2026-09-18 16:36:41 [info]: Request completed {
+  "correlationId": "1789774601944-0.1666067245685101",
+  "method": "GET",
+  "path": "/stats",
+  "statusCode": 304,
+  "duration": "14ms",
+  "ip": "::1"
+}
+2026-09-18 16:36:41 [info]: Request completed {
+  "correlationId": "1789774601951-0.8756237242700179",
+  "method": "GET",
+  "path": "/flagged",
+  "statusCode": 304,
+  "duration": "12ms",
+  "ip": "::1"
+}
+2026-09-18 16:36:46 [info]: Request completed {
+  "correlationId": "1789774606415-0.19179117474233331",
+  "method": "GET",
+  "path": "/groups",
+  "statusCode": 304,
+  "duration": "1ms",
+  "ip": "::1"
+}
+2026-09-18 16:36:52 [info]: Request completed {
+  "correlationId": "1789774612171-0.42459377530687625",
+  "method": "GET",
+  "path": "/posts",
+  "statusCode": 200,
+  "duration": "13ms",
+  "ip": "::1"
+}
+2026-09-18 16:37:00 [info]: Request completed {
+  "correlationId": "1789774619987-0.19010465452726488",
+  "method": "GET",
+  "path": "/posts/6a69406b83d5f0e60ac35851",
+  "statusCode": 200,
+  "duration": "66ms",
+  "ip": "::1"
+}
+2026-09-18 16:47:18 [info]: Request completed {
+  "correlationId": "1789775238686-0.8845917873189454",
+  "method": "GET",
+  "path": "/flagged",
+  "statusCode": 304,
+  "duration": "13ms",
+  "ip": "::1"
+}
+2026-09-18 16:47:18 [info]: Request completed {
+  "correlationId": "1789775238693-0.07802280837322995",
+  "method": "GET",
+  "path": "/pinned",
+  "statusCode": 304,
+  "duration": "7ms",
+  "ip": "::1"
+}
+2026-09-18 16:47:18 [info]: Request completed {
+  "correlationId": "1789775238695-0.46615118107002607",
+  "method": "GET",
+  "path": "/stats",
+  "statusCode": 304,
+  "duration": "10ms",
+  "ip": "::1"
+}
+2026-09-18 16:47:20 [info]: Request completed {
+  "correlationId": "1789775240952-0.3717017451036262",
+  "method": "GET",
+  "path": "/groups",
+  "statusCode": 304,
+  "duration": "0ms",
+  "ip": "::1"
+}
+2026-09-18 16:47:28 [info]: Request completed {
+  "correlationId": "1789775248212-0.3116572386255114",
+  "method": "GET",
+  "path": "/posts",
+  "statusCode": 304,
+  "duration": "6ms",
+  "ip": "::1"
+}
+2026-09-18 16:47:48 [info]: Request completed {
+  "correlationId": "1789775268397-0.1456730615568681",
+  "method": "GET",
+  "path": "/posts",
+  "statusCode": 200,
+  "duration": "21ms",
+  "ip": "::1"
+}
+2026-09-18 16:47:48 [info]: Request completed {
+  "correlationId": "1789775268653-0.7652227475328369",
+  "method": "GET",
+  "path": "/posts",
+  "statusCode": 200,
+  "duration": "4ms",
+  "ip": "::1"
+}
+2026-09-18 16:47:51 [info]: Request completed {
+  "correlationId": "1789775271936-0.15609559479871293",
+  "method": "GET",
+  "path": "/posts",
+  "statusCode": 200,
+  "duration": "5ms",
+  "ip": "::1"
+}
+2026-09-18 16:47:52 [info]: Request completed {
+  "correlationId": "1789775272212-0.08770155272881086",
+  "method": "GET",
+  "path": "/posts",
+  "statusCode": 200,
+  "duration": "5ms",
+  "ip": "::1"
+}
+2026-09-18 16:47:52 [info]: Request completed {
+  "correlationId": "1789775272926-0.6905779248624357",
+  "method": "GET",
+  "path": "/posts",
+  "statusCode": 200,
+  "duration": "4ms",
+  "ip": "::1"
+}
+2026-09-18 16:48:06 [info]: Community post pin toggled {
+  "threadId": "6a69406b83d5f0e60ac35851",
+  "isPinned": true
+}
+2026-09-18 16:48:06 [info]: Request completed {
+  "correlationId": "1789775286009-0.7348376636585785",
+  "method": "POST",
+  "path": "/posts/6a69406b83d5f0e60ac35851/pin",
+  "statusCode": 200,
+  "duration": "54ms",
+  "ip": "::1"
+}
+2026-09-18 16:48:06 [info]: Request completed {
+  "correlationId": "1789775286072-0.9454163307403757",
+  "method": "GET",
+  "path": "/stats",
+  "statusCode": 304,
+  "duration": "4ms",
+  "ip": "::1"
+}
+2026-09-18 16:48:06 [info]: Request completed {
+  "correlationId": "1789775286074-0.4899766684823462",
+  "method": "GET",
+  "path": "/flagged",
+  "statusCode": 304,
+  "duration": "6ms",
+  "ip": "::1"
+}
+2026-09-18 16:48:06 [info]: Request completed {
+  "correlationId": "1789775286077-0.26167986429372303",
+  "method": "GET",
+  "path": "/posts",
+  "statusCode": 200,
+  "duration": "7ms",
+  "ip": "::1"
+}
+2026-09-18 16:48:08 [info]: Request completed {
+  "correlationId": "1789775288834-0.026120570134752996",
+  "method": "GET",
+  "path": "/pinned",
+  "statusCode": 304,
+  "duration": "2ms",
+  "ip": "::1"
+}
+2026-09-18 16:48:24 [info]: Request completed {
+  "correlationId": "1789775304499-0.0395096905118163",
+  "method": "GET",
+  "path": "/posts/6a69406b83d5f0e60ac35851",
+  "statusCode": 200,
+  "duration": "25ms",
+  "ip": "::1"
+}
+2026-09-18 16:48:26 [info]: Community post pin toggled {
+  "threadId": "6a69406b83d5f0e60ac35851",
+  "isPinned": false
+}
+2026-09-18 16:48:26 [info]: Request completed {
+  "correlationId": "1789775306844-0.6248810977170618",
+  "method": "POST",
+  "path": "/posts/6a69406b83d5f0e60ac35851/pin",
+  "statusCode": 200,
+  "duration": "5ms",
+  "ip": "::1"
+}
+2026-09-18 16:48:26 [info]: Request completed {
+  "correlationId": "1789775306853-0.9804047863563006",
+  "method": "GET",
+  "path": "/posts/6a69406b83d5f0e60ac35851",
+  "statusCode": 200,
+  "duration": "14ms",
+  "ip": "::1"
+}
+2026-09-18 16:48:30 [info]: Request completed {
+  "correlationId": "1789775310141-0.7663949286538526",
+  "method": "GET",
+  "path": "/flagged",
+  "statusCode": 304,
+  "duration": "8ms",
+  "ip": "::1"
+}
+2026-09-18 16:48:30 [info]: Request completed {
+  "correlationId": "1789775310144-0.8916070286832073",
+  "method": "GET",
+  "path": "/pinned",
+  "statusCode": 304,
+  "duration": "7ms",
+  "ip": "::1"
+}
+2026-09-18 16:48:30 [info]: Request completed {
+  "correlationId": "1789775310146-0.7026450129100525",
+  "method": "GET",
+  "path": "/stats",
+  "statusCode": 304,
+  "duration": "7ms",
+  "ip": "::1"
+}
+2026-09-18 16:48:36 [info]: Request completed {
+  "correlationId": "1789775316448-0.822505655318767",
+  "method": "GET",
+  "path": "/posts",
+  "statusCode": 200,
+  "duration": "6ms",
+  "ip": "::1"
+}
+2026-09-18 16:49:51 [debug]: Access token refreshed for user: admintest1@example.com
+2026-09-18 16:49:51 [info]: Request completed {
+  "correlationId": "1789775391696-0.5926386075301",
+  "method": "POST",
+  "path": "/admin/refresh-token",
+  "statusCode": 200,
+  "duration": "4ms",
+  "ip": "::1"
+}
+2026-09-18 16:51:48 [debug]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST"
+}
+2026-09-18 16:51:48 [info]: Request completed {
+  "correlationId": "1789775508912-0.8417254120281031",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "2ms",
+  "ip": "::1"
+}
+2026-09-18 16:51:58 [info]: User logged in: testuser1@example.com
+2026-09-18 16:51:58 [info]: User logged in: testuser1@example.com
+2026-09-18 16:51:58 [info]: Request completed {
+  "correlationId": "1789775518197-0.5455336546947932",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "89ms",
+  "ip": "::1"
+}
+2026-09-18 16:51:58 [info]: Request completed {
+  "correlationId": "1789775518292-0.65129816271668",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 200,
+  "duration": "3ms",
+  "ip": "::1"
+}
+2026-09-18 16:51:58 [info]: Request completed {
+  "correlationId": "1789775518704-0.6188913227466754",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 200,
+  "duration": "15ms",
+  "ip": "::1"
+}
+2026-09-18 16:53:41 [info]: User logged out
+2026-09-18 16:53:41 [info]: Request completed {
+  "correlationId": "1789775621307-0.48200693898253877",
+  "method": "POST",
+  "path": "/logout",
+  "statusCode": 200,
+  "duration": "1ms",
+  "ip": "::1"
+}
+2026-09-18 17:04:46 [debug]: Access token refreshed for user: admintest1@example.com
+2026-09-18 17:04:46 [info]: Request completed {
+  "correlationId": "1789776286699-0.15232095306706828",
+  "method": "POST",
+  "path": "/admin/refresh-token",
+  "statusCode": 200,
+  "duration": "4ms",
+  "ip": "::1"
+}
+2026-09-18 17:05:01 [debug]: Error occurred: Invalid email or password {
+  "url": "/api/v1/auth/login",
+  "method": "POST"
+}
+2026-09-18 17:05:01 [info]: Request completed {
+  "correlationId": "1789776301544-0.4594968744713098",
+  "method": "POST",
+  "path": "/api/v1/auth/login",
+  "statusCode": 401,
+  "duration": "82ms",
+  "ip": "::1"
+}
+2026-09-18 17:05:13 [debug]: Error occurred: Invalid email or password {
+  "url": "/api/v1/auth/login",
+  "method": "POST"
+}
+2026-09-18 17:05:13 [info]: Request completed {
+  "correlationId": "1789776313448-0.11411992386599201",
+  "method": "POST",
+  "path": "/api/v1/auth/login",
+  "statusCode": 401,
+  "duration": "86ms",
+  "ip": "::1"
+}
+2026-09-18 17:05:16 [debug]: Error occurred: Invalid email or password {
+  "url": "/api/v1/auth/login",
+  "method": "POST"
+}
+2026-09-18 17:05:16 [info]: Request completed {
+  "correlationId": "1789776316286-0.9997266044251892",
+  "method": "POST",
+  "path": "/api/v1/auth/login",
+  "statusCode": 401,
+  "duration": "85ms",
+  "ip": "::1"
+}
+2026-09-18 17:05:21 [debug]: Error occurred: Invalid email or password {
+  "url": "/api/v1/auth/login",
+  "method": "POST"
+}
+2026-09-18 17:05:21 [info]: Request completed {
+  "correlationId": "1789776321748-0.34774979756676017",
+  "method": "POST",
+  "path": "/api/v1/auth/login",
+  "statusCode": 401,
+  "duration": "86ms",
+  "ip": "::1"
+}
+2026-09-18 17:05:50 [debug]: Error occurred: Invalid email or password {
+  "url": "/api/v1/auth/login",
+  "method": "POST"
+}
+2026-09-18 17:05:50 [info]: Request completed {
+  "correlationId": "1789776350174-0.3436984946401427",
+  "method": "POST",
+  "path": "/api/v1/auth/login",
+  "statusCode": 401,
+  "duration": "83ms",
+  "ip": "::1"
+}
+2026-09-18 17:05:52 [debug]: Error occurred: Invalid email or password {
+  "url": "/api/v1/auth/login",
+  "method": "POST"
+}
+2026-09-18 17:05:52 [info]: Request completed {
+  "correlationId": "1789776352711-0.05943477237752848",
+  "method": "POST",
+  "path": "/api/v1/auth/login",
+  "statusCode": 401,
+  "duration": "89ms",
+  "ip": "::1"
+}
+2026-09-18 17:06:00 [debug]: Error occurred: Invalid email or password {
+  "url": "/api/v1/auth/login",
+  "method": "POST"
+}
+2026-09-18 17:06:00 [info]: Request completed {
+  "correlationId": "1789776359968-0.11641982431704212",
+  "method": "POST",
+  "path": "/api/v1/auth/login",
+  "statusCode": 401,
+  "duration": "86ms",
+  "ip": "::1"
+}
+2026-09-18 17:06:05 [debug]: Error occurred: Invalid email or password {
+  "url": "/api/v1/auth/login",
+  "method": "POST"
+}
+2026-09-18 17:06:05 [info]: Request completed {
+  "correlationId": "1789776365868-0.9256796827611428",
+  "method": "POST",
+  "path": "/api/v1/auth/login",
+  "statusCode": 401,
+  "duration": "88ms",
+  "ip": "::1"
+}
+2026-09-18 17:06:50 [debug]: Error occurred: Invalid email or password {
+  "url": "/api/v1/auth/login",
+  "method": "POST"
+}
+2026-09-18 17:06:50 [info]: Request completed {
+  "correlationId": "1789776409970-0.04320800035783723",
+  "method": "POST",
+  "path": "/api/v1/auth/login",
+  "statusCode": 401,
+  "duration": "84ms",
+  "ip": "::1"
+}
+2026-09-18 17:06:59 [info]: User logged in: sholamendi@gmail.com
+2026-09-18 17:06:59 [info]: User logged in: sholamendi@gmail.com
+2026-09-18 17:06:59 [info]: Request completed {
+  "correlationId": "1789776419665-0.9092751812146099",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "93ms",
+  "ip": "::1"
+}
+2026-09-18 17:06:59 [info]: Request completed {
+  "correlationId": "1789776419763-0.6375981871683273",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 200,
+  "duration": "2ms",
+  "ip": "::1"
+}
+2026-09-18 17:06:59 [info]: Request completed {
+  "correlationId": "1789776419847-0.49749877519901364",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "23ms",
+  "ip": "::1"
+}
+2026-09-18 17:19:41 [debug]: Access token refreshed for user: admintest1@example.com
+2026-09-18 17:19:41 [info]: Request completed {
+  "correlationId": "1789777181686-0.5072254378981035",
+  "method": "POST",
+  "path": "/admin/refresh-token",
+  "statusCode": 200,
+  "duration": "4ms",
+  "ip": "::1"
+}
+2026-09-18 17:21:54 [debug]: Access token refreshed for user: sholamendi@gmail.com
+2026-09-18 17:21:54 [info]: Request completed {
+  "correlationId": "1789777314680-0.9574927145655724",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "8ms",
+  "ip": "::1"
+}
+2026-09-18 17:34:36 [debug]: Access token refreshed for user: admintest1@example.com
+2026-09-18 17:34:36 [info]: Request completed {
+  "correlationId": "1789778076695-0.3490555498796557",
+  "method": "POST",
+  "path": "/admin/refresh-token",
+  "statusCode": 200,
+  "duration": "3ms",
+  "ip": "::1"
+}
+2026-09-18 17:36:49 [debug]: Access token refreshed for user: sholamendi@gmail.com
+2026-09-18 17:36:49 [info]: Request completed {
+  "correlationId": "1789778209685-0.26736937845917663",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "8ms",
+  "ip": "::1"
+}
+2026-09-18 17:49:31 [debug]: Access token refreshed for user: admintest1@example.com
+2026-09-18 17:49:31 [info]: Request completed {
+  "correlationId": "1789778971687-0.813115692234892",
+  "method": "POST",
+  "path": "/admin/refresh-token",
+  "statusCode": 200,
+  "duration": "3ms",
+  "ip": "::1"
+}
+2026-09-18 17:51:44 [debug]: Access token refreshed for user: sholamendi@gmail.com
+2026-09-18 17:51:44 [info]: Request completed {
+  "correlationId": "1789779104688-0.8223172756136198",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "8ms",
+  "ip": "::1"
+}
+2026-09-20 14:42:38 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-09-20 14:42:39 [info]: MongoDB connected successfully
+2026-09-20 14:42:39 [info]: Security middleware initialized
+2026-09-20 14:42:39 [info]: 🚀 Server running on http://localhost:5000
+2026-09-20 14:42:39 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-09-20 14:42:39 [info]: 🔧 Environment: development
+2026-09-20 14:42:39 [info]: 🛣️  API Version: /api/v1
+2026-09-20 14:42:49 [info]: User logged in: admintest1@example.com
+2026-09-20 14:42:49 [info]: Admin logged in: admintest1@example.com
+2026-09-20 14:42:49 [info]: Request completed {
+  "correlationId": "1789940569173-0.9256380560454995",
+  "method": "POST",
+  "path": "/admin/login",
+  "statusCode": 200,
+  "duration": "116ms",
+  "ip": "::1"
+}
+2026-09-20 14:42:49 [info]: Request completed {
+  "correlationId": "1789940569566-0.3536088036765047",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "266ms",
+  "ip": "::1"
+}
+2026-09-20 14:43:01 [info]: Request completed {
+  "correlationId": "1789940581756-0.6350973941833036",
+  "method": "GET",
+  "path": "/stats",
+  "statusCode": 304,
+  "duration": "31ms",
+  "ip": "::1"
+}
+2026-09-20 14:43:01 [info]: Request completed {
+  "correlationId": "1789940581766-0.42591078072226474",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "26ms",
+  "ip": "::1"
+}
+2026-09-20 14:43:06 [info]: Request completed {
+  "correlationId": "1789940586190-0.856623668702368",
+  "method": "GET",
+  "path": "/invoices",
+  "statusCode": 304,
+  "duration": "2ms",
+  "ip": "::1"
+}
+2026-09-20 14:43:06 [info]: Request completed {
+  "correlationId": "1789940586169-0.3915611112624724",
+  "method": "GET",
+  "path": "/revenue-by-tier",
+  "statusCode": 304,
+  "duration": "68ms",
+  "ip": "::1"
+}
+2026-09-20 14:43:06 [info]: Request completed {
+  "correlationId": "1789940586174-0.7984264815760117",
+  "method": "GET",
+  "path": "/stats",
+  "statusCode": 304,
+  "duration": "67ms",
+  "ip": "::1"
+}
+2026-09-20 14:43:06 [info]: Request completed {
+  "correlationId": "1789940586186-0.2428181871982099",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "91ms",
+  "ip": "::1"
+}
+2026-09-20 14:43:06 [info]: Request completed {
+  "correlationId": "1789940586204-0.17012188534053785",
+  "method": "GET",
+  "path": "/mentorship-members",
+  "statusCode": 304,
+  "duration": "82ms",
+  "ip": "::1"
+}
+2026-09-20 14:43:06 [info]: Request completed {
+  "correlationId": "1789940586334-0.5541670904989883",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "79ms",
+  "ip": "::1"
+}
+2026-09-20 14:43:15 [info]: Request completed {
+  "correlationId": "1789940595421-0.8552847488960863",
+  "method": "GET",
+  "path": "/invoices",
+  "statusCode": 304,
+  "duration": "12ms",
+  "ip": "::1"
+}
+2026-09-20 14:43:25 [info]: Request completed {
+  "correlationId": "1789940605891-0.21626679620292588",
+  "method": "GET",
+  "path": "/invoices",
+  "statusCode": 304,
+  "duration": "15ms",
+  "ip": "::1"
+}
+2026-09-20 14:44:23 [info]: Request completed {
+  "correlationId": "1789940663110-0.1615556203568176",
+  "method": "GET",
+  "path": "/6a7ae16fb2eccd8758b8e7c0",
+  "statusCode": 200,
+  "duration": "103ms",
+  "ip": "::1"
+}
+2026-09-20 14:44:23 [info]: Request completed {
+  "correlationId": "1789940663272-0.3992435299772601",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "11ms",
+  "ip": "::1"
+}
+2026-09-20 14:44:41 [info]: Request completed {
+  "correlationId": "1789940681239-0.07268457019418706",
+  "method": "GET",
+  "path": "/6a7ae16fb2eccd8758b8e7c0/learning-progress",
+  "statusCode": 200,
+  "duration": "12ms",
+  "ip": "::1"
+}
+2026-09-20 14:46:24 [info]: Request completed {
+  "correlationId": "1789940784607-0.25772729019438456",
+  "method": "GET",
+  "path": "/6a7ae16fb2eccd8758b8e7c0/learning-progress",
+  "statusCode": 304,
+  "duration": "16ms",
+  "ip": "::1"
+}
+2026-09-20 14:46:30 [info]: Request completed {
+  "correlationId": "1789940790620-0.4640867885597346",
+  "method": "GET",
+  "path": "/stats",
+  "statusCode": 304,
+  "duration": "11ms",
+  "ip": "::1"
+}
+2026-09-20 14:46:30 [info]: Request completed {
+  "correlationId": "1789940790625-0.8026784631806572",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "10ms",
+  "ip": "::1"
+}
+2026-09-20 14:46:40 [info]: Request completed {
+  "correlationId": "1789940800709-0.8080082486481838",
+  "method": "GET",
+  "path": "/6a6515a41d4cafbb826a0fb8",
+  "statusCode": 200,
+  "duration": "8ms",
+  "ip": "::1"
+}
+2026-09-20 14:46:49 [info]: Request completed {
+  "correlationId": "1789940809936-0.8954307914810271",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "9ms",
+  "ip": "::1"
+}
+2026-09-20 14:46:49 [info]: Request completed {
+  "correlationId": "1789940809942-0.2758164915588722",
+  "method": "GET",
+  "path": "/6a7ae16fb2eccd8758b8e7c0",
+  "statusCode": 304,
+  "duration": "17ms",
+  "ip": "::1"
+}
+2026-09-20 14:47:11 [info]: Request completed {
+  "correlationId": "1789940831608-0.12134429658386858",
+  "method": "GET",
+  "path": "/6a7ae16fb2eccd8758b8e7c0/billing",
+  "statusCode": 200,
+  "duration": "9ms",
+  "ip": "::1"
+}
+2026-09-20 14:47:57 [debug]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST"
+}
+2026-09-20 14:47:57 [info]: Request completed {
+  "correlationId": "1789940877298-0.6402391169342151",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "4ms",
+  "ip": "::1"
+}
+2026-09-20 14:48:25 [debug]: Error occurred: Invalid email or password {
+  "url": "/api/v1/auth/login",
+  "method": "POST"
+}
+2026-09-20 14:48:25 [info]: Request completed {
+  "correlationId": "1789940905244-0.8201805860769157",
+  "method": "POST",
+  "path": "/api/v1/auth/login",
+  "statusCode": 401,
+  "duration": "98ms",
+  "ip": "::1"
+}
+2026-09-20 14:48:32 [debug]: Error occurred: Invalid email or password {
+  "url": "/api/v1/auth/login",
+  "method": "POST"
+}
+2026-09-20 14:48:32 [info]: Request completed {
+  "correlationId": "1789940912227-0.8430476960496616",
+  "method": "POST",
+  "path": "/api/v1/auth/login",
+  "statusCode": 401,
+  "duration": "90ms",
+  "ip": "::1"
+}
+2026-09-20 14:48:48 [debug]: Error occurred: Invalid email or password {
+  "url": "/api/v1/auth/login",
+  "method": "POST"
+}
+2026-09-20 14:48:48 [info]: Request completed {
+  "correlationId": "1789940928648-0.5119938278597241",
+  "method": "POST",
+  "path": "/api/v1/auth/login",
+  "statusCode": 401,
+  "duration": "117ms",
+  "ip": "::1"
+}
+2026-09-20 14:57:07 [info]: User logged in: igbiriase@uk.com
+2026-09-20 14:57:07 [info]: User logged in: igbiriase@uk.com
+2026-09-20 14:57:07 [info]: Request completed {
+  "correlationId": "1789941426902-0.3074395779831903",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "200ms",
+  "ip": "::1"
+}
+2026-09-20 14:57:07 [info]: Request completed {
+  "correlationId": "1789941427113-0.9530014089866334",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 200,
+  "duration": "6ms",
+  "ip": "::1"
+}
+2026-09-20 14:57:07 [info]: Request completed {
+  "correlationId": "1789941427361-0.7619895331196898",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 200,
+  "duration": "58ms",
+  "ip": "::1"
+}
+2026-09-20 14:57:07 [info]: Request completed {
+  "correlationId": "1789941427496-0.08991660544875335",
+  "method": "GET",
+  "path": "/calendar",
+  "statusCode": 200,
+  "duration": "9ms",
+  "ip": "::1"
+}
+2026-09-20 14:57:07 [info]: Request completed {
+  "correlationId": "1789941427501-0.22326242048196854",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 200,
+  "duration": "34ms",
+  "ip": "::1"
+}
+2026-09-20 14:57:43 [debug]: Access token refreshed for user: admintest1@example.com
+2026-09-20 14:57:43 [info]: Request completed {
+  "correlationId": "1789941463675-0.28174691182351996",
+  "method": "POST",
+  "path": "/admin/refresh-token",
+  "statusCode": 200,
+  "duration": "11ms",
+  "ip": "::1"
+}
+2026-09-20 14:58:00 [info]: Request completed {
+  "correlationId": "1789941480853-0.822100715453649",
+  "method": "GET",
+  "path": "/years",
+  "statusCode": 200,
+  "duration": "11ms",
+  "ip": "::1"
+}
+2026-09-20 14:58:00 [info]: Request completed {
+  "correlationId": "1789941480858-0.08897728313396802",
+  "method": "GET",
+  "path": "/continue",
+  "statusCode": 200,
+  "duration": "10ms",
+  "ip": "::1"
+}
+2026-09-20 14:58:01 [info]: Request completed {
+  "correlationId": "1789941480884-0.47882041248088203",
+  "method": "GET",
+  "path": "/roadmap/2026",
+  "statusCode": 200,
+  "duration": "147ms",
+  "ip": "::1"
+}
+2026-09-20 14:58:01 [info]: Request completed {
+  "correlationId": "1789941481056-0.616494529659446",
+  "method": "GET",
+  "path": "/modules/6a6509b103df60e5adb51d20",
+  "statusCode": 200,
+  "duration": "28ms",
+  "ip": "::1"
+}
+2026-09-20 14:58:01 [info]: Request completed {
+  "correlationId": "1789941481064-0.2711712877105893",
+  "method": "GET",
+  "path": "/modules/6a69393083d5f0e60ac3584a",
+  "statusCode": 200,
+  "duration": "22ms",
+  "ip": "::1"
+}
+2026-09-20 14:58:21 [info]: Request completed {
+  "correlationId": "1789941501191-0.7139186181500193",
+  "method": "GET",
+  "path": "/lessons/6a6509b103df60e5adb51d22",
+  "statusCode": 200,
+  "duration": "16ms",
+  "ip": "::1"
+}
+2026-09-20 14:58:21 [info]: Request completed {
+  "correlationId": "1789941501216-0.2358565105992908",
+  "method": "GET",
+  "path": "/modules/6a6509b103df60e5adb51d20",
+  "statusCode": 200,
+  "duration": "22ms",
+  "ip": "::1"
+}
+2026-09-20 14:58:32 [info]: Lesson progress updated: 6a7ae16fb2eccd8758b8e7c0 - 6a6509b103df60e5adb51d22 - completed
+2026-09-20 14:58:32 [info]: User progress recalculated {
+  "userId": "6a7ae16fb2eccd8758b8e7c0",
+  "overallProgress": 14,
+  "completedLessonsCount": 1
+}
+2026-09-20 14:58:32 [info]: Lesson progress updated: 6a6509b103df60e5adb51d22 - completed
+2026-09-20 14:58:32 [info]: Request completed {
+  "correlationId": "1789941511955-0.7129935306233107",
+  "method": "POST",
+  "path": "/lessons/6a6509b103df60e5adb51d22/progress",
+  "statusCode": 200,
+  "duration": "135ms",
+  "ip": "::1"
+}
+2026-09-20 14:58:32 [info]: Request completed {
+  "correlationId": "1789941512100-0.8043811652096352",
+  "method": "GET",
+  "path": "/lessons/6a6509b103df60e5adb51d22",
+  "statusCode": 200,
+  "duration": "16ms",
+  "ip": "::1"
+}
+2026-09-20 14:58:32 [info]: Request completed {
+  "correlationId": "1789941512126-0.314761897536891",
+  "method": "GET",
+  "path": "/modules/6a6509b103df60e5adb51d20",
+  "statusCode": 200,
+  "duration": "15ms",
+  "ip": "::1"
+}
+2026-09-20 14:58:36 [info]: Request completed {
+  "correlationId": "1789941516513-0.8053351730973185",
+  "method": "GET",
+  "path": "/years",
+  "statusCode": 304,
+  "duration": "14ms",
+  "ip": "::1"
+}
+2026-09-20 14:58:36 [info]: Request completed {
+  "correlationId": "1789941516500-0.659905816224694",
+  "method": "GET",
+  "path": "/modules/6a6509b103df60e5adb51d20",
+  "statusCode": 200,
+  "duration": "32ms",
+  "ip": "::1"
+}
+2026-09-20 14:58:36 [info]: Request completed {
+  "correlationId": "1789941516505-0.45958263327499926",
+  "method": "GET",
+  "path": "/modules/6a69393083d5f0e60ac3584a",
+  "statusCode": 304,
+  "duration": "31ms",
+  "ip": "::1"
+}
+2026-09-20 14:58:36 [info]: Request completed {
+  "correlationId": "1789941516517-0.58413884363971",
+  "method": "GET",
+  "path": "/continue",
+  "statusCode": 200,
+  "duration": "56ms",
+  "ip": "::1"
+}
+2026-09-20 14:58:36 [info]: Request completed {
+  "correlationId": "1789941516515-0.6142727317308109",
+  "method": "GET",
+  "path": "/roadmap/2026",
+  "statusCode": 200,
+  "duration": "83ms",
+  "ip": "::1"
+}
+2026-09-20 14:59:07 [debug]: Access token refreshed for user: admintest1@example.com
+2026-09-20 14:59:07 [info]: Request completed {
+  "correlationId": "1789941547187-0.25613573628832187",
+  "method": "POST",
+  "path": "/admin/refresh-token",
+  "statusCode": 200,
+  "duration": "7ms",
+  "ip": "::1"
+}
+2026-09-20 14:59:07 [info]: Request completed {
+  "correlationId": "1789941547209-0.2949243335028785",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 304,
+  "duration": "6ms",
+  "ip": "::1"
+}
+2026-09-20 14:59:07 [info]: Request completed {
+  "correlationId": "1789941547359-0.6037047582764613",
+  "method": "GET",
+  "path": "/6a7ae16fb2eccd8758b8e7c0",
+  "statusCode": 200,
+  "duration": "11ms",
+  "ip": "::1"
+}
+2026-09-20 14:59:07 [info]: Request completed {
+  "correlationId": "1789941547442-0.8682566952378936",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "9ms",
+  "ip": "::1"
+}
+2026-09-20 14:59:07 [info]: Request completed {
+  "correlationId": "1789941547446-0.9155606844733071",
+  "method": "GET",
+  "path": "/6a7ae16fb2eccd8758b8e7c0/billing",
+  "statusCode": 304,
+  "duration": "17ms",
+  "ip": "::1"
+}
+2026-09-20 14:59:29 [info]: Request completed {
+  "correlationId": "1789941569660-0.33433847208484946",
+  "method": "GET",
+  "path": "/lessons/6a6509b103df60e5adb51d23",
+  "statusCode": 200,
+  "duration": "20ms",
+  "ip": "::1"
+}
+2026-09-20 14:59:29 [info]: Request completed {
+  "correlationId": "1789941569687-0.2232984932476504",
+  "method": "GET",
+  "path": "/modules/6a6509b103df60e5adb51d20",
+  "statusCode": 304,
+  "duration": "13ms",
+  "ip": "::1"
+}
+2026-09-20 14:59:43 [info]: Lesson progress updated: 6a7ae16fb2eccd8758b8e7c0 - 6a6509b103df60e5adb51d23 - completed
+2026-09-20 14:59:43 [info]: User progress recalculated {
+  "userId": "6a7ae16fb2eccd8758b8e7c0",
+  "overallProgress": 29,
+  "completedLessonsCount": 2
+}
+2026-09-20 14:59:43 [info]: Lesson progress updated: 6a6509b103df60e5adb51d23 - completed
+2026-09-20 14:59:43 [info]: Request completed {
+  "correlationId": "1789941583011-0.47755337832113076",
+  "method": "POST",
+  "path": "/lessons/6a6509b103df60e5adb51d23/progress",
+  "statusCode": 200,
+  "duration": "44ms",
+  "ip": "::1"
+}
+2026-09-20 14:59:43 [info]: Request completed {
+  "correlationId": "1789941583067-0.0839012069923949",
+  "method": "GET",
+  "path": "/lessons/6a6509b103df60e5adb51d23",
+  "statusCode": 200,
+  "duration": "14ms",
+  "ip": "::1"
+}
+2026-09-20 14:59:43 [info]: Request completed {
+  "correlationId": "1789941583089-0.8402816914730835",
+  "method": "GET",
+  "path": "/modules/6a6509b103df60e5adb51d20",
+  "statusCode": 200,
+  "duration": "14ms",
+  "ip": "::1"
+}
+2026-09-20 14:59:47 [info]: Request completed {
+  "correlationId": "1789941587703-0.4434504849493508",
+  "method": "GET",
+  "path": "/years",
+  "statusCode": 304,
+  "duration": "17ms",
+  "ip": "::1"
+}
+2026-09-20 14:59:47 [info]: Request completed {
+  "correlationId": "1789941587699-0.9364173625932786",
+  "method": "GET",
+  "path": "/modules/6a6509b103df60e5adb51d20",
+  "statusCode": 200,
+  "duration": "34ms",
+  "ip": "::1"
+}
+2026-09-20 14:59:47 [info]: Request completed {
+  "correlationId": "1789941587706-0.13457104391912855",
+  "method": "GET",
+  "path": "/modules/6a69393083d5f0e60ac3584a",
+  "statusCode": 304,
+  "duration": "29ms",
+  "ip": "::1"
+}
+2026-09-20 14:59:47 [info]: Request completed {
+  "correlationId": "1789941587717-0.3999903777524141",
+  "method": "GET",
+  "path": "/continue",
+  "statusCode": 200,
+  "duration": "48ms",
+  "ip": "::1"
+}
+2026-09-20 14:59:47 [info]: Request completed {
+  "correlationId": "1789941587715-0.2480822114534842",
+  "method": "GET",
+  "path": "/roadmap/2026",
+  "statusCode": 200,
+  "duration": "67ms",
+  "ip": "::1"
+}
+2026-09-20 15:00:26 [info]: Request completed {
+  "correlationId": "1789941626698-0.6429264757567821",
+  "method": "GET",
+  "path": "/6a7ae16fb2eccd8758b8e7c0/learning-progress",
+  "statusCode": 200,
+  "duration": "5ms",
+  "ip": "::1"
+}
+2026-09-20 15:00:32 [debug]: Access token refreshed for user: admintest1@example.com
+2026-09-20 15:00:32 [info]: Request completed {
+  "correlationId": "1789941632457-0.644853400640498",
+  "method": "POST",
+  "path": "/admin/refresh-token",
+  "statusCode": 200,
+  "duration": "6ms",
+  "ip": "::1"
+}
+2026-09-20 15:00:32 [info]: Request completed {
+  "correlationId": "1789941632573-0.1888491147467597",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 304,
+  "duration": "7ms",
+  "ip": "::1"
+}
+2026-09-20 15:00:32 [info]: Request completed {
+  "correlationId": "1789941632701-0.716203467025709",
+  "method": "GET",
+  "path": "/6a7ae16fb2eccd8758b8e7c0",
+  "statusCode": 200,
+  "duration": "13ms",
+  "ip": "::1"
+}
+2026-09-20 15:00:32 [info]: Request completed {
+  "correlationId": "1789941632796-0.9486078572640748",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "9ms",
+  "ip": "::1"
+}
+2026-09-20 15:00:32 [info]: Request completed {
+  "correlationId": "1789941632802-0.09599308535286555",
+  "method": "GET",
+  "path": "/6a7ae16fb2eccd8758b8e7c0/learning-progress",
+  "statusCode": 304,
+  "duration": "13ms",
+  "ip": "::1"
+}
+2026-09-20 15:01:08 [info]: Request completed {
+  "correlationId": "1789941668868-0.1366570930685419",
+  "method": "GET",
+  "path": "/6a7ae16fb2eccd8758b8e7c0/billing",
+  "statusCode": 304,
+  "duration": "8ms",
+  "ip": "::1"
+}
+2026-09-20 15:01:22 [info]: Request completed {
+  "correlationId": "1789941682901-0.6102398216321869",
+  "method": "GET",
+  "path": "/stats",
+  "statusCode": 304,
+  "duration": "16ms",
+  "ip": "::1"
+}
+2026-09-20 15:01:22 [info]: Request completed {
+  "correlationId": "1789941682906-0.07033582625900259",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "29ms",
+  "ip": "::1"
+}
+2026-09-20 15:01:56 [info]: Request completed {
+  "correlationId": "1789941716523-0.07705469313207092",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 200,
+  "duration": "10ms",
+  "ip": "::1"
+}
+2026-09-20 15:01:59 [info]: Request completed {
+  "correlationId": "1789941719070-0.8662261797446931",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 200,
+  "duration": "10ms",
+  "ip": "::1"
+}
+2026-09-20 15:02:01 [info]: Request completed {
+  "correlationId": "1789941721392-0.43577833565070123",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "10ms",
+  "ip": "::1"
+}
+2026-09-20 15:03:56 [info]: Request completed {
+  "correlationId": "1789941836786-0.7022338564253655",
+  "method": "GET",
+  "path": "/invoices",
+  "statusCode": 304,
+  "duration": "2ms",
+  "ip": "::1"
+}
+2026-09-20 15:03:56 [info]: Request completed {
+  "correlationId": "1789941836755-0.8995181713423749",
+  "method": "GET",
+  "path": "/revenue-by-tier",
+  "statusCode": 304,
+  "duration": "39ms",
+  "ip": "::1"
+}
+2026-09-20 15:03:56 [info]: Request completed {
+  "correlationId": "1789941836774-0.6331766210987426",
+  "method": "GET",
+  "path": "/mentorship-members",
+  "statusCode": 304,
+  "duration": "67ms",
+  "ip": "::1"
+}
+2026-09-20 15:03:56 [info]: Request completed {
+  "correlationId": "1789941836767-0.235528792025664",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "77ms",
+  "ip": "::1"
+}
+2026-09-20 15:03:56 [info]: Request completed {
+  "correlationId": "1789941836778-0.603218795819903",
+  "method": "GET",
+  "path": "/stats",
+  "statusCode": 304,
+  "duration": "81ms",
+  "ip": "::1"
+}
+2026-09-20 15:03:56 [info]: Request completed {
+  "correlationId": "1789941836878-0.08661058522760068",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "9ms",
+  "ip": "::1"
+}
+2026-09-20 15:04:39 [info]: Request completed {
+  "correlationId": "1789941879785-0.7275425343139946",
+  "method": "GET",
+  "path": "/invoices",
+  "statusCode": 304,
+  "duration": "9ms",
+  "ip": "::1"
+}
+2026-09-20 15:04:45 [info]: Request completed {
+  "correlationId": "1789941885491-0.13586527790972458",
+  "method": "GET",
+  "path": "/invoices",
+  "statusCode": 304,
+  "duration": "1ms",
+  "ip": "::1"
+}
+2026-09-20 15:05:28 [info]: Request completed {
+  "correlationId": "1789941928176-0.6122161169520651",
+  "method": "GET",
+  "path": "/invoices",
+  "statusCode": 304,
+  "duration": "1ms",
+  "ip": "::1"
+}
+2026-09-20 15:05:31 [info]: Request completed {
+  "correlationId": "1789941931970-0.9270904451399294",
+  "method": "GET",
+  "path": "/invoices",
+  "statusCode": 304,
+  "duration": "9ms",
+  "ip": "::1"
+}
+2026-09-20 15:07:44 [info]: Request completed {
+  "correlationId": "1789942064091-0.7012082796532298",
+  "method": "GET",
+  "path": "/lessons/stats",
+  "statusCode": 304,
+  "duration": "14ms",
+  "ip": "::1"
+}
+2026-09-20 15:07:44 [info]: Request completed {
+  "correlationId": "1789942064073-0.23709121968889924",
+  "method": "GET",
+  "path": "/lessons",
+  "statusCode": 304,
+  "duration": "42ms",
+  "ip": "::1"
+}
+2026-09-20 15:07:44 [info]: Request completed {
+  "correlationId": "1789942064096-0.4692965704379476",
+  "method": "GET",
+  "path": "/roadmaps",
+  "statusCode": 304,
+  "duration": "26ms",
+  "ip": "::1"
+}
+2026-09-20 15:07:49 [info]: Request completed {
+  "correlationId": "1789942069598-0.15054558830878217",
+  "method": "GET",
+  "path": "/lessons",
+  "statusCode": 200,
+  "duration": "42ms",
+  "ip": "::1"
+}
+2026-09-20 15:08:25 [info]: Request completed {
+  "correlationId": "1789942105551-0.9672319871554088",
+  "method": "GET",
+  "path": "/roadmaps",
+  "statusCode": 304,
+  "duration": "10ms",
+  "ip": "::1"
+}
+2026-09-20 15:08:25 [info]: Request completed {
+  "correlationId": "1789942105544-0.17644506111237168",
+  "method": "GET",
+  "path": "/lessons/6a6509b103df60e5adb51d25",
+  "statusCode": 200,
+  "duration": "31ms",
+  "ip": "::1"
+}
+2026-09-20 15:08:25 [info]: Request completed {
+  "correlationId": "1789942105590-0.7040725269061358",
+  "method": "GET",
+  "path": "/roadmaps/6a693ca183d5f0e60ac35850/weeks",
+  "statusCode": 304,
+  "duration": "21ms",
+  "ip": "::1"
+}
+2026-09-20 15:08:25 [info]: Request completed {
+  "correlationId": "1789942105594-0.34718848544414216",
+  "method": "GET",
+  "path": "/roadmaps/6a6516a593912b475d51b216/weeks",
+  "statusCode": 304,
+  "duration": "19ms",
+  "ip": "::1"
+}
+2026-09-20 15:08:25 [info]: Request completed {
+  "correlationId": "1789942105602-0.272131760352492",
+  "method": "GET",
+  "path": "/roadmaps/6a6509b110c9e70d6c2e8c7c/weeks",
+  "statusCode": 304,
+  "duration": "18ms",
+  "ip": "::1"
+}
+2026-09-20 15:08:25 [info]: Request completed {
+  "correlationId": "1789942105608-0.643924441921631",
+  "method": "GET",
+  "path": "/roadmaps/6a6942efd259968646511208/weeks",
+  "statusCode": 304,
+  "duration": "15ms",
+  "ip": "::1"
+}
+2026-09-20 15:08:25 [info]: Request completed {
+  "correlationId": "1789942105692-0.5086797938182631",
+  "method": "GET",
+  "path": "/weeks/6a6509b110c9e70d6c2e8c88/modules",
+  "statusCode": 304,
+  "duration": "21ms",
+  "ip": "::1"
+}
+2026-09-20 15:08:25 [info]: Request completed {
+  "correlationId": "1789942105697-0.9769924716034905",
+  "method": "GET",
+  "path": "/weeks/6a6509b110c9e70d6c2e8c81/modules",
+  "statusCode": 304,
+  "duration": "20ms",
+  "ip": "::1"
+}
+2026-09-20 15:08:25 [info]: Request completed {
+  "correlationId": "1789942105700-0.9316437945907586",
+  "method": "GET",
+  "path": "/weeks/6a6516c793912b475d51b217/modules",
+  "statusCode": 304,
+  "duration": "39ms",
+  "ip": "::1"
+}
+2026-09-20 15:08:25 [info]: Request completed {
+  "correlationId": "1789942105704-0.5190246776962777",
+  "method": "GET",
+  "path": "/weeks/6a694332d259968646511209/modules",
+  "statusCode": 304,
+  "duration": "47ms",
+  "ip": "::1"
+}
+2026-09-20 15:08:44 [info]: Request completed {
+  "correlationId": "1789942124831-0.5844112633589374",
+  "method": "GET",
+  "path": "/lessons",
+  "statusCode": 200,
+  "duration": "18ms",
+  "ip": "::1"
+}
+2026-09-20 15:08:46 [info]: Request completed {
+  "correlationId": "1789942126686-0.13628377935357772",
+  "method": "GET",
+  "path": "/lessons",
+  "statusCode": 200,
+  "duration": "17ms",
+  "ip": "::1"
+}
+2026-09-20 15:08:48 [info]: Request completed {
+  "correlationId": "1789942128323-0.6439026685803955",
+  "method": "GET",
+  "path": "/lessons",
+  "statusCode": 200,
+  "duration": "16ms",
+  "ip": "::1"
+}
+2026-09-20 15:08:52 [info]: Request completed {
+  "correlationId": "1789942132357-0.7353652987896241",
+  "method": "GET",
+  "path": "/lessons",
+  "statusCode": 304,
+  "duration": "18ms",
+  "ip": "::1"
+}
+2026-09-20 15:09:10 [info]: Request completed {
+  "correlationId": "1789942150896-0.08096993536371266",
+  "method": "GET",
+  "path": "/lessons/6a6941ed83d5f0e60ac3585e",
+  "statusCode": 200,
+  "duration": "14ms",
+  "ip": "::1"
+}
+2026-09-20 15:10:03 [info]: Request completed {
+  "correlationId": "1789942203963-0.5348858982698085",
+  "method": "GET",
+  "path": "/lessons/stats",
+  "statusCode": 304,
+  "duration": "9ms",
+  "ip": "::1"
+}
+2026-09-20 15:10:03 [info]: Request completed {
+  "correlationId": "1789942203968-0.015426114038770478",
+  "method": "GET",
+  "path": "/lessons",
+  "statusCode": 304,
+  "duration": "25ms",
+  "ip": "::1"
+}
+2026-09-20 15:10:08 [info]: Request completed {
+  "correlationId": "1789942208106-0.1301967698535239",
+  "method": "GET",
+  "path": "/roadmaps",
+  "statusCode": 304,
+  "duration": "4ms",
+  "ip": "::1"
+}
+2026-09-20 15:10:10 [info]: Request completed {
+  "correlationId": "1789942210852-0.98778162825548",
+  "method": "GET",
+  "path": "/roadmaps/6a6509b110c9e70d6c2e8c7c/weeks",
+  "statusCode": 304,
+  "duration": "3ms",
+  "ip": "::1"
+}
+2026-09-20 15:10:13 [info]: Request completed {
+  "correlationId": "1789942213146-0.04284368058951127",
+  "method": "GET",
+  "path": "/weeks/6a6509b110c9e70d6c2e8c88/modules",
+  "statusCode": 304,
+  "duration": "4ms",
+  "ip": "::1"
+}
+2026-09-20 15:12:01 [debug]: Access token refreshed for user: igbiriase@uk.com
+2026-09-20 15:12:01 [info]: Request completed {
+  "correlationId": "1789942321644-0.6841971096864491",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "10ms",
+  "ip": "::1"
+}
+2026-09-20 15:12:20 [info]: Module created {
+  "moduleId": "6ab05a4420ae96a32c15dfe0",
+  "weekId": "6a6509b110c9e70d6c2e8c88"
+}
+2026-09-20 15:12:20 [info]: Request completed {
+  "correlationId": "1789942340456-0.002214389505827641",
+  "method": "POST",
+  "path": "/weeks/6a6509b110c9e70d6c2e8c88/modules",
+  "statusCode": 201,
+  "duration": "47ms",
+  "ip": "::1"
+}
+2026-09-20 15:12:20 [info]: Request completed {
+  "correlationId": "1789942340516-0.6269472910960036",
+  "method": "GET",
+  "path": "/weeks/6a6509b110c9e70d6c2e8c88/modules",
+  "statusCode": 200,
+  "duration": "7ms",
+  "ip": "::1"
+}
+2026-09-20 15:14:00 [info]: Roadmap week created {
+  "weekId": "6ab05aa820ae96a32c15dfe1",
+  "roadmapId": "6a6509b110c9e70d6c2e8c7c"
+}
+2026-09-20 15:14:00 [info]: Request completed {
+  "correlationId": "1789942440692-0.8600458487729266",
+  "method": "POST",
+  "path": "/roadmaps/6a6509b110c9e70d6c2e8c7c/weeks",
+  "statusCode": 201,
+  "duration": "8ms",
+  "ip": "::1"
+}
+2026-09-20 15:14:00 [info]: Request completed {
+  "correlationId": "1789942440707-0.9323414056447906",
+  "method": "GET",
+  "path": "/roadmaps/6a6509b110c9e70d6c2e8c7c/weeks",
+  "statusCode": 200,
+  "duration": "6ms",
+  "ip": "::1"
+}
+2026-09-20 15:15:26 [debug]: Access token refreshed for user: admintest1@example.com
+2026-09-20 15:15:26 [info]: Request completed {
+  "correlationId": "1789942526657-0.24318373798320703",
+  "method": "POST",
+  "path": "/admin/refresh-token",
+  "statusCode": 200,
+  "duration": "7ms",
+  "ip": "::1"
+}
+2026-09-20 15:17:25 [info]: Request completed {
+  "correlationId": "1789942645590-0.8250734823901329",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 200,
+  "duration": "7ms",
+  "ip": "::1"
+}
+2026-09-20 15:17:53 [info]: Password changed: igbiriase@uk.com
+2026-09-20 15:17:53 [info]: Request completed {
+  "correlationId": "1789942672851-0.8405703577857855",
+  "method": "POST",
+  "path": "/me/change-password",
+  "statusCode": 200,
+  "duration": "363ms",
+  "ip": "::1"
+}
+2026-09-20 15:17:57 [info]: User logged out
+2026-09-20 15:17:57 [info]: Request completed {
+  "correlationId": "1789942677451-0.7099965446792366",
+  "method": "POST",
+  "path": "/logout",
+  "statusCode": 200,
+  "duration": "4ms",
+  "ip": "::1"
+}
+2026-09-20 15:18:09 [info]: User logged in: igbiriase@uk.com
+2026-09-20 15:18:09 [info]: User logged in: igbiriase@uk.com
+2026-09-20 15:18:09 [info]: Request completed {
+  "correlationId": "1789942688988-0.39755297041110005",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "195ms",
+  "ip": "::1"
+}
+2026-09-20 15:18:09 [info]: Request completed {
+  "correlationId": "1789942689192-0.5604261604533163",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 304,
+  "duration": "4ms",
+  "ip": "::1"
+}
+2026-09-20 15:18:33 [info]: Password changed: igbiriase@uk.com
+2026-09-20 15:18:33 [info]: Request completed {
+  "correlationId": "1789942712902-0.16653510933315585",
+  "method": "POST",
+  "path": "/me/change-password",
+  "statusCode": 200,
+  "duration": "336ms",
+  "ip": "::1"
+}
+2026-09-20 15:18:35 [info]: User logged out
+2026-09-20 15:18:35 [info]: Request completed {
+  "correlationId": "1789942715677-0.1036832031399274",
+  "method": "POST",
+  "path": "/logout",
+  "statusCode": 200,
+  "duration": "3ms",
+  "ip": "::1"
+}
+2026-09-20 15:18:44 [info]: User logged in: igbiriase@uk.com
+2026-09-20 15:18:44 [info]: User logged in: igbiriase@uk.com
+2026-09-20 15:18:44 [info]: Request completed {
+  "correlationId": "1789942724501-0.053716211537338965",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "189ms",
+  "ip": "::1"
+}
+2026-09-20 15:18:44 [info]: Request completed {
+  "correlationId": "1789942724700-0.7028207353553733",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 304,
+  "duration": "4ms",
+  "ip": "::1"
+}
+2026-09-20 15:18:44 [info]: Request completed {
+  "correlationId": "1789942724862-0.9851053068484003",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 304,
+  "duration": "5ms",
+  "ip": "::1"
+}
+2026-09-20 15:20:14 [info]: Profile updated: igbiriase@uk.com
+2026-09-20 15:20:14 [info]: Request completed {
+  "correlationId": "1789942814626-0.28912306099673013",
+  "method": "PATCH",
+  "path": "/me",
+  "statusCode": 200,
+  "duration": "11ms",
+  "ip": "::1"
+}
+2026-09-20 15:23:12 [info]: Request completed {
+  "correlationId": "1789942992216-0.868022609550773",
+  "method": "PATCH",
+  "path": "/me/notifications",
+  "statusCode": 200,
+  "duration": "12ms",
+  "ip": "::1"
+}
+2026-09-20 15:23:23 [info]: Request completed {
+  "correlationId": "1789943003397-0.34857617036734545",
+  "method": "PATCH",
+  "path": "/me/notifications",
+  "statusCode": 200,
+  "duration": "11ms",
+  "ip": "::1"
+}
+2026-09-20 15:27:53 [info]: Request completed {
+  "correlationId": "1789943273276-0.9198099648792568",
+  "method": "GET",
+  "path": "/weeks/6ab05aa820ae96a32c15dfe1/modules",
+  "statusCode": 200,
+  "duration": "4ms",
+  "ip": "::1"
+}
+2026-09-20 15:28:55 [info]: Request completed {
+  "correlationId": "1789943335283-0.6532348494490418",
+  "method": "GET",
+  "path": "/weeks/6ab05aa820ae96a32c15dfe1/modules",
+  "statusCode": 304,
+  "duration": "4ms",
+  "ip": "::1"
+}
+2026-09-20 15:29:04 [info]: Request completed {
+  "correlationId": "1789943344607-0.03559986007161953",
+  "method": "PATCH",
+  "path": "/weeks/6ab05aa820ae96a32c15dfe1",
+  "statusCode": 200,
+  "duration": "13ms",
+  "ip": "::1"
+}
+2026-09-20 15:29:04 [info]: Request completed {
+  "correlationId": "1789943344633-0.4704252287245517",
+  "method": "GET",
+  "path": "/roadmaps/6a6509b110c9e70d6c2e8c7c/weeks",
+  "statusCode": 200,
+  "duration": "6ms",
+  "ip": "::1"
+}
+2026-09-20 15:30:20 [debug]: Access token refreshed for user: admintest1@example.com
+2026-09-20 15:30:20 [info]: Request completed {
+  "correlationId": "1789943420711-0.26439144596187625",
+  "method": "POST",
+  "path": "/admin/refresh-token",
+  "statusCode": 200,
+  "duration": "11ms",
+  "ip": "::1"
+}
+2026-09-20 15:32:54 [info]: Request completed {
+  "correlationId": "1789943574489-0.29021399539768455",
+  "method": "GET",
+  "path": "/weeks/6a6509b110c9e70d6c2e8c88/modules",
+  "statusCode": 304,
+  "duration": "5ms",
+  "ip": "::1"
+}
+2026-09-20 15:32:58 [info]: Request completed {
+  "correlationId": "1789943578724-0.037485838163706764",
+  "method": "GET",
+  "path": "/weeks/6ab05aa820ae96a32c15dfe1/modules",
+  "statusCode": 304,
+  "duration": "5ms",
+  "ip": "::1"
+}
+2026-09-20 15:33:24 [info]: Request completed {
+  "correlationId": "1789943604023-0.3415079213426333",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "5ms",
+  "ip": "::1"
+}
+2026-09-20 15:33:24 [info]: Request completed {
+  "correlationId": "1789943604043-0.5547140617639946",
+  "method": "GET",
+  "path": "/mentorship",
+  "statusCode": 200,
+  "duration": "9ms",
+  "ip": "::1"
+}
+2026-09-20 15:33:33 [info]: Request completed {
+  "correlationId": "1789943613609-0.7514145491594858",
+  "method": "GET",
+  "path": "/years",
+  "statusCode": 304,
+  "duration": "6ms",
+  "ip": "::1"
+}
+2026-09-20 15:33:33 [info]: Request completed {
+  "correlationId": "1789943613612-0.05788043166909096",
+  "method": "GET",
+  "path": "/continue",
+  "statusCode": 304,
+  "duration": "16ms",
+  "ip": "::1"
+}
+2026-09-20 15:33:33 [info]: Request completed {
+  "correlationId": "1789943613651-0.424554661909601",
+  "method": "GET",
+  "path": "/roadmap/2026",
+  "statusCode": 200,
+  "duration": "55ms",
+  "ip": "::1"
+}
+2026-09-20 15:33:33 [info]: Request completed {
+  "correlationId": "1789943613733-0.7254643271570226",
+  "method": "GET",
+  "path": "/modules/6a6509b103df60e5adb51d20",
+  "statusCode": 200,
+  "duration": "11ms",
+  "ip": "::1"
+}
+2026-09-20 15:33:38 [debug]: Access token refreshed for user: igbiriase@uk.com
+2026-09-20 15:33:38 [info]: Request completed {
+  "correlationId": "1789943618728-0.7377052799814728",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "7ms",
+  "ip": "::1"
+}
+2026-09-20 15:33:59 [info]: Request completed {
+  "correlationId": "1789943639324-0.3619065702799651",
+  "method": "GET",
+  "path": "/roadmap/2025",
+  "statusCode": 200,
+  "duration": "21ms",
+  "ip": "::1"
+}
+2026-09-20 15:34:07 [info]: Request completed {
+  "correlationId": "1789943647446-0.6998240143738238",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 200,
+  "duration": "26ms",
+  "ip": "::1"
+}
+2026-09-20 15:34:07 [info]: Request completed {
+  "correlationId": "1789943647517-0.4686947578999592",
+  "method": "GET",
+  "path": "/calendar",
+  "statusCode": 304,
+  "duration": "4ms",
+  "ip": "::1"
+}
+2026-09-20 15:34:29 [info]: Request completed {
+  "correlationId": "1789943669836-0.9811359941669735",
+  "method": "GET",
+  "path": "/roadmap/2026",
+  "statusCode": 200,
+  "duration": "48ms",
+  "ip": "::1"
+}
+2026-09-20 15:34:29 [info]: Request completed {
+  "correlationId": "1789943669919-0.3044993584702993",
+  "method": "GET",
+  "path": "/modules/6a6509b103df60e5adb51d20",
+  "statusCode": 304,
+  "duration": "21ms",
+  "ip": "::1"
+}
+2026-09-20 15:34:29 [info]: Request completed {
+  "correlationId": "1789943669924-0.5676838343714564",
+  "method": "GET",
+  "path": "/modules/6a69393083d5f0e60ac3584a",
+  "statusCode": 304,
+  "duration": "19ms",
+  "ip": "::1"
+}
+2026-09-20 15:35:14 [info]: Request completed {
+  "correlationId": "1789943714385-0.6583233420526491",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "2ms",
+  "ip": "::1"
+}
+2026-09-20 15:35:16 [info]: Request completed {
+  "correlationId": "1789943716757-0.13259578875575306",
+  "method": "GET",
+  "path": "/modules/6a6509b103df60e5adb51d20",
+  "statusCode": 304,
+  "duration": "25ms",
+  "ip": "::1"
+}
+2026-09-20 15:35:16 [info]: Request completed {
+  "correlationId": "1789943716764-0.0967359153403835",
+  "method": "GET",
+  "path": "/continue",
+  "statusCode": 304,
+  "duration": "28ms",
+  "ip": "::1"
+}
+2026-09-20 15:35:16 [info]: Request completed {
+  "correlationId": "1789943716762-0.5836810004447437",
+  "method": "GET",
+  "path": "/roadmap/2026",
+  "statusCode": 304,
+  "duration": "86ms",
+  "ip": "::1"
+}
+2026-09-20 15:38:36 [debug]: Access token refreshed for user: igbiriase@uk.com
+2026-09-20 15:38:36 [info]: Request completed {
+  "correlationId": "1789943916316-0.23788448483180114",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "4ms",
+  "ip": "::1"
+}
+2026-09-20 15:38:36 [info]: Request completed {
+  "correlationId": "1789943916330-0.9505135824194435",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 200,
+  "duration": "3ms",
+  "ip": "::1"
+}
+2026-09-20 15:38:36 [info]: Request completed {
+  "correlationId": "1789943916343-0.29853075922756156",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 304,
+  "duration": "4ms",
+  "ip": "::1"
+}
+2026-09-20 15:38:36 [info]: Request completed {
+  "correlationId": "1789943916479-0.02766462796171487",
+  "method": "GET",
+  "path": "/years",
+  "statusCode": 304,
+  "duration": "5ms",
+  "ip": "::1"
+}
+2026-09-20 15:38:36 [info]: Request completed {
+  "correlationId": "1789943916482-0.731745950954193",
+  "method": "GET",
+  "path": "/continue",
+  "statusCode": 304,
+  "duration": "13ms",
+  "ip": "::1"
+}
+2026-09-20 15:38:36 [info]: Request completed {
+  "correlationId": "1789943916622-0.278238890452964",
+  "method": "GET",
+  "path": "/roadmap/2026",
+  "statusCode": 304,
+  "duration": "43ms",
+  "ip": "::1"
+}
+2026-09-20 15:38:36 [info]: Request completed {
+  "correlationId": "1789943916714-0.625357432520165",
+  "method": "GET",
+  "path": "/modules/6a6509b103df60e5adb51d20",
+  "statusCode": 304,
+  "duration": "16ms",
+  "ip": "::1"
+}
+2026-09-20 15:38:36 [info]: Request completed {
+  "correlationId": "1789943916717-0.7488468105909352",
+  "method": "GET",
+  "path": "/modules/6a69393083d5f0e60ac3584a",
+  "statusCode": 304,
+  "duration": "14ms",
+  "ip": "::1"
+}
+2026-09-20 15:45:15 [debug]: Access token refreshed for user: admintest1@example.com
+2026-09-20 15:45:15 [info]: Request completed {
+  "correlationId": "1789944315664-0.744765118251754",
+  "method": "POST",
+  "path": "/admin/refresh-token",
+  "statusCode": 200,
+  "duration": "8ms",
+  "ip": "::1"
+}
+2026-09-20 15:47:54 [info]: Request completed {
+  "correlationId": "1789944474558-0.37370972275665737",
+  "method": "POST",
+  "path": "/",
+  "statusCode": 201,
+  "duration": "5ms",
+  "ip": "::1"
+}
+2026-09-20 15:48:14 [info]: Request completed {
+  "correlationId": "1789944494131-0.8746191556072566",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "72ms",
+  "ip": "::1"
+}
+2026-09-20 15:48:17 [debug]: Access token refreshed for user: admintest1@example.com
+2026-09-20 15:48:17 [info]: Request completed {
+  "correlationId": "1789944497600-0.10509450485417837",
+  "method": "POST",
+  "path": "/admin/refresh-token",
+  "statusCode": 200,
+  "duration": "8ms",
+  "ip": "::1"
+}
+2026-09-20 15:48:17 [info]: Request completed {
+  "correlationId": "1789944497621-0.05005893568290076",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 304,
+  "duration": "3ms",
+  "ip": "::1"
+}
+2026-09-20 15:48:17 [info]: Request completed {
+  "correlationId": "1789944497723-0.28550879616660296",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "66ms",
+  "ip": "::1"
+}
+2026-09-20 15:48:22 [info]: Request completed {
+  "correlationId": "1789944502448-0.13816051492526826",
+  "method": "GET",
+  "path": "/roadmaps",
+  "statusCode": 304,
+  "duration": "12ms",
+  "ip": "::1"
+}
+2026-09-20 15:48:22 [info]: Request completed {
+  "correlationId": "1789944502455-0.8751472878520039",
+  "method": "GET",
+  "path": "/lessons/stats",
+  "statusCode": 200,
+  "duration": "13ms",
+  "ip": "::1"
+}
+2026-09-20 15:48:22 [info]: Request completed {
+  "correlationId": "1789944502462-0.4684909231596004",
+  "method": "GET",
+  "path": "/lessons",
+  "statusCode": 304,
+  "duration": "30ms",
+  "ip": "::1"
+}
+2026-09-20 15:48:33 [debug]: Access token refreshed for user: igbiriase@uk.com
+2026-09-20 15:48:33 [info]: Request completed {
+  "correlationId": "1789944513656-0.8260063252306444",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "10ms",
+  "ip": "::1"
+}
+2026-09-20 15:50:19 [info]: Request completed {
+  "correlationId": "1789944619501-0.16453570803686912",
+  "method": "GET",
+  "path": "/stats",
+  "statusCode": 304,
+  "duration": "13ms",
+  "ip": "::1"
+}
+2026-09-20 15:50:19 [info]: Request completed {
+  "correlationId": "1789944619507-0.8859375844014544",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "53ms",
+  "ip": "::1"
+}
+2026-09-20 15:50:24 [info]: Request completed {
+  "correlationId": "1789944624313-0.24228739311572112",
+  "method": "GET",
+  "path": "/lessons/stats",
+  "statusCode": 304,
+  "duration": "10ms",
+  "ip": "::1"
+}
+2026-09-20 15:50:24 [info]: Request completed {
+  "correlationId": "1789944624318-0.4430486772353739",
+  "method": "GET",
+  "path": "/lessons",
+  "statusCode": 304,
+  "duration": "16ms",
+  "ip": "::1"
+}
+2026-09-20 15:52:05 [info]: Request completed {
+  "correlationId": "1789944725627-0.29919946378022",
+  "method": "GET",
+  "path": "/roadmaps",
+  "statusCode": 304,
+  "duration": "7ms",
+  "ip": "::1"
+}
+2026-09-20 15:52:05 [info]: Request completed {
+  "correlationId": "1789944725659-0.6935213266287311",
+  "method": "GET",
+  "path": "/roadmaps/6a693ca183d5f0e60ac35850/weeks",
+  "statusCode": 304,
+  "duration": "9ms",
+  "ip": "::1"
+}
+2026-09-20 15:52:05 [info]: Request completed {
+  "correlationId": "1789944725663-0.4341148818795276",
+  "method": "GET",
+  "path": "/roadmaps/6a6516a593912b475d51b216/weeks",
+  "statusCode": 304,
+  "duration": "9ms",
+  "ip": "::1"
+}
+2026-09-20 15:52:05 [info]: Request completed {
+  "correlationId": "1789944725665-0.418669308312446",
+  "method": "GET",
+  "path": "/roadmaps/6a6509b110c9e70d6c2e8c7c/weeks",
+  "statusCode": 304,
+  "duration": "15ms",
+  "ip": "::1"
+}
+2026-09-20 15:52:05 [info]: Request completed {
+  "correlationId": "1789944725675-0.6889769679092355",
+  "method": "GET",
+  "path": "/roadmaps/6a6942efd259968646511208/weeks",
+  "statusCode": 304,
+  "duration": "7ms",
+  "ip": "::1"
+}
+2026-09-20 15:52:05 [info]: Request completed {
+  "correlationId": "1789944725692-0.08332154811387282",
+  "method": "GET",
+  "path": "/weeks/6a6516c793912b475d51b217/modules",
+  "statusCode": 304,
+  "duration": "6ms",
+  "ip": "::1"
+}
+2026-09-20 15:52:05 [info]: Request completed {
+  "correlationId": "1789944725703-0.5341469261507839",
+  "method": "GET",
+  "path": "/weeks/6a6509b110c9e70d6c2e8c81/modules",
+  "statusCode": 304,
+  "duration": "11ms",
+  "ip": "::1"
+}
+2026-09-20 15:52:05 [info]: Request completed {
+  "correlationId": "1789944725708-0.5711922719214261",
+  "method": "GET",
+  "path": "/weeks/6a6509b110c9e70d6c2e8c88/modules",
+  "statusCode": 304,
+  "duration": "8ms",
+  "ip": "::1"
+}
+2026-09-20 15:52:05 [info]: Request completed {
+  "correlationId": "1789944725710-0.8334768786349026",
+  "method": "GET",
+  "path": "/weeks/6ab05aa820ae96a32c15dfe1/modules",
+  "statusCode": 304,
+  "duration": "8ms",
+  "ip": "::1"
+}
+2026-09-20 15:52:05 [info]: Request completed {
+  "correlationId": "1789944725712-0.6218730026524192",
+  "method": "GET",
+  "path": "/weeks/6a694332d259968646511209/modules",
+  "statusCode": 304,
+  "duration": "9ms",
+  "ip": "::1"
+}
+2026-09-20 15:52:07 [info]: Request completed {
+  "correlationId": "1789944727955-0.5360794976896324",
+  "method": "GET",
+  "path": "/lessons/stats",
+  "statusCode": 304,
+  "duration": "9ms",
+  "ip": "::1"
+}
+2026-09-20 15:52:08 [info]: Request completed {
+  "correlationId": "1789944727960-0.4447765833819791",
+  "method": "GET",
+  "path": "/lessons",
+  "statusCode": 304,
+  "duration": "53ms",
+  "ip": "::1"
+}
+2026-09-20 15:53:30 [debug]: Access token refreshed for user: igbiriase@uk.com
+2026-09-20 15:53:30 [info]: Request completed {
+  "correlationId": "1789944810645-0.48147171904865704",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "8ms",
+  "ip": "::1"
+}
+2026-09-20 15:55:47 [debug]: Access token refreshed for user: admintest1@example.com
+2026-09-20 15:55:47 [info]: Request completed {
+  "correlationId": "1789944947241-0.10545457172393014",
+  "method": "POST",
+  "path": "/admin/refresh-token",
+  "statusCode": 200,
+  "duration": "10ms",
+  "ip": "::1"
+}
+2026-09-20 15:55:47 [info]: Request completed {
+  "correlationId": "1789944947262-0.24666492576209897",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 304,
+  "duration": "2ms",
+  "ip": "::1"
+}
+2026-09-20 15:55:47 [info]: Request completed {
+  "correlationId": "1789944947363-0.9282746056433803",
+  "method": "GET",
+  "path": "/roadmaps",
+  "statusCode": 304,
+  "duration": "10ms",
+  "ip": "::1"
+}
+2026-09-20 15:55:47 [info]: Request completed {
+  "correlationId": "1789944947367-0.39343496702763914",
+  "method": "GET",
+  "path": "/lessons/stats",
+  "statusCode": 304,
+  "duration": "12ms",
+  "ip": "::1"
+}
+2026-09-20 15:55:47 [info]: Request completed {
+  "correlationId": "1789944947375-0.3377018119653029",
+  "method": "GET",
+  "path": "/lessons",
+  "statusCode": 304,
+  "duration": "22ms",
+  "ip": "::1"
+}
+2026-09-20 15:55:50 [debug]: Access token refreshed for user: admintest1@example.com
+2026-09-20 15:55:50 [info]: Request completed {
+  "correlationId": "1789944950619-0.2661157624947278",
+  "method": "POST",
+  "path": "/admin/refresh-token",
+  "statusCode": 200,
+  "duration": "9ms",
+  "ip": "::1"
+}
+2026-09-20 15:55:50 [info]: Request completed {
+  "correlationId": "1789944950666-0.6191170868368497",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 304,
+  "duration": "8ms",
+  "ip": "::1"
+}
+2026-09-20 15:55:51 [info]: Request completed {
+  "correlationId": "1789944951332-0.9501619531727235",
+  "method": "GET",
+  "path": "/roadmaps",
+  "statusCode": 304,
+  "duration": "4ms",
+  "ip": "::1"
+}
+2026-09-20 15:55:51 [info]: Request completed {
+  "correlationId": "1789944951333-0.36975529227467296",
+  "method": "GET",
+  "path": "/lessons/stats",
+  "statusCode": 304,
+  "duration": "9ms",
+  "ip": "::1"
+}
+2026-09-20 15:55:51 [info]: Request completed {
+  "correlationId": "1789944951337-0.4887966889437598",
+  "method": "GET",
+  "path": "/lessons",
+  "statusCode": 304,
+  "duration": "14ms",
+  "ip": "::1"
+}
+2026-09-20 15:56:01 [debug]: Access token refreshed for user: admintest1@example.com
+2026-09-20 15:56:01 [info]: Request completed {
+  "correlationId": "1789944961291-0.5493805032122996",
+  "method": "POST",
+  "path": "/admin/refresh-token",
+  "statusCode": 200,
+  "duration": "4ms",
+  "ip": "::1"
+}
+2026-09-20 15:56:01 [info]: Request completed {
+  "correlationId": "1789944961311-0.08465825215107137",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 304,
+  "duration": "4ms",
+  "ip": "::1"
+}
+2026-09-20 15:56:01 [info]: Request completed {
+  "correlationId": "1789944961500-0.6791552551245025",
+  "method": "GET",
+  "path": "/roadmaps",
+  "statusCode": 304,
+  "duration": "8ms",
+  "ip": "::1"
+}
+2026-09-20 15:56:01 [info]: Request completed {
+  "correlationId": "1789944961503-0.08068903388882309",
+  "method": "GET",
+  "path": "/lessons/stats",
+  "statusCode": 304,
+  "duration": "11ms",
+  "ip": "::1"
+}
+2026-09-20 15:56:01 [info]: Request completed {
+  "correlationId": "1789944961509-0.32571433954450657",
+  "method": "GET",
+  "path": "/lessons",
+  "statusCode": 304,
+  "duration": "25ms",
+  "ip": "::1"
+}
+2026-09-20 15:56:10 [debug]: Access token refreshed for user: admintest1@example.com
+2026-09-20 15:56:10 [info]: Request completed {
+  "correlationId": "1789944970278-0.08871249179348595",
+  "method": "POST",
+  "path": "/admin/refresh-token",
+  "statusCode": 200,
+  "duration": "7ms",
+  "ip": "::1"
+}
+2026-09-20 15:56:10 [info]: Request completed {
+  "correlationId": "1789944970339-0.5680254496362536",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 304,
+  "duration": "7ms",
+  "ip": "::1"
+}
+2026-09-20 15:56:11 [info]: Request completed {
+  "correlationId": "1789944971047-0.7854788670277227",
+  "method": "GET",
+  "path": "/roadmaps",
+  "statusCode": 304,
+  "duration": "8ms",
+  "ip": "::1"
+}
+2026-09-20 15:56:11 [info]: Request completed {
+  "correlationId": "1789944971050-0.6216464970987993",
+  "method": "GET",
+  "path": "/lessons/stats",
+  "statusCode": 304,
+  "duration": "15ms",
+  "ip": "::1"
+}
+2026-09-20 15:56:11 [info]: Request completed {
+  "correlationId": "1789944971057-0.13985734711700648",
+  "method": "GET",
+  "path": "/lessons",
+  "statusCode": 304,
+  "duration": "24ms",
+  "ip": "::1"
+}
+2026-09-20 15:56:44 [debug]: Access token refreshed for user: igbiriase@uk.com
+2026-09-20 15:56:44 [info]: Request completed {
+  "correlationId": "1789945004748-0.17194444729348546",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "5ms",
+  "ip": "::1"
+}
+2026-09-20 15:56:44 [debug]: Access token refreshed for user: igbiriase@uk.com
+2026-09-20 15:56:44 [info]: Request completed {
+  "correlationId": "1789945004769-0.02918994831591848",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "13ms",
+  "ip": "::1"
+}
+2026-09-20 15:56:44 [info]: Request completed {
+  "correlationId": "1789945004772-0.38037518137595394",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 304,
+  "duration": "12ms",
+  "ip": "::1"
+}
+2026-09-20 15:56:44 [info]: Request completed {
+  "correlationId": "1789945004805-0.8467104131605859",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 304,
+  "duration": "9ms",
+  "ip": "::1"
+}
+2026-09-20 15:56:44 [info]: Request completed {
+  "correlationId": "1789945004808-0.6441145079564535",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 304,
+  "duration": "9ms",
+  "ip": "::1"
+}
+2026-09-20 15:56:44 [info]: Request completed {
+  "correlationId": "1789945004821-0.5222190588659185",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 304,
+  "duration": "5ms",
+  "ip": "::1"
+}
+2026-09-20 15:56:45 [info]: Request completed {
+  "correlationId": "1789945005271-0.3276225861838472",
+  "method": "GET",
+  "path": "/years",
+  "statusCode": 304,
+  "duration": "8ms",
+  "ip": "::1"
+}
+2026-09-20 15:56:45 [info]: Request completed {
+  "correlationId": "1789945005274-0.8515975533174481",
+  "method": "GET",
+  "path": "/continue",
+  "statusCode": 304,
+  "duration": "30ms",
+  "ip": "::1"
+}
+2026-09-20 15:56:45 [info]: Request completed {
+  "correlationId": "1789945005306-0.15504630581568413",
+  "method": "GET",
+  "path": "/years",
+  "statusCode": 304,
+  "duration": "12ms",
+  "ip": "::1"
+}
+2026-09-20 15:56:45 [info]: Request completed {
+  "correlationId": "1789945005311-0.7779349361473029",
+  "method": "GET",
+  "path": "/continue",
+  "statusCode": 304,
+  "duration": "36ms",
+  "ip": "::1"
+}
+2026-09-20 15:56:45 [info]: Request completed {
+  "correlationId": "1789945005364-0.5954059925776791",
+  "method": "GET",
+  "path": "/roadmap/2026",
+  "statusCode": 304,
+  "duration": "55ms",
+  "ip": "::1"
+}
+2026-09-20 15:56:45 [debug]: Access token refreshed for user: admintest1@example.com
+2026-09-20 15:56:45 [info]: Request completed {
+  "correlationId": "1789945005421-0.28110917853922524",
+  "method": "POST",
+  "path": "/admin/refresh-token",
+  "statusCode": 200,
+  "duration": "7ms",
+  "ip": "::1"
+}
+2026-09-20 15:56:45 [info]: Request completed {
+  "correlationId": "1789945005453-0.8770930528753144",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 304,
+  "duration": "7ms",
+  "ip": "::1"
+}
+2026-09-20 15:56:45 [info]: Request completed {
+  "correlationId": "1789945005404-0.42060866435182775",
+  "method": "GET",
+  "path": "/roadmap/2026",
+  "statusCode": 304,
+  "duration": "77ms",
+  "ip": "::1"
+}
+2026-09-20 15:56:45 [info]: Request completed {
+  "correlationId": "1789945005512-0.20399517718529347",
+  "method": "GET",
+  "path": "/modules/6a6509b103df60e5adb51d20",
+  "statusCode": 304,
+  "duration": "10ms",
+  "ip": "::1"
+}
+2026-09-20 15:56:45 [info]: Request completed {
+  "correlationId": "1789945005597-0.9110353279572405",
+  "method": "GET",
+  "path": "/modules/6a6509b103df60e5adb51d20",
+  "statusCode": 304,
+  "duration": "29ms",
+  "ip": "::1"
+}
+2026-09-20 15:56:45 [info]: Request completed {
+  "correlationId": "1789945005634-0.488164857947898",
+  "method": "GET",
+  "path": "/modules/6a69393083d5f0e60ac3584a",
+  "statusCode": 304,
+  "duration": "12ms",
+  "ip": "::1"
+}
+2026-09-20 15:56:45 [info]: Request completed {
+  "correlationId": "1789945005836-0.48374199033249066",
+  "method": "GET",
+  "path": "/roadmaps",
+  "statusCode": 304,
+  "duration": "8ms",
+  "ip": "::1"
+}
+2026-09-20 15:56:45 [info]: Request completed {
+  "correlationId": "1789945005838-0.15169395598733593",
+  "method": "GET",
+  "path": "/lessons/stats",
+  "statusCode": 304,
+  "duration": "12ms",
+  "ip": "::1"
+}
+2026-09-20 15:56:45 [info]: Request completed {
+  "correlationId": "1789945005846-0.14179330752693808",
+  "method": "GET",
+  "path": "/lessons",
+  "statusCode": 304,
+  "duration": "18ms",
+  "ip": "::1"
+}
+2026-09-20 16:02:43 [debug]: Access token refreshed for user: igbiriase@uk.com
+2026-09-20 16:02:43 [info]: Request completed {
+  "correlationId": "1789945363308-0.24709263343639198",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "5ms",
+  "ip": "::1"
+}
+2026-09-20 16:02:43 [info]: Request completed {
+  "correlationId": "1789945363324-0.7848720345076902",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 304,
+  "duration": "3ms",
+  "ip": "::1"
+}
+2026-09-20 16:02:43 [info]: Request completed {
+  "correlationId": "1789945363339-0.5384644858797626",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 304,
+  "duration": "4ms",
+  "ip": "::1"
+}
+2026-09-20 16:02:43 [debug]: Access token refreshed for user: igbiriase@uk.com
+2026-09-20 16:02:43 [info]: Request completed {
+  "correlationId": "1789945363368-0.11832003272054237",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "5ms",
+  "ip": "::1"
+}
+2026-09-20 16:02:43 [info]: Request completed {
+  "correlationId": "1789945363387-0.5533034923572708",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 304,
+  "duration": "4ms",
+  "ip": "::1"
+}
+2026-09-20 16:02:43 [info]: Request completed {
+  "correlationId": "1789945363403-0.25631687904165523",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 304,
+  "duration": "3ms",
+  "ip": "::1"
+}
+2026-09-20 16:02:43 [info]: Request completed {
+  "correlationId": "1789945363611-0.5374182787144198",
+  "method": "GET",
+  "path": "/years",
+  "statusCode": 304,
+  "duration": "8ms",
+  "ip": "::1"
+}
+2026-09-20 16:02:43 [info]: Request completed {
+  "correlationId": "1789945363615-0.4518516937481286",
+  "method": "GET",
+  "path": "/continue",
+  "statusCode": 304,
+  "duration": "14ms",
+  "ip": "::1"
+}
+2026-09-20 16:02:43 [info]: Request completed {
+  "correlationId": "1789945363654-0.33273545778782754",
+  "method": "GET",
+  "path": "/years",
+  "statusCode": 304,
+  "duration": "9ms",
+  "ip": "::1"
+}
+2026-09-20 16:02:43 [info]: Request completed {
+  "correlationId": "1789945363658-0.697711894063403",
+  "method": "GET",
+  "path": "/continue",
+  "statusCode": 304,
+  "duration": "30ms",
+  "ip": "::1"
+}
+2026-09-20 16:02:43 [info]: Request completed {
+  "correlationId": "1789945363651-0.4539663261092377",
+  "method": "GET",
+  "path": "/roadmap/2026",
+  "statusCode": 304,
+  "duration": "75ms",
+  "ip": "::1"
+}
+2026-09-20 16:02:43 [info]: Request completed {
+  "correlationId": "1789945363695-0.3005629383312334",
+  "method": "GET",
+  "path": "/roadmap/2026",
+  "statusCode": 304,
+  "duration": "63ms",
+  "ip": "::1"
+}
+2026-09-20 16:02:43 [info]: Request completed {
+  "correlationId": "1789945363827-0.29443570461593704",
+  "method": "GET",
+  "path": "/modules/6a6509b103df60e5adb51d20",
+  "statusCode": 304,
+  "duration": "14ms",
+  "ip": "::1"
+}
+2026-09-20 16:02:43 [info]: Request completed {
+  "correlationId": "1789945363830-0.6112273465422846",
+  "method": "GET",
+  "path": "/modules/6a69393083d5f0e60ac3584a",
+  "statusCode": 304,
+  "duration": "13ms",
+  "ip": "::1"
+}
+2026-09-20 16:02:43 [info]: Request completed {
+  "correlationId": "1789945363845-0.752431522833773",
+  "method": "GET",
+  "path": "/modules/6a6509b103df60e5adb51d20",
+  "statusCode": 304,
+  "duration": "13ms",
+  "ip": "::1"
+}
+2026-09-20 16:02:58 [debug]: Access token refreshed for user: igbiriase@uk.com
+2026-09-20 16:02:58 [info]: Request completed {
+  "correlationId": "1789945378296-0.6627340266986628",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "11ms",
+  "ip": "::1"
+}
+2026-09-20 16:02:58 [info]: Request completed {
+  "correlationId": "1789945378393-0.12060600139291178",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 304,
+  "duration": "9ms",
+  "ip": "::1"
+}
+2026-09-20 16:02:58 [debug]: Access token refreshed for user: igbiriase@uk.com
+2026-09-20 16:02:58 [info]: Request completed {
+  "correlationId": "1789945378417-0.1453000989183657",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "8ms",
+  "ip": "::1"
+}
+2026-09-20 16:02:58 [info]: Request completed {
+  "correlationId": "1789945378478-0.4588226446195499",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 304,
+  "duration": "7ms",
+  "ip": "::1"
+}
+2026-09-20 16:02:58 [info]: Request completed {
+  "correlationId": "1789945378488-0.5548467479188888",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 304,
+  "duration": "5ms",
+  "ip": "::1"
+}
+2026-09-20 16:02:58 [info]: Request completed {
+  "correlationId": "1789945378496-0.6446536027204957",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 304,
+  "duration": "6ms",
+  "ip": "::1"
+}
+2026-09-20 16:02:58 [info]: Request completed {
+  "correlationId": "1789945378672-0.15860212016622677",
+  "method": "GET",
+  "path": "/years",
+  "statusCode": 304,
+  "duration": "11ms",
+  "ip": "::1"
+}
+2026-09-20 16:02:58 [info]: Request completed {
+  "correlationId": "1789945378689-0.008034313712206753",
+  "method": "GET",
+  "path": "/years",
+  "statusCode": 304,
+  "duration": "5ms",
+  "ip": "::1"
+}
+2026-09-20 16:02:58 [info]: Request completed {
+  "correlationId": "1789945378679-0.6241010512884654",
+  "method": "GET",
+  "path": "/continue",
+  "statusCode": 304,
+  "duration": "21ms",
+  "ip": "::1"
+}
+2026-09-20 16:02:58 [info]: Request completed {
+  "correlationId": "1789945378704-0.9866749501623773",
+  "method": "GET",
+  "path": "/continue",
+  "statusCode": 304,
+  "duration": "21ms",
+  "ip": "::1"
+}
+2026-09-20 16:02:58 [info]: Request completed {
+  "correlationId": "1789945378731-0.032512484559167665",
+  "method": "GET",
+  "path": "/roadmap/2026",
+  "statusCode": 304,
+  "duration": "87ms",
+  "ip": "::1"
+}
+2026-09-20 16:02:58 [info]: Request completed {
+  "correlationId": "1789945378718-0.5320799903386743",
+  "method": "GET",
+  "path": "/roadmap/2026",
+  "statusCode": 304,
+  "duration": "111ms",
+  "ip": "::1"
+}
+2026-09-20 16:02:58 [info]: Request completed {
+  "correlationId": "1789945378935-0.5336450380135475",
+  "method": "GET",
+  "path": "/modules/6a6509b103df60e5adb51d20",
+  "statusCode": 304,
+  "duration": "14ms",
+  "ip": "::1"
+}
+2026-09-20 16:02:58 [info]: Request completed {
+  "correlationId": "1789945378964-0.6313932600259937",
+  "method": "GET",
+  "path": "/modules/6a6509b103df60e5adb51d20",
+  "statusCode": 304,
+  "duration": "24ms",
+  "ip": "::1"
+}
+2026-09-20 16:02:58 [info]: Request completed {
+  "correlationId": "1789945378968-0.926554562775152",
+  "method": "GET",
+  "path": "/modules/6a69393083d5f0e60ac3584a",
+  "statusCode": 304,
+  "duration": "22ms",
+  "ip": "::1"
+}
+2026-09-20 16:02:59 [debug]: Access token refreshed for user: admintest1@example.com
+2026-09-20 16:02:59 [info]: Request completed {
+  "correlationId": "1789945379536-0.5380375111356479",
+  "method": "POST",
+  "path": "/admin/refresh-token",
+  "statusCode": 200,
+  "duration": "4ms",
+  "ip": "::1"
+}
+2026-09-20 16:02:59 [info]: Request completed {
+  "correlationId": "1789945379558-0.8913667801513362",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 304,
+  "duration": "3ms",
+  "ip": "::1"
+}
+2026-09-20 16:02:59 [info]: Request completed {
+  "correlationId": "1789945379817-0.015411547615220345",
+  "method": "GET",
+  "path": "/roadmaps",
+  "statusCode": 304,
+  "duration": "10ms",
+  "ip": "::1"
+}
+2026-09-20 16:02:59 [info]: Request completed {
+  "correlationId": "1789945379822-0.44813604163191967",
+  "method": "GET",
+  "path": "/lessons/stats",
+  "statusCode": 304,
+  "duration": "9ms",
+  "ip": "::1"
+}
+2026-09-20 16:02:59 [info]: Request completed {
+  "correlationId": "1789945379833-0.3624781582046742",
+  "method": "GET",
+  "path": "/lessons",
+  "statusCode": 304,
+  "duration": "20ms",
+  "ip": "::1"
+}
+2026-09-20 16:07:45 [info]: Request completed {
+  "correlationId": "1789945665348-0.10079517576369446",
+  "method": "GET",
+  "path": "/roadmaps",
+  "statusCode": 304,
+  "duration": "11ms",
+  "ip": "::1"
+}
+2026-09-20 16:07:45 [info]: Request completed {
+  "correlationId": "1789945665353-0.7664610749052492",
+  "method": "GET",
+  "path": "/lessons/6a694368d25996864651120b",
+  "statusCode": 304,
+  "duration": "15ms",
+  "ip": "::1"
+}
+2026-09-20 16:07:45 [info]: Request completed {
+  "correlationId": "1789945665389-0.31117005009540233",
+  "method": "GET",
+  "path": "/roadmaps/6a693ca183d5f0e60ac35850/weeks",
+  "statusCode": 304,
+  "duration": "16ms",
+  "ip": "::1"
+}
+2026-09-20 16:07:45 [info]: Request completed {
+  "correlationId": "1789945665397-0.8746104633758116",
+  "method": "GET",
+  "path": "/roadmaps/6a6516a593912b475d51b216/weeks",
+  "statusCode": 304,
+  "duration": "22ms",
+  "ip": "::1"
+}
+2026-09-20 16:07:45 [info]: Request completed {
+  "correlationId": "1789945665407-0.6444536692944066",
+  "method": "GET",
+  "path": "/roadmaps/6a6509b110c9e70d6c2e8c7c/weeks",
+  "statusCode": 304,
+  "duration": "15ms",
+  "ip": "::1"
+}
+2026-09-20 16:07:45 [info]: Request completed {
+  "correlationId": "1789945665413-0.8885921949520844",
+  "method": "GET",
+  "path": "/roadmaps/6a6942efd259968646511208/weeks",
+  "statusCode": 304,
+  "duration": "15ms",
+  "ip": "::1"
+}
+2026-09-20 16:07:45 [info]: Request completed {
+  "correlationId": "1789945665510-0.6028306325080528",
+  "method": "GET",
+  "path": "/weeks/6a6516c793912b475d51b217/modules",
+  "statusCode": 304,
+  "duration": "11ms",
+  "ip": "::1"
+}
+2026-09-20 16:07:45 [info]: Request completed {
+  "correlationId": "1789945665515-0.35015775288423234",
+  "method": "GET",
+  "path": "/weeks/6a6509b110c9e70d6c2e8c81/modules",
+  "statusCode": 304,
+  "duration": "17ms",
+  "ip": "::1"
+}
+2026-09-20 16:07:45 [info]: Request completed {
+  "correlationId": "1789945665536-0.9343445509471046",
+  "method": "GET",
+  "path": "/weeks/6a6509b110c9e70d6c2e8c88/modules",
+  "statusCode": 304,
+  "duration": "13ms",
+  "ip": "::1"
+}
+2026-09-20 16:07:45 [info]: Request completed {
+  "correlationId": "1789945665541-0.11753924587823561",
+  "method": "GET",
+  "path": "/weeks/6ab05aa820ae96a32c15dfe1/modules",
+  "statusCode": 304,
+  "duration": "17ms",
+  "ip": "::1"
+}
+2026-09-20 16:07:45 [info]: Request completed {
+  "correlationId": "1789945665566-0.3302523669211356",
+  "method": "GET",
+  "path": "/weeks/6a694332d259968646511209/modules",
+  "statusCode": 304,
+  "duration": "5ms",
+  "ip": "::1"
+}
+2026-09-20 16:08:06 [info]: Request completed {
+  "correlationId": "1789945686842-0.011562738759535396",
+  "method": "GET",
+  "path": "/roadmaps",
+  "statusCode": 304,
+  "duration": "9ms",
+  "ip": "::1"
+}
+2026-09-20 16:08:06 [info]: Request completed {
+  "correlationId": "1789945686846-0.25330592256465523",
+  "method": "GET",
+  "path": "/lessons/stats",
+  "statusCode": 304,
+  "duration": "13ms",
+  "ip": "::1"
+}
+2026-09-20 16:08:06 [info]: Request completed {
+  "correlationId": "1789945686852-0.9412822364148558",
+  "method": "GET",
+  "path": "/lessons",
+  "statusCode": 304,
+  "duration": "26ms",
+  "ip": "::1"
+}
+2026-09-20 16:09:17 [info]: Request completed {
+  "correlationId": "1789945757107-0.5878135144409752",
+  "method": "GET",
+  "path": "/lessons/stats",
+  "statusCode": 304,
+  "duration": "7ms",
+  "ip": "::1"
+}
+2026-09-20 16:09:17 [info]: Request completed {
+  "correlationId": "1789945757111-0.8672160769579109",
+  "method": "GET",
+  "path": "/lessons",
+  "statusCode": 304,
+  "duration": "21ms",
+  "ip": "::1"
+}
+2026-09-20 16:09:18 [info]: Request completed {
+  "correlationId": "1789945758856-0.844183154592273",
+  "method": "GET",
+  "path": "/roadmaps",
+  "statusCode": 304,
+  "duration": "5ms",
+  "ip": "::1"
+}
+2026-09-20 16:09:21 [info]: Request completed {
+  "correlationId": "1789945761951-0.21628584771540482",
+  "method": "GET",
+  "path": "/roadmaps/6a6509b110c9e70d6c2e8c7c/weeks",
+  "statusCode": 304,
+  "duration": "5ms",
+  "ip": "::1"
+}
+2026-09-20 16:09:24 [info]: Request completed {
+  "correlationId": "1789945764376-0.9178339269524037",
+  "method": "GET",
+  "path": "/weeks/6ab05aa820ae96a32c15dfe1/modules",
+  "statusCode": 304,
+  "duration": "3ms",
+  "ip": "::1"
+}
+2026-09-20 16:09:50 [info]: Request completed {
+  "correlationId": "1789945790044-0.24872611557160873",
+  "method": "GET",
+  "path": "/weeks/6a6509b110c9e70d6c2e8c88/modules",
+  "statusCode": 304,
+  "duration": "3ms",
+  "ip": "::1"
+}
+2026-09-20 16:11:05 [info]: Module created {
+  "moduleId": "6ab0680920ae96a32c15dfe5",
+  "weekId": "6ab05aa820ae96a32c15dfe1"
+}
+2026-09-20 16:11:05 [info]: Request completed {
+  "correlationId": "1789945865145-0.13185798591202424",
+  "method": "POST",
+  "path": "/weeks/6ab05aa820ae96a32c15dfe1/modules",
+  "statusCode": 201,
+  "duration": "101ms",
+  "ip": "::1"
+}
+2026-09-20 16:11:05 [info]: Request completed {
+  "correlationId": "1789945865260-0.11308097961430319",
+  "method": "GET",
+  "path": "/weeks/6ab05aa820ae96a32c15dfe1/modules",
+  "statusCode": 200,
+  "duration": "6ms",
+  "ip": "::1"
+}
+2026-09-20 16:12:15 [error]: Unknown error {
+  "url": "/api/v1/admin/learning/roadmaps",
+  "method": "POST",
+  "ip": "::1",
+  "stack": "MongoServerError: E11000 duplicate key error collection: pbt.roadmaps index: year_1 dup key: { year: \"2026\" }\n    at InsertOneOperation.handleOk (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\mongodb\\src\\operations\\insert.ts:79:13)\n    at executeOperationWithRetries (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\mongodb\\src\\operations\\execute_operation.ts:267:26)\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async executeOperation (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\mongodb\\src\\operations\\execute_operation.ts:127:12)\n    at async Collection.insertOne (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\mongodb\\src\\collection.ts:294:12)\n    at async model.$__save (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\mongoose\\lib\\model.js:434:16)\n    at async maybeTracedSave (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\mongoose\\lib\\model.js:675:7)\n    at async model.create (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\mongoose\\lib\\model.js:2763:5)\n    at async AdminLearningService.createRoadmap (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\admin-learning\\services\\admin-learning.service.ts:23:21)\n    at async AdminLearningController.createRoadmap (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\admin-learning\\controllers\\admin-learning.controller.ts:15:21)"
+}
+2026-09-20 16:12:15 [info]: Request completed {
+  "correlationId": "1789945935672-0.07609750995595144",
+  "method": "POST",
+  "path": "/api/v1/admin/learning/roadmaps",
+  "statusCode": 500,
+  "duration": "72ms",
+  "ip": "::1"
+}
+2026-09-20 16:12:17 [error]: Unknown error {
+  "url": "/api/v1/admin/learning/roadmaps",
+  "method": "POST",
+  "ip": "::1",
+  "stack": "MongoServerError: E11000 duplicate key error collection: pbt.roadmaps index: year_1 dup key: { year: \"2026\" }\n    at InsertOneOperation.handleOk (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\mongodb\\src\\operations\\insert.ts:79:13)\n    at executeOperationWithRetries (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\mongodb\\src\\operations\\execute_operation.ts:267:26)\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async executeOperation (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\mongodb\\src\\operations\\execute_operation.ts:127:12)\n    at async Collection.insertOne (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\mongodb\\src\\collection.ts:294:12)\n    at async model.$__save (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\mongoose\\lib\\model.js:434:16)\n    at async maybeTracedSave (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\mongoose\\lib\\model.js:675:7)\n    at async model.create (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\mongoose\\lib\\model.js:2763:5)\n    at async AdminLearningService.createRoadmap (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\admin-learning\\services\\admin-learning.service.ts:23:21)\n    at async AdminLearningController.createRoadmap (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\admin-learning\\controllers\\admin-learning.controller.ts:15:21)"
+}
+2026-09-20 16:12:17 [info]: Request completed {
+  "correlationId": "1789945937914-0.9089808348711609",
+  "method": "POST",
+  "path": "/api/v1/admin/learning/roadmaps",
+  "statusCode": 500,
+  "duration": "11ms",
+  "ip": "::1"
+}
+2026-09-20 16:12:45 [error]: Unknown error {
+  "url": "/api/v1/admin/learning/roadmaps",
+  "method": "POST",
+  "ip": "::1",
+  "stack": "MongoServerError: E11000 duplicate key error collection: pbt.roadmaps index: year_1 dup key: { year: \"2026\" }\n    at InsertOneOperation.handleOk (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\mongodb\\src\\operations\\insert.ts:79:13)\n    at executeOperationWithRetries (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\mongodb\\src\\operations\\execute_operation.ts:267:26)\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async executeOperation (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\mongodb\\src\\operations\\execute_operation.ts:127:12)\n    at async Collection.insertOne (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\mongodb\\src\\collection.ts:294:12)\n    at async model.$__save (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\mongoose\\lib\\model.js:434:16)\n    at async maybeTracedSave (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\mongoose\\lib\\model.js:675:7)\n    at async model.create (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\mongoose\\lib\\model.js:2763:5)\n    at async AdminLearningService.createRoadmap (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\admin-learning\\services\\admin-learning.service.ts:23:21)\n    at async AdminLearningController.createRoadmap (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\admin-learning\\controllers\\admin-learning.controller.ts:15:21)"
+}
+2026-09-20 16:12:45 [info]: Request completed {
+  "correlationId": "1789945965766-0.6180377481470211",
+  "method": "POST",
+  "path": "/api/v1/admin/learning/roadmaps",
+  "statusCode": 500,
+  "duration": "10ms",
+  "ip": "::1"
+}
+2026-09-20 16:12:46 [error]: Unknown error {
+  "url": "/api/v1/admin/learning/roadmaps",
+  "method": "POST",
+  "ip": "::1",
+  "stack": "MongoServerError: E11000 duplicate key error collection: pbt.roadmaps index: year_1 dup key: { year: \"2026\" }\n    at InsertOneOperation.handleOk (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\mongodb\\src\\operations\\insert.ts:79:13)\n    at executeOperationWithRetries (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\mongodb\\src\\operations\\execute_operation.ts:267:26)\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async executeOperation (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\mongodb\\src\\operations\\execute_operation.ts:127:12)\n    at async Collection.insertOne (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\mongodb\\src\\collection.ts:294:12)\n    at async model.$__save (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\mongoose\\lib\\model.js:434:16)\n    at async maybeTracedSave (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\mongoose\\lib\\model.js:675:7)\n    at async model.create (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\mongoose\\lib\\model.js:2763:5)\n    at async AdminLearningService.createRoadmap (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\admin-learning\\services\\admin-learning.service.ts:23:21)\n    at async AdminLearningController.createRoadmap (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\admin-learning\\controllers\\admin-learning.controller.ts:15:21)"
+}
+2026-09-20 16:12:46 [info]: Request completed {
+  "correlationId": "1789945966508-0.7102733567900109",
+  "method": "POST",
+  "path": "/api/v1/admin/learning/roadmaps",
+  "statusCode": 500,
+  "duration": "10ms",
+  "ip": "::1"
+}
+2026-09-20 16:14:05 [info]: Request completed {
+  "correlationId": "1789946045032-0.4520702773465084",
+  "method": "GET",
+  "path": "/roadmaps",
+  "statusCode": 304,
+  "duration": "10ms",
+  "ip": "::1"
+}
+2026-09-20 16:14:05 [info]: Request completed {
+  "correlationId": "1789946045035-0.5641303462982896",
+  "method": "GET",
+  "path": "/lessons/stats",
+  "statusCode": 200,
+  "duration": "19ms",
+  "ip": "::1"
+}
+2026-09-20 16:14:05 [info]: Request completed {
+  "correlationId": "1789946045038-0.8501119885781466",
+  "method": "GET",
+  "path": "/lessons",
+  "statusCode": 304,
+  "duration": "46ms",
+  "ip": "::1"
+}
+2026-09-20 16:14:26 [info]: Request completed {
+  "correlationId": "1789946066780-0.6926429237265095",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "34ms",
+  "ip": "::1"
+}
+2026-09-20 16:14:26 [info]: Request completed {
+  "correlationId": "1789946066787-0.2368185912817713",
+  "method": "GET",
+  "path": "/stats",
+  "statusCode": 304,
+  "duration": "36ms",
+  "ip": "::1"
+}
+2026-09-20 16:14:31 [info]: Request completed {
+  "correlationId": "1789946071719-0.5659815208441868",
+  "method": "GET",
+  "path": "/stats",
+  "statusCode": 304,
+  "duration": "15ms",
+  "ip": "::1"
+}
+2026-09-20 16:14:31 [info]: Request completed {
+  "correlationId": "1789946071729-0.6283044873794704",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "8ms",
+  "ip": "::1"
+}
+2026-09-20 16:14:35 [info]: Request completed {
+  "correlationId": "1789946075227-0.09889592669353153",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "4ms",
+  "ip": "::1"
+}
+2026-09-20 16:14:35 [info]: Request completed {
+  "correlationId": "1789946075948-0.33182739349161716",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "3ms",
+  "ip": "::1"
+}
+2026-09-20 16:14:38 [info]: Request completed {
+  "correlationId": "1789946078146-0.773242060241574",
+  "method": "GET",
+  "path": "/flagged",
+  "statusCode": 304,
+  "duration": "14ms",
+  "ip": "::1"
+}
+2026-09-20 16:14:38 [info]: Request completed {
+  "correlationId": "1789946078152-0.2609020265729488",
+  "method": "GET",
+  "path": "/pinned",
+  "statusCode": 304,
+  "duration": "9ms",
+  "ip": "::1"
+}
+2026-09-20 16:14:38 [info]: Request completed {
+  "correlationId": "1789946078156-0.12873287862322835",
+  "method": "GET",
+  "path": "/stats",
+  "statusCode": 304,
+  "duration": "6ms",
+  "ip": "::1"
+}
+2026-09-20 16:14:56 [info]: Request completed {
+  "correlationId": "1789946095999-0.5843589266994518",
+  "method": "GET",
+  "path": "/stats",
+  "statusCode": 304,
+  "duration": "19ms",
+  "ip": "::1"
+}
+2026-09-20 16:14:56 [info]: Request completed {
+  "correlationId": "1789946096003-0.3164162507397774",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "29ms",
+  "ip": "::1"
+}
+2026-09-20 16:17:02 [info]: Request completed {
+  "correlationId": "1789946222399-0.5471182207543203",
+  "method": "GET",
+  "path": "/lessons",
+  "statusCode": 304,
+  "duration": "32ms",
+  "ip": "::1"
+}
+2026-09-20 16:17:52 [debug]: Access token refreshed for user: igbiriase@uk.com
+2026-09-20 16:17:52 [info]: Request completed {
+  "correlationId": "1789946272654-0.05208704637091699",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "14ms",
+  "ip": "::1"
+}
+2026-09-20 16:17:52 [debug]: Access token refreshed for user: igbiriase@uk.com
+2026-09-20 16:17:52 [info]: Request completed {
+  "correlationId": "1789946272660-0.8395787885901966",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "12ms",
+  "ip": "::1"
+}
+2026-09-20 16:17:53 [debug]: Access token refreshed for user: admintest1@example.com
+2026-09-20 16:17:53 [info]: Request completed {
+  "correlationId": "1789946273588-0.8014694557464763",
+  "method": "POST",
+  "path": "/admin/refresh-token",
+  "statusCode": 200,
+  "duration": "7ms",
+  "ip": "::1"
+}
+2026-09-20 16:20:28 [info]: Request completed {
+  "correlationId": "1789946428355-0.23406553272930486",
+  "method": "GET",
+  "path": "/roadmaps",
+  "statusCode": 304,
+  "duration": "7ms",
+  "ip": "::1"
+}
+2026-09-20 16:20:28 [info]: Request completed {
+  "correlationId": "1789946428367-0.4586861992023489",
+  "method": "GET",
+  "path": "/roadmaps",
+  "statusCode": 304,
+  "duration": "6ms",
+  "ip": "::1"
+}
+2026-09-20 16:20:28 [info]: Request completed {
+  "correlationId": "1789946428352-0.9643253000061842",
+  "method": "GET",
+  "path": "/lessons/6a6941ed83d5f0e60ac3585e",
+  "statusCode": 304,
+  "duration": "23ms",
+  "ip": "::1"
+}
+2026-09-20 16:20:28 [info]: Request completed {
+  "correlationId": "1789946428390-0.8037373438825253",
+  "method": "GET",
+  "path": "/roadmaps/6a693ca183d5f0e60ac35850/weeks",
+  "statusCode": 304,
+  "duration": "4ms",
+  "ip": "::1"
+}
+2026-09-20 16:20:28 [info]: Request completed {
+  "correlationId": "1789946428400-0.9797724795058441",
+  "method": "GET",
+  "path": "/roadmaps/6a6516a593912b475d51b216/weeks",
+  "statusCode": 304,
+  "duration": "6ms",
+  "ip": "::1"
+}
+2026-09-20 16:20:28 [info]: Request completed {
+  "correlationId": "1789946428403-0.739172284567041",
+  "method": "GET",
+  "path": "/roadmaps/6a6509b110c9e70d6c2e8c7c/weeks",
+  "statusCode": 304,
+  "duration": "16ms",
+  "ip": "::1"
+}
+2026-09-20 16:20:28 [info]: Request completed {
+  "correlationId": "1789946428412-0.5842448260974175",
+  "method": "GET",
+  "path": "/roadmaps/6a6942efd259968646511208/weeks",
+  "statusCode": 304,
+  "duration": "11ms",
+  "ip": "::1"
+}
+2026-09-20 16:20:28 [info]: Request completed {
+  "correlationId": "1789946428471-0.23152352307489033",
+  "method": "GET",
+  "path": "/weeks/6a6516c793912b475d51b217/modules",
+  "statusCode": 304,
+  "duration": "14ms",
+  "ip": "::1"
+}
+2026-09-20 16:20:28 [info]: Request completed {
+  "correlationId": "1789946428475-0.6347686109735732",
+  "method": "GET",
+  "path": "/weeks/6a6509b110c9e70d6c2e8c81/modules",
+  "statusCode": 304,
+  "duration": "12ms",
+  "ip": "::1"
+}
+2026-09-20 16:20:28 [info]: Request completed {
+  "correlationId": "1789946428481-0.38280403252098705",
+  "method": "GET",
+  "path": "/weeks/6a6509b110c9e70d6c2e8c88/modules",
+  "statusCode": 304,
+  "duration": "18ms",
+  "ip": "::1"
+}
+2026-09-20 16:20:28 [info]: Request completed {
+  "correlationId": "1789946428490-0.8772795367590762",
+  "method": "GET",
+  "path": "/weeks/6ab05aa820ae96a32c15dfe1/modules",
+  "statusCode": 304,
+  "duration": "13ms",
+  "ip": "::1"
+}
+2026-09-20 16:20:28 [info]: Request completed {
+  "correlationId": "1789946428492-0.5442904281604454",
+  "method": "GET",
+  "path": "/weeks/6a694332d259968646511209/modules",
+  "statusCode": 304,
+  "duration": "12ms",
+  "ip": "::1"
+}
+2026-09-20 16:21:52 [info]: Request completed {
+  "correlationId": "1789946512477-0.7587502794317142",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 200,
+  "duration": "13ms",
+  "ip": "::1"
+}
+2026-09-20 16:21:52 [info]: Request completed {
+  "correlationId": "1789946512487-0.1008997000772528",
+  "method": "GET",
+  "path": "/me/referred",
+  "statusCode": 200,
+  "duration": "5ms",
+  "ip": "::1"
+}
+2026-09-20 16:22:20 [debug]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST"
+}
+2026-09-20 16:22:20 [info]: Request completed {
+  "correlationId": "1789946540587-0.5960139511260286",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "0ms",
+  "ip": "::1"
+}
+2026-09-20 16:22:20 [info]: Request completed {
+  "correlationId": "1789946540656-0.0321684523892094",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 200,
+  "duration": "12ms",
+  "ip": "::1"
+}
+2026-09-20 16:23:06 [debug]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST"
+}
+2026-09-20 16:23:06 [info]: Request completed {
+  "correlationId": "1789946586106-0.7628531846612473",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "1ms",
+  "ip": "::1"
+}
+2026-09-20 16:23:15 [debug]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST"
+}
+2026-09-20 16:23:15 [info]: Request completed {
+  "correlationId": "1789946595240-0.6895108800195315",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "1ms",
+  "ip": "::1"
+}
+2026-09-20 16:23:18 [debug]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST"
+}
+2026-09-20 16:23:18 [info]: Request completed {
+  "correlationId": "1789946598819-0.8463066422521365",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "1ms",
+  "ip": "::1"
+}
+2026-09-20 16:23:28 [info]: Request completed {
+  "correlationId": "1789946608409-0.845764242404477",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "10ms",
+  "ip": "::1"
+}
+2026-09-20 16:23:28 [info]: Request completed {
+  "correlationId": "1789946608494-0.01682830063020968",
+  "method": "GET",
+  "path": "/swagger-ui.css",
+  "statusCode": 304,
+  "duration": "7ms",
+  "ip": "::1"
+}
+2026-09-20 16:23:28 [info]: Request completed {
+  "correlationId": "1789946608495-0.3701559910700214",
+  "method": "GET",
+  "path": "/swagger-ui-bundle.js",
+  "statusCode": 304,
+  "duration": "7ms",
+  "ip": "::1"
+}
+2026-09-20 16:23:28 [info]: Request completed {
+  "correlationId": "1789946608503-0.11656810675079277",
+  "method": "GET",
+  "path": "/swagger-ui-init.js",
+  "statusCode": 304,
+  "duration": "3ms",
+  "ip": "::1"
+}
+2026-09-20 16:23:28 [info]: Request completed {
+  "correlationId": "1789946608496-0.39144638121375497",
+  "method": "GET",
+  "path": "/swagger-ui-standalone-preset.js",
+  "statusCode": 304,
+  "duration": "12ms",
+  "ip": "::1"
+}
+2026-09-20 16:23:29 [info]: Request completed {
+  "correlationId": "1789946609349-0.021703301195602154",
+  "method": "GET",
+  "path": "/favicon-32x32.png",
+  "statusCode": 304,
+  "duration": "1ms",
+  "ip": "::1"
+}
+2026-09-20 16:23:42 [warn]: Cloudinary not configured - storage may be unavailable
+2026-09-20 16:23:42 [warn]: SMTP not configured - email features unavailable
+2026-09-20 16:23:42 [warn]: Payment Webhook not configured -
+2026-09-20 16:23:42 [info]: Request completed {
+  "correlationId": "1789946622786-0.510885429831203",
+  "method": "GET",
+  "path": "/ready",
+  "statusCode": 503,
+  "duration": "3ms",
+  "ip": "::1"
+}
+2026-09-20 16:23:42 [warn]: Readiness check failed - some dependencies not ready {
+  "database": {
+    "status": "ok",
+    "message": ""
+  },
+  "storage": {
+    "status": "error",
+    "message": "Cloudinary not configured"
+  },
+  "email": {
+    "status": "error",
+    "message": "SMTP not configured"
+  },
+  "payment": {
+    "status": "error",
+    "message": "payment Webhook not configured"
+  }
+}
+2026-09-20 16:32:47 [debug]: Access token refreshed for user: admintest1@example.com
+2026-09-20 16:32:47 [info]: Request completed {
+  "correlationId": "1789947167659-0.5167999281738409",
+  "method": "POST",
+  "path": "/admin/refresh-token",
+  "statusCode": 200,
+  "duration": "11ms",
+  "ip": "::1"
+}
+2026-09-20 16:32:47 [debug]: Access token refreshed for user: igbiriase@uk.com
+2026-09-20 16:32:47 [info]: Request completed {
+  "correlationId": "1789947167665-0.8724663080021449",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "9ms",
+  "ip": "::1"
+}
+2026-09-20 16:32:47 [debug]: Access token refreshed for user: igbiriase@uk.com
+2026-09-20 16:32:47 [info]: Request completed {
+  "correlationId": "1789947167677-0.7005315908515388",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "9ms",
+  "ip": "::1"
+}
+2026-09-20 16:37:41 [warn]: Cloudinary not configured - storage may be unavailable
+2026-09-20 16:37:41 [warn]: SMTP not configured - email features unavailable
+2026-09-20 16:37:41 [warn]: Payment Webhook not configured -
+2026-09-20 16:37:41 [info]: Request completed {
+  "correlationId": "1789947461327-0.7860619599024901",
+  "method": "GET",
+  "path": "/ready",
+  "statusCode": 503,
+  "duration": "3ms",
+  "ip": "::1"
+}
+2026-09-20 16:37:41 [warn]: Readiness check failed - some dependencies not ready {
+  "database": {
+    "status": "ok",
+    "message": ""
+  },
+  "storage": {
+    "status": "error",
+    "message": "Cloudinary not configured"
+  },
+  "email": {
+    "status": "error",
+    "message": "SMTP not configured"
+  },
+  "payment": {
+    "status": "error",
+    "message": "payment Webhook not configured"
+  }
+}
+2026-09-20 16:37:47 [warn]: Cloudinary not configured - storage may be unavailable
+2026-09-20 16:37:47 [warn]: SMTP not configured - email features unavailable
+2026-09-20 16:37:47 [warn]: Payment Webhook not configured -
+2026-09-20 16:37:47 [info]: Request completed {
+  "correlationId": "1789947467075-0.6798345839575589",
+  "method": "GET",
+  "path": "/ready",
+  "statusCode": 503,
+  "duration": "1ms",
+  "ip": "::1"
+}
+2026-09-20 16:37:47 [warn]: Readiness check failed - some dependencies not ready {
+  "database": {
+    "status": "ok",
+    "message": ""
+  },
+  "storage": {
+    "status": "error",
+    "message": "Cloudinary not configured"
+  },
+  "email": {
+    "status": "error",
+    "message": "SMTP not configured"
+  },
+  "payment": {
+    "status": "error",
+    "message": "payment Webhook not configured"
+  }
+}
+2026-09-20 16:37:50 [info]: Request completed {
+  "correlationId": "1789947470640-0.4030637741634231",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "1ms",
+  "ip": "::1"
+}
+2026-09-20 16:37:50 [info]: Request completed {
+  "correlationId": "1789947470707-0.6370000141698281",
+  "method": "GET",
+  "path": "/swagger-ui.css",
+  "statusCode": 304,
+  "duration": "3ms",
+  "ip": "::1"
+}
+2026-09-20 16:37:50 [info]: Request completed {
+  "correlationId": "1789947470708-0.2903086610251079",
+  "method": "GET",
+  "path": "/swagger-ui-bundle.js",
+  "statusCode": 304,
+  "duration": "6ms",
+  "ip": "::1"
+}
+2026-09-20 16:37:50 [info]: Request completed {
+  "correlationId": "1789947470715-0.700527716224524",
+  "method": "GET",
+  "path": "/swagger-ui-init.js",
+  "statusCode": 304,
+  "duration": "3ms",
+  "ip": "::1"
+}
+2026-09-20 16:37:50 [info]: Request completed {
+  "correlationId": "1789947470712-0.6194470486800979",
+  "method": "GET",
+  "path": "/swagger-ui-standalone-preset.js",
+  "statusCode": 304,
+  "duration": "7ms",
+  "ip": "::1"
+}
+2026-09-20 16:37:51 [info]: Request completed {
+  "correlationId": "1789947471646-0.21154691087982402",
+  "method": "GET",
+  "path": "/favicon-32x32.png",
+  "statusCode": 304,
+  "duration": "1ms",
+  "ip": "::1"
+}
+2026-09-20 16:37:52 [info]: Request completed {
+  "correlationId": "1789947472500-0.9766417143242356",
+  "method": "GET",
+  "path": "/favicon-32x32.png",
+  "statusCode": 304,
+  "duration": "1ms",
+  "ip": "::1"
+}
+2026-09-20 16:37:59 [warn]: Cloudinary not configured - storage may be unavailable
+2026-09-20 16:37:59 [warn]: SMTP not configured - email features unavailable
+2026-09-20 16:37:59 [warn]: Payment Webhook not configured -
+2026-09-20 16:37:59 [info]: Request completed {
+  "correlationId": "1789947479647-0.352741788345041",
+  "method": "GET",
+  "path": "/ready",
+  "statusCode": 503,
+  "duration": "1ms",
+  "ip": "::1"
+}
+2026-09-20 16:37:59 [warn]: Readiness check failed - some dependencies not ready {
+  "database": {
+    "status": "ok",
+    "message": ""
+  },
+  "storage": {
+    "status": "error",
+    "message": "Cloudinary not configured"
+  },
+  "email": {
+    "status": "error",
+    "message": "SMTP not configured"
+  },
+  "payment": {
+    "status": "error",
+    "message": "payment Webhook not configured"
+  }
+}
+2026-09-20 16:38:11 [info]: SIGINT received, starting graceful shutdown...
+2026-09-20 16:38:25 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-09-20 16:38:25 [info]: MongoDB connected successfully
+2026-09-20 16:38:25 [info]: Security middleware initialized
+2026-09-20 16:38:25 [info]: 🚀 Server running on http://localhost:5000
+2026-09-20 16:38:25 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-09-20 16:38:25 [info]: 🔧 Environment: development
+2026-09-20 16:38:25 [info]: 🛣️  API Version: /api/v1
+2026-09-20 16:38:45 [warn]: Cloudinary not configured - storage may be unavailable
+2026-09-20 16:38:45 [warn]: Payment Webhook not configured -
+2026-09-20 16:38:45 [info]: Request completed {
+  "correlationId": "1789947525565-0.09529662624041868",
+  "method": "GET",
+  "path": "/ready",
+  "statusCode": 503,
+  "duration": "11ms",
+  "ip": "::1"
+}
+2026-09-20 16:38:45 [warn]: Readiness check failed - some dependencies not ready {
+  "database": {
+    "status": "ok",
+    "message": ""
+  },
+  "storage": {
+    "status": "error",
+    "message": "Cloudinary not configured"
+  },
+  "email": {
+    "status": "ok",
+    "message": ""
+  },
+  "payment": {
+    "status": "error",
+    "message": "payment Webhook not configured"
+  }
+}
+2026-09-20 16:38:46 [warn]: Cloudinary not configured - storage may be unavailable
+2026-09-20 16:38:46 [warn]: Payment Webhook not configured -
+2026-09-20 16:38:46 [info]: Request completed {
+  "correlationId": "1789947526589-0.3365672034442604",
+  "method": "GET",
+  "path": "/ready",
+  "statusCode": 503,
+  "duration": "1ms",
+  "ip": "::1"
+}
+2026-09-20 16:38:46 [warn]: Readiness check failed - some dependencies not ready {
+  "database": {
+    "status": "ok",
+    "message": ""
+  },
+  "storage": {
+    "status": "error",
+    "message": "Cloudinary not configured"
+  },
+  "email": {
+    "status": "ok",
+    "message": ""
+  },
+  "payment": {
+    "status": "error",
+    "message": "payment Webhook not configured"
+  }
+}
+2026-09-20 16:41:44 [error]: Unknown error {
+  "url": "/api/v1/billing/signup-checkout",
+  "method": "POST",
+  "ip": "::1",
+  "stack": "Error: An error occurred with our connection to Stripe. Request was retried 2 times.\n    at C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\stripe\\src\\RequestSender.ts:702:19\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\nOriginating from:\n    at SessionResource._makeRequest (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\stripe\\src\\StripeResource.ts:98:27)\n    at SessionResource.create (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\stripe\\src\\resources\\Checkout\\Sessions.ts:139:17)\n    at StripeService.createCheckoutSession (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\core\\payments\\StripeService.ts:78:62)\n    at BillingService.createSignupCheckout (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\billing\\services\\billing.service.ts:70:41)\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async BillingController.createSignupCheckout (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\src\\modules\\billing\\controllers\\billing.controller.ts:12:20)"
+}
+2026-09-20 16:41:44 [info]: Request completed {
+  "correlationId": "1789947671411-0.926687316720509",
+  "method": "POST",
+  "path": "/api/v1/billing/signup-checkout",
+  "statusCode": 500,
+  "duration": "33262ms",
+  "ip": "::1"
+}
+2026-09-21 18:25:47 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-09-21 18:25:47 [info]: MongoDB connected successfully
+2026-09-21 18:25:47 [info]: Security middleware initialized
+2026-09-21 18:25:47 [info]: 🚀 Server running on http://localhost:5000
+2026-09-21 18:25:47 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-09-21 18:25:47 [info]: 🔧 Environment: development
+2026-09-21 18:25:47 [info]: 🛣️  API Version: /api/v1
+2026-09-21 18:25:48 [info]: User logged in: igbiriase@uk.com
+2026-09-21 18:25:48 [info]: User logged in: igbiriase@uk.com
+2026-09-21 18:25:48 [info]: Request completed {
+  "correlationId": "1790040347734-0.1824126303325656",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "369ms",
+  "ip": "::1"
+}
+2026-09-21 18:25:48 [info]: Request completed {
+  "correlationId": "1790040348120-0.3390261852175396",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 200,
+  "duration": "89ms",
+  "ip": "::1"
+}
+2026-09-21 18:25:48 [info]: Request completed {
+  "correlationId": "1790040348500-0.34167661471441513",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 200,
+  "duration": "248ms",
+  "ip": "::1"
+}
+2026-09-21 18:25:48 [info]: Request completed {
+  "correlationId": "1790040348874-0.6012037509827348",
+  "method": "GET",
+  "path": "/calendar",
+  "statusCode": 200,
+  "duration": "14ms",
+  "ip": "::1"
+}
+2026-09-21 18:25:48 [info]: Request completed {
+  "correlationId": "1790040348881-0.8841716259650407",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "31ms",
+  "ip": "::1"
+}
+2026-09-21 18:25:57 [info]: Request completed {
+  "correlationId": "1790040357378-0.003838358117480456",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 200,
+  "duration": "27ms",
+  "ip": "::1"
+}
+2026-09-21 18:25:57 [info]: Request completed {
+  "correlationId": "1790040357385-0.03254567597109426",
+  "method": "GET",
+  "path": "/me/referred",
+  "statusCode": 304,
+  "duration": "24ms",
+  "ip": "::1"
+}
+2026-09-21 18:27:11 [debug]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST"
+}
+2026-09-21 18:27:11 [info]: Request completed {
+  "correlationId": "1790040431624-0.8713184407130885",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "9ms",
+  "ip": "::1"
+}
+2026-09-21 18:27:11 [info]: Request completed {
+  "correlationId": "1790040431734-0.7918096920151487",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "34ms",
+  "ip": "::1"
+}
+2026-09-21 18:28:36 [info]: Stripe Checkout Session created {
+  "sessionId": "cs_test_a1TorBaIZD7U7rJmYJu9RkBLJibBuI0EsTA8dhffk8IM4lViHYWbWRbBaQ",
+  "metadata": {
+    "intent": "signup",
+    "fullName": "oxlade mayorwa",
+    "email": "ovfclec948@uxmil.com",
+    "tier": "plus",
+    "billingCycle": "monthly",
+    "referralCode": "6a7ae16fb2eccd8758b8e7c0"
+  }
+}
+2026-09-21 18:28:36 [info]: Request completed {
+  "correlationId": "1790040515066-0.9038820205577637",
+  "method": "POST",
+  "path": "/signup-checkout",
+  "statusCode": 200,
+  "duration": "1621ms",
+  "ip": "::1"
+}
+2026-09-21 18:30:15 [debug]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST"
+}
+2026-09-21 18:30:15 [info]: Request completed {
+  "correlationId": "1790040615377-0.05022896874855076",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "2ms",
+  "ip": "::1"
+}
+2026-09-21 18:40:43 [debug]: Access token refreshed for user: igbiriase@uk.com
+2026-09-21 18:40:43 [info]: Request completed {
+  "correlationId": "1790041243191-0.7471385397858286",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "17ms",
+  "ip": "::1"
+}
+2026-09-21 18:55:38 [debug]: Access token refreshed for user: igbiriase@uk.com
+2026-09-21 18:55:38 [info]: Request completed {
+  "correlationId": "1790042138163-0.04589768877505995",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "6ms",
+  "ip": "::1"
+}
+2026-09-21 19:01:03 [info]: SIGINT received, starting graceful shutdown...
+2026-09-21 19:01:22 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-09-21 19:01:22 [info]: MongoDB connected successfully
+2026-09-21 19:01:22 [info]: Security middleware initialized
+2026-09-21 19:01:22 [info]: 🚀 Server running on http://localhost:5000
+2026-09-21 19:01:22 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-09-21 19:01:22 [info]: 🔧 Environment: development
+2026-09-21 19:01:22 [info]: 🛣️  API Version: /api/v1
+2026-09-21 19:01:37 [debug]: Access token refreshed for user: igbiriase@uk.com
+2026-09-21 19:01:37 [info]: Request completed {
+  "correlationId": "1790042497939-0.44916159729473826",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "22ms",
+  "ip": "::1"
+}
+2026-09-21 19:01:37 [info]: Request completed {
+  "correlationId": "1790042497977-0.45505443931358003",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 200,
+  "duration": "9ms",
+  "ip": "::1"
+}
+2026-09-21 19:01:38 [info]: Request completed {
+  "correlationId": "1790042498001-0.6399637038532096",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 304,
+  "duration": "7ms",
+  "ip": "::1"
+}
+2026-09-21 19:01:38 [info]: Request completed {
+  "correlationId": "1790042498154-0.11784896697265679",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 304,
+  "duration": "12ms",
+  "ip": "::1"
+}
+2026-09-21 19:01:38 [info]: Request completed {
+  "correlationId": "1790042498158-0.00986465787323254",
+  "method": "GET",
+  "path": "/me/referred",
+  "statusCode": 304,
+  "duration": "12ms",
+  "ip": "::1"
+}
+2026-09-21 19:02:40 [debug]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST"
+}
+2026-09-21 19:02:40 [info]: Request completed {
+  "correlationId": "1790042560658-0.6126585604981452",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "7ms",
+  "ip": "::1"
+}
+2026-09-21 19:02:40 [info]: Request completed {
+  "correlationId": "1790042560738-0.44877921636034057",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "27ms",
+  "ip": "::1"
+}
+2026-09-21 19:03:37 [info]: Stripe Checkout Session created {
+  "sessionId": "cs_test_a1H1RZdCN9xXFrAbFLMAdPuNqYOLpDGPFcjaIMw3SvmFslNkOyTW8Lua2P",
+  "metadata": {
+    "intent": "signup",
+    "fullName": "voke adams",
+    "email": "ovfclec948@uxmil.com",
+    "tier": "plus",
+    "billingCycle": "monthly",
+    "referralCode": "6a7ae16fb2eccd8758b8e7c0"
+  }
+}
+2026-09-21 19:03:37 [info]: Request completed {
+  "correlationId": "1790042616557-0.46762175555790664",
+  "method": "POST",
+  "path": "/signup-checkout",
+  "statusCode": 200,
+  "duration": "1236ms",
+  "ip": "::1"
+}
+2026-09-21 19:04:35 [debug]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST"
+}
+2026-09-21 19:04:35 [info]: Request completed {
+  "correlationId": "1790042675993-0.3473492105237944",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "2ms",
+  "ip": "::1"
+}
+2026-09-21 19:16:31 [debug]: Access token refreshed for user: igbiriase@uk.com
+2026-09-21 19:16:31 [info]: Request completed {
+  "correlationId": "1790043391183-0.18158602767212662",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "8ms",
+  "ip": "::1"
+}
+2026-09-21 19:27:42 [info]: SIGINT received, starting graceful shutdown...
+2026-09-21 19:28:12 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-09-21 19:28:12 [info]: MongoDB connected successfully
+2026-09-21 19:28:12 [info]: Security middleware initialized
+2026-09-21 19:28:12 [info]: 🚀 Server running on http://localhost:5000
+2026-09-21 19:28:12 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-09-21 19:28:12 [info]: 🔧 Environment: development
+2026-09-21 19:28:12 [info]: 🛣️  API Version: /api/v1
+2026-09-21 19:28:13 [info]: User logged in: igbiriase@uk.com
+2026-09-21 19:28:13 [info]: User logged in: igbiriase@uk.com
+2026-09-21 19:28:13 [info]: Request completed {
+  "correlationId": "1790044093199-0.7278859992643171",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "315ms",
+  "ip": "::1"
+}
+2026-09-21 19:28:13 [info]: Request completed {
+  "correlationId": "1790044093546-0.9008799875026556",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 304,
+  "duration": "21ms",
+  "ip": "::1"
+}
+2026-09-21 19:28:14 [info]: Request completed {
+  "correlationId": "1790044093991-0.9643154936709492",
+  "method": "GET",
+  "path": "/me",
+  "statusCode": 304,
+  "duration": "28ms",
+  "ip": "::1"
+}
+2026-09-21 19:28:14 [info]: Request completed {
+  "correlationId": "1790044094003-0.3943865841938504",
+  "method": "GET",
+  "path": "/me/referred",
+  "statusCode": 304,
+  "duration": "23ms",
+  "ip": "::1"
+}
+2026-09-21 19:28:24 [debug]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST"
+}
+2026-09-21 19:28:24 [info]: Request completed {
+  "correlationId": "1790044104050-0.7047432839201732",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "11ms",
+  "ip": "::1"
+}
+2026-09-21 19:28:24 [info]: Request completed {
+  "correlationId": "1790044104170-0.22085284073032396",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "46ms",
+  "ip": "::1"
+}
+2026-09-21 19:28:55 [info]: Stripe Checkout Session created {
+  "sessionId": "cs_test_a1YHKYZWk4n2U1Gz2w2xDgVcLJXPKXHy3nSTMALbxBiEtFh3axcbmrRgs3",
+  "metadata": {
+    "intent": "signup",
+    "fullName": "mayor Oju",
+    "email": "ovfclec948@uxmil.com",
+    "tier": "mentorship",
+    "billingCycle": "monthly",
+    "referralCode": "6a7ae16fb2eccd8758b8e7c0"
+  }
+}
+2026-09-21 19:28:55 [info]: Request completed {
+  "correlationId": "1790044134392-0.11193902059232208",
+  "method": "POST",
+  "path": "/signup-checkout",
+  "statusCode": 200,
+  "duration": "1545ms",
+  "ip": "::1"
+}
+2026-09-21 19:29:52 [debug]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST"
+}
+2026-09-21 19:29:52 [info]: Request completed {
+  "correlationId": "1790044192689-0.7527704111205024",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "16ms",
+  "ip": "::1"
+}
+2026-09-22 01:16:04 [debug]: Access token refreshed for user: igbiriase@uk.com
+2026-09-22 01:16:04 [info]: Request completed {
+  "correlationId": "1790064964826-0.3171001138117745",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "17ms",
+  "ip": "::1"
+}
