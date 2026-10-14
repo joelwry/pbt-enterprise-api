@@ -1,11 +1,12 @@
 import { Router } from 'express';
 import { authenticate, authorize } from '@/core/middleware/authMiddleware';
+import { requireSection } from '@/core/middleware/sectionMiddleware';
 import { catchAsync } from '@/core/middleware/asyncHandler';
 import { adminMembersController as c } from '@/modules/admin-members/controllers/admin-members.controller';
 
 const router = Router();
 
-router.use(authenticate, authorize('admin', 'super_admin'));
+router.use(authenticate, authorize('admin', 'super_admin'), requireSection('members'));
 
 router.get('/stats', catchAsync((req, res) => c.getStats(req, res)));
 router.get('/', catchAsync((req, res) => c.listMembers(req, res)));

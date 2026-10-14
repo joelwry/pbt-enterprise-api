@@ -6,7 +6,10 @@ import logger from '@/core/logger/logger';
 
 /** "18:00" -> "6:00 PM" */
 function to12Hour(time: string): string {
-  const [h, m] = time.split(':').map(Number);
+  const [h, m] = typeof time === 'string' ? time.split(':').map(Number) : [NaN, NaN];
+  if (Number.isNaN(h) || Number.isNaN(m)) {
+    throw new ValidationError(`Invalid time "${time}" -- expected HH:mm`);
+  }
   const period = h >= 12 ? 'PM' : 'AM';
   const hour12 = h % 12 === 0 ? 12 : h % 12;
   return `${hour12}:${String(m).padStart(2, '0')} ${period}`;
@@ -25,6 +28,7 @@ export class EventsService {
    */
   toMemberEventItem(event: IEvent, userId: string) {
     const details = event.rsvpDetails?.get(userId);
+    const rsvped = event.rsvps.some((id) => id.toString() === userId);
     return {
       id: event._id,
       date: event.date,
@@ -33,7 +37,14 @@ export class EventsService {
       location: event.location,
       category: event.category,
       requiredTier: event.requiredTier,
-      rsvped: event.rsvps.some((id) => id.toString() === userId),
+      rsvped,
+      // Real capacity check, not just "is the RSVP list non-empty" -- a
+      // member who already has a spot never sees "Full" for their own
+      // event, since the capacity check itself (see rsvp() below) also
+      // exempts an existing RSVP. Previously nothing here told the member
+      // an event was full until they opened the RSVP form and got a
+      // rejection on submit.
+      isFull: !rsvped && event.rsvps.length >= event.capacity,
       rsvpDetails: details ? { guestCount: details.guestCount, notes: details.notes } : undefined,
       photoGalleryUrl: event.photoGalleryUrl,
       recordingUrl: event.recordingUrl,

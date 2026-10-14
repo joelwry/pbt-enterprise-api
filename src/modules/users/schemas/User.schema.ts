@@ -22,6 +22,15 @@ export interface IUser extends Document {
   stripeCustomerId?: string;
   notificationPreferences: INotificationPreferences;
   role: 'member' | 'admin' | 'super_admin' | 'visitor';
+  /**
+   * Fine-grained admin role label shown in the admin portal (Admin Users &
+   * Roles). Only meaningful when `role` is 'admin' or 'super_admin' --
+   * `authorize()` middleware still checks the coarse `role` field, this is
+   * purely a display/permissions-hint field for the frontend's section-gating.
+   */
+  adminRole?: 'Super Admin' | 'Admin' | 'Content Manager' | 'Community Moderator' | 'Support Staff';
+  /** Per-account section access for admin portal staff, editable after the role's suggested defaults are applied. Ignored for Super Admin, who always has full access. */
+  adminSections?: string[];
   emailVerified: boolean;
   emailVerificationToken?: string;
   emailVerificationExpiry?: Date;
@@ -91,6 +100,14 @@ const userSchema = new Schema<IUser>(
       enum: ['member', 'admin', 'super_admin', 'visitor'],
       default: 'member',
       index: true,
+    },
+    adminRole: {
+      type: String,
+      enum: ['Super Admin', 'Admin', 'Content Manager', 'Community Moderator', 'Support Staff'],
+    },
+    adminSections: {
+      type: [String],
+      default: undefined,
     },
     emailVerified: {
       type: Boolean,

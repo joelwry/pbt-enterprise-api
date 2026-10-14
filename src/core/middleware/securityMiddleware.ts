@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import rateLimit, { RateLimitInfo } from 'express-rate-limit';
+import rateLimit, { RateLimitInfo, ipKeyGenerator } from 'express-rate-limit';
 import mongoSanitize from 'express-mongo-sanitize';
 import logger from '@/core/logger/logger';
 
@@ -89,8 +89,9 @@ export const createGlobalRateLimiter = (
       return false;
     },
     keyGenerator: (req: Request) => {
-      // Use user ID if authenticated, otherwise use IP
-      return (req as any).user?.id || req.ip || 'unknown';
+      // Use user ID if authenticated, otherwise use a normalized IP
+      const ip = ipKeyGenerator(req as any);
+      return (req as any).user?.id || ip || 'unknown';
     },
     handler: (req: Request, res: Response) => {
       logger.warn('Rate limit exceeded', {
@@ -124,9 +125,10 @@ export const createAuthRateLimiter = (
     standardHeaders: true,
     legacyHeaders: false,
     keyGenerator: (req: Request) => {
-      // Rate limit by email and IP combination
+      // Rate limit by email and normalized IP combination
       const email = req.body?.email || '';
-      return `${email}:${req.ip}`;
+      const ip = ipKeyGenerator(req as any);
+      return `${email}:${ip}`;
     },
     skip: (req: Request) => {
       // Skip for non-auth endpoints

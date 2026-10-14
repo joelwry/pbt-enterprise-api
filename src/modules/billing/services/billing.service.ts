@@ -178,6 +178,18 @@ export class BillingService {
       user.stripeCustomerId = stripeCustomerId;
       await user.save();
 
+      // Two genuinely distinct completed checkout sessions for the same
+      // person (e.g. they click Join twice, or resume an abandoned
+      // checkout and then complete a fresh one) each carry their own
+      // stripeSubscriptionId, so the alreadyProcessed check above never
+      // catches this -- without it, the member ends up with two active
+      // subscriptions and is billed twice. Same rule the 'renew' branch
+      // below already applies.
+      await Subscription.updateMany(
+        { userId: user._id, status: 'active' },
+        { status: 'cancelled', cancelledAt: new Date() }
+      );
+
       const newSubscription = await Subscription.create({
         userId: user._id,
         tier,
@@ -204,7 +216,10 @@ export class BillingService {
 
       if (isNewUser) {
         const setupToken = await authRepository.setPasswordResetToken(user._id.toString());
-        await EmailService.sendAccountSetupEmail(user.email, user.fullName, setupToken);
+        // Not awaited -- Stripe expects a fast webhook response and retries
+        // on timeout; the subscription is already durably recorded above,
+        // so a slow/unreachable SMTP server shouldn't hold up the ack.
+        EmailService.sendAccountSetupEmail(user.email, user.fullName, setupToken).catch(() => {});
       }
 
       logger.info('New member created from Stripe Checkout', { userId: user._id.toString(), tier });
@@ -243,7 +258,8 @@ export class BillingService {
         stripeSubscriptionId,
       });
 
-      await EmailService.sendSubscriptionConfirmation(user.email, user.fullName, tier, amount * 100, billingCycle);
+      // Not awaited -- same reasoning as the signup branch above.
+      EmailService.sendSubscriptionConfirmation(user.email, user.fullName, tier, amount * 100, billingCycle).catch(() => {});
       logger.info('Member subscription renewed/changed via Stripe Checkout', { userId: user._id.toString(), tier });
     }
   }

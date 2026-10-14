@@ -1,8 +1,31 @@
 import { Subscription, SubscriptionDocument } from '@/modules/subscriptions/schemas/Subscription.schema';
+import { User } from '@/modules/users/schemas/User.schema';
 import { pricingService } from '@/modules/pricing/services/pricing.service';
 import { AppError } from '@/core/errors/AppError';
 import logger from '@/core/logger/logger';
 import { Types } from 'mongoose';
+
+/**
+ * Whether a subscription currently entitles its member to access -- active
+ * status and not yet past its endDate. Module-level (not a class method) so
+ * it can be imported without instantiating SubscriptionService; also used
+ * by admin-members.service.ts to derive a member's real tier/status
+ * instead of re-deriving entitlement a second, potentially inconsistent way.
+ */
+export function isEntitled(sub: SubscriptionDocument | null): boolean {
+  return sub !== null && sub.status === 'active' && sub.endDate > new Date();
+}
+
+/** Latest Subscription per user (any status) -- shared by admin-members (tier/status resolution) and this service's own admin stats (failed-payments count), so both use the exact same "most recent subscription" definition. */
+export async function mostRecentSubscriptionsFor(userIds: (string | Types.ObjectId)[]): Promise<Map<string, SubscriptionDocument>> {
+  const subs = await Subscription.find({ userId: { $in: userIds } }).sort({ endDate: -1 });
+  const byUser = new Map<string, SubscriptionDocument>();
+  for (const sub of subs) {
+    const key = sub.userId.toString();
+    if (!byUser.has(key)) byUser.set(key, sub);
+  }
+  return byUser;
+}
 
 export class SubscriptionService {
   /**
@@ -224,6 +247,16 @@ export class SubscriptionService {
   }
 
   /**
+   * A single billing-history record, scoped to its owner -- used for the
+   * receipt download. Returns null (not just any record) if it exists but
+   * belongs to someone else, so the controller can 404 either way without
+   * leaking whether the id exists at all.
+   */
+  async getOwnedBillingRecord(userId: string, subscriptionId: string): Promise<SubscriptionDocument | null> {
+    return Subscription.findOne({ _id: subscriptionId, userId: new Types.ObjectId(userId) });
+  }
+
+  /**
    * Get all subscription tiers with features
    */
   getTierHierarchy() {
@@ -294,18 +327,41 @@ export class SubscriptionService {
 
   /**
    * Admin billing dashboard stats -- all real aggregates over actual
-   * Subscription documents. failedPaymentsCount is honestly 0: without a
-   * real payment gateway there's no way for a payment to actually fail yet
-   * (deferred to the Stripe integration, see the progress log).
+   * Subscription documents.
+   *
+   * payingMembers previously excluded the 'pathway' tier, as if it were a
+   * free tier -- it isn't (it's the entry PAID tier, real price, real
+   * Stripe subscriptions), so that undercounted paying members relative to
+   * MRR, which already summed every active subscription including
+   * Pathway's. Both now count the same set.
+   *
+   * failedPaymentsCount was hard-coded to 0 with a comment blaming "no
+   * real payment gateway yet" -- stale; Stripe has been wired for a while.
+   * Now computed the same real way the Members page's "Payment Failed"
+   * status already is: an active-account member whose most recent
+   * subscription has lapsed (expired/cancelled, past its endDate).
    */
   async getAdminStats() {
     const now = new Date();
-    const [activeSubs, payingMembers, cancelledCount, totalCount] = await Promise.all([
+    const [activeSubs, cancelledCount, totalCount, activeMemberUsers] = await Promise.all([
       Subscription.find({ status: 'active', endDate: { $gt: now } }),
-      Subscription.countDocuments({ status: 'active', endDate: { $gt: now }, tier: { $ne: 'pathway' } }),
-      Subscription.countDocuments({ cancelledAt: { $exists: true } }),
+      // cancelledAt defaults to null (not absent) on every subscription --
+      // see Subscription.schema.ts -- so { $exists: true } matched nearly
+      // every document regardless of whether it was ever actually
+      // cancelled, wildly inflating the churn rate. { $ne: null } is the
+      // real "was this ever cancelled" check.
+      Subscription.countDocuments({ cancelledAt: { $ne: null } }),
       Subscription.countDocuments({}),
+      User.find({ role: 'member', isActive: true }).select('_id'),
     ]);
+
+    const payingMembers = activeSubs.length;
+
+    const mostRecentByUser = await mostRecentSubscriptionsFor(activeMemberUsers.map((u) => u._id));
+    const failedPaymentsCount = activeMemberUsers.filter((u) => {
+      const sub = mostRecentByUser.get(u._id.toString());
+      return sub != null && !isEntitled(sub);
+    }).length;
 
     const mrr = activeSubs.reduce((sum, s) => sum + (s.billingCycle === 'monthly' ? s.amount : s.amount / 12), 0);
     const churnRatePercent = totalCount > 0 ? Math.round((cancelledCount / totalCount) * 1000) / 10 : 0;
@@ -314,7 +370,7 @@ export class SubscriptionService {
       mrr: Math.round(mrr * 100) / 100,
       mrrDeltaLabel: 'vs. last month',
       payingMembers,
-      failedPaymentsCount: 0,
+      failedPaymentsCount,
       churnRatePercent,
     };
   }

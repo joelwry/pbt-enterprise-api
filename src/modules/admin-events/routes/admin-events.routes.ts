@@ -1,11 +1,12 @@
 import { Router } from 'express';
 import { authenticate, authorize } from '@/core/middleware/authMiddleware';
+import { requireSection } from '@/core/middleware/sectionMiddleware';
 import { catchAsync } from '@/core/middleware/asyncHandler';
 import { adminEventsController as c } from '@/modules/admin-events/controllers/admin-events.controller';
 
 const router = Router();
 
-router.use(authenticate, authorize('admin', 'super_admin'));
+router.use(authenticate, authorize('admin', 'super_admin'), requireSection('events'));
 
 // 'stats' registered before '/:eventId' so it isn't swallowed as an id.
 router.get('/stats', catchAsync((req, res) => c.getStats(req, res)));

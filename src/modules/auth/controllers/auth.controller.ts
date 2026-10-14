@@ -10,6 +10,7 @@ import {
   forgotPasswordSchema,
   resetPasswordSchema,
   updateProfileSchema,
+  changePasswordSchema,
   updateNotificationPreferenceSchema,
 } from '@/modules/auth/validators/auth.validators';
 import logger from '@/core/logger/logger';
@@ -204,6 +205,23 @@ export class AuthController {
     const profile = await authService.updateProfile(req.user.userId, updates);
 
     ResponseHandler.ok(res, 'Profile updated successfully', profile);
+  }
+
+  /**
+   * Change Password -- member or admin, same User model. Requires the
+   * correct current password.
+   * POST /api/v1/auth/me/change-password
+   */
+  async changePassword(req: Request, res: Response): Promise<void> {
+    if (!req.user) {
+      ResponseHandler.unauthorized(res);
+      return;
+    }
+
+    const { currentPassword, newPassword } = changePasswordSchema.parse(req.body);
+    await authService.changePassword(req.user.userId, currentPassword, newPassword);
+
+    ResponseHandler.ok(res, 'Password updated successfully', {});
   }
 
   /**

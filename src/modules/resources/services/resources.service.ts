@@ -1,6 +1,6 @@
 import { Resource, ResourceTier } from '@/modules/resources/schemas/Resource.schema';
 import { subscriptionService } from '@/modules/subscriptions/services/subscription.service';
-import { NotFoundError } from '@/core/errors/AppError';
+import { NotFoundError, AuthorizationError } from '@/core/errors/AppError';
 
 const TIER_RANK: Record<ResourceTier, number> = { Pathway: 1, Plus: 2, Mentorship: 3 };
 const ALL_TIERS: ResourceTier[] = ['Pathway', 'Plus', 'Mentorship'];
@@ -22,16 +22,42 @@ export class ResourcesService {
     return ALL_TIERS.filter((t) => TIER_RANK[t] <= memberRank);
   }
 
-  /** Records a download and returns the file URL — the member-facing "view" (getResourceById) has no side effects, only this does. */
-  async trackDownload(resourceId: string): Promise<string> {
-    const resource = await Resource.findByIdAndUpdate(resourceId, { $inc: { downloads: 1 } }, { new: true });
-    if (!resource) throw new NotFoundError('Resource not found');
-    return resource.fileUrl;
+  /**
+   * List endpoints (getResources/getFeatured/getPopularResources) already
+   * filter by requiredTier, but a resource fetched directly by id bypassed
+   * that filter entirely -- a Pathway member who obtained a Plus/Mentorship
+   * resource's id (e.g. from a network request) could view or download it
+   * outright. Both getResourceById and trackDownload below call this first.
+   */
+  async assertCanAccess(userId: string, resource: { requiredTier: ResourceTier }): Promise<void> {
+    const allowedTiers = await this.allowedTiersFor(userId);
+    if (!allowedTiers.includes(resource.requiredTier)) {
+      throw new AuthorizationError('You do not have access to this resource');
+    }
   }
 
-  /** The single "Featured Toolkit" banner: no dedicated admin flag exists for this (deliberately, to avoid adding editor UI for a one-off) — the most-downloaded Toolkit if one exists, else the most-downloaded resource of any type. */
+  /** Records a download and returns the file URL — the member-facing "view" (getResourceById) has no side effects, only this does. */
+  async trackDownload(userId: string, resourceId: string): Promise<string> {
+    const resource = await Resource.findById(resourceId);
+    if (!resource) throw new NotFoundError('Resource not found');
+    await this.assertCanAccess(userId, resource);
+
+    // A resource can be published without a file attached yet (admin saved
+    // it before uploading). Without this check, the download counter still
+    // incremented and the endpoint returned 200 with fileUrl: "" -- a
+    // "successful download of nothing" the member-facing redirect would
+    // then follow to a blank/broken destination.
+    if (!resource.fileUrl) {
+      throw new NotFoundError('This resource has no file attached yet');
+    }
+
+    const updated = await Resource.findByIdAndUpdate(resourceId, { $inc: { downloads: 1 } }, { new: true });
+    return updated!.fileUrl;
+  }
+
+  /** The single "Featured Toolkit" banner: no dedicated admin flag exists for this (deliberately, to avoid adding editor UI for a one-off) — the most-downloaded Toolkit if one exists, else the most-downloaded resource of any type. Excludes resources with no file attached yet -- featuring one would put a broken download front and center. */
   async getFeatured(allowedTiers: ResourceTier[]) {
-    const baseFilter = { isActive: true, isDraft: false, requiredTier: { $in: allowedTiers } };
+    const baseFilter = { isActive: true, isDraft: false, requiredTier: { $in: allowedTiers }, fileUrl: { $ne: '' } };
     const topToolkit = await Resource.findOne({ ...baseFilter, type: 'Toolkit' }).sort({ downloads: -1 });
     if (topToolkit) return topToolkit;
     return Resource.findOne(baseFilter).sort({ downloads: -1 });

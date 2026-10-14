@@ -7,7 +7,14 @@ export type AdminEventStatus = 'Upcoming' | 'Completed' | 'Cancelled';
 
 function statusOf(event: IEvent): AdminEventStatus {
   if (!event.isActive) return 'Cancelled';
-  return event.date >= new Date() ? 'Upcoming' : 'Completed';
+  // Same fix as the member-facing getUpcomingEvents/getPastEvents: `date` is
+  // stored at midnight UTC (calendar day, no time-of-day), so comparing
+  // against the exact current instant marked an event scheduled for later
+  // today as "Completed" the moment it was past midnight. Compare against
+  // the start of today instead, matching how dates are stored.
+  const startOfToday = new Date();
+  startOfToday.setUTCHours(0, 0, 0, 0);
+  return event.date >= startOfToday ? 'Upcoming' : 'Completed';
 }
 
 function toAdminEvent(event: IEvent) {
@@ -54,11 +61,13 @@ export class AdminEventsService {
     limit: number;
   }) {
     const { tab, search, page, limit } = query;
-    const now = new Date();
+    // Same date-storage mismatch as statusOf()/getStats() above.
+    const startOfToday = new Date();
+    startOfToday.setUTCHours(0, 0, 0, 0);
 
     const filter: Record<string, unknown> = {};
-    if (tab === 'Upcoming') filter.date = { $gte: now };
-    else if (tab === 'Past') filter.date = { $lt: now };
+    if (tab === 'Upcoming') filter.date = { $gte: startOfToday };
+    else if (tab === 'Past') filter.date = { $lt: startOfToday };
     else filter.category = tab;
 
     if (search?.trim()) filter.title = { $regex: search.trim(), $options: 'i' };
@@ -77,12 +86,17 @@ export class AdminEventsService {
   async getStats() {
     const now = new Date();
     const yearStart = new Date(now.getFullYear(), 0, 1);
+    // Same date-storage mismatch as statusOf() above: `date` is midnight
+    // UTC, so gating "upcoming" on the exact current instant excludes an
+    // event scheduled for later today. Use start-of-day instead.
+    const startOfToday = new Date();
+    startOfToday.setUTCHours(0, 0, 0, 0);
 
     const [upcomingCount, allUpcoming, inPersonUpcoming, completedThisYear] = await Promise.all([
-      Event.countDocuments({ date: { $gte: now }, isActive: true }),
-      Event.find({ date: { $gte: now }, isActive: true }).select('rsvps'),
-      Event.find({ date: { $gte: now }, isActive: true, category: 'In-Person' }).sort({ date: 1 }).select('date'),
-      Event.countDocuments({ date: { $gte: yearStart, $lt: now }, isActive: true }),
+      Event.countDocuments({ date: { $gte: startOfToday }, isActive: true }),
+      Event.find({ date: { $gte: startOfToday }, isActive: true }).select('rsvps'),
+      Event.find({ date: { $gte: startOfToday }, isActive: true, category: 'In-Person' }).sort({ date: 1 }).select('date'),
+      Event.countDocuments({ date: { $gte: yearStart, $lt: startOfToday }, isActive: true }),
     ]);
 
     const totalRsvps = allUpcoming.reduce((sum, e) => sum + e.rsvps.length, 0);

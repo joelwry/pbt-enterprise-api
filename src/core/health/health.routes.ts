@@ -26,6 +26,7 @@ interface ReadinessCheckResponse {
     database: { status: 'ok' | 'error'; message?: string };
     storage: { status: 'ok' | 'error'; message?: string };
     email: { status: 'ok' | 'error'; message?: string };
+    payment : {status :'ok' | 'error';message? : string};
   };
 }
 
@@ -73,6 +74,7 @@ router.get(
       database: { status: 'ok', message: '' },
       storage: { status: 'ok', message: '' },
       email: { status: 'ok', message: '' },
+      payment: {status : 'ok', message : ""},
     };
 
     // Check MongoDB connection
@@ -93,6 +95,18 @@ router.get(
       logger.warn('SMTP not configured - email features unavailable');
       checks.email.status = 'error';
       checks.email.message = 'SMTP not configured';
+    }
+
+    if(!process.env.STRIPE_SECRET_KEY){
+      logger.warn('Payment not configured - in app payment features unavailable');
+      checks.payment.status = 'error';
+      checks.payment.message = 'Payment Secret key not configured... ';
+    }
+
+    if(!process.env.STRIPE_WEBHOOK_SECRET){
+      logger.warn('Payment Webhook not configured -');
+      checks.payment.status = 'error';
+      checks.payment.message += 'payment Webhook not configured';
     }
 
     const ready =

@@ -138,22 +138,39 @@ export class AuthService {
   }
 
   /**
-   * Request password reset
+   * Request password reset. Always returns the same generic message
+   * regardless of whether the email exists -- the raw token must never
+   * reach the HTTP response (it's the credential that resets the
+   * password; anyone who can read it can take over the account with only
+   * the target's email address, no mailbox access required). It only ever
+   * goes into the emailed reset link -- never logged anywhere, including
+   * at debug level: this codebase's log files are git-tracked, so a
+   * "server logs aren't publicly reachable" assumption doesn't hold here.
+   * The token is also stored hashed (see setPasswordResetToken), so there
+   * is deliberately no way to recover it without a working email send.
    */
   async requestPasswordReset(email: string): Promise<string> {
+    const GENERIC_MESSAGE = 'If an account exists for this email, a password reset link has been sent.';
     const user = await this.authRepository.findByEmail(email);
     if (!user) {
       // Don't reveal if email exists
       logger.info(`Password reset requested for non-existent email: ${email}`);
-      return 'If user exists, password reset link has been sent';
+      return GENERIC_MESSAGE;
     }
 
     const resetToken = await this.authRepository.setPasswordResetToken(user._id.toString());
     logger.info(`Password reset requested for user: ${user.email}`);
 
-    await EmailService.sendPasswordResetEmail(user.email, resetToken);
+    // Not awaited: an unreachable/slow SMTP server otherwise blocks this
+    // unauthenticated endpoint's response for as long as the send takes
+    // (up to the transporter's connection timeout) -- a cheap DoS lever
+    // and a needless wait for the member either way, since the emailed
+    // link is the only thing that changes, not this response.
+    EmailService.sendPasswordResetEmail(user.email, resetToken).catch((error) => {
+      logger.error(`Failed to send password reset email to ${user.email}`, error);
+    });
 
-    return resetToken;
+    return GENERIC_MESSAGE;
   }
 
   /**
@@ -227,6 +244,27 @@ export class AuthService {
       investmentFocus: updated.investmentFocus,
       assignedLeader: updated.assignedLeader,
     };
+  }
+
+  /**
+   * Change the current user's password (member or admin -- same User model).
+   * Requires the correct current password, same as login.
+   */
+  async changePassword(userId: string, currentPassword: string, newPassword: string): Promise<void> {
+    const user = await User.findById(userId).select('+password');
+    if (!user) {
+      throw new NotFoundError('User not found');
+    }
+
+    const isCurrentPasswordValid = await user.comparePassword(currentPassword);
+    if (!isCurrentPasswordValid) {
+      throw new AuthenticationError('Your current password is incorrect');
+    }
+
+    user.password = newPassword;
+    await user.save();
+
+    logger.info(`Password changed: ${user.email}`);
   }
 
   /**

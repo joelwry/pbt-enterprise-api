@@ -33,6 +33,11 @@ router.patch(
   authenticate,
   catchAsync((req, res, next) => authController.updateNotificationPreference(req, res))
 );
+router.post(
+  '/me/change-password',
+  authenticate,
+  catchAsync((req, res, next) => authController.changePassword(req, res))
+);
 router.post('/logout', authenticate, catchAsync((req, res, next) => authController.logout(req, res)));
 
 export default router;

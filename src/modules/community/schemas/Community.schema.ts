@@ -28,6 +28,8 @@ export interface ICommunityThread extends Document {
   /** How many members have reported this thread, and the most recent reason -- backs the admin moderation queue. */
   reportCount: number;
   reportReason: string;
+  /** Per-user report tracking, same pattern as likedBy -- without it the same member reporting repeatedly could inflate reportCount and make a post look more widely reported than it is. */
+  reportedBy: Types.ObjectId[];
   tags: string[];
   createdAt: Date;
   updatedAt: Date;
@@ -98,6 +100,12 @@ const communityThreadSchema = new Schema<ICommunityThread>(
       type: String,
       default: '',
     },
+    reportedBy: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+      },
+    ],
     tags: [
       {
         type: String,
