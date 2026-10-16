@@ -1,9 +1,17 @@
 import { Request, Response } from 'express';
-import { adminMembersService } from '@/modules/admin-members/services/admin-members.service';
+import { adminMembersService, type AdminActor } from '@/modules/admin-members/services/admin-members.service';
 import { ResponseHandler } from '@/core/response/ResponseHandler';
 import { PaginationHelper } from '@/core/pagination/PaginationHelper';
 
 type FrontendTier = 'Pathway' | 'Plus' | 'Mentorship';
+
+function actorOf(req: Request): AdminActor {
+  return {
+    adminId: req.user!.userId,
+    ipAddress: req.ip ?? 'unknown',
+    userAgent: req.get('user-agent') ?? 'unknown',
+  };
+}
 
 export class AdminMembersController {
   async getStats(req: Request, res: Response): Promise<void> {
@@ -71,8 +79,13 @@ export class AdminMembersController {
   }
 
   async resendWelcomeEmail(req: Request, res: Response): Promise<void> {
-    const result = await adminMembersService.resendWelcomeEmail(req.params.memberId);
-    ResponseHandler.ok(res, 'Welcome email sent', result);
+    const result = await adminMembersService.resendWelcomeEmail(req.params.memberId, actorOf(req));
+    ResponseHandler.ok(res, result.sent ? 'Invitation email sent' : 'Invitation email could not be sent', result);
+  }
+
+  async createSetupLink(req: Request, res: Response): Promise<void> {
+    const result = await adminMembersService.createSetupLink(req.params.memberId, actorOf(req));
+    ResponseHandler.ok(res, 'Setup link created', result);
   }
 
   async deleteMember(req: Request, res: Response): Promise<void> {

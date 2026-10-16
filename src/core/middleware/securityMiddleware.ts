@@ -2,6 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 import rateLimit, { RateLimitInfo, ipKeyGenerator } from 'express-rate-limit';
 import mongoSanitize from 'express-mongo-sanitize';
 import logger from '@/core/logger/logger';
+import { config } from '@/config/environment';
 
 declare global {
   namespace Express {
@@ -111,39 +112,65 @@ export const createGlobalRateLimiter = (
 };
 
 /**
- * Authentication-based rate limiter
- * Stricter limits for authenticated users with failed attempts
+ * Brute-force protection for credential endpoints.
+ *
+ * Attach it to specific routes (see setupSecurityMiddleware) rather than a
+ * whole prefix: inside an `app.use('/prefix', ...)` mount Express strips the
+ * prefix from `req.path`, and routes like /me and /refresh-token fire on every
+ * page load, so a blanket limiter would lock out ordinary use.
  */
-export const createAuthRateLimiter = (
-  windowMs: number = 300000, // 5 minutes
-  maxAttempts: number = 5
-) => {
+export interface AuthRateLimiterOptions {
+  windowMs?: number;
+  maxAttempts?: number;
+  /**
+   * true: only failed responses (status >= 400) count toward the limit, so a
+   * member who types the right password never burns an attempt.
+   * false: every request counts (use for endpoints that always answer 200,
+   * e.g. forgot-password, where counting is what stops email flooding).
+   */
+  skipSuccessfulRequests?: boolean;
+  /** Key on the client IP alone (for endpoints with no email in the body). */
+  keyByIpOnly?: boolean;
+}
+
+export const createAuthRateLimiter = ({
+  windowMs = 300000, // 5 minutes
+  maxAttempts = 5,
+  skipSuccessfulRequests = true,
+  keyByIpOnly = false,
+}: AuthRateLimiterOptions = {}) => {
+  const minutes = Math.max(1, Math.ceil(windowMs / 60000));
+
   return rateLimit({
     windowMs,
     max: maxAttempts,
-    message: 'Too many login attempts, please try again later.',
+    message: 'Too many attempts, please try again later.',
     standardHeaders: true,
     legacyHeaders: false,
+    skipSuccessfulRequests,
     keyGenerator: (req: Request) => {
-      // Rate limit by email and normalized IP combination
-      const email = req.body?.email || '';
-      const ip = ipKeyGenerator(req as any);
+      // ipKeyGenerator takes the IP *string* (it also folds IPv6 to its /56 subnet).
+      const ip = ipKeyGenerator(req.ip ?? '');
+      if (keyByIpOnly) return ip;
+      // Rate limit by email and normalized IP combination. The email is
+      // lower-cased so "A@x.com" and "a@x.com" can't be rotated to dodge the
+      // counter, and non-string values (e.g. an injected object) collapse to ''.
+      const raw = req.body?.email;
+      const email = typeof raw === 'string' ? raw.trim().toLowerCase() : '';
       return `${email}:${ip}`;
-    },
-    skip: (req: Request) => {
-      // Skip for non-auth endpoints
-      return !req.path.includes('/auth/');
     },
     handler: (req: Request, res: Response) => {
       logger.warn('Authentication rate limit exceeded', {
         correlationId: req.id,
-        email: req.body?.email,
+        path: req.originalUrl,
+        email: typeof req.body?.email === 'string' ? req.body.email : undefined,
         ip: req.ip,
       });
 
       res.status(429).json({
         success: false,
-        message: 'Too many login attempts. Account temporarily locked. Try again in 5 minutes.',
+        message: `Too many attempts. Please try again in ${minutes} minute${minutes === 1 ? '' : 's'}.`,
+        retryAfter: req.rateLimit?.resetTime,
       });
     },
   });
@@ -277,9 +304,28 @@ export function setupSecurityMiddleware(app: any) {
   );
   app.use(globalLimiter);
 
-  // Auth rate limiter
-  const authLimiter = createAuthRateLimiter();
-  app.use('/api/v1/auth/', authLimiter);
+  // Brute-force limiters on the credential endpoints only. app.post() matches
+  // the exact route, so /me, /refresh-token and /reset-password/validate (hit
+  // on every page load) are never counted.
+  const authBase = `/api/${config.API_VERSION}/auth`;
+
+  // Sign-in: only wrong-credential responses count, per email + IP.
+  const loginLimiter = createAuthRateLimiter({ windowMs: 5 * 60 * 1000, maxAttempts: 5 });
+  app.post(`${authBase}/login`, loginLimiter);
+  app.post(`${authBase}/admin/login`, loginLimiter);
+
+  // Forgot-password always answers 200 (to avoid revealing which emails exist),
+  // so every request counts -- this is what stops someone flooding an inbox.
+  app.post(
+    `${authBase}/forgot-password`,
+    createAuthRateLimiter({ windowMs: 15 * 60 * 1000, maxAttempts: 5, skipSuccessfulRequests: false })
+  );
+
+  // Reset/setup token submission: stops guessing tokens. The body has no email.
+  app.post(
+    `${authBase}/reset-password`,
+    createAuthRateLimiter({ windowMs: 15 * 60 * 1000, maxAttempts: 10, keyByIpOnly: true })
+  );
 
   // Data sanitization
   app.use(sanitizationMiddleware);

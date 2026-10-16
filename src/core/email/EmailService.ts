@@ -1,6 +1,7 @@
 import nodemailer, { Transporter } from 'nodemailer';
 import { config } from '@/config/environment';
 import logger from '@/core/logger/logger';
+import { renderEmailLayout, emailParagraph, emailButton, emailNote, escapeHtml, getEmailLogoAttachment, LOGO_CID } from '@/core/email/emailTemplate';
 
 /**
  * Email service for sending emails
@@ -43,18 +44,24 @@ export class EmailService {
    * mechanism as "forgot password": the recipient lands on the same
    * set-password page either way, just with different framing copy.
    */
+  /** The single place the account-setup link is built -- used by the email AND the admin "copy link" action, so they can never drift apart. */
+  static buildAccountSetupUrl(setupToken: string): string {
+    return `${config.FRONTEND_URL}/set-password?token=${setupToken}&mode=setup`;
+  }
+
   static async sendAccountSetupEmail(email: string, fullName: string, setupToken: string): Promise<boolean> {
-    const setupUrl = `${config.FRONTEND_URL}/set-password?token=${setupToken}&mode=setup`;
+    const setupUrl = this.buildAccountSetupUrl(setupToken);
     const subject = 'Set up your Property Business Training account';
-    const htmlContent = `
-      <h2>Welcome to Property Business Training, ${fullName}!</h2>
-      <p>An account has been created for you. Set your password to log in for the first time:</p>
-      <a href="${setupUrl}" style="background-color: #007bff; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">
-        Set Up My Account
-      </a>
-      <p>Or copy this link: ${setupUrl}</p>
-      <p>This link expires in 24 hours.</p>
-    `;
+    const htmlContent = renderEmailLayout({
+      frontendUrl: config.FRONTEND_URL,
+      preheader: 'Set your password to start using your PBT membership.',
+      heading: `Welcome to PBT, ${fullName.split(' ')[0]}!`,
+      fallbackUrl: setupUrl,
+      bodyHtml:
+        emailParagraph('Thank you for joining Property Business Training. Your membership account is ready -- the last step is to choose a password so you can sign in for the first time.') +
+        emailButton('Set Up My Account', setupUrl) +
+        emailNote('This link expires in <strong>24 hours</strong>. If it has expired, use <em>Forgot password</em> on the sign-in page to get a new one.'),
+    });
 
     const sent = await this.sendEmail(email, subject, htmlContent);
     if (sent) logger.info(`[EmailService] Account setup email sent to ${email}`);
@@ -67,15 +74,16 @@ export class EmailService {
   static async sendVerificationEmail(email: string, verificationToken: string): Promise<void> {
     const verificationUrl = `${config.FRONTEND_URL}/verify-email?token=${verificationToken}`;
     const subject = 'Email Verification - Property Business Training';
-    const htmlContent = `
-      <h2>Welcome to Property Business Training</h2>
-      <p>Please verify your email address by clicking the link below:</p>
-      <a href="${verificationUrl}" style="background-color: #007bff; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">
-        Verify Email
-      </a>
-      <p>Or copy this link: ${verificationUrl}</p>
-      <p>This link expires in 24 hours.</p>
-    `;
+    const htmlContent = renderEmailLayout({
+      frontendUrl: config.FRONTEND_URL,
+      preheader: 'Confirm your email address to finish setting up your account.',
+      heading: 'Verify your email address',
+      fallbackUrl: verificationUrl,
+      bodyHtml:
+        emailParagraph('Please confirm your email address to finish setting up your Property Business Training account.') +
+        emailButton('Verify Email', verificationUrl) +
+        emailNote('This link expires in <strong>24 hours</strong>.'),
+    });
 
     const sent = await this.sendEmail(email, subject, htmlContent);
     if (sent) logger.info(`[EmailService] Verification email sent to ${email}`);
@@ -87,16 +95,16 @@ export class EmailService {
   static async sendPasswordResetEmail(email: string, resetToken: string): Promise<void> {
     const resetUrl = `${config.FRONTEND_URL}/reset-password?token=${resetToken}`;
     const subject = 'Password Reset - Property Business Training';
-    const htmlContent = `
-      <h2>Password Reset Request</h2>
-      <p>You requested a password reset. Click the link below to reset your password:</p>
-      <a href="${resetUrl}" style="background-color: #007bff; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">
-        Reset Password
-      </a>
-      <p>Or copy this link: ${resetUrl}</p>
-      <p>This link expires in 1 hour.</p>
-      <p>If you didn't request this, please ignore this email.</p>
-    `;
+    const htmlContent = renderEmailLayout({
+      frontendUrl: config.FRONTEND_URL,
+      preheader: 'Use this link to choose a new password.',
+      heading: 'Reset your password',
+      fallbackUrl: resetUrl,
+      bodyHtml:
+        emailParagraph('We received a request to reset the password for your PBT account. Click the button below to choose a new one.') +
+        emailButton('Reset Password', resetUrl) +
+        emailNote('This link expires in <strong>24 hours</strong>. If you didn\'t request this, you can safely ignore this email -- your password won\'t change.'),
+    });
 
     const sent = await this.sendEmail(email, subject, htmlContent);
     if (sent) logger.info(`[EmailService] Password reset email sent to ${email}`);
@@ -111,18 +119,15 @@ export class EmailService {
     membershipTier: string
   ): Promise<void> {
     const subject = `Welcome to Property Business Training, ${firstName}!`;
-    const htmlContent = `
-      <h2>Welcome to PBT Community!</h2>
-      <p>Hi ${firstName},</p>
-      <p>Your ${membershipTier} membership is now active. You can now access:</p>
-      <ul>
-        <li>Exclusive training modules</li>
-        <li>Community discussions</li>
-        <li>Networking events</li>
-        <li>Resource library</li>
-      </ul>
-      <p>Start your learning journey: <a href="${config.FRONTEND_URL}/dashboard">Go to Dashboard</a></p>
-    `;
+    const htmlContent = renderEmailLayout({
+      frontendUrl: config.FRONTEND_URL,
+      preheader: `Your ${membershipTier} membership is now active.`,
+      heading: `Welcome to the PBT community, ${firstName}!`,
+      bodyHtml:
+        emailParagraph(`Your <strong>${escapeHtml(membershipTier)}</strong> membership is now active. You now have access to:`) +
+        emailParagraph('&bull; Structured training modules<br />&bull; Community discussions and your Power Team<br />&bull; Live events and networking<br />&bull; The PBT resource library') +
+        emailButton('Go to my dashboard', `${config.FRONTEND_URL}/dashboard`),
+    });
 
     const sent = await this.sendEmail(email, subject, htmlContent);
     if (sent) logger.info(`[EmailService] Welcome email sent to ${email}`);
@@ -138,15 +143,15 @@ export class EmailService {
     eventUrl: string
   ): Promise<void> {
     const subject = `Reminder: ${eventName} - ${eventDate}`;
-    const htmlContent = `
-      <h2>Event Reminder</h2>
-      <p>This is a reminder about the upcoming event:</p>
-      <h3>${eventName}</h3>
-      <p><strong>Date & Time:</strong> ${eventDate}</p>
-      <a href="${eventUrl}" style="background-color: #28a745; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">
-        View Event Details
-      </a>
-    `;
+    const htmlContent = renderEmailLayout({
+      frontendUrl: config.FRONTEND_URL,
+      preheader: `${eventName} -- ${eventDate}`,
+      heading: 'Event reminder',
+      bodyHtml:
+        emailParagraph('This is a reminder about an upcoming PBT event:') +
+        emailNote(`<strong style="font-size:16px;color:#1f2937;">${escapeHtml(eventName)}</strong><br />${escapeHtml(eventDate)}`) +
+        emailButton('View event details', eventUrl),
+    });
 
     const sent = await this.sendEmail(email, subject, htmlContent);
     if (sent) logger.info(`[EmailService] Event reminder sent to ${email}`);
@@ -163,13 +168,15 @@ export class EmailService {
     billingCycle: string
   ): Promise<void> {
     const subject = 'Subscription Confirmed - Property Business Training';
-    const htmlContent = `
-      <h2>Subscription Confirmed</h2>
-      <p>Hi ${firstName},</p>
-      <p>Your subscription to the <strong>${tier}</strong> tier has been confirmed.</p>
-      <p><strong>Amount:</strong> $${(amount / 100).toFixed(2)}/${billingCycle}</p>
-      <p>You can manage your subscription: <a href="${config.FRONTEND_URL}/subscription">Manage Subscription</a></p>
-    `;
+    const htmlContent = renderEmailLayout({
+      frontendUrl: config.FRONTEND_URL,
+      preheader: `Your ${tier} subscription is confirmed.`,
+      heading: 'Subscription confirmed',
+      bodyHtml:
+        emailParagraph(`Hi ${escapeHtml(firstName)}, thank you -- your <strong>${escapeHtml(tier)}</strong> subscription is confirmed.`) +
+        emailNote(`<strong>Amount:</strong> £${(amount / 100).toFixed(2)} / ${escapeHtml(billingCycle)}`) +
+        emailButton('Manage subscription', `${config.FRONTEND_URL}/my-subscription`),
+    });
 
     const sent = await this.sendEmail(email, subject, htmlContent);
     if (sent) logger.info(`[EmailService] Subscription confirmation sent to ${email}`);
@@ -199,11 +206,14 @@ export class EmailService {
     }
 
     try {
+      // Only attach the embedded logo to emails whose layout actually references it.
+      const logo = htmlContent.includes(`cid:${LOGO_CID}`) ? getEmailLogoAttachment() : null;
       await transporter.sendMail({
         from: `"${config.SMTP_FROM_NAME}" <${config.SMTP_FROM}>`,
         to,
         subject,
         html: htmlContent,
+        ...(logo ? { attachments: [logo] } : {}),
       });
       return true;
     } catch (error) {

@@ -100,7 +100,12 @@ export class StripeService {
    * configured STRIPE_SECRET_KEY -- only STRIPE_WEBHOOK_SECRET matters here.
    */
   static constructWebhookEvent(rawBody: Buffer, signature: string): Stripe.Event {
-    return Stripe.webhooks.constructEvent(rawBody, signature, config.STRIPE_WEBHOOK_SECRET);
+    // Default is Stripe's own 300s replay window. Dev-only escape hatch: set
+    // STRIPE_WEBHOOK_TOLERANCE_SECONDS in .env to widen it while diagnosing
+    // clock/forwarding problems -- never set it in production.
+    const override = Number(process.env.STRIPE_WEBHOOK_TOLERANCE_SECONDS);
+    const tolerance = Number.isFinite(override) && override > 0 ? override : 300;
+    return Stripe.webhooks.constructEvent(rawBody, signature, config.STRIPE_WEBHOOK_SECRET, tolerance);
   }
 
   /** Test-only helper: signs a synthetic event the same way Stripe would, so webhook handling can be verified without a real Stripe account or a publicly reachable URL. */

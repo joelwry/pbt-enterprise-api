@@ -25,6 +25,13 @@ export interface LoginResponse {
   tokens: AuthTokens;
 }
 
+/** "roxy.ned@uxmil.com" -> "r********@uxmil.com" */
+function maskEmail(email: string): string {
+  const [local, domain] = email.split('@');
+  if (!local || !domain) return email;
+  return `${local[0]}${'*'.repeat(Math.max(local.length - 1, 3))}@${domain}`;
+}
+
 export class AuthService {
   constructor(private authRepository: AuthRepository = defaultAuthRepository) {}
 
@@ -185,8 +192,24 @@ export class AuthService {
     user.password = newPassword;
     await user.save();
 
-    await this.authRepository.clearPasswordResetToken(user._id.toString());
+    // Invalidates the token (single use) and verifies the email -- see
+    // completePasswordSetup for why using the emailed link counts as proof.
+    await this.authRepository.completePasswordSetup(user._id.toString());
     logger.info(`Password reset completed for user: ${user.email}`);
+  }
+
+  /**
+   * Read-only check of an emailed set-password / reset link, so the page can
+   * show "expired or already used" up front instead of after the member has
+   * typed a password. Never throws for a bad token and never changes state;
+   * an invalid link is a normal answer (`valid: false`), not an error.
+   * The masked email lets the page say who the account is for without
+   * exposing the full address.
+   */
+  async validateResetToken(token: string): Promise<{ valid: boolean; email?: string }> {
+    const user = await this.authRepository.findByPasswordResetToken(token);
+    if (!user) return { valid: false };
+    return { valid: true, email: maskEmail(user.email) };
   }
 
   /**

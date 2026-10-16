@@ -9,6 +9,7 @@ import {
   emailVerificationSchema,
   forgotPasswordSchema,
   resetPasswordSchema,
+  validateResetTokenSchema,
   updateProfileSchema,
   changePasswordSchema,
   updateNotificationPreferenceSchema,
@@ -174,6 +175,22 @@ export class AuthController {
 
     logger.info('Password reset completed');
     ResponseHandler.ok(res, 'Password reset successful', {});
+  }
+
+  /**
+   * Check a set-password / reset link without consuming it
+   * POST /api/v1/auth/reset-password/validate
+   *
+   * Always answers 200 with `valid: true|false` (never 401) -- an expired
+   * link is an expected outcome here, and a 401 would also trip the
+   * frontend's session-refresh handling for no reason.
+   */
+  async validateResetToken(req: Request, res: Response): Promise<void> {
+    const { token } = validateResetTokenSchema.parse(req.body);
+
+    const result = await authService.validateResetToken(token);
+
+    ResponseHandler.ok(res, result.valid ? 'Link is valid' : 'Link is invalid or has expired', result);
   }
 
   /**

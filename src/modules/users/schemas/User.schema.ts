@@ -1,5 +1,6 @@
 import { Schema, model, Document } from 'mongoose';
 import bcrypt from 'bcryptjs';
+import { PASSWORD_MIN_LENGTH, PASSWORD_MIN_LENGTH_MESSAGE } from '@/core/security/passwordPolicy';
 
 export interface INotificationPreferences {
   communityReplies: boolean;
@@ -59,7 +60,7 @@ const userSchema = new Schema<IUser>(
       type: String,
       required: true,
       select: false,
-      minlength: 6,
+      minlength: [PASSWORD_MIN_LENGTH, PASSWORD_MIN_LENGTH_MESSAGE],
     },
     fullName: {
       type: String,
