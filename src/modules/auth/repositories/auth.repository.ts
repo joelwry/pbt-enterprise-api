@@ -2,6 +2,9 @@ import { User, IUser } from '@/modules/users/schemas/User.schema';
 import { NotFoundError } from '@/core/errors/AppError';
 import crypto from 'crypto';
 
+/** How long an emailed set-password / reset link stays valid. */
+export const PASSWORD_RESET_TTL_MS = 24 * 60 * 60 * 1000;
+
 export class AuthRepository {
   /**
    * Find user by email
@@ -50,7 +53,7 @@ export class AuthRepository {
 
     await User.findByIdAndUpdate(userId, {
       passwordResetToken: hashedToken,
-      passwordResetExpiry: new Date(Date.now() + 24 * 60 * 60 * 1000), // 24 hours
+      passwordResetExpiry: new Date(Date.now() + PASSWORD_RESET_TTL_MS),
     });
 
     return resetToken;
@@ -79,6 +82,27 @@ export class AuthRepository {
     // $unset is the only way to actually remove the fields.
     await User.findByIdAndUpdate(userId, {
       $unset: { passwordResetToken: '', passwordResetExpiry: '' },
+    });
+  }
+
+  /**
+   * Finishes a password set-up / reset: invalidates the single-use reset
+   * token AND marks the email verified. The link that got the user here was
+   * delivered to their inbox, so using it proves they own the address -- the
+   * same proof a separate "verify your email" link would give. (The admin
+   * Users list reads emailVerified as Active vs Invited, so this is also
+   * what flips an invited account to Active.) Any pending verification
+   * token is cleared too, since it's now redundant.
+   */
+  async completePasswordSetup(userId: string): Promise<void> {
+    await User.findByIdAndUpdate(userId, {
+      $set: { emailVerified: true },
+      $unset: {
+        passwordResetToken: '',
+        passwordResetExpiry: '',
+        emailVerificationToken: '',
+        emailVerificationExpiry: '',
+      },
     });
   }
 

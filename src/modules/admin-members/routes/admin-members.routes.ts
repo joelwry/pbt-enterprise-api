@@ -19,6 +19,7 @@ router.patch('/:memberId/tier', catchAsync((req, res) => c.changeTier(req, res))
 router.patch('/:memberId/pause', catchAsync((req, res) => c.setPaused(req, res)));
 router.post('/:memberId/deactivate', catchAsync((req, res) => c.deactivateAccount(req, res)));
 router.post('/:memberId/resend-welcome', catchAsync((req, res) => c.resendWelcomeEmail(req, res)));
+router.post('/:memberId/setup-link', catchAsync((req, res) => c.createSetupLink(req, res)));
 router.delete('/:memberId', catchAsync((req, res) => c.deleteMember(req, res)));
 
 export default router;

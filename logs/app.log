@@ -38696,3 +38696,1387 @@ Learn more about webhook signing and explore webhook integration examples for va
   "duration": "17ms",
   "ip": "::1"
 }
+2026-10-14 17:10:58 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-10-14 17:10:58 [info]: MongoDB connected successfully
+2026-10-14 17:10:58 [info]: Security middleware initialized
+2026-10-14 17:10:58 [info]: 🚀 Server running on http://localhost:5000
+2026-10-14 17:10:58 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-10-14 17:10:58 [info]: 🔧 Environment: development
+2026-10-14 17:10:58 [info]: 🛣️  API Version: /api/v1
+2026-10-14 17:21:25 [info]: SIGINT received, starting graceful shutdown...
+2026-10-14 17:21:39 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-10-14 17:21:39 [info]: MongoDB connected successfully
+2026-10-14 17:21:39 [info]: Security middleware initialized
+2026-10-14 17:21:39 [info]: 🚀 Server running on http://localhost:5000
+2026-10-14 17:21:39 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-10-14 17:21:39 [info]: 🔧 Environment: development
+2026-10-14 17:21:39 [info]: 🛣️  API Version: /api/v1
+2026-10-14 17:22:43 [info]: Request completed {
+  "correlationId": "1792023763095-0.7853396588173077",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "12ms",
+  "ip": "::1"
+}
+2026-10-14 17:22:43 [info]: Request completed {
+  "correlationId": "1792023763329-0.4921807746899505",
+  "method": "GET",
+  "path": "/swagger-ui.css",
+  "statusCode": 304,
+  "duration": "8ms",
+  "ip": "::1"
+}
+2026-10-14 17:22:43 [info]: Request completed {
+  "correlationId": "1792023763346-0.35461066060950164",
+  "method": "GET",
+  "path": "/swagger-ui-init.js",
+  "statusCode": 304,
+  "duration": "2ms",
+  "ip": "::1"
+}
+2026-10-14 17:22:43 [info]: Request completed {
+  "correlationId": "1792023763343-0.5651840140857733",
+  "method": "GET",
+  "path": "/swagger-ui-bundle.js",
+  "statusCode": 304,
+  "duration": "7ms",
+  "ip": "::1"
+}
+2026-10-14 17:22:43 [info]: Request completed {
+  "correlationId": "1792023763345-0.09950053140484283",
+  "method": "GET",
+  "path": "/swagger-ui-standalone-preset.js",
+  "statusCode": 304,
+  "duration": "8ms",
+  "ip": "::1"
+}
+2026-10-14 17:22:44 [info]: Request completed {
+  "correlationId": "1792023764891-0.15564494040045884",
+  "method": "GET",
+  "path": "/favicon-32x32.png",
+  "statusCode": 304,
+  "duration": "1ms",
+  "ip": "::1"
+}
+2026-10-14 17:22:59 [debug]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST"
+}
+2026-10-14 17:22:59 [info]: Request completed {
+  "correlationId": "1792023779848-0.8076295498165859",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "3ms",
+  "ip": "::1"
+}
+2026-10-14 17:23:04 [info]: Request completed {
+  "correlationId": "1792023784688-0.3808166423801822",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "22ms",
+  "ip": "::1"
+}
+2026-10-14 17:23:44 [info]: Stripe Checkout Session created {
+  "sessionId": "cs_test_a1IUXjkwB3HSmke1EuwnHzavMzObt2YKVjRWLDyh7QLBmQ89wxDuAR0bYK",
+  "metadata": {
+    "intent": "signup",
+    "fullName": "icardy david",
+    "email": "lordcado@mailtiktoknew.us",
+    "tier": "pathway",
+    "billingCycle": "monthly",
+    "referralCode": ""
+  }
+}
+2026-10-14 17:23:44 [info]: Request completed {
+  "correlationId": "1792023822873-0.24299783331060043",
+  "method": "POST",
+  "path": "/signup-checkout",
+  "statusCode": 200,
+  "duration": "2104ms",
+  "ip": "::1"
+}
+2026-10-14 17:25:51 [warn]: Stripe webhook signature verification failed {
+  "error": "Timestamp outside the tolerance zone"
+}
+2026-10-14 17:25:54 [debug]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST"
+}
+2026-10-14 17:25:54 [info]: Request completed {
+  "correlationId": "1792023954830-0.3850118209814317",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "11ms",
+  "ip": "::1"
+}
+2026-10-15 15:57:37 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-10-15 15:57:37 [info]: MongoDB connected successfully
+2026-10-15 15:57:37 [info]: Security middleware initialized
+2026-10-15 15:57:37 [info]: 🚀 Server running on http://localhost:5000
+2026-10-15 15:57:37 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-10-15 15:57:37 [info]: 🔧 Environment: development
+2026-10-15 15:57:37 [info]: 🛣️  API Version: /api/v1
+2026-10-15 16:01:03 [debug]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST"
+}
+2026-10-15 16:01:03 [info]: Request completed {
+  "correlationId": "1792105263379-0.5079047755965035",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "20ms",
+  "ip": "::1"
+}
+2026-10-15 16:01:09 [info]: Request completed {
+  "correlationId": "1792105269754-0.4950508548849082",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "31ms",
+  "ip": "::1"
+}
+2026-10-15 16:01:43 [info]: Stripe Checkout Session created {
+  "sessionId": "cs_test_a1RA44mw5EGDuNqTVe3RR5R3CTeZsUGDQ23gJMbVn6i9bvW9dvLdleJqWC",
+  "metadata": {
+    "intent": "signup",
+    "fullName": "Sulaimon Joel",
+    "email": "joelwryjolomi@gmail.com",
+    "tier": "plus",
+    "billingCycle": "monthly",
+    "referralCode": ""
+  }
+}
+2026-10-15 16:01:43 [info]: Request completed {
+  "correlationId": "1792105298028-0.21640238718089866",
+  "method": "POST",
+  "path": "/signup-checkout",
+  "statusCode": 200,
+  "duration": "5780ms",
+  "ip": "::1"
+}
+2026-10-15 16:03:04 [warn]: Stripe webhook signature verification failed {
+  "error": "Timestamp outside the tolerance zone"
+}
+2026-10-15 16:03:08 [debug]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST"
+}
+2026-10-15 16:03:08 [info]: Request completed {
+  "correlationId": "1792105388120-0.8044773955764226",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "9ms",
+  "ip": "::1"
+}
+2026-10-15 16:28:55 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-10-15 16:28:55 [info]: MongoDB connected successfully
+2026-10-15 16:28:55 [info]: Security middleware initialized
+2026-10-15 16:28:55 [info]: 🚀 Server running on http://localhost:5000
+2026-10-15 16:28:55 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-10-15 16:28:55 [info]: 🔧 Environment: development
+2026-10-15 16:28:55 [info]: 🛣️  API Version: /api/v1
+2026-10-15 16:37:37 [info]: SIGINT received, starting graceful shutdown...
+2026-10-15 16:37:52 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-10-15 16:37:52 [info]: MongoDB connected successfully
+2026-10-15 16:37:52 [info]: Security middleware initialized
+2026-10-15 16:37:52 [info]: 🚀 Server running on http://localhost:5000
+2026-10-15 16:37:52 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-10-15 16:37:52 [info]: 🔧 Environment: development
+2026-10-15 16:37:52 [info]: 🛣️  API Version: /api/v1
+2026-10-15 16:38:24 [debug]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST"
+}
+2026-10-15 16:38:24 [info]: Request completed {
+  "correlationId": "1792107504394-0.03930485903028835",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "20ms",
+  "ip": "::1"
+}
+2026-10-15 16:39:01 [info]: Stripe Checkout Session created {
+  "sessionId": "cs_test_a1vzJRVrT9j8I66veI8HwqqBu9qGZ5ZUOVRHYgXwSiRwChN2biVNhoUc6q",
+  "metadata": {
+    "intent": "signup",
+    "fullName": "Seyi Afgen",
+    "email": "seyfeghen@gmail.com",
+    "tier": "plus",
+    "billingCycle": "monthly",
+    "referralCode": ""
+  }
+}
+2026-10-15 16:39:01 [info]: Request completed {
+  "correlationId": "1792107539163-0.952987490785919",
+  "method": "POST",
+  "path": "/signup-checkout",
+  "statusCode": 200,
+  "duration": "2733ms",
+  "ip": "::1"
+}
+2026-10-15 16:40:16 [debug]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/admin/refresh-token",
+  "method": "POST"
+}
+2026-10-15 16:40:16 [info]: Request completed {
+  "correlationId": "1792107616141-0.14263342203592522",
+  "method": "POST",
+  "path": "/api/v1/auth/admin/refresh-token",
+  "statusCode": 401,
+  "duration": "21ms",
+  "ip": "::1"
+}
+2026-10-15 16:42:11 [debug]: Error occurred: Invalid email or password {
+  "url": "/api/v1/auth/admin/login",
+  "method": "POST"
+}
+2026-10-15 16:42:11 [info]: Request completed {
+  "correlationId": "1792107731373-0.7255880156102007",
+  "method": "POST",
+  "path": "/api/v1/auth/admin/login",
+  "statusCode": 401,
+  "duration": "126ms",
+  "ip": "::1"
+}
+2026-10-15 16:42:34 [debug]: Error occurred: Invalid email or password {
+  "url": "/api/v1/auth/admin/login",
+  "method": "POST"
+}
+2026-10-15 16:42:34 [info]: Request completed {
+  "correlationId": "1792107754204-0.6214729558472095",
+  "method": "POST",
+  "path": "/api/v1/auth/admin/login",
+  "statusCode": 401,
+  "duration": "206ms",
+  "ip": "::1"
+}
+2026-10-15 16:48:28 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-10-15 16:48:29 [info]: MongoDB connected successfully
+2026-10-15 16:48:29 [info]: Security middleware initialized
+2026-10-15 16:48:29 [info]: 🚀 Server running on http://localhost:5000
+2026-10-15 16:48:29 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-10-15 16:48:29 [info]: 🔧 Environment: development
+2026-10-15 16:48:29 [info]: 🛣️  API Version: /api/v1
+2026-10-15 16:49:04 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-10-15 16:49:04 [info]: MongoDB connected successfully
+2026-10-15 16:49:04 [info]: Security middleware initialized
+2026-10-15 16:49:05 [info]: 🚀 Server running on http://localhost:5000
+2026-10-15 16:49:05 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-10-15 16:49:05 [info]: 🔧 Environment: development
+2026-10-15 16:49:05 [info]: 🛣️  API Version: /api/v1
+2026-10-15 16:54:45 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-10-15 16:54:46 [info]: MongoDB connected successfully
+2026-10-15 16:54:46 [info]: Security middleware initialized
+2026-10-15 16:54:46 [info]: 🚀 Server running on http://localhost:5000
+2026-10-15 16:54:46 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-10-15 16:54:46 [info]: 🔧 Environment: development
+2026-10-15 16:54:46 [info]: 🛣️  API Version: /api/v1
+2026-10-15 16:55:08 [debug]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST"
+}
+2026-10-15 16:55:08 [info]: Request completed {
+  "correlationId": "1792108508837-0.19654082223422586",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "24ms",
+  "ip": "::1"
+}
+2026-10-15 16:55:08 [info]: Request completed {
+  "correlationId": "1792108508872-0.9126560029761228",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "33ms",
+  "ip": "::1"
+}
+2026-10-15 16:55:30 [info]: Stripe Checkout Session created {
+  "sessionId": "cs_test_a1UJTF8tRdWXsppNF7Oo7YFe5r2kquSoMRuHMmcdFuvyBarhdjn7bJB22e",
+  "metadata": {
+    "intent": "signup",
+    "fullName": "Mathew Janet",
+    "email": "matjane@gmail.com",
+    "tier": "plus",
+    "billingCycle": "monthly",
+    "referralCode": ""
+  }
+}
+2026-10-15 16:55:30 [info]: Request completed {
+  "correlationId": "1792108528577-0.9517665097177473",
+  "method": "POST",
+  "path": "/signup-checkout",
+  "statusCode": 200,
+  "duration": "1496ms",
+  "ip": "::1"
+}
+2026-10-15 16:56:03 [debug]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST"
+}
+2026-10-15 16:56:03 [info]: Request completed {
+  "correlationId": "1792108563182-0.37181535603745175",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "2ms",
+  "ip": "::1"
+}
+2026-10-15 16:56:05 [info]: Stripe webhook received {
+  "type": "checkout.session.completed",
+  "id": "evt_1UQr0H4yzueItlQShLcvcCYo"
+}
+2026-10-15 16:56:05 [info]: New member created from Stripe Checkout {
+  "userId": "6ad16815d25f410d6aa95009",
+  "tier": "plus"
+}
+2026-10-15 16:56:07 [error]: [EmailService] Failed to send email to matjane@gmail.com Invalid login: 535-5.7.8 Username and Password not accepted. For more information, go to
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials ffacd0b85a97d-48de0ac37acsm19720434f8f.34 - gsmtp {
+  "code": "EAUTH",
+  "response": "535-5.7.8 Username and Password not accepted. For more information, go to\n535 5.7.8  https://support.google.com/mail/?p=BadCredentials ffacd0b85a97d-48de0ac37acsm19720434f8f.34 - gsmtp",
+  "responseCode": 535,
+  "command": "AUTH PLAIN",
+  "stack": "Error: Invalid login: 535-5.7.8 Username and Password not accepted. For more information, go to\n535 5.7.8  https://support.google.com/mail/?p=BadCredentials ffacd0b85a97d-48de0ac37acsm19720434f8f.34 - gsmtp\n    at SMTPConnection._formatError (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:938:19)\n    at SMTPConnection._actionAUTHComplete (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:1784:34)\n    at SMTPConnection.<anonymous> (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:669:26)\n    at SMTPConnection._processResponse (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:1150:20)\n    at SMTPConnection._onData (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:898:14)\n    at TLSSocket.SMTPConnection._onSocketData (C:\\Users\\dell\\Documents\\codebase\\expressjs_apps\\pbt-backend-api\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:224:44)\n    at TLSSocket.emit (node:events:508:28)\n    at TLSSocket.emit (node:domain:489:12)\n    at addChunk (node:internal/streams/readable:563:12)\n    at readableAddChunkPushByteMode (node:internal/streams/readable:514:3)"
+}
+2026-10-15 17:04:11 [info]: SIGINT received, starting graceful shutdown...
+2026-10-15 17:04:29 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-10-15 17:04:29 [info]: MongoDB connected successfully
+2026-10-15 17:04:29 [info]: Security middleware initialized
+2026-10-15 17:04:29 [info]: 🚀 Server running on http://localhost:5000
+2026-10-15 17:04:29 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-10-15 17:04:29 [info]: 🔧 Environment: development
+2026-10-15 17:04:29 [info]: 🛣️  API Version: /api/v1
+2026-10-15 17:05:28 [debug]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST"
+}
+2026-10-15 17:05:28 [info]: Request completed {
+  "correlationId": "1792109128097-0.3965946195915424",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "15ms",
+  "ip": "::1"
+}
+2026-10-15 17:05:30 [info]: Request completed {
+  "correlationId": "1792109130816-0.27942276754037754",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "37ms",
+  "ip": "::1"
+}
+2026-10-15 17:06:00 [info]: Stripe Checkout Session created {
+  "sessionId": "cs_test_a1hoJxtMTZXpKYehWcCl4aoOTEVyIWS2lAtLUQisZytlmhgNZe0ozoXrVB",
+  "metadata": {
+    "intent": "signup",
+    "fullName": "pure user",
+    "email": "pureuser@gmail.com",
+    "tier": "mentorship",
+    "billingCycle": "monthly",
+    "referralCode": ""
+  }
+}
+2026-10-15 17:06:00 [info]: Request completed {
+  "correlationId": "1792109158409-0.1545001294038758",
+  "method": "POST",
+  "path": "/signup-checkout",
+  "statusCode": 200,
+  "duration": "1930ms",
+  "ip": "::1"
+}
+2026-10-15 17:06:36 [info]: Stripe webhook received {
+  "type": "checkout.session.completed",
+  "id": "evt_1UQrAY4yzueItlQSzDTBEV3z"
+}
+2026-10-15 17:06:36 [info]: New member created from Stripe Checkout {
+  "userId": "6ad16a8ccffe8960d63224ae",
+  "tier": "mentorship"
+}
+2026-10-15 17:06:39 [info]: [EmailService] Account setup email sent to pureuser@gmail.com
+2026-10-15 17:06:41 [debug]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST"
+}
+2026-10-15 17:06:41 [info]: Request completed {
+  "correlationId": "1792109201966-0.536724938934781",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "2ms",
+  "ip": "::1"
+}
+2026-10-15 17:08:28 [info]: Request completed {
+  "correlationId": "1792109308455-0.8869647799493316",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "45ms",
+  "ip": "::1"
+}
+2026-10-15 17:08:45 [info]: Stripe Checkout Session created {
+  "sessionId": "cs_test_a16rEc0uPWgR2D7YueyipoeGLwIiQjThxuwFpQpevQ4i9laerdz9KDu3uN",
+  "metadata": {
+    "intent": "signup",
+    "fullName": "roxy ned",
+    "email": "rznrezr840@uxmil.com",
+    "tier": "plus",
+    "billingCycle": "monthly",
+    "referralCode": ""
+  }
+}
+2026-10-15 17:08:45 [info]: Request completed {
+  "correlationId": "1792109323808-0.8941630788926572",
+  "method": "POST",
+  "path": "/signup-checkout",
+  "statusCode": 200,
+  "duration": "1778ms",
+  "ip": "::1"
+}
+2026-10-15 17:09:37 [info]: Stripe webhook received {
+  "type": "checkout.session.completed",
+  "id": "evt_1UQrDT4yzueItlQSQj9CBWhr"
+}
+2026-10-15 17:09:38 [info]: New member created from Stripe Checkout {
+  "userId": "6ad16b41cffe8960d63224b0",
+  "tier": "plus"
+}
+2026-10-15 17:09:40 [info]: [EmailService] Account setup email sent to rznrezr840@uxmil.com
+2026-10-15 17:09:43 [debug]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST"
+}
+2026-10-15 17:09:43 [info]: Request completed {
+  "correlationId": "1792109383240-0.7781761388135514",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "2ms",
+  "ip": "::1"
+}
+2026-10-15 17:10:59 [debug]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST"
+}
+2026-10-15 17:10:59 [info]: Request completed {
+  "correlationId": "1792109459860-0.27530505869072486",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "1ms",
+  "ip": "::1"
+}
+2026-10-15 17:11:37 [info]: Password reset completed for user: rznrezr840@uxmil.com
+2026-10-15 17:11:37 [info]: Password reset completed
+2026-10-15 17:11:37 [info]: Request completed {
+  "correlationId": "1792109497044-0.14007873952615102",
+  "method": "POST",
+  "path": "/reset-password",
+  "statusCode": 200,
+  "duration": "232ms",
+  "ip": "::1"
+}
+2026-10-15 17:12:18 [info]: User logged in: rznrezr840@uxmil.com
+2026-10-15 17:12:18 [info]: User logged in: rznrezr840@uxmil.com
+2026-10-15 17:12:18 [info]: Request completed {
+  "correlationId": "1792109538384-0.7331431945951884",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "229ms",
+  "ip": "::1"
+}
+2026-10-15 17:12:18 [info]: Request completed {
+  "correlationId": "1792109538630-0.005765151717993855",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 200,
+  "duration": "19ms",
+  "ip": "::1"
+}
+2026-10-15 17:12:19 [info]: Request completed {
+  "correlationId": "1792109539047-0.07995995072731943",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 200,
+  "duration": "302ms",
+  "ip": "::1"
+}
+2026-10-15 17:12:19 [info]: Request completed {
+  "correlationId": "1792109539430-0.5813871034557814",
+  "method": "GET",
+  "path": "/calendar",
+  "statusCode": 200,
+  "duration": "10ms",
+  "ip": "::1"
+}
+2026-10-15 17:12:19 [info]: Request completed {
+  "correlationId": "1792109539437-0.03989989059329857",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 200,
+  "duration": "6ms",
+  "ip": "::1"
+}
+2026-10-15 17:12:35 [info]: Request completed {
+  "correlationId": "1792109555135-0.8825585241652163",
+  "method": "GET",
+  "path": "/upcoming",
+  "statusCode": 200,
+  "duration": "10ms",
+  "ip": "::1"
+}
+2026-10-15 17:12:37 [info]: Request completed {
+  "correlationId": "1792109557146-0.9859656205843526",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 200,
+  "duration": "19ms",
+  "ip": "::1"
+}
+2026-10-15 17:12:41 [info]: Request completed {
+  "correlationId": "1792109561126-0.5888621263307046",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 200,
+  "duration": "78ms",
+  "ip": "::1"
+}
+2026-10-15 17:12:42 [info]: Request completed {
+  "correlationId": "1792109562615-0.8888193281531779",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 200,
+  "duration": "197ms",
+  "ip": "::1"
+}
+2026-10-15 17:12:42 [info]: Request completed {
+  "correlationId": "1792109562607-0.5939060388438517",
+  "method": "GET",
+  "path": "/featured",
+  "statusCode": 404,
+  "duration": "208ms",
+  "ip": "::1"
+}
+2026-10-15 17:12:51 [info]: Request completed {
+  "correlationId": "1792109571557-0.220482619454069",
+  "method": "GET",
+  "path": "/years",
+  "statusCode": 200,
+  "duration": "47ms",
+  "ip": "::1"
+}
+2026-10-15 17:12:51 [info]: Request completed {
+  "correlationId": "1792109571570-0.2300004815206721",
+  "method": "GET",
+  "path": "/continue",
+  "statusCode": 200,
+  "duration": "108ms",
+  "ip": "::1"
+}
+2026-10-15 17:12:51 [info]: Request completed {
+  "correlationId": "1792109571617-0.5335281537946847",
+  "method": "GET",
+  "path": "/roadmap/2026",
+  "statusCode": 200,
+  "duration": "305ms",
+  "ip": "::1"
+}
+2026-10-15 17:12:51 [info]: Request completed {
+  "correlationId": "1792109571949-0.49733791367511293",
+  "method": "GET",
+  "path": "/modules/6a6509b103df60e5adb51d20",
+  "statusCode": 200,
+  "duration": "24ms",
+  "ip": "::1"
+}
+2026-10-15 17:12:51 [info]: Request completed {
+  "correlationId": "1792109571954-0.059914585468849424",
+  "method": "GET",
+  "path": "/modules/6a69393083d5f0e60ac3584a",
+  "statusCode": 200,
+  "duration": "20ms",
+  "ip": "::1"
+}
+2026-10-15 17:19:20 [info]: Request completed {
+  "correlationId": "1792109960366-0.7086043084858167",
+  "method": "GET",
+  "path": "/years",
+  "statusCode": 304,
+  "duration": "12ms",
+  "ip": "::1"
+}
+2026-10-15 17:19:20 [info]: Request completed {
+  "correlationId": "1792109960372-0.12447245694903597",
+  "method": "GET",
+  "path": "/continue",
+  "statusCode": 304,
+  "duration": "8ms",
+  "ip": "::1"
+}
+2026-10-15 17:19:20 [info]: Request completed {
+  "correlationId": "1792109960394-0.24597770919043205",
+  "method": "GET",
+  "path": "/roadmap/2026",
+  "statusCode": 304,
+  "duration": "93ms",
+  "ip": "::1"
+}
+2026-10-15 17:19:20 [info]: Request completed {
+  "correlationId": "1792109960546-0.6018567957040768",
+  "method": "GET",
+  "path": "/modules/6a6509b103df60e5adb51d20",
+  "statusCode": 304,
+  "duration": "27ms",
+  "ip": "::1"
+}
+2026-10-15 17:19:20 [info]: Request completed {
+  "correlationId": "1792109960548-0.07286163712786742",
+  "method": "GET",
+  "path": "/modules/6a69393083d5f0e60ac3584a",
+  "statusCode": 304,
+  "duration": "29ms",
+  "ip": "::1"
+}
+2026-10-15 17:19:21 [info]: Request completed {
+  "correlationId": "1792109961451-0.6382419075085868",
+  "method": "GET",
+  "path": "/upcoming",
+  "statusCode": 304,
+  "duration": "8ms",
+  "ip": "::1"
+}
+2026-10-15 17:19:22 [info]: Request completed {
+  "correlationId": "1792109962648-0.10517970895284279",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "16ms",
+  "ip": "::1"
+}
+2026-10-15 17:19:22 [info]: Request completed {
+  "correlationId": "1792109962645-0.877397694322378",
+  "method": "GET",
+  "path": "/featured",
+  "statusCode": 404,
+  "duration": "22ms",
+  "ip": "::1"
+}
+2026-10-15 17:19:24 [info]: Request completed {
+  "correlationId": "1792109964974-0.18359778329626775",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "6ms",
+  "ip": "::1"
+}
+2026-10-15 17:19:25 [info]: Request completed {
+  "correlationId": "1792109965715-0.7903392313728268",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "10ms",
+  "ip": "::1"
+}
+2026-10-15 17:19:27 [info]: Request completed {
+  "correlationId": "1792109967434-0.6653930316763899",
+  "method": "GET",
+  "path": "/calendar",
+  "statusCode": 304,
+  "duration": "14ms",
+  "ip": "::1"
+}
+2026-10-15 17:19:27 [info]: Request completed {
+  "correlationId": "1792109967437-0.994270875373562",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "13ms",
+  "ip": "::1"
+}
+2026-10-15 17:19:27 [info]: Request completed {
+  "correlationId": "1792109967439-0.26554800157718617",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "28ms",
+  "ip": "::1"
+}
+2026-10-15 17:27:13 [debug]: Access token refreshed for user: rznrezr840@uxmil.com
+2026-10-15 17:27:13 [info]: Request completed {
+  "correlationId": "1792110433197-0.631764782959106",
+  "method": "POST",
+  "path": "/refresh-token",
+  "statusCode": 200,
+  "duration": "4ms",
+  "ip": "::1"
+}
+2026-10-15 17:27:39 [info]: Request completed {
+  "correlationId": "1792110459587-0.7913693379796122",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "23ms",
+  "ip": "::1"
+}
+2026-10-15 17:27:39 [info]: Request completed {
+  "correlationId": "1792110459654-0.5976841385374752",
+  "method": "GET",
+  "path": "/calendar",
+  "statusCode": 304,
+  "duration": "7ms",
+  "ip": "::1"
+}
+2026-10-15 17:27:39 [info]: Request completed {
+  "correlationId": "1792110459659-0.9107072030652658",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "5ms",
+  "ip": "::1"
+}
+2026-10-15 17:27:39 [info]: Request completed {
+  "correlationId": "1792110459749-0.1597335751898472",
+  "method": "GET",
+  "path": "/upcoming",
+  "statusCode": 304,
+  "duration": "8ms",
+  "ip": "::1"
+}
+2026-10-15 17:27:52 [debug]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST"
+}
+2026-10-15 17:27:52 [info]: Request completed {
+  "correlationId": "1792110472063-0.8434528215669914",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "2ms",
+  "ip": "::1"
+}
+2026-10-15 17:30:32 [debug]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST"
+}
+2026-10-15 17:30:32 [info]: Request completed {
+  "correlationId": "1792110632616-0.0070440763467360945",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "2ms",
+  "ip": "::1"
+}
+2026-10-15 17:30:35 [debug]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST"
+}
+2026-10-15 17:30:35 [info]: Request completed {
+  "correlationId": "1792110635361-0.25056345296186977",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "1ms",
+  "ip": "::1"
+}
+2026-10-15 17:30:46 [info]: SIGINT received, starting graceful shutdown...
+2026-10-15 17:31:28 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-10-15 17:31:28 [info]: MongoDB connected successfully
+2026-10-15 17:31:28 [info]: Security middleware initialized
+2026-10-15 17:31:28 [info]: 🚀 Server running on http://localhost:5000
+2026-10-15 17:31:28 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-10-15 17:31:28 [info]: 🔧 Environment: development
+2026-10-15 17:31:28 [info]: 🛣️  API Version: /api/v1
+2026-10-15 17:32:05 [info]: Request completed {
+  "correlationId": "1792110725793-0.853927217061509",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "47ms",
+  "ip": "::1"
+}
+2026-10-15 17:33:20 [info]: Stripe Checkout Session created {
+  "sessionId": "cs_test_a1W92D76KWfWp7VT14fZfOyvkmjy0jZes1rtMKxxZzHJVdzOTvC7rYiiSC",
+  "metadata": {
+    "intent": "signup",
+    "fullName": "zaddy ned",
+    "email": "rznrezr840@uxmil.com",
+    "tier": "plus",
+    "billingCycle": "monthly",
+    "referralCode": ""
+  }
+}
+2026-10-15 17:33:20 [info]: Request completed {
+  "correlationId": "1792110796665-0.1936653541825164",
+  "method": "POST",
+  "path": "/signup-checkout",
+  "statusCode": 200,
+  "duration": "3512ms",
+  "ip": "::1"
+}
+2026-10-15 17:33:44 [info]: Stripe webhook received {
+  "type": "checkout.session.completed",
+  "id": "evt_1UQrao4yzueItlQSo0618af9"
+}
+2026-10-15 17:33:44 [info]: New member created from Stripe Checkout {
+  "userId": "6ad170e83e1ba5ba8c564437",
+  "tier": "plus"
+}
+2026-10-15 17:33:46 [debug]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST"
+}
+2026-10-15 17:33:46 [info]: Request completed {
+  "correlationId": "1792110826370-0.877170690001292",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "9ms",
+  "ip": "::1"
+}
+2026-10-15 17:33:48 [info]: [EmailService] Account setup email sent to rznrezr840@uxmil.com
+2026-10-15 17:41:59 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-10-15 17:41:59 [info]: MongoDB connected successfully
+2026-10-15 17:41:59 [info]: Security middleware initialized
+2026-10-15 17:41:59 [info]: 🚀 Server running on http://localhost:5000
+2026-10-15 17:41:59 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-10-15 17:41:59 [info]: 🔧 Environment: development
+2026-10-15 17:41:59 [info]: 🛣️  API Version: /api/v1
+2026-10-15 17:42:44 [debug]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST"
+}
+2026-10-15 17:42:44 [info]: Request completed {
+  "correlationId": "1792111364962-0.024448436431726228",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "20ms",
+  "ip": "::1"
+}
+2026-10-15 17:44:44 [info]: Request completed {
+  "correlationId": "1792111484387-0.9547466613545545",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "49ms",
+  "ip": "::1"
+}
+2026-10-15 17:45:38 [debug]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/admin/refresh-token",
+  "method": "POST"
+}
+2026-10-15 17:45:38 [info]: Request completed {
+  "correlationId": "1792111538637-0.930556191161609",
+  "method": "POST",
+  "path": "/api/v1/auth/admin/refresh-token",
+  "statusCode": 401,
+  "duration": "39ms",
+  "ip": "::1"
+}
+2026-10-15 17:48:51 [debug]: Error occurred: An account with this email already exists -- try signing in instead. {
+  "url": "/api/v1/billing/signup-checkout",
+  "method": "POST"
+}
+2026-10-15 17:48:51 [info]: Request completed {
+  "correlationId": "1792111731837-0.3496940451862638",
+  "method": "POST",
+  "path": "/api/v1/billing/signup-checkout",
+  "statusCode": 409,
+  "duration": "16ms",
+  "ip": "::1"
+}
+2026-10-15 17:48:57 [debug]: Error occurred: An account with this email already exists -- try signing in instead. {
+  "url": "/api/v1/billing/signup-checkout",
+  "method": "POST"
+}
+2026-10-15 17:48:57 [info]: Request completed {
+  "correlationId": "1792111737458-0.17756159360865986",
+  "method": "POST",
+  "path": "/api/v1/billing/signup-checkout",
+  "statusCode": 409,
+  "duration": "15ms",
+  "ip": "::1"
+}
+2026-10-15 17:50:03 [info]: Stripe Checkout Session created {
+  "sessionId": "cs_test_a1pkBwsTS5lxa0FhxzaBcHF7fxL0PpUf3vvYEOR0bBK47szg7DZ1nO7L7h",
+  "metadata": {
+    "intent": "signup",
+    "fullName": "Rexxy Nud",
+    "email": "rznrezr840@uxmil.com",
+    "tier": "plus",
+    "billingCycle": "monthly",
+    "referralCode": ""
+  }
+}
+2026-10-15 17:50:03 [info]: Request completed {
+  "correlationId": "1792111802015-0.9611207856743872",
+  "method": "POST",
+  "path": "/signup-checkout",
+  "statusCode": 200,
+  "duration": "1656ms",
+  "ip": "::1"
+}
+2026-10-15 17:50:49 [info]: Stripe webhook received {
+  "type": "checkout.session.completed",
+  "id": "evt_1UQrrM4yzueItlQSzAwOjDWN"
+}
+2026-10-15 17:50:50 [info]: New member created from Stripe Checkout {
+  "userId": "6ad174ea02ee93312a891594",
+  "tier": "plus"
+}
+2026-10-15 17:50:53 [debug]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST"
+}
+2026-10-15 17:50:53 [info]: Request completed {
+  "correlationId": "1792111853610-0.5249215595189988",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "2ms",
+  "ip": "::1"
+}
+2026-10-15 17:50:53 [info]: [EmailService] Account setup email sent to rznrezr840@uxmil.com
+2026-10-15 17:51:57 [debug]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST"
+}
+2026-10-15 17:51:57 [info]: Request completed {
+  "correlationId": "1792111917106-0.8629435428472085",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "2ms",
+  "ip": "::1"
+}
+2026-10-15 17:59:06 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-10-15 17:59:06 [info]: MongoDB connected successfully
+2026-10-15 17:59:06 [info]: Security middleware initialized
+2026-10-15 17:59:06 [info]: 🚀 Server running on http://localhost:5000
+2026-10-15 17:59:06 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-10-15 17:59:06 [info]: 🔧 Environment: development
+2026-10-15 17:59:06 [info]: 🛣️  API Version: /api/v1
+2026-10-15 18:01:33 [debug]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/admin/refresh-token",
+  "method": "POST"
+}
+2026-10-15 18:01:33 [info]: Request completed {
+  "correlationId": "1792112493917-0.5214733525360532",
+  "method": "POST",
+  "path": "/api/v1/auth/admin/refresh-token",
+  "statusCode": 401,
+  "duration": "23ms",
+  "ip": "::1"
+}
+2026-10-15 18:01:44 [debug]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/admin/refresh-token",
+  "method": "POST"
+}
+2026-10-15 18:01:44 [info]: Request completed {
+  "correlationId": "1792112504139-0.015827403415794805",
+  "method": "POST",
+  "path": "/api/v1/auth/admin/refresh-token",
+  "statusCode": 401,
+  "duration": "4ms",
+  "ip": "::1"
+}
+2026-10-15 18:01:55 [debug]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST"
+}
+2026-10-15 18:01:55 [info]: Request completed {
+  "correlationId": "1792112515404-0.7565535609014299",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "4ms",
+  "ip": "::1"
+}
+2026-10-15 18:02:03 [info]: Request completed {
+  "correlationId": "1792112523509-0.9620355609361706",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "25ms",
+  "ip": "::1"
+}
+2026-10-15 18:09:02 [debug]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST"
+}
+2026-10-15 18:09:02 [info]: Request completed {
+  "correlationId": "1792112942645-0.5207284328733286",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "2ms",
+  "ip": "::1"
+}
+2026-10-15 18:09:17 [info]: Password reset completed for user: rznrezr840@uxmil.com
+2026-10-15 18:09:17 [info]: Password reset completed
+2026-10-15 18:09:17 [info]: Request completed {
+  "correlationId": "1792112957468-0.3251811415951301",
+  "method": "POST",
+  "path": "/reset-password",
+  "statusCode": 200,
+  "duration": "304ms",
+  "ip": "::1"
+}
+2026-10-15 18:09:37 [info]: User logged in: rznrezr840@uxmil.com
+2026-10-15 18:09:37 [info]: User logged in: rznrezr840@uxmil.com
+2026-10-15 18:09:37 [info]: Request completed {
+  "correlationId": "1792112976806-0.5513936706578216",
+  "method": "POST",
+  "path": "/login",
+  "statusCode": 200,
+  "duration": "367ms",
+  "ip": "::1"
+}
+2026-10-15 18:09:37 [info]: Request completed {
+  "correlationId": "1792112977185-0.9428926927325101",
+  "method": "GET",
+  "path": "/current",
+  "statusCode": 200,
+  "duration": "13ms",
+  "ip": "::1"
+}
+2026-10-15 18:09:37 [info]: Request completed {
+  "correlationId": "1792112977912-0.16356639079102098",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 200,
+  "duration": "76ms",
+  "ip": "::1"
+}
+2026-10-15 18:09:38 [info]: Request completed {
+  "correlationId": "1792112978095-0.7449342487570364",
+  "method": "GET",
+  "path": "/calendar",
+  "statusCode": 304,
+  "duration": "10ms",
+  "ip": "::1"
+}
+2026-10-15 18:09:38 [info]: Request completed {
+  "correlationId": "1792112978102-0.997211027952383",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "10ms",
+  "ip": "::1"
+}
+2026-10-15 18:11:15 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-10-15 18:11:15 [info]: MongoDB connected successfully
+2026-10-15 18:11:15 [info]: Security middleware initialized
+2026-10-15 18:11:15 [info]: 🚀 Server running on http://localhost:5000
+2026-10-15 18:11:15 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-10-15 18:11:15 [info]: 🔧 Environment: development
+2026-10-15 18:11:15 [info]: 🛣️  API Version: /api/v1
+2026-10-15 18:18:02 [info]: Request completed {
+  "correlationId": "1792113482852-0.06894212440818792",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "50ms",
+  "ip": "::1"
+}
+2026-10-15 18:18:02 [info]: Request completed {
+  "correlationId": "1792113482862-0.26912133902510404",
+  "method": "GET",
+  "path": "/calendar",
+  "statusCode": 304,
+  "duration": "60ms",
+  "ip": "::1"
+}
+2026-10-15 18:18:02 [info]: Request completed {
+  "correlationId": "1792113482755-0.24855583266557035",
+  "method": "GET",
+  "path": "/",
+  "statusCode": 304,
+  "duration": "207ms",
+  "ip": "::1"
+}
+2026-10-15 18:18:05 [debug]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST"
+}
+2026-10-15 18:18:05 [info]: Request completed {
+  "correlationId": "1792113485819-0.24688821028240926",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "21ms",
+  "ip": "::1"
+}
+2026-10-15 18:18:06 [info]: Request completed {
+  "correlationId": "1792113486016-0.5395700866070855",
+  "method": "POST",
+  "path": "/reset-password/validate",
+  "statusCode": 200,
+  "duration": "14ms",
+  "ip": "::1"
+}
+2026-10-15 18:18:09 [debug]: Error occurred: No refresh token provided {
+  "url": "/api/v1/auth/refresh-token",
+  "method": "POST"
+}
+2026-10-15 18:18:09 [info]: Request completed {
+  "correlationId": "1792113489085-0.5398618276838922",
+  "method": "POST",
+  "path": "/api/v1/auth/refresh-token",
+  "statusCode": 401,
+  "duration": "3ms",
+  "ip": "::1"
+}
+2026-10-15 18:18:09 [info]: Request completed {
+  "correlationId": "1792113489118-0.7216705943761125",
+  "method": "POST",
+  "path": "/reset-password/validate",
+  "statusCode": 200,
+  "duration": "4ms",
+  "ip": "::1"
+}
+2026-10-15 18:19:48 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-10-15 18:19:48 [info]: MongoDB connected successfully
+2026-10-15 18:19:48 [info]: Security middleware initialized
+2026-10-15 18:19:48 [info]: 🚀 Server running on http://localhost:5000
+2026-10-15 18:19:48 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-10-15 18:19:48 [info]: 🔧 Environment: development
+2026-10-15 18:19:48 [info]: 🛣️  API Version: /api/v1
+2026-10-15 18:22:55 [debug]: Error occurred: Invalid email or password {
+  "url": "/api/v1/auth/login",
+  "method": "POST"
+}
+2026-10-15 18:22:55 [info]: Request completed {
+  "correlationId": "1792113775451-0.9444394611073221",
+  "method": "POST",
+  "path": "/api/v1/auth/login",
+  "statusCode": 401,
+  "duration": "26ms",
+  "ip": "::1"
+}
+2026-10-15 18:22:55 [debug]: Error occurred: Invalid email or password {
+  "url": "/api/v1/auth/login",
+  "method": "POST"
+}
+2026-10-15 18:22:55 [info]: Request completed {
+  "correlationId": "1792113775628-0.606749759563881",
+  "method": "POST",
+  "path": "/api/v1/auth/login",
+  "statusCode": 401,
+  "duration": "8ms",
+  "ip": "::1"
+}
+2026-10-15 18:22:55 [debug]: Error occurred: Invalid email or password {
+  "url": "/api/v1/auth/login",
+  "method": "POST"
+}
+2026-10-15 18:22:55 [info]: Request completed {
+  "correlationId": "1792113775642-0.08145981948384318",
+  "method": "POST",
+  "path": "/api/v1/auth/login",
+  "statusCode": 401,
+  "duration": "6ms",
+  "ip": "::1"
+}
+2026-10-15 18:22:55 [debug]: Error occurred: Invalid email or password {
+  "url": "/api/v1/auth/login",
+  "method": "POST"
+}
+2026-10-15 18:22:55 [info]: Request completed {
+  "correlationId": "1792113775654-0.9848818125466189",
+  "method": "POST",
+  "path": "/api/v1/auth/login",
+  "statusCode": 401,
+  "duration": "5ms",
+  "ip": "::1"
+}
+2026-10-15 18:22:55 [debug]: Error occurred: Invalid email or password {
+  "url": "/api/v1/auth/login",
+  "method": "POST"
+}
+2026-10-15 18:22:55 [info]: Request completed {
+  "correlationId": "1792113775665-0.7500678491773842",
+  "method": "POST",
+  "path": "/api/v1/auth/login",
+  "statusCode": 401,
+  "duration": "4ms",
+  "ip": "::1"
+}
+2026-10-15 18:22:55 [debug]: Error occurred: Invalid email or password {
+  "url": "/api/v1/auth/login",
+  "method": "POST"
+}
+2026-10-15 18:22:55 [info]: Request completed {
+  "correlationId": "1792113775676-0.8480112427825571",
+  "method": "POST",
+  "path": "/api/v1/auth/login",
+  "statusCode": 401,
+  "duration": "4ms",
+  "ip": "::1"
+}
+2026-10-15 18:22:55 [debug]: Error occurred: Invalid email or password {
+  "url": "/api/v1/auth/login",
+  "method": "POST"
+}
+2026-10-15 18:22:55 [info]: Request completed {
+  "correlationId": "1792113775688-0.5811839764269581",
+  "method": "POST",
+  "path": "/api/v1/auth/login",
+  "statusCode": 401,
+  "duration": "5ms",
+  "ip": "::1"
+}
+2026-10-15 18:22:55 [debug]: Error occurred: Invalid email or password {
+  "url": "/api/v1/auth/login",
+  "method": "POST"
+}
+2026-10-15 18:22:55 [info]: Request completed {
+  "correlationId": "1792113775699-0.05003026177624714",
+  "method": "POST",
+  "path": "/api/v1/auth/login",
+  "statusCode": 401,
+  "duration": "5ms",
+  "ip": "::1"
+}
+2026-10-15 18:22:55 [debug]: Error occurred: Invalid email or password {
+  "url": "/api/v1/auth/login",
+  "method": "POST"
+}
+2026-10-15 18:22:55 [info]: Request completed {
+  "correlationId": "1792113775709-0.7055484264132001",
+  "method": "POST",
+  "path": "/api/v1/auth/login",
+  "statusCode": 401,
+  "duration": "5ms",
+  "ip": "::1"
+}
+2026-10-15 18:22:55 [debug]: Error occurred: Invalid email or password {
+  "url": "/api/v1/auth/login",
+  "method": "POST"
+}
+2026-10-15 18:22:55 [info]: Request completed {
+  "correlationId": "1792113775719-0.6132784060602502",
+  "method": "POST",
+  "path": "/api/v1/auth/login",
+  "statusCode": 401,
+  "duration": "4ms",
+  "ip": "::1"
+}
+2026-10-15 18:25:13 [info]: SIGINT received, starting graceful shutdown...
+2026-10-15 20:15:57 [info]: Connecting to MongoDB at mongodb://localhost:27017/pbt
+2026-10-15 20:15:57 [info]: MongoDB connected successfully
+2026-10-15 20:15:57 [info]: Security middleware initialized
+2026-10-15 20:15:57 [info]: 🚀 Server running on http://localhost:5000
+2026-10-15 20:15:57 [info]: 📚 API Documentation: http://localhost:5000/api/docs
+2026-10-15 20:15:57 [info]: 🔧 Environment: development
+2026-10-15 20:15:57 [info]: 🛣️  API Version: /api/v1
+2026-10-15 20:30:05 [debug]: Error occurred: Invalid email or password {
+  "url": "/api/v1/auth/login",
+  "method": "POST"
+}
+2026-10-15 20:30:05 [info]: Request completed {
+  "correlationId": "1792121405638-0.3968370489877473",
+  "method": "POST",
+  "path": "/api/v1/auth/login",
+  "statusCode": 401,
+  "duration": "94ms",
+  "ip": "::1"
+}
+2026-10-15 20:30:05 [debug]: Error occurred: Invalid email or password {
+  "url": "/api/v1/auth/login",
+  "method": "POST"
+}
+2026-10-15 20:30:05 [info]: Request completed {
+  "correlationId": "1792121405804-0.5064784669469139",
+  "method": "POST",
+  "path": "/api/v1/auth/login",
+  "statusCode": 401,
+  "duration": "4ms",
+  "ip": "::1"
+}
+2026-10-15 20:30:05 [debug]: Error occurred: Invalid email or password {
+  "url": "/api/v1/auth/login",
+  "method": "POST"
+}
+2026-10-15 20:30:05 [info]: Request completed {
+  "correlationId": "1792121405811-0.1860046142865308",
+  "method": "POST",
+  "path": "/api/v1/auth/login",
+  "statusCode": 401,
+  "duration": "3ms",
+  "ip": "::1"
+}
+2026-10-15 20:30:05 [debug]: Error occurred: Invalid email or password {
+  "url": "/api/v1/auth/login",
+  "method": "POST"
+}
+2026-10-15 20:30:05 [info]: Request completed {
+  "correlationId": "1792121405820-0.8290850492409221",
+  "method": "POST",
+  "path": "/api/v1/auth/login",
+  "statusCode": 401,
+  "duration": "2ms",
+  "ip": "::1"
+}
+2026-10-15 20:30:05 [debug]: Error occurred: Invalid email or password {
+  "url": "/api/v1/auth/login",
+  "method": "POST"
+}
+2026-10-15 20:30:05 [info]: Request completed {
+  "correlationId": "1792121405827-0.4648136558779442",
+  "method": "POST",
+  "path": "/api/v1/auth/login",
+  "statusCode": 401,
+  "duration": "2ms",
+  "ip": "::1"
+}
+2026-10-15 20:30:05 [warn]: Authentication rate limit exceeded {
+  "correlationId": "1792121405833-0.33281182868014614",
+  "path": "/api/v1/auth/login",
+  "email": "nobody@test.com",
+  "ip": "::1"
+}
+2026-10-15 20:30:05 [info]: Request completed {
+  "correlationId": "1792121405833-0.33281182868014614",
+  "method": "POST",
+  "path": "/api/v1/auth/login",
+  "statusCode": 429,
+  "duration": "1ms",
+  "ip": "::1"
+}
+2026-10-15 20:30:05 [warn]: Authentication rate limit exceeded {
+  "correlationId": "1792121405837-0.4990139438056199",
+  "path": "/api/v1/auth/login",
+  "email": "nobody@test.com",
+  "ip": "::1"
+}
+2026-10-15 20:30:05 [info]: Request completed {
+  "correlationId": "1792121405837-0.4990139438056199",
+  "method": "POST",
+  "path": "/api/v1/auth/login",
+  "statusCode": 429,
+  "duration": "1ms",
+  "ip": "::1"
+}
+2026-10-15 20:30:05 [warn]: Authentication rate limit exceeded {
+  "correlationId": "1792121405840-0.6236986765414186",
+  "path": "/api/v1/auth/login",
+  "email": "nobody@test.com",
+  "ip": "::1"
+}
+2026-10-15 20:30:05 [info]: Request completed {
+  "correlationId": "1792121405840-0.6236986765414186",
+  "method": "POST",
+  "path": "/api/v1/auth/login",
+  "statusCode": 429,
+  "duration": "1ms",
+  "ip": "::1"
+}
+2026-10-15 20:30:24 [info]: SIGINT received, starting graceful shutdown...

@@ -15,6 +15,7 @@ router.post('/login', catchAsync((req, res, next) => authController.login(req, r
 router.post('/refresh-token', catchAsync((req, res, next) => authController.refreshToken(req, res)));
 router.post('/verify-email', catchAsync((req, res, next) => authController.verifyEmail(req, res)));
 router.post('/forgot-password', catchAsync((req, res, next) => authController.forgotPassword(req, res)));
+router.post('/reset-password/validate', catchAsync((req, res, next) => authController.validateResetToken(req, res)));
 router.post('/reset-password', catchAsync((req, res, next) => authController.resetPassword(req, res)));
 
 // Admin portal routes -- same credentials/business logic as the member routes

@@ -4,10 +4,11 @@ import { Subscription, SubscriptionDocument } from '@/modules/subscriptions/sche
 import { UserProgress } from '@/modules/progress/schemas/UserProgress.schema';
 import { Activity } from '@/modules/activity/schemas/Activity.schema';
 import { Leader } from '@/modules/leaders/schemas/Leader.schema';
-import { authRepository } from '@/modules/auth/repositories/auth.repository';
+import { authRepository, PASSWORD_RESET_TTL_MS } from '@/modules/auth/repositories/auth.repository';
+import { auditService } from '@/modules/audit/services/audit.service';
 import { subscriptionService, isEntitled, mostRecentSubscriptionsFor } from '@/modules/subscriptions/services/subscription.service';
 import { EmailService } from '@/core/email/EmailService';
-import { NotFoundError, ValidationError } from '@/core/errors/AppError';
+import { ConflictError, NotFoundError, ValidationError } from '@/core/errors/AppError';
 import logger from '@/core/logger/logger';
 
 type FrontendTier = 'Pathway' | 'Plus' | 'Mentorship';
@@ -63,6 +64,23 @@ export function resolveTierAndStatus(user: IUser, mostRecentSub: SubscriptionDoc
   if (!user.isActive) return { tier, status: 'Paused' };
   if (mostRecentSub && !isEntitled(mostRecentSub)) return { tier, status: 'Payment Failed' };
   return { tier, status: 'Active' };
+}
+
+/**
+ * A member whose account is still waiting on its first password: they never
+ * completed the emailed set-up link (emailVerified is flipped by that step --
+ * see authRepository.completePasswordSetup) and have never signed in. Only
+ * these accounts can be sent / handed an invitation from the admin portal.
+ */
+export function isSetupPending(user: IUser): boolean {
+  return !user.emailVerified && !user.lastLoginAt;
+}
+
+/** Who is performing an admin action -- recorded in the audit trail. */
+export interface AdminActor {
+  adminId: string;
+  ipAddress: string;
+  userAgent: string;
 }
 
 interface ListParams {
@@ -162,6 +180,7 @@ export class AdminMembersService {
       joinedLabel: joinedLabelOf(user.createdAt),
       status,
       contractLabel: CONTRACT_LABEL[memberTier],
+      setupPending: isSetupPending(user),
     }));
 
     return { items, totalItems, totalUsersScanned: totalUsers };
@@ -194,6 +213,8 @@ export class AdminMembersService {
       joinedLabel: joinedLabelOf(user.createdAt),
       memberSinceLabel: joinedLabelOf(user.createdAt),
       status,
+      setupPending: isSetupPending(user),
+      lastLoginLabel: user.lastLoginAt ? joinedLabelOf(user.lastLoginAt) : null,
       contractLabel: CONTRACT_LABEL[tier],
       contractTypeLabel: CONTRACT_LABEL[tier],
       renewalDateLabel: !subscription
@@ -343,13 +364,70 @@ export class AdminMembersService {
     return this.getMemberById(id);
   }
 
-  async resendWelcomeEmail(id: string) {
+  /** Loads a member and refuses unless they are still waiting on first-time account set-up. */
+  private async findSetupPendingMember(id: string): Promise<IUser> {
     const user = await User.findOne({ _id: id, role: 'member' });
     if (!user) throw new NotFoundError('Member not found');
 
+    if (!isSetupPending(user)) {
+      // Handing an admin a working set-password link for an account that's
+      // already live would let them take it over, so it's refused. A member
+      // who set up normally and then lost their password uses "Forgot password".
+      throw new ConflictError(
+        'This member has already set up their account. If they can\'t sign in, ask them to use "Forgot password" on the sign-in page.'
+      );
+    }
+    return user;
+  }
+
+  private async recordInvite(user: IUser, actor: AdminActor, channel: 'email' | 'link', outcome: { sent?: boolean }) {
+    logger.info(`Admin ${actor.adminId} issued a set-up invitation (${channel}) for member ${user.email}`, outcome);
+    // Audit trail: issuing a set-password link is a credential-bearing action.
+    await auditService.logAction({
+      userId: user._id.toString(),
+      action: 'PASSWORD_RESET_REQUESTED',
+      resource: 'auth',
+      resourceId: user._id.toString(),
+      details: { via: 'admin_portal', channel, adminId: actor.adminId, ...outcome },
+      ipAddress: actor.ipAddress,
+      userAgent: actor.userAgent,
+      status: 'success',
+    });
+  }
+
+  /**
+   * Admin "Send invitation email": issues a fresh set-up link (replacing any
+   * earlier one) and emails it. Awaited, unlike the fire-and-forget sends
+   * elsewhere, so the admin is told the truth -- `sent: false` means the mail
+   * server did not accept it and they should use "Copy setup link" instead.
+   */
+  async resendWelcomeEmail(id: string, actor: AdminActor) {
+    const user = await this.findSetupPendingMember(id);
+
     const setupToken = await authRepository.setPasswordResetToken(user._id.toString());
     const sent = await EmailService.sendAccountSetupEmail(user.email, user.fullName, setupToken);
-    return { sent };
+    await this.recordInvite(user, actor, 'email', { sent });
+
+    return { sent, email: user.email, expiresAt: new Date(Date.now() + PASSWORD_RESET_TTL_MS).toISOString() };
+  }
+
+  /**
+   * Admin "Copy setup link": issues a fresh set-up link and returns it to be
+   * shared directly (e.g. over chat) when email delivery isn't working. The
+   * link is shown once and never stored in readable form -- only its hash is
+   * kept -- so asking again simply issues a new one and voids the old.
+   */
+  async createSetupLink(id: string, actor: AdminActor) {
+    const user = await this.findSetupPendingMember(id);
+
+    const setupToken = await authRepository.setPasswordResetToken(user._id.toString());
+    await this.recordInvite(user, actor, 'link', {});
+
+    return {
+      setupUrl: EmailService.buildAccountSetupUrl(setupToken),
+      email: user.email,
+      expiresAt: new Date(Date.now() + PASSWORD_RESET_TTL_MS).toISOString(),
+    };
   }
 
   async deleteMember(id: string) {
