@@ -10,6 +10,8 @@
       "@/*": ["./*"]
     },
     "strict": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
@@ -36,6 +38,7 @@
     "src/components",
     "src/features",
     "src/hooks",
-    "src/providers"
+    "src/providers",
+    "src/lib"
   ]
 }

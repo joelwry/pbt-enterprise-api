@@ -42,9 +42,9 @@ export function requireEntitlement(feature: string) {
         const suggestedTiers = EntitlementsService.suggestUpgrade(feature as any);
 
         throw new AppError(
-          ErrorCode.ENTITLEMENT_NOT_GRANTED,
+          403,
           `This feature requires an upgrade. ${suggestedTiers.length > 0 ? `Upgrade to ${suggestedTiers[0]} to access this.` : ''}`,
-          403
+          [ErrorCode.ENTITLEMENT_NOT_GRANTED]
         );
       }
 
@@ -116,9 +116,9 @@ export function requireMinimumTier(minimumTier: 'free' | 'pbt-pathway' | 'pbt-pl
       });
 
       throw new AppError(
-        ErrorCode.MEMBERSHIP_UPGRADE_REQUIRED,
+        403,
         `This feature requires ${minimumTier} membership. Please upgrade to continue.`,
-        403
+        [ErrorCode.MEMBERSHIP_UPGRADE_REQUIRED]
       );
     }
 

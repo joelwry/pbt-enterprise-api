@@ -17,7 +17,11 @@ export class JourneyOrchestrator {
         averageProgress: Math.round(
           progressRecords.reduce((sum, p) => sum + p.overallProgress, 0) / Math.max(progressRecords.length, 1)
         ),
-        recommendedNextActions: [],
+        recommendedNextActions: [] as Array<{
+          type: string;
+          journeyId: (typeof journeys)[number]['_id'];
+          reason: string;
+        }>,
         upcomingMilestones: [],
       };
 

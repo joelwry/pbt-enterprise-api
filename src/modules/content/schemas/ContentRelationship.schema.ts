@@ -1,10 +1,12 @@
 import { Schema, model } from 'mongoose';
 
-interface IContentRelationship {
+export type ContentType = 'lesson' | 'resource' | 'event' | 'discussion';
+
+export interface IContentRelationship {
   sourceContentId: string;
-  sourceType: 'lesson' | 'resource' | 'event' | 'discussion';
+  sourceType: ContentType;
   relatedContentId: string;
-  relatedType: 'lesson' | 'resource' | 'event' | 'discussion';
+  relatedType: ContentType;
   relationshipType: 'prerequisite' | 'related' | 'deepdive' | 'followup' | 'supplementary';
   strength: number; // 0-100 relevance score
   explanation?: string;

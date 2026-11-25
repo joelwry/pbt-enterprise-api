@@ -1,6 +1,6 @@
 import { Schema, model } from 'mongoose';
 
-interface ILearningJourney {
+export interface ILearningJourney {
   userId: string;
   journeyName: string;
   description?: string;

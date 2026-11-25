@@ -4,19 +4,19 @@ import { IsNotEmpty, IsString, IsOptional, IsEmail, IsDateString, IsArray, Lengt
 export class LoginRequestDto {
   @IsNotEmpty()
   @IsEmail()
-  email: string;
+  email!: string;
 
   @IsNotEmpty()
   @IsString()
   @Length(6, 100)
-  password: string;
+  password!: string;
 }
 
 export class LoginResponseDto {
-  id: string;
-  email: string;
-  token: string;
-  refreshToken: string;
+  id!: string;
+  email!: string;
+  token!: string;
+  refreshToken!: string;
 }
 
 // User DTOs
@@ -42,8 +42,8 @@ export class UpdateUserProfileDto {
 
 // Common Response
 export class ErrorResponseDto {
-  success: false;
-  code: string;
-  message: string;
+  success!: false;
+  code!: string;
+  message!: string;
   errors?: Array<{ field: string; message: string }>;
 }

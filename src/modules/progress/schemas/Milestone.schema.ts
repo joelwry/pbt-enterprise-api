@@ -1,6 +1,6 @@
 import { Schema, model } from 'mongoose';
 
-interface IMilestone {
+export interface IMilestone {
   userId: string;
   roadmapId: string;
   title: string;
