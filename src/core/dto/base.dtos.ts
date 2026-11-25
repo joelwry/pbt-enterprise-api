@@ -1,4 +1,5 @@
-import { IsOptional, Type, Min, Max, IsString, IsIn } from 'class-validator';
+import { Type } from 'class-transformer';
+import { IsOptional, Min, Max, IsString, IsIn } from 'class-validator';
 
 export class PaginationDto {
   @IsOptional()
@@ -22,33 +23,33 @@ export class PaginationDto {
 }
 
 export class ResponseMeta {
-  timestamp: string;
-  version: string;
-  path: string;
-  method: string;
+  timestamp!: string;
+  version!: string;
+  path!: string;
+  method!: string;
 }
 
 export class ValidationErrorDto {
-  field: string;
-  message: string;
+  field!: string;
+  message!: string;
   value?: any;
 }
 
 export class BaseResponseDto<T = any> {
-  success: boolean;
-  code: string;
-  message: string;
+  success!: boolean;
+  code!: string;
+  message!: string;
   data?: T;
-  meta: ResponseMeta;
+  meta!: ResponseMeta;
   pagination?: PaginationMeta;
   errors?: ValidationErrorDto[];
 }
 
 export class PaginationMeta {
-  page: number;
-  limit: number;
-  total: number;
-  pages: number;
-  hasNext: boolean;
-  hasPrev: boolean;
+  page!: number;
+  limit!: number;
+  total!: number;
+  pages!: number;
+  hasNext!: boolean;
+  hasPrev!: boolean;
 }

@@ -33,7 +33,16 @@ export class HealthCheckService {
   async getDatabaseHealth(): Promise<HealthComponentStatus> {
     try {
       const start = Date.now();
-      await this.dbConnection.db.admin().ping();
+      const db = this.dbConnection.db;
+      if (!db) {
+        return {
+          status: HealthStatus.DOWN,
+          responseTime: 0,
+          message: 'Database connection is not initialized',
+        };
+      }
+
+      await db.admin().ping();
       const responseTime = Date.now() - start;
       return {
         status: HealthStatus.UP,

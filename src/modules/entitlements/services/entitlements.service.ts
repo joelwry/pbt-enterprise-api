@@ -315,9 +315,9 @@ export class EntitlementsService {
       });
 
       throw new AppError(
-        ErrorCode.ENTITLEMENT_NOT_GRANTED,
+        403,
         errorMessage || `You do not have access to this feature. Feature requires higher membership tier.`,
-        403
+        [ErrorCode.ENTITLEMENT_NOT_GRANTED]
       );
     }
   }

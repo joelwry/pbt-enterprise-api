@@ -1,6 +1,6 @@
 import { Schema, model } from 'mongoose';
 
-interface IBookmark {
+export interface IBookmark {
   userId: string;
   contentId: string;
   contentType: 'lesson' | 'resource' | 'article' | 'discussion' | 'event';

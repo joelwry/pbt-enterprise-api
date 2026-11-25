@@ -1,8 +1,8 @@
-import { ContentRelationship } from '@/modules/content/schemas/ContentRelationship.schema';
+import { ContentRelationship, type ContentType } from '@/modules/content/schemas/ContentRelationship.schema';
 import logger from '@/core/logger/logger';
 
 export class ContentMapper {
-  static async mapContentWithRelationships(contentId: string, contentType: string, depth: number = 1): Promise<any> {
+  static async mapContentWithRelationships(contentId: string, contentType: ContentType, depth: number = 1): Promise<any> {
     try {
       const relationships = await ContentRelationship.find({
         sourceContentId: contentId,

@@ -298,7 +298,6 @@ The API implements refresh token rotation for enhanced security:
 6. Update documentation
 
 ## 📄 License
-
 Proprietary - Property Business Training UK
 
 ## 🆘 Support
