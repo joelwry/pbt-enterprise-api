@@ -64,6 +64,39 @@ router.get(
 );
 
 /**
+ * Active MongoDB health check - runs a ping command against the connected database.
+ * The response time can be used by external monitors to track database latency.
+ */
+router.get(
+  '/health/mongodb',
+  asyncHandler(async (_req: Request, res: Response) => {
+    const startedAt = Date.now();
+    const db = mongoose.connection.db;
+
+    if (!db) {
+      logger.warn('MongoDB health check failed: connection is not initialized');
+      ResponseHandler.error(res, 503, 'MongoDB is unavailable');
+      return;
+    }
+
+    try {
+      await db.admin().ping();
+      ResponseHandler.ok(res, 'MongoDB ping successful', {
+        status: 'healthy',
+        connected: true,
+        responseTimeMs: Date.now() - startedAt,
+        timestamp: new Date().toISOString(),
+      });
+    } catch (error) {
+      logger.error('MongoDB health check failed', {
+        error: error instanceof Error ? error.message : String(error),
+      });
+      ResponseHandler.error(res, 503, 'MongoDB ping failed');
+    }
+  })
+);
+
+/**
  * Readiness check - deployment probe
  * Verifies that all dependencies are ready before accepting traffic
  */

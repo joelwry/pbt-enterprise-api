@@ -1671,3 +1671,34 @@ seedLearning()
     process.exit(1);
   });
 
+
+/**
+ * 
+### How to Run
+
+1. **Preview the hierarchy without writing to MongoDB (`--dry-run`):**
+```bash
+npx ts-node -r tsconfig-paths/register src/scripts/seed-learning.ts --dry-run
+
+```
+
+
+2. **Seed MongoDB (publishes canonical Final Recording lessons & unique workbooks; keeps alternate takes & WIP cuts as `isDraft: true`):**
+```bash
+npx ts-node -r tsconfig-paths/register src/scripts/seed-learning.ts
+
+```
+
+
+3. **Optional — Publish every take and WIP video immediately (`--publish-all`):**
+```bash
+npx ts-node -r tsconfig-paths/register src/scripts/seed-learning.ts --publish-all
+
+```
+
+
+4. **Optional `package.json` script entry:**
+```json
+"seed:learning": "ts-node -r tsconfig-paths/register src/scripts/seed-learning.ts"
+
+ */

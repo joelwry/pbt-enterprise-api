@@ -68,6 +68,36 @@ export interface EnrichedOperation {
 }
 
 export const ENRICHED_PATHS: Record<string, EnrichedOperation> = {
+  'GET /health/mongodb': {
+    summary: 'Ping MongoDB and report database response time',
+    description: 'Public, unversioned health probe. Executes a MongoDB ping command and returns its response time. Call this endpoint periodically from an external monitor if you need to keep an otherwise-idle database connection active; the endpoint does not schedule background pings.',
+    responses: {
+      '200': jsonResponse('MongoDB ping successful', {
+        type: 'object',
+        properties: {
+          status: { type: 'string', enum: ['healthy'] },
+          connected: { type: 'boolean', example: true },
+          responseTimeMs: { type: 'number', description: 'Time taken for the MongoDB ping, in milliseconds.' },
+          timestamp: { type: 'string', format: 'date-time' },
+        },
+      }),
+      '503': {
+        description: 'MongoDB is unavailable or the ping failed.',
+        content: {
+          'application/json': {
+            schema: {
+              type: 'object',
+              properties: {
+                success: { type: 'boolean', example: false },
+                message: { type: 'string', example: 'MongoDB ping failed' },
+                errors: { type: 'array', items: { type: 'string' } },
+              },
+            },
+          },
+        },
+      },
+    },
+  },
   'POST /auth/register': {
     summary: 'Register a new member',
     requestBody: jsonBody({

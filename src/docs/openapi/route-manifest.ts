@@ -15,7 +15,7 @@ export interface RouteManifestEntry {
 }
 
 export const ROUTE_MANIFEST: RouteManifestEntry[] = [
-  { mountPath: '', file: 'core/health/health.routes.ts', tag: 'Health', tagDescription: 'Liveness/readiness probes. Not versioned, not under /api/v1.' },
+  { mountPath: '', file: 'core/health/health.routes.ts', tag: 'Health', tagDescription: 'MongoDB ping and liveness/readiness probes. Not versioned, not under /api/v1.' },
   { mountPath: '/auth', file: 'modules/auth/routes/auth.routes.ts', tag: 'Auth', tagDescription: 'Registration, login, token refresh, and the member/admin session.' },
   { mountPath: '/learning', file: 'modules/learning/routes/learning.routes.ts', tag: 'Learning (PBT Pathway)', tagDescription: 'Roadmap -> Week -> Module -> Lesson hierarchy and progress tracking.' },
   { mountPath: '/memberships', file: 'modules/memberships/routes/membership.routes.ts', tag: 'Memberships' },
